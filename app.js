@@ -107,22 +107,31 @@
     });
   }
 
-  // 导航点击 → 切换页面
-  document.getElementById('navLinks').addEventListener('click', function (e) {
-    var link = e.target.closest('a[data-page]');
-    if (!link) return;
-    e.preventDefault();
-    var pageId = link.getAttribute('data-page');
-    switchPage(pageId);
-  });
+  // 导航点击 → 切换页面（直接绑定 + 事件委托双重保障）
+  function bindNavClicks() {
+    var links = document.querySelectorAll('#navLinks a[data-page]');
+    links.forEach(function (a) {
+      // 移除旧事件避免重复绑定
+      a.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        switchPage(a.getAttribute('data-page'));
+        return false;
+      };
+    });
+  }
 
-  // Hero CTA 按钮 → 也切换页面
-  document.addEventListener('click', function (e) {
-    var btn = e.target.closest('[data-switch-to]');
-    if (!btn) return;
-    e.preventDefault();
-    switchPage(btn.getAttribute('data-switch-to'));
-  });
+  // Hero CTA 按钮 → 也切换页面（直接绑定）
+  function bindSwitchButtons() {
+    document.querySelectorAll('[data-switch-to]').forEach(function (btn) {
+      btn.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        switchPage(btn.getAttribute('data-switch-to'));
+        return false;
+      };
+    });
+  }
 
   /* ===== Scroll Progress Bar（基于页面内滚动） ===== */
   var progressBar = document.getElementById('scrollProgress');
@@ -279,6 +288,7 @@
     renderContact();
     renderFooter();
     observeReveal();
+    bindSwitchButtons();
 
     var strip = document.getElementById('statsStrip');
     if (strip) statsObserver.observe(strip);
@@ -287,13 +297,15 @@
   function renderNav() {
     var html = '';
     d.nav.forEach(function (item) {
-      html += '<a href="#' + item.id + '" data-page="' + item.id + '">' + dc(item, '') + '</a>';
+      html += '<a href="javascript:void(0)" data-page="' + item.id + '" style="cursor:pointer">' + dc(item, '') + '</a>';
     });
     navLinksEl.innerHTML = html;
     var pl = document.getElementById('navPageLabel');
     if (pl) pl.textContent = lang === 'cn' ? '页面导航' : 'NAVIGATION';
     // 初始激活首页
     setNavActive('home');
+    // 重新绑定点击事件
+    bindNavClicks();
   }
 
   function renderHero() {
@@ -509,11 +521,12 @@
     var f = d.footer;
     var fhtml = '';
     fhtml += '<div class="footer-col"><h4>GREENLINE</h4><p style="line-height:1.7">' + dc(f, 'about') + '</p></div>';
+    // 页脚链接也支持页面切换（直接绑定）
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'quick_links') + '</h4>';
-    d.nav.forEach(function (n) { fhtml += '<a href="#" data-page="' + n.id + '">' + dc(n, '') + '</a>'; });
+    d.nav.forEach(function (n) { fhtml += '<a href="javascript:void(0)" data-page="' + n.id + '" style="cursor:pointer">' + dc(n, '') + '</a>'; });
     fhtml += '</div>';
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'categories') + '</h4>';
-    d.categories.forEach(function (c) { fhtml += '<a href="#" data-page="products">' + dc(c, 'name') + '</a>'; });
+    d.categories.forEach(function (c) { fhtml += '<a href="javascript:void(0)" data-page="products" style="cursor:pointer">' + dc(c, 'name') + '</a>'; });
     fhtml += '</div>';
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'contact') + '</h4>';
     fhtml += '<p>' + d.company.email + '</p><p>' + d.company.phone + '</p><p style="white-space:pre-line">' + dc(d.company, 'address') + '</p>';
@@ -522,10 +535,12 @@
 
     // 页脚链接也支持页面切换
     document.querySelectorAll('#footerGrid a[data-page]').forEach(function (a) {
-      a.addEventListener('click', function (e) {
+      a.onclick = function (e) {
         e.preventDefault();
+        e.stopPropagation();
         switchPage(a.getAttribute('data-page'));
-      });
+        return false;
+      };
     });
 
     document.getElementById('footerCopy').textContent = dc(f, 'copy');
