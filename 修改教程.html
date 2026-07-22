@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobalTrade 修改教程</title>
+<style>
+  :root {
+    --c-primary: #C4956A;
+    --c-primary-glow: rgba(196,149,106,0.15);
+    --c-bg: #0F0A07;
+    --c-bg-card: #1C1510;
+    --c-bg-surface: #221913;
+    --c-text: #FFF8F0;
+    --c-text-dim: #B8A898;
+    --c-text-muted: #7A6E62;
+    --c-border: rgba(196,149,106,0.12);
+    --c-border-code: rgba(196,149,106,0.18);
+    --radius: 12px;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+  body{
+    font-family:'Segoe UI','PingFang SC','Microsoft YaHei',sans-serif;
+    background:var(--c-bg);color:var(--c-text);line-height:1.7;
+    overflow-x:hidden;
+  }
+  a{color:var(--c-primary);text-decoration:none;transition:color 0.3s}
+  a:hover{text-decoration:underline}
+  code,pre{
+    font-family:'Cascadia Code','Fira Code','Consolas','Courier New',monospace;
+    font-size:0.88rem;
+  }
+  ::selection{background:var(--c-primary);color:#1C1510}
+
+  /* Nav */
+  .tutorial-nav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(21,16,12,0.82);backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--c-border);
+    padding:0 32px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+    height:56px;overflow-x:auto;
+  }
+  .tutorial-nav a{
+    padding:6px 14px;border-radius:20px;font-size:0.82rem;font-weight:500;
+    color:var(--c-text-dim);white-space:nowrap;transition:all 0.3s;
+  }
+  .tutorial-nav a:hover{color:var(--c-primary);background:rgba(196,149,106,0.06);text-decoration:none}
+
+  /* Main */
+  .container{max-width:920px;margin:0 auto;padding:0 32px}
+
+  /* Hero */
+  .tutorial-hero{
+    padding:72px 0 56px;text-align:center;position:relative;
+  }
+  .tutorial-hero::after{
+    content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+    width:300px;height:300px;background:radial-gradient(circle,var(--c-primary-glow),transparent 70%);
+    pointer-events:none;border-radius:50%;
+  }
+  .tutorial-hero h1{
+    font-size:2.6rem;font-weight:900;color:var(--c-primary);position:relative;z-index:1;
+  }
+  .tutorial-hero p{
+    color:var(--c-text-dim);font-size:1.05rem;margin-top:12px;position:relative;z-index:1;
+  }
+
+  /* Section */
+  .tut-section{padding:32px 0 48px}
+  .tut-section h2{
+    font-size:1.5rem;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:12px;
+  }
+  .tut-section h2::before{
+    content:'';width:4px;height:28px;background:var(--c-primary);border-radius:2px;
+  }
+  .tut-section h3{
+    font-size:1.15rem;font-weight:700;margin:28px 0 12px;color:var(--c-text-dim);
+  }
+  .tut-section p{margin-bottom:14px;color:var(--c-text-dim);font-size:0.95rem}
+  .tut-section ul{margin:12px 0 12px 20px}
+  .tut-section li{margin-bottom:8px;color:var(--c-text-dim);font-size:0.94rem}
+  .tut-section li strong{color:var(--c-text)}
+
+  /* Code Block */
+  .code-block{
+    background:var(--c-bg-card);border:1px solid var(--c-border-code);
+    border-radius:var(--radius);overflow:hidden;margin:16px 0;
+  }
+  .code-block .header{
+    padding:10px 18px;background:rgba(196,149,106,0.04);
+    border-bottom:1px solid var(--c-border-code);
+    font-size:0.78rem;color:var(--c-text-muted);font-weight:600;
+    display:flex;justify-content:space-between;align-items:center;
+  }
+  .code-block .header span:last-child{color:var(--c-primary);font-size:0.72rem}
+  .code-block pre{
+    padding:20px;overflow-x:auto;line-height:1.65;
+    color:var(--c-text-dim);margin:0;
+  }
+  .code-block pre .kw{color:#D4A574}
+  .code-block pre .str{color:#C4956A}
+  .code-block pre .cmt{color:var(--c-text-muted);font-style:italic}
+  .code-block pre .num{color:#B8A898}
+  .code-block pre .prop{color:#E0C4A2}
+
+  /* Tip */
+  .tip{
+    background:rgba(196,149,106,0.06);border:1px solid var(--c-border);
+    border-radius:var(--radius);padding:16px 20px;margin:20px 0;
+    font-size:0.92rem;color:var(--c-text-dim);
+  }
+  .tip strong{color:var(--c-primary)}
+
+  /* Table */
+  .ref-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:0.88rem}
+  .ref-table th,.ref-table td{
+    padding:12px 16px;border:1px solid var(--c-border);text-align:left;
+  }
+  .ref-table th{background:var(--c-bg-card);color:var(--c-primary);font-weight:700;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase}
+  .ref-table td{color:var(--c-text-dim);background:var(--c-bg-surface)}
+  .ref-table code{background:rgba(196,149,106,0.08);padding:2px 8px;border-radius:4px;font-size:0.82rem;color:var(--c-primary)}
+
+  /* Footer */
+  .tut-footer{
+    text-align:center;padding:48px 0;border-top:1px solid var(--c-border);
+    color:var(--c-text-muted);font-size:0.85rem;
+  }
+
+  @media(max-width:768px){
+    .tutorial-hero h1{font-size:1.8rem}
+    .tutorial-nav{padding:0 16px;gap:4px}
+    .container{padding:0 20px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="tutorial-nav">
+  <a href="#quick">快速上手</a>
+  <a href="#data">改数据</a>
+  <a href="#color">改配色</a>
+  <a href="#hero">改首页</a>
+  <a href="#products">改产品</a>
+  <a href="#about">改关于</a>
+  <a href="#contact">改联系</a>
+  <a href="#text">改文案</a>
+  <a href="#images">加图片</a>
+  <a href="#animation">调动画</a>
+  <a href="#tips">进阶技巧</a>
+</nav>
+
+<div class="container">
+
+<section class="tutorial-hero">
+  <h1>GlobalTrade 修改教程</h1>
+  <p>90% 的日常改动只需要编辑 <code style="color:var(--c-primary);background:rgba(196,149,106,0.08);padding:2px 8px;border-radius:4px">data.js</code> 一个文件</p>
+  <p style="font-size:0.88rem;color:var(--c-text-muted);margin-top:8px">打开文件 → 改文字 → 刷新浏览器 → 搞定</p>
+</section>
+
+<!-- ==================== 快速上手 ==================== -->
+<section class="tut-section" id="quick">
+  <h2>快速上手</h2>
+
+  <div class="tip">
+    <strong>核心原则：</strong>这个网页是纯静态 HTML，所有内容由 <code>data.js</code> 动态注入。所以你改 <code>data.js</code> 里的任何一个中/英文字段，刷新页面就能看到效果，不需要编译、不需要跑构建。
+  </div>
+
+  <h3>文件职责一览</h3>
+  <table class="ref-table">
+    <thead>
+      <tr><th>文件</th><th>改的频率</th><th>里面有什么</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>data.js</code></td><td>⭐⭐⭐⭐⭐ 最常改</td><td>产品、分类、公司信息、联系方式、合作伙伴、客户评价、流程步骤、统计数据</td></tr>
+      <tr><td><code>i18n.js</code></td><td>⭐⭐ 偶尔改</td><td>按钮文字、标题文字、提示文案（少量 UI 文案）</td></tr>
+      <tr><td><code>index.html</code> CSS 部分</td><td>⭐ 少改</td><td>配色、字号、间距、圆角（在 <code>:root</code> 变量里）</td></tr>
+      <tr><td><code>index.html</code> HTML 部分</td><td>极少改</td><td>页面结构、区块顺序</td></tr>
+      <tr><td><code>app.js</code></td><td>一般不改</td><td>渲染引擎、动画系统、视差滚动、语言切换逻辑</td></tr>
+    </tbody>
+  </table>
+
+  <h3>怎么预览</h3>
+  <div class="code-block">
+    <div class="header"><span>启动本地服务器</span><span>终端</span></div>
+    <pre><span class="cmt"># 在 GlobalTrade-site 目录下运行</span>
+python3 -m http.server 8000
+<span class="cmt"># 浏览器打开 http://localhost:8000</span></pre>
+  </div>
+  <p>或者用 VS Code 的 Live Server 插件、Nginx、任何静态文件服务器都行。无论如何不要直接用 <code>file://</code> 协议打开，部分功能在 file 协议下会失效。</p>
+</section>
+
+<!-- ==================== 改数据 ==================== -->
+<section class="tut-section" id="data">
+  <h2>改数据 — data.js 完整参考</h2>
+  <p><code>data.js</code> 是一个 JavaScript 对象 <code>GT_DATA = { ... }</code>。里面每个字段几乎都是双语的（<code>_cn</code> 和 <code>_en</code> 后缀）。</p>
+
+  <h3>公司信息</h3>
+  <div class="code-block">
+    <div class="header"><span>data.js → company</span><span>最常改</span></div>
+    <pre>company: {
+  <span class="prop">name_cn</span>: <span class="str">"环球贸易"</span>,          <span class="cmt">← 改公司中文名</span>
+  <span class="prop">name_en</span>: <span class="str">"GlobalTrade"</span>,       <span class="cmt">← 改公司英文名</span>
+  <span class="prop">email</span>: <span class="str">"info@globaltrade.com"</span>, <span class="cmt">← 改邮箱</span>
+  <span class="prop">phone</span>: <span class="str">"+86 400-888-6688"</span>,   <span class="cmt">← 改电话</span>
+  <span class="prop">whatsapp</span>: <span class="str">"+86 138-0000-0000"</span>,<span class="cmt">← 改 WhatsApp</span>
+  <span class="prop">wechat</span>: <span class="str">"GlobalTrade_Official"</span>,<span class="cmt">← 改微信号</span>
+  <span class="prop">address_cn</span>: <span class="str">"中国广州市..."</span>,   <span class="cmt">← 改中文地址（\n 换行）</span>
+  <span class="prop">address_en</span>: <span class="str">"38F, ..."</span>,        <span class="cmt">← 改英文地址</span>
+  <span class="prop">year</span>: <span class="num">2012</span>                     <span class="cmt">← 改成立年份</span>
+}</pre>
+  </div>
+
+  <h3>导航菜单</h3>
+  <div class="code-block">
+    <div class="header"><span>data.js → nav</span><span></span></div>
+    <pre>nav: [
+  { <span class="prop">id</span>: <span class="str">"home"</span>,     <span class="prop">cn</span>: <span class="str">"首页"</span>,     <span class="prop">en</span>: <span class="str">"Home"</span> },
+  { <span class="prop">id</span>: <span class="str">"products"</span>, <span class="prop">cn</span>: <span class="str">"产品中心"</span>, <span class="prop">en</span>: <span class="str">"Products"</span> },
+  <span class="cmt">// 增删改这里就行，id 要和下面 section 的 id 对应</span>
+]</pre>
+  </div>
+
+  <h3>统计数据（Hero 下方大数字）</h3>
+  <div class="code-block">
+    <div class="header"><span>data.js → stats</span><span></span></div>
+    <pre>stats: [
+  { <span class="prop">value</span>: <span class="str">"13"</span>,   <span class="prop">suffix</span>: <span class="str">"+"</span>,  <span class="prop">label_cn</span>: <span class="str">"年行业经验"</span>, <span class="prop">label_en</span>: <span class="str">"Years Experience"</span> },
+  <span class="cmt">// value = 最终显示的数字（不含逗号），suffix = 后缀（+、K+等）</span>
+  <span class="cmt">// 前端会自动做数字跳动动画</span>
+]</pre>
+  </div>
+</section>
+
+<!-- ==================== 配色 ==================== -->
+<section class="tut-section" id="color">
+  <h2>改配色 — 全局调色板</h2>
+  <p>打开 <code>index.html</code>，找到 <code>&lt;style&gt;</code> 标签最顶部的 <code>:root</code>。改了这里的变量，全站所有地方的颜色都会跟着变。</p>
+
+  <div class="code-block">
+    <div class="header"><span>index.html → :root 变量</span><span>改颜色只改这里</span></div>
+    <pre><span class="prop">--c-primary</span>: <span class="str">#C4956A</span>;        <span class="cmt">/* 焦糖主色 → 按钮、链接、高亮 */</span>
+<span class="prop">--c-primary-h</span>: <span class="str">#D4A574</span>;      <span class="cmt">/* 浅焦糖 → hover 状态 */</span>
+<span class="prop">--c-primary-d</span>: <span class="str">#8B5E3C</span>;      <span class="cmt">/* 深咖色 → 滚条、底部强调 */</span>
+<span class="prop">--c-accent</span>: <span class="str">#6B3A2A</span>;         <span class="cmt">/* 浓缩咖啡 → 进度条渐变终点 */</span>
+<span class="prop">--c-bg</span>: <span class="str">#0F0A07</span>;            <span class="cmt">/* 页面底色（最深的咖啡底） */</span>
+<span class="prop">--c-bg-alt</span>: <span class="str">#15100C</span>;         <span class="cmt">/* 交替区块底色 */</span>
+<span class="prop">--c-bg-card</span>: <span class="str">#1C1510</span>;        <span class="cmt">/* 卡片底色 */</span>
+<span class="prop">--c-bg-surface</span>: <span class="str">#221913</span>;     <span class="cmt">/* 输入框底色 */</span>
+<span class="prop">--c-text</span>: <span class="str">#FFF8F0</span>;           <span class="cmt">/* 主文字色（暖白） */</span>
+<span class="prop">--c-text-dim</span>: <span class="str">#B8A898</span>;       <span class="cmt">/* 次要文字色 */</span>
+<span class="prop">--c-text-muted</span>: <span class="str">#7A6E62</span>;     <span class="cmt">/* 弱化文字色 */</span></pre>
+  </div>
+
+  <div class="tip">
+    <strong>快速配色方案：</strong>如果你想要金色调，把 <code>--c-primary</code> 改成 <code>#C8A45C</code>；想要蓝灰调就改成 <code>#7B9CB5</code>。只需要改这一个变量，其他辅色可以保持不动，整体风格就全变了。
+  </div>
+
+  <p>此外还有：</p>
+  <table class="ref-table">
+    <thead><tr><th>变量</th><th>含义</th><th>默认值</th></tr></thead>
+    <tbody>
+      <tr><td><code>--font-body</code></td><td>正文/UI 字体</td><td><code>'Inter', 'PingFang SC', sans-serif</code></td></tr>
+      <tr><td><code>--font-display</code></td><td>标题/展示字体（衬线）</td><td><code>'Playfair Display', serif</code></td></tr>
+      <tr><td><code>--radius-sm/md/lg/xl</code></td><td>圆角大小</td><td>6 / 12 / 20 / 28 px</td></tr>
+      <tr><td><code>--header-h</code></td><td>导航栏高度</td><td><code>78px</code></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ==================== Hero ==================== -->
+<section class="tut-section" id="hero">
+  <h2>改首页大图 — Hero 区域</h2>
+
+  <div class="code-block">
+    <div class="header"><span>data.js → hero</span><span></span></div>
+    <pre>hero: {
+  <span class="prop">badge_cn</span>: <span class="str">"全球信赖 · B2B 采购专家"</span>,  <span class="cmt">← 左上角小标签</span>
+  <span class="prop">badge_en</span>: <span class="str">"Trusted Globally · B2B Sourcing Expert"</span>,
+  <span class="prop">title_cn</span>: <span class="str">"连接全球优质供应链\n&lt;em&gt;一站式&lt;/em&gt;国际贸易解决方案"</span>,
+  <span class="cmt">← 大标题，\n 换行，&lt;em&gt;...&lt;/em&gt; 包裹的会变成咖色高亮</span>
+  <span class="prop">title_en</span>: <span class="str">"Connect to the World's Best\n&lt;em&gt;One-Stop&lt;/em&gt; Trade Solutions"</span>,
+  <span class="prop">desc_cn</span>: <span class="str">"覆盖 30+ 国家..."</span>,          <span class="cmt">← 副标题描述</span>
+  <span class="prop">desc_en</span>: <span class="str">"30+ countries..."</span>,
+  <span class="prop">cta_cn</span>: <span class="str">"立即询价"</span>,                  <span class="cmt">← 主按钮文字</span>
+  <span class="prop">cta_en</span>: <span class="str">"Get a Quote"</span>,
+  <span class="prop">contact_cn</span>: <span class="str">"联系我们"</span>,              <span class="cmt">← 次按钮文字</span>
+  <span class="prop">contact_en</span>: <span class="str">"Contact Us"</span>,
+  <span class="prop">scroll_cn</span>: <span class="str">"向下探索"</span>,              <span class="cmt">← 底部滚动提示</span>
+  <span class="prop">scroll_en</span>: <span class="str">"Scroll to Explore"</span>
+}</pre>
+  </div>
+
+  <div class="tip">
+    <strong>标题换行技巧：</strong>用 <code>\n</code> 控制换行位置。英文和中文的断句节奏不一样，建议分别调好再对比。
+  </div>
+</section>
+
+<!-- ==================== 产品 ==================== -->
+<section class="tut-section" id="products">
+  <h2>改产品 & 分类</h2>
+
+  <h3>修改/新增产品分类</h3>
+  <div class="code-block">
+    <div class="header"><span>data.js → categories</span><span></span></div>
+    <pre>categories: [
+  { <span class="prop">id</span>: <span class="str">"machinery"</span>, <span class="prop">name_cn</span>: <span class="str">"机械设备"</span>, <span class="prop">name_en</span>: <span class="str">"Machinery"</span>, <span class="prop">icon</span>: <span class="str">"⚙️"</span> },
+  <span class="cmt">// id = 唯一标识（英文小写，别重复）</span>
+  <span class="cmt">// icon = emoji 图标，产品卡片上会显示</span>
+  <span class="cmt">// 新增一行就多一个分类标签</span>
+]</pre>
+  </div>
+
+  <h3>修改/新增产品</h3>
+  <div class="code-block">
+    <div class="header"><span>data.js → products</span><span></span></div>
+    <pre>products: [
+  {
+    <span class="prop">id</span>: <span class="str">"p01"</span>,                          <span class="cmt">← 唯一 ID</span>
+    <span class="prop">category</span>: <span class="str">"machinery"</span>,             <span class="cmt">← 必须和上面 categories 的某个 id 一致</span>
+    <span class="prop">name_cn</span>: <span class="str">"智能数控机床"</span>,           <span class="cmt">← 产品中文名</span>
+    <span class="prop">name_en</span>: <span class="str">"Smart CNC Machine"</span>,
+    <span class="prop">desc_cn</span>: <span class="str">"高精度五轴联动..."</span>,    <span class="cmt">← 简短描述（两行以内）</span>
+    <span class="prop">desc_en</span>: <span class="str">"5-axis high-precision..."</span>,
+    <span class="prop">moq</span>: <span class="str">"1 台"</span>,                     <span class="cmt">← 起订量</span>
+    <span class="prop">image</span>: <span class="str">""</span>                          <span class="cmt">← 图片路径（见"加图片"章节）</span>
+  },
+  <span class="cmt">// 再加一个产品：复制上面整个 { ... } 块，改 id 和字段值，粘贴在数组里就行</span>
+]</pre>
+  </div>
+
+  <div class="tip">
+    <strong>新增产品三步走：</strong>① 复制一个已有产品块；② 改 id（别跟已有的重复）；③ 改 category、name、desc。分类标签和筛选是自动的，不用额外配置。
+  </div>
+</section>
+
+<!-- ==================== 关于我们 ==================== -->
+<section class="tut-section" id="about">
+  <h2>改"关于我们"</h2>
+
+  <div class="code-block">
+    <div class="header"><span>data.js → about</span><span></span></div>
+    <pre>about: {
+  <span class="prop">badge_val</span>: <span class="str">"13+"</span>,               <span class="cmt">← 图片右下角强调数字</span>
+  <span class="prop">badge_lbl_cn</span>: <span class="str">"年行业深耕"</span>,   <span class="cmt">← 标签小字</span>
+  <span class="prop">heading_cn</span>: <span class="str">"值得信赖的\n全球贸易伙伴"</span>, <span class="cmt">← 副标题</span>
+  <span class="prop">p1_cn</span>: <span class="str">"GlobalTrade 成立于 2012 年..."</span>,  <span class="cmt">← 第一段正文</span>
+  <span class="prop">p2_cn</span>: <span class="str">"我们的供应链网络覆盖..."</span>,          <span class="cmt">← 第二段正文</span>
+  <span class="prop">cta_cn</span>: <span class="str">"了解更多"</span>,                     <span class="cmt">← 按钮文字</span>
+  <span class="prop">checks</span>: [{ <span class="prop">cn</span>: <span class="str">"ISO 9001 质量管理体系"</span>, <span class="prop">en</span>: <span class="str">"ISO 9001 Certified"</span> }]
+  <span class="cmt">// checks 数组里每一对就是下面那个对勾列表的一项，可增删</span>
+}</pre>
+  </div>
+</section>
+
+<!-- ==================== 联系我们 ==================== -->
+<section class="tut-section" id="contact">
+  <h2>改联系方式 & 表单</h2>
+
+  <div class="code-block">
+    <div class="header"><span>data.js → contact</span><span></span></div>
+    <pre>contact: {
+  <span class="prop">label_cn</span>: <span class="str">"联系我们"</span>,
+  <span class="prop">title_cn</span>: <span class="str">"开启您的全球采购之旅"</span>,     <span class="cmt">← 联系区域大标题</span>
+  <span class="prop">subtitle_cn</span>: <span class="str">"留下您的需求..."</span>,        <span class="cmt">← 副标题</span>
+  <span class="prop">info_items</span>: [
+    { <span class="prop">icon</span>:<span class="str">"📞"</span>, <span class="prop">label_cn</span>:<span class="str">"电话"</span>, <span class="prop">value</span>:<span class="str">"+86 400-888-6688"</span> },
+    { <span class="prop">icon</span>:<span class="str">"📧"</span>, <span class="prop">label_cn</span>:<span class="str">"邮箱"</span>, <span class="prop">value</span>:<span class="str">"info@globaltrade.com"</span> },
+    <span class="cmt">// 增删改联系条目</span>
+  ]</pre>
+  </div>
+
+  <p>电话和邮箱有两处：<code>company</code> 对象里（页脚用）和 <code>contact.info_items</code> 里（联系区块用）。两处都要改。</p>
+</section>
+
+<!-- ==================== 文案 ==================== -->
+<section class="tut-section" id="text">
+  <h2>改 UI 文案 — i18n.js</h2>
+  <p>大部分文案已经在 <code>data.js</code>。少数 UI 相关的在 <code>i18n.js</code>：</p>
+
+  <div class="code-block">
+    <div class="header"><span>i18n.js</span><span></span></div>
+    <pre>var GT_I18N = {
+  <span class="prop">navCta</span>:    { <span class="prop">cn</span>: <span class="str">"立即咨询"</span>, <span class="prop">en</span>: <span class="str">"Get a Quote"</span> }, <span class="cmt">← 导航栏右侧 CTA 按钮</span>
+  <span class="prop">viewAll</span>:   { <span class="prop">cn</span>: <span class="str">"全部"</span>,     <span class="prop">en</span>: <span class="str">"All"</span> },       <span class="cmt">← 产品分类"全部"标签</span>
+  <span class="prop">sendMsg</span>:   { <span class="prop">cn</span>: <span class="str">"发送消息"</span>, <span class="prop">en</span>: <span class="str">"Send Message"</span> },
+  <span class="prop">backToTop</span>: { <span class="prop">cn</span>: <span class="str">"返回顶部"</span>, <span class="prop">en</span>: <span class="str">"Back to Top"</span> }
+};</pre>
+  </div>
+</section>
+
+<!-- ==================== 图片 ==================== -->
+<section class="tut-section" id="images">
+  <h2>加图片</h2>
+
+  <h3>产品图片</h3>
+  <div class="code-block">
+    <div class="header"><span>三步加产品图</span><span></span></div>
+    <pre><span class="cmt">第 1 步：把图片放进 assets/img/</span>
+assets/img/cnc-machine.jpg
+
+<span class="cmt">第 2 步：在 data.js 找到对应产品，填 image 字段</span>
+{ <span class="prop">id</span>:<span class="str">"p01"</span>, ..., <span class="prop">image</span>: <span class="str">"assets/img/cnc-machine.jpg"</span> }
+
+<span class="cmt">第 3 步：刷新浏览器</span></pre>
+  </div>
+
+  <div class="tip">
+    <strong>图片建议：</strong>产品图用 4:3 或 1:1 比例，宽度 600-800px 就够了（网页会缩放）。格式用 JPG 或 WebP。如果 image 字段为空，页面会自动显示该分类的 emoji 占位图标。
+  </div>
+
+  <p>目前图片占位是用 emoji + 渐变背景。如果你想加 Hero 背景图或"关于我们"图片，需要改 <code>index.html</code> 对应区块的 CSS（加 <code>background-image</code>）。这部分改动稍复杂，遇到具体需求可以来问我。</p>
+</section>
+
+<!-- ==================== 动画 ==================== -->
+<section class="tut-section" id="animation">
+  <h2>调动画效果</h2>
+
+  <h3>控制滚动入场动画速度</h3>
+  <p>所有入场动画由 CSS 控制，在 <code>index.html</code> 的 <code>&lt;style&gt;</code> 标签内：</p>
+
+  <div class="code-block">
+    <div class="header"><span>index.html → 动画 CSS</span><span></span></div>
+    <pre><span class="cmt">/* 基础入场动画（改 transition 的时长就可以快/慢） */</span>
+.reveal-up {
+  transform: translateY(60px);        <span class="cmt">← 起始偏移量，改大 = 弹得更远</span>
+  transition: all 0.85s var(--ease);  <span class="cmt">← 0.85s = 持续时间，改大 = 更慢</span>
+}
+
+<span class="cmt">/* 交错动画每层的延迟 */</span>
+.delay-1 { transition-delay: 0.08s }  <span class="cmt">← 第 1 个的延迟</span>
+.delay-2 { transition-delay: 0.16s }
+.delay-3 { transition-delay: 0.24s }
+<span class="cmt">// ...最多到 .delay-6</span></pre>
+  </div>
+
+  <h3>关闭某个动画效果</h3>
+  <p>如果你觉得鼠标跟随光标太花哨，在 <code>app.js</code> 里找到这段注释掉：</p>
+  <div class="code-block">
+    <div class="header"><span>app.js → 关闭自定义光标</span><span></span></div>
+    <pre><span class="cmt">// 找到这一段（约第 51-60 行），全部注释掉即可</span>
+<span class="cmt">/*</span>
+<span class="cmt">document.querySelectorAll('a, button, ...').forEach(function(el){</span>
+<span class="cmt">  el.addEventListener('mouseenter', ...);</span>
+<span class="cmt">  el.addEventListener('mouseleave', ...);</span>
+<span class="cmt">});</span>
+<span class="cmt">*/</span></pre>
+  </div>
+
+  <h3>控制视差滚动强度</h3>
+  <div class="code-block">
+    <div class="header"><span>app.js → 视差强度</span><span></span></div>
+    <pre><span class="cmt">// Hero 光环视差（约第 85 行）</span>
+heroVisual.style.transform = 'translateY(calc(-50% + ' + (scrollY * <span class="kw">0.15</span>) + 'px))';
+<span class="cmt">//                                              ↑ 改这个系数：0.05=微弱 0.3=明显</span>
+
+<span class="cmt">// 关于我们图片视差（约第 95 行）</span>
+var offset = (elCenter - winCenter) * <span class="kw">0.06</span>;
+<span class="cmt">//                                   ↑ 改这个系数</span></pre>
+  </div>
+</section>
+
+<!-- ==================== 进阶技巧 ==================== -->
+<section class="tut-section" id="tips">
+  <h2>进阶技巧</h2>
+
+  <h3>调整区块顺序</h3>
+  <p>在 <code>index.html</code> 中每个 <code>&lt;section&gt;</code> 就是一个区块。直接剪切粘贴整段 <code>&lt;section&gt;...&lt;/section&gt;</code> 就能调整顺序。导航锚点会自动跟上。</p>
+
+  <h3>中英文切换默认语言</h3>
+  <p>在 <code>app.js</code> 顶部 <code>var lang = 'cn'</code> 改成 <code>var lang = 'en'</code> 就是英文默认。</p>
+
+  <h3>SEO</h3>
+  <p>这是纯前端渲染，搜索引擎爬虫可能抓不到 JS 动态生成的内容。如果要 SEO，建议加上 <code>&lt;meta&gt;</code> 标签和结构化数据。或者在服务器端预渲染。</p>
+
+  <h3>部署到线上</h3>
+  <div class="code-block">
+    <div class="header"><span>部署选项</span><span></span></div>
+    <pre><span class="cmt"># 方案 1：CloudStudio（已部署，链接用上面那个）</span>
+<span class="cmt"># 方案 2：GitHub Pages — 上传到仓库，开 Pages 就行</span>
+<span class="cmt"># 方案 3：Vercel / Netlify — 拖拽文件夹即可</span>
+<span class="cmt"># 方案 4：自有服务器 — 用 Nginx 指向这个文件夹</span></pre>
+  </div>
+
+  <div class="tip">
+    <strong>改坏了怎么办？</strong>四个文件加起来不到 800 行，改动前用 VS Code 的 Git 初始化一下 <code>git init && git add . && git commit -m "备份"</code>，随时可以 <code>git checkout .</code> 恢复。
+  </div>
+</section>
+
+</div>
+
+<footer class="tut-footer">
+  <p>改好之后刷新浏览器看效果。有更多问题随时回来问。</p>
+</footer>
+
+</body>
+</html>
