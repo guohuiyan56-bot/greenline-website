@@ -1,6 +1,6 @@
 /* ============================================================
-   GreenLine — App Engine v3
-   多页面切换 · 导航标题 · 醒目激活态
+   GreenLine — App Engine v4
+   单页滚动 · 导航硬编码 · 滚动高亮
    ============================================================ */
 
 (function () {
@@ -10,7 +10,6 @@
   var i18n = GT_I18N;
   var lang = 'cn';
   var activeCat = 'all';
-  var currentPage = 'home';
 
   /* ===== Helpers ===== */
   function t(key) {
@@ -26,6 +25,22 @@
     return obj[key] !== undefined ? obj[key] : '';
   }
 
+  /* ===== 导航中英文映射（对应 HTML 中硬编码的顺序） ===== */
+  var navSections = ['home', 'products', 'about', 'service', 'testimonials', 'contact'];
+
+  function updateNavText() {
+    var links = document.querySelectorAll('.nav-links a');
+    navSections.forEach(function (sectionId, i) {
+      if (links[i]) {
+        var item = null;
+        for (var j = 0; j < d.nav.length; j++) {
+          if (d.nav[j].id === sectionId) { item = d.nav[j]; break; }
+        }
+        if (item) links[i].textContent = dc(item, '');
+      }
+    });
+  }
+
   /* ===== Language ===== */
   function setLang(l) {
     lang = l;
@@ -33,8 +48,7 @@
     var lb = document.getElementById('langBtn');
     lb.textContent = lang === 'cn' ? 'EN' : '中文';
     lb.title = lang === 'cn' ? 'Switch to English' : '切换到中文';
-    var pl = document.getElementById('navPageLabel');
-    if (pl) pl.textContent = lang === 'cn' ? '页面导航' : 'NAVIGATION';
+    updateNavText();
     renderAll();
     resetReveals();
   }
@@ -62,78 +76,46 @@
     el.addEventListener('mouseleave', function () { cursor.classList.remove('hover'); });
   });
 
-  /* ===== 页面切换系统 ===== */
-
-  // nav id → page id 映射
-  var pageMap = {
-    'home': 'page-home',
-    'products': 'page-products',
-    'about': 'page-about',
-    'service': 'page-service',
-    'testimonials': 'page-testimonials',
-    'contact': 'page-contact'
+  /* ===== Scroll Spy — 滚动时自动高亮当前区块对应的导航 ===== */
+  var sectionIds = ['home', 'statsSec', 'products', 'about', 'service', 'process', 'testimonials', 'partners', 'contact'];
+  // 每个区块对应哪个导航项
+  var sectionToNav = {
+    'home': 'home',
+    'statsSec': 'home',
+    'products': 'products',
+    'about': 'about',
+    'service': 'service',
+    'process': 'service',
+    'testimonials': 'testimonials',
+    'partners': 'testimonials',
+    'contact': 'contact'
   };
 
-  function switchPage(pageId) {
-    if (currentPage === pageId) return;
-    currentPage = pageId;
+  function scrollSpy() {
+    var scrollPos = window.scrollY + window.innerHeight / 3;
+    var activeNav = 'home';
 
-    // 隐藏所有页面
-    document.querySelectorAll('.page-section').forEach(function (p) {
-      p.classList.remove('active');
-    });
-
-    // 显示目标页面
-    var target = document.getElementById(pageMap[pageId]);
-    if (target) {
-      target.classList.add('active');
-      // 滚动到顶部
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    for (var i = sectionIds.length - 1; i >= 0; i--) {
+      var el = document.getElementById(sectionIds[i]);
+      if (el && el.offsetTop <= scrollPos) {
+        activeNav = sectionToNav[sectionIds[i]];
+        break;
+      }
     }
 
-    // 更新导航激活状态
-    setNavActive(pageId);
-
-    // 重新触发入场动画
-    setTimeout(function () {
-      resetReveals();
-    }, 150);
-  }
-
-  function setNavActive(pageId) {
-    var links = document.getElementById('navLinks').querySelectorAll('a');
-    links.forEach(function (l) {
-      l.classList.toggle('active', l.getAttribute('data-page') === pageId);
+    var links = document.querySelectorAll('.nav-links a');
+    links.forEach(function (link, idx) {
+      if (idx < navSections.length) {
+        link.classList.toggle('active', navSections[idx] === activeNav);
+      }
     });
   }
 
-  // 导航点击 → 切换页面（直接绑定 + 事件委托双重保障）
-  function bindNavClicks() {
-    var links = document.querySelectorAll('#navLinks a[data-page]');
-    links.forEach(function (a) {
-      // 移除旧事件避免重复绑定
-      a.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        switchPage(a.getAttribute('data-page'));
-        return false;
-      };
-    });
-  }
+  window.addEventListener('scroll', function () {
+    scrollSpy();
+  }, { passive: true });
 
-  // Hero CTA 按钮 → 也切换页面（直接绑定）
-  function bindSwitchButtons() {
-    document.querySelectorAll('[data-switch-to]').forEach(function (btn) {
-      btn.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        switchPage(btn.getAttribute('data-switch-to'));
-        return false;
-      };
-    });
-  }
-
-  /* ===== Scroll Progress Bar（基于页面内滚动） ===== */
+  /* ===== Scroll Progress Bar ===== */
   var progressBar = document.getElementById('scrollProgress');
   window.addEventListener('scroll', function () {
     var scrollTop = window.scrollY;
@@ -215,8 +197,8 @@
   }, { threshold: 0.25 });
 
   /* ===== Mobile menu ===== */
+  var navLinksEl = document.querySelector('.nav-links');
   var navToggle = document.getElementById('navToggle');
-  var navLinksEl = document.getElementById('navLinks');
   navToggle.addEventListener('click', function () {
     navLinksEl.classList.toggle('open');
   });
@@ -276,7 +258,6 @@
 
   /* ==================== RENDER ==================== */
   function renderAll() {
-    renderNav();
     renderHero();
     renderStats();
     renderProducts();
@@ -288,24 +269,9 @@
     renderContact();
     renderFooter();
     observeReveal();
-    bindSwitchButtons();
 
     var strip = document.getElementById('statsStrip');
     if (strip) statsObserver.observe(strip);
-  }
-
-  function renderNav() {
-    var html = '';
-    d.nav.forEach(function (item) {
-      html += '<a href="javascript:void(0)" data-page="' + item.id + '" style="cursor:pointer">' + dc(item, '') + '</a>';
-    });
-    navLinksEl.innerHTML = html;
-    var pl = document.getElementById('navPageLabel');
-    if (pl) pl.textContent = lang === 'cn' ? '页面导航' : 'NAVIGATION';
-    // 初始激活首页
-    setNavActive('home');
-    // 重新绑定点击事件
-    bindNavClicks();
   }
 
   function renderHero() {
@@ -313,16 +279,14 @@
     document.getElementById('heroTitle').innerHTML = dc(d.hero, 'title');
     document.getElementById('heroDesc').textContent = dc(d.hero, 'desc');
 
-    // CTA 按钮改为页面切换
+    // CTA 按钮 — 直接用锚点链接跳转
     var ctaBtn = document.getElementById('heroCta');
     ctaBtn.textContent = dc(d.hero, 'cta');
-    ctaBtn.setAttribute('data-switch-to', 'products');
-    ctaBtn.removeAttribute('href');
+    ctaBtn.href = '#products';
 
     var contactBtn = document.getElementById('heroContact');
     contactBtn.textContent = dc(d.hero, 'contact');
-    contactBtn.setAttribute('data-switch-to', 'contact');
-    contactBtn.removeAttribute('href');
+    contactBtn.href = '#contact';
 
     document.getElementById('heroScrollText').textContent = lang === 'cn' ? '向下探索更多' : 'Scroll to Explore';
     var shtml = '';
@@ -410,8 +374,7 @@
 
     var ctaBtn = document.getElementById('aboutCta');
     ctaBtn.textContent = dc(d.about, 'cta');
-    ctaBtn.setAttribute('data-switch-to', 'contact');
-    ctaBtn.removeAttribute('href');
+    ctaBtn.href = '#contact';
 
     var ch = '';
     d.about.checks.forEach(function (c) {
@@ -521,27 +484,25 @@
     var f = d.footer;
     var fhtml = '';
     fhtml += '<div class="footer-col"><h4>GREENLINE</h4><p style="line-height:1.7">' + dc(f, 'about') + '</p></div>';
-    // 页脚链接也支持页面切换（直接绑定）
+
+    // 页脚快速链接 — 直接用锚点跳转
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'quick_links') + '</h4>';
-    d.nav.forEach(function (n) { fhtml += '<a href="javascript:void(0)" data-page="' + n.id + '" style="cursor:pointer">' + dc(n, '') + '</a>'; });
+    d.nav.forEach(function (n) {
+      fhtml += '<a href="#' + n.id + '">' + dc(n, '') + '</a>';
+    });
     fhtml += '</div>';
+
+    // 页脚分类 — 链接到产品区块
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'categories') + '</h4>';
-    d.categories.forEach(function (c) { fhtml += '<a href="javascript:void(0)" data-page="products" style="cursor:pointer">' + dc(c, 'name') + '</a>'; });
+    d.categories.forEach(function (c) {
+      fhtml += '<a href="#products">' + dc(c, 'name') + '</a>';
+    });
     fhtml += '</div>';
+
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'contact') + '</h4>';
     fhtml += '<p>' + d.company.email + '</p><p>' + d.company.phone + '</p><p style="white-space:pre-line">' + dc(d.company, 'address') + '</p>';
     fhtml += '</div>';
     document.getElementById('footerGrid').innerHTML = fhtml;
-
-    // 页脚链接也支持页面切换
-    document.querySelectorAll('#footerGrid a[data-page]').forEach(function (a) {
-      a.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        switchPage(a.getAttribute('data-page'));
-        return false;
-      };
-    });
 
     document.getElementById('footerCopy').textContent = dc(f, 'copy');
   }

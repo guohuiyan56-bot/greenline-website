@@ -87,10 +87,8 @@
 
     /* ===== Section ===== */
     .sec{padding:120px 0;position:relative;overflow:hidden}
-    /* ===== 多页面切换 ===== */
-    .page-section{display:none;padding-top:var(--header-h)}
-    .page-section.active{display:block;animation:pageIn 0.5s var(--ease) both}
-    @keyframes pageIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    /* ===== 平滑滚动 ===== */
+    html{scroll-behavior:smooth;scroll-padding-top:var(--header-h)}
     .sec-label{
       text-align:center;font-size:0.78rem;font-weight:600;letter-spacing:5px;
       text-transform:uppercase;color:var(--c-primary);margin-bottom:16px;
@@ -645,14 +643,17 @@
   <!-- ===== Cursor ===== -->
   <div class="cursor" id="cursor"></div>
 
-  <!-- ===== 导航栏 — 始终悬浮 + 页面导航 ===== -->
+  <!-- ===== 导航栏 — 固定在顶部 ===== -->
   <nav class="nav" id="nav">
     <div class="container">
       <a href="#home" class="nav-logo">GREEN<span style="color:var(--c-text-dim);font-weight:300;font-family:var(--font-body)">LINE</span><span class="nav-logo-dot"></span></a>
-      <div style="text-align:center;">
-        <div class="nav-site-title">GREEN<span>LINE</span></div>
-        <div class="nav-page-label" id="navPageLabel">页面导航</div>
-        <div class="nav-links" id="navLinks"></div>
+      <div class="nav-links">
+        <a href="#home" class="active">首页</a>
+        <a href="#products">产品中心</a>
+        <a href="#about">关于我们</a>
+        <a href="#service">服务优势</a>
+        <a href="#testimonials">客户评价</a>
+        <a href="#contact">联系我们</a>
       </div>
       <div style="display:flex;align-items:center;">
         <button class="nav-lang" id="langBtn" title="Switch Language">EN</button>
@@ -661,8 +662,7 @@
     </div>
   </nav>
 
-  <!-- ===== 页面 1：首页 ===== -->
-  <div class="page-section active" id="page-home">
+  <!-- ===== 首页 ===== -->
   <section class="hero" id="home">
     <div class="hero-bg" id="heroBg"></div>
     <div class="container" style="position:relative;">
@@ -695,10 +695,8 @@
       <div class="stats-strip" id="statsStrip"></div>
     </div>
   </section>
-  </div><!-- /page-home -->
 
-  <!-- ===== 页面 2：产品中心 ===== -->
-  <div class="page-section" id="page-products">
+  <!-- ===== 产品中心 ===== -->
   <section class="sec" id="products">
     <div class="sec-orb" style="bottom:-80px;left:-80px;"></div>
     <div class="container">
@@ -709,10 +707,8 @@
       <div class="prod-grid reveal-stagger" id="prodGrid"></div>
     </div>
   </section>
-  </div><!-- /page-products -->
 
-  <!-- ===== 页面 3：关于我们 ===== -->
-  <div class="page-section" id="page-about">
+  <!-- ===== 关于我们 ===== -->
   <section class="sec" id="about" style="background:var(--c-bg-alt)">
     <div class="container">
       <div class="about-grid">
@@ -734,10 +730,8 @@
       </div>
     </div>
   </section>
-  </div><!-- /page-about -->
 
-  <!-- ===== 页面 4：服务优势 + 合作流程 ===== -->
-  <div class="page-section" id="page-service">
+  <!-- ===== 服务优势 + 合作流程 ===== -->
   <section class="sec" id="service">
     <div class="sec-orb" style="top:-60px;right:-60px;"></div>
     <div class="container">
@@ -757,10 +751,8 @@
       <div class="steps reveal-stagger" id="stepsRow"></div>
     </div>
   </section>
-  </div><!-- /page-service -->
 
-  <!-- ===== 页面 5：客户评价 + 合作伙伴 ===== -->
-  <div class="page-section" id="page-testimonials">
+  <!-- ===== 客户评价 + 合作伙伴 ===== -->
   <section class="sec" id="testimonials">
     <div class="container">
       <div class="sec-label reveal reveal-up" id="testLabel"></div>
@@ -779,10 +771,8 @@
       <div class="partners-track" id="partnersTrack"></div>
     </div>
   </section>
-  </div><!-- /page-testimonials -->
 
-  <!-- ===== 页面 6：联系我们 ===== -->
-  <div class="page-section" id="page-contact">
+  <!-- ===== 联系我们 ===== -->
   <section class="sec" id="contact">
     <div class="container">
       <div class="sec-label reveal reveal-up" id="contactLabel"></div>
@@ -802,7 +792,6 @@
       </div>
     </div>
   </section>
-  </div><!-- /page-contact -->
 
   <!-- ===== 页脚 ===== -->
   <footer class="footer">
