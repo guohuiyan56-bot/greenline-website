@@ -213,7 +213,7 @@
     }
     .hero::after{
       content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
-      background:url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600&h=900&fit=crop') center/cover no-repeat;
+      background:url('images/hero-cargo-port.jpg') center/cover no-repeat;
       opacity:0.08;
     }
     .hero-bg{
@@ -332,55 +332,105 @@
     .cat-tab.active{
       background:var(--c-primary);color:#2A1810;border-color:var(--c-primary);
       box-shadow:0 4px 20px var(--c-primary-glow);
+    }
 
-    /* ===== 产品搜索栏 ===== */
-    .prod-search-wrap{
-      display:flex;justify-content:center;margin-bottom:36px;
+    /* ===== 搜索面板 ===== */
+    .search-panel{
+      max-width:680px;margin:0 auto 40px;
     }
-    .prod-search{
-      width:100%;max-width:480px;padding:12px 20px 12px 48px;
-      border-radius:50px;font-size:0.95rem;
-      color:var(--c-text);background:var(--c-bg-card);
-      border:1px solid var(--c-border);
-      transition:all 0.35s var(--ease);
-      font-family:var(--font-body);
-      outline:none;
+    .search-box{
+      position:relative;display:flex;align-items:center;
+      background:var(--c-bg-card);
+      border:2px solid rgba(200,150,92,0.12);
+      border-radius:60px;padding:5px 5px 5px 22px;
+      transition:all 0.4s var(--ease);
+      box-shadow:0 4px 28px rgba(0,0,0,0.18);
     }
-    .prod-search::placeholder{color:var(--c-text-muted)}
-    .prod-search:focus{
-      border-color:var(--c-primary);box-shadow:0 0 0 4px rgba(200,150,92,0.1);
+    .search-box:focus-within{
+      border-color:var(--c-primary);
+      box-shadow:0 8px 40px rgba(200,150,92,0.12),0 0 0 5px rgba(200,150,92,0.04);
+      transform:translateY(-2px);
     }
-    .prod-search-wrap{position:relative}
-    .prod-search-icon{
-      position:absolute;left:16px;top:50%;transform:translateY(-50%);
-      font-size:1.1rem;color:var(--c-text-muted);pointer-events:none;
+    .search-icon-svg{
+      width:18px;height:18px;flex-shrink:0;
+      stroke:var(--c-text-muted);fill:none;stroke-width:2.5;
+      transition:all 0.3s;
+    }
+    .search-box:focus-within .search-icon-svg{
+      stroke:var(--c-primary);
+    }
+    .search-input{
+      flex:1;background:transparent;border:none;
+      color:var(--c-text);font-size:0.95rem;
+      padding:14px 14px;font-family:var(--font-body);outline:none;
+    }
+    .search-input::placeholder{color:var(--c-text-muted);font-size:0.9rem}
+    .search-clear{
+      width:34px;height:34px;border-radius:50%;
+      background:rgba(200,150,92,0.08);color:var(--c-text-muted);
+      display:none;align-items:center;justify-content:center;
+      cursor:pointer;transition:all 0.3s;font-size:1.3rem;
+      border:none;line-height:1;padding:0;margin-right:14px;
+    }
+    .search-clear.visible{display:flex}
+    .search-clear:hover{
+      background:var(--c-primary);color:#2A1810;
+      transform:scale(1.1);
+    }
+    .search-info{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-top:14px;padding:0 10px;flex-wrap:wrap;gap:10px;
+    }
+    .search-count{
+      font-size:0.82rem;color:var(--c-text-muted);
+    }
+    .search-count strong{
+      color:var(--c-primary);font-weight:700;font-size:0.9rem;
+    }
+    .search-tags{
+      display:flex;gap:7px;flex-wrap:wrap;
+    }
+    .search-tag{
+      padding:5px 14px;border-radius:20px;font-size:0.76rem;
+      color:var(--c-text-dim);
+      background:rgba(200,150,92,0.05);
+      border:1px solid rgba(200,150,92,0.1);
+      cursor:pointer;transition:all 0.3s;user-select:none;
+      white-space:nowrap;
+    }
+    .search-tag:hover{
+      border-color:var(--c-primary);color:var(--c-primary);
+      background:rgba(200,150,92,0.1);
+    }
+    .search-tag.active{
+      background:var(--c-primary);color:#2A1810;
+      border-color:var(--c-primary);
     }
     .prod-no-result{
       grid-column:1/-1;text-align:center;padding:60px 20px;
       color:var(--c-text-muted);font-size:1.05rem;
     }
-    }
 
     /* ===== 产品卡片 ===== */
     .prod-grid{
-      display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px;
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:14px;
     }
     .prod-card{
-      background:var(--c-bg-card);border-radius:var(--radius-lg);
+      background:var(--c-bg-card);border-radius:var(--radius-md);
       border:1px solid var(--c-border);overflow:hidden;
       transition:all 0.5s var(--ease);cursor:pointer;
     }
     .prod-card:hover{
-      transform:translateY(-10px);
+      transform:translateY(-6px);
       border-color:var(--c-border-hover);
-      box-shadow:0 20px 60px rgba(0,0,0,0.5),var(--shadow-glow);
+      box-shadow:0 12px 36px rgba(0,0,0,0.45),var(--shadow-glow);
     }
     .prod-card-img-wrap{
-      position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--c-bg-surface);
+      position:relative;overflow:hidden;aspect-ratio:3/2;background:var(--c-bg-surface);
     }
     .prod-card-img-placeholder{
       width:100%;height:100%;display:flex;align-items:center;justify-content:center;
-      font-size:4rem;background:linear-gradient(135deg, rgba(200,150,92,0.06), rgba(107,58,42,0.04));
+      font-size:2.5rem;background:linear-gradient(135deg, rgba(200,150,92,0.06), rgba(107,58,42,0.04));
       color:rgba(200,150,92,0.2);transition:all 0.5s;
     }
     .prod-card:hover .prod-card-img-placeholder{color:rgba(200,150,92,0.45);transform:scale(1.06)}
@@ -390,19 +440,19 @@
     }
     .prod-card:hover .prod-card-overlay{opacity:1}
     .prod-card-quick{
-      margin:0 20px 20px 0;padding:10px 22px;border-radius:50px;
-      background:var(--c-primary);color:#2A1810;font-size:0.82rem;font-weight:600;
+      margin:0 12px 12px 0;padding:7px 16px;border-radius:50px;
+      background:var(--c-primary);color:#2A1810;font-size:0.72rem;font-weight:600;
       transform:translateY(12px);transition:all 0.4s 0.08s var(--ease-bounce);
     }
     .prod-card:hover .prod-card-quick{transform:translateY(0)}
-    .prod-card-body{padding:20px 24px 24px}
+    .prod-card-body{padding:10px 14px 12px}
     .prod-card-cat{
-      display:inline-block;font-size:0.7rem;font-weight:600;letter-spacing:2.5px;
-      text-transform:uppercase;color:var(--c-primary);margin-bottom:8px;
+      display:inline-block;font-size:0.6rem;font-weight:600;letter-spacing:2px;
+      text-transform:uppercase;color:var(--c-primary);margin-bottom:4px;
     }
-    .prod-card-name{font-size:1.15rem;font-weight:700;margin-bottom:6px}
+    .prod-card-name{font-size:0.92rem;font-weight:700;margin-bottom:3px;line-height:1.3}
     .prod-card-desc{
-      font-size:0.86rem;color:var(--c-text-dim);line-height:1.6;margin-bottom:14px;
+      font-size:0.74rem;color:var(--c-text-dim);line-height:1.45;margin-bottom:0;
       display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
     }
     .prod-card-row{display:flex;align-items:center;justify-content:space-between}
@@ -415,6 +465,20 @@
       transition:all 0.3s;color:var(--c-text-dim);
     }
     .prod-card:hover .prod-card-arrow{border-color:var(--c-primary);color:var(--c-primary);background:rgba(200,150,92,0.08)}
+
+    /* ===== 加载更多 ===== */
+    .load-more-wrap{text-align:center;margin-top:40px}
+    .load-more-btn{
+      padding:12px 40px;border-radius:50px;font-size:0.9rem;font-weight:600;
+      background:transparent;color:var(--c-text-dim);
+      border:1.5px solid rgba(200,150,92,0.2);transition:all 0.35s var(--ease);
+      cursor:pointer;font-family:inherit;
+    }
+    .load-more-btn:hover{
+      border-color:var(--c-primary);color:var(--c-primary);
+      background:rgba(200,150,92,0.06);transform:translateY(-2px);
+      box-shadow:0 6px 24px rgba(200,150,92,0.1);
+    }
 
     /* ===== 外贸横幅图 ===== */
     .trade-banner{
@@ -669,8 +733,9 @@
       .trade-banner{height:240px}
       .trade-banner-text h3{font-size:1.4rem}
       .nav-site-title,.nav-page-label{display:none}
-      .prod-search{max-width:100%;font-size:0.88rem;padding:10px 18px 10px 40px}
-      .prod-search-icon{font-size:1rem;left:12px}
+      .search-input{font-size:0.88rem;padding:12px 12px}
+      .search-box{padding:3px 3px 3px 16px}
+      .search-tags{display:none}
       .nav-links{display:none}
       .nav-toggle{display:block}
       .nav-links.open{
@@ -683,7 +748,7 @@
       .hero{padding:120px 0 60px;min-height:auto}
       .hero-title{font-size:2.2rem}
       .stats-strip{grid-template-columns:1fr 1fr}
-      .prod-grid{grid-template-columns:1fr}
+      .prod-grid{grid-template-columns:repeat(2,1fr);gap:10px}
       .steps{grid-template-columns:1fr;gap:28px}
       .form-row{grid-template-columns:1fr}
       .testimonial-grid{grid-template-columns:1fr}
@@ -766,17 +831,27 @@
       <h2 class="sec-title reveal reveal-up delay-1" id="productTitle"></h2>
       <p class="sec-subtitle reveal reveal-up delay-2" id="productSubtitle"></p>
       <div class="cat-tabs reveal reveal-up delay-3" id="catTabs"></div>
-      <div class="prod-search-wrap reveal reveal-up delay-3">
-        <span class="prod-search-icon">🔍</span>
-        <input type="text" class="prod-search" id="prodSearch" placeholder="搜索产品名称、分类或描述...">
+      <div class="search-panel reveal reveal-up delay-3">
+        <div class="search-box">
+          <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="16" y1="16" x2="22" y2="22"/></svg>
+          <input type="text" class="search-input" id="prodSearch" placeholder="搜索产品名称、分类、关键词...">
+          <button class="search-clear" id="searchClear" aria-label="清除搜索">&times;</button>
+        </div>
+        <div class="search-info">
+          <span class="search-count" id="searchCount"></span>
+          <div class="search-tags" id="searchTags"></div>
+        </div>
       </div>
       <div class="prod-grid reveal-stagger" id="prodGrid"></div>
+      <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
+        <button class="btn btn-outline load-more-btn" id="loadMoreBtn">加载更多</button>
+      </div>
     </div>
   </section>
 
   <!-- ===== 外贸物流横幅图 ===== -->
   <section class="trade-banner" id="tradeBanner1">
-    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=1600&h=500&fit=crop" alt="Global Logistics" loading="lazy">
+    <img src="images/banner-containers.jpg" alt="Global Logistics" loading="lazy">
     <div class="trade-banner-overlay">
       <div class="container">
         <div class="trade-banner-text">
@@ -842,7 +917,7 @@
 
   <!-- ===== 外贸仓储图 ===== -->
   <section class="trade-banner" id="tradeBanner2" style="height:320px">
-    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&h=500&fit=crop" alt="Warehouse Logistics" loading="lazy">
+    <img src="images/factory-quality.jpg" alt="Warehouse Logistics" loading="lazy">
     <div class="trade-banner-overlay" style="background:linear-gradient(to left,rgba(20,10,6,0.85),rgba(20,10,6,0.3),rgba(20,10,6,0.7))">
       <div class="container" style="text-align:right">
         <div class="trade-banner-text">
@@ -873,7 +948,7 @@
       <div class="contact-grid">
         <div class="contact-info reveal reveal-left" id="contactInfo"></div>
         <div class="contact-visual reveal reveal-right delay-1">
-          <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=700&h=600&fit=crop" alt="Global Trade" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl)" loading="lazy">
+          <img src="images/contact-trade.jpg" alt="Global Trade" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl)" loading="lazy">
         </div>
       </div>
     </div>

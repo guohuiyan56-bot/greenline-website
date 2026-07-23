@@ -11,6 +11,8 @@
   var lang = 'cn';
   var activeCat = 'all';
   var searchText = '';
+  var visibleCount = 24;
+  var PAGE_SIZE = 12;
 
   /* ===== Helpers ===== */
   function t(key) {
@@ -72,7 +74,7 @@
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
   });
-  document.querySelectorAll('a, button, .prod-card, .svc-card, .step, .testimonial, .cat-tab, .contact-item').forEach(function (el) {
+  document.querySelectorAll('a, button, .prod-card, .svc-card, .step, .testimonial, .cat-tab, .contact-item, .search-tag, .search-clear').forEach(function (el) {
     el.addEventListener('mouseenter', function () { cursor.classList.add('hover'); });
     el.addEventListener('mouseleave', function () { cursor.classList.remove('hover'); });
   });
@@ -221,9 +223,16 @@
   /* ===== Category filter + Search ===== */
   function filterProducts(cat) {
     activeCat = cat;
+    visibleCount = 24;
     document.querySelectorAll('.cat-tab').forEach(function (btn) {
       btn.classList.toggle('active', btn.getAttribute('data-cat') === cat);
     });
+    // 切换分类时清除搜索
+    searchText = '';
+    var si = document.getElementById('prodSearch');
+    if (si) si.value = '';
+    var sc = document.getElementById('searchClear');
+    if (sc) sc.classList.remove('visible');
     renderProductCards();
     setTimeout(function () {
       resetReveals();
@@ -232,11 +241,79 @@
 
   // 搜索框实时筛选
   var searchInput = document.getElementById('prodSearch');
+  var searchClearBtn = document.getElementById('searchClear');
+
+  function updateSearchUI() {
+    if (searchClearBtn) {
+      searchClearBtn.classList.toggle('visible', searchText.length > 0);
+    }
+  }
+
   searchInput.addEventListener('input', function () {
     searchText = this.value.toLowerCase().trim();
+    visibleCount = 24;
+    updateSearchUI();
+    // 清除分类筛选，让搜索覆盖所有产品
+    if (searchText && activeCat !== 'all') {
+      activeCat = 'all';
+      document.querySelectorAll('.cat-tab').forEach(function (btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-cat') === 'all');
+      });
+    }
     renderProductCards();
     setTimeout(function () { resetReveals(); }, 100);
   });
+
+  // 清除搜索按钮
+  searchClearBtn.addEventListener('click', function () {
+    searchInput.value = '';
+    searchText = '';
+    visibleCount = 24;
+    updateSearchUI();
+    renderProductCards();
+    searchInput.focus();
+  });
+
+  // 加载更多按钮
+  var loadMoreBtnEl = document.getElementById('loadMoreBtn');
+  if (loadMoreBtnEl) {
+    loadMoreBtnEl.addEventListener('click', function () {
+      visibleCount += PAGE_SIZE;
+      renderProductCards();
+      setTimeout(function () { resetReveals(); }, 100);
+    });
+  }
+
+  // 热搜标签点击
+  function initSearchTags() {
+    var tagsEl = document.getElementById('searchTags');
+    if (!tagsEl) return;
+    var tags = lang === 'cn'
+      ? ['家具', '五金', '酒店', '灯饰', '机械', '定制']
+      : ['Furniture', 'Hardware', 'Hotel', 'Lighting', 'Machinery', 'Custom'];
+    var html = '';
+    tags.forEach(function (tag) {
+      html += '<span class="search-tag" data-tag="' + tag + '">' + tag + '</span>';
+    });
+    tagsEl.innerHTML = html;
+    tagsEl.querySelectorAll('.search-tag').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var tag = this.getAttribute('data-tag');
+        searchInput.value = tag;
+        searchText = tag.toLowerCase();
+        visibleCount = 24;
+        updateSearchUI();
+        if (activeCat !== 'all') {
+          activeCat = 'all';
+          document.querySelectorAll('.cat-tab').forEach(function (btn) {
+            btn.classList.toggle('active', btn.getAttribute('data-cat') === 'all');
+          });
+        }
+        renderProductCards();
+        setTimeout(function () { resetReveals(); }, 100);
+      });
+    });
+  }
 
   /* ===== Form ===== */
   window.handleSubmit = function (e) {
@@ -324,8 +401,8 @@
     document.getElementById('productLabel').textContent = lang === 'cn' ? '产品中心' : 'Products';
     document.getElementById('productTitle').textContent = lang === 'cn' ? '精选产品' : 'Featured Products';
     document.getElementById('productSubtitle').textContent = lang === 'cn'
-      ? '覆盖六大品类，2,000+ 优质产品，满足您的多元采购需求'
-      : '6 major categories, 2,000+ quality products for all your sourcing needs';
+      ? '覆盖七大品类，100+ 细分产品，满足您的多元采购需求'
+      : '7 major categories, 100+ products for all your sourcing needs';
 
     var catHtml = '<button class="cat-tab active" data-cat="all">' + t('viewAll') + '</button>';
     d.categories.forEach(function (c) {
@@ -341,8 +418,11 @@
 
     // 更新搜索框 placeholder
     document.getElementById('prodSearch').placeholder = lang === 'cn'
-      ? '搜索产品名称、分类或描述...'
-      : 'Search products by name, category or description...';
+      ? '搜索产品名称、分类、关键词...'
+      : 'Search by name, category or keyword...';
+
+    // 初始化热搜标签
+    initSearchTags();
 
     renderProductCards();
   }
@@ -362,42 +442,55 @@
       return true;
     });
 
+    // 分页：只显示前 visibleCount 个
+    var visible = filtered.slice(0, visibleCount);
+
     var html = '';
     if (filtered.length === 0) {
       var msg = searchText
         ? (lang === 'cn' ? '没有找到匹配 "' + searchText + '" 的产品' : 'No products matching "' + searchText + '"')
         : (lang === 'cn' ? '暂无该分类产品' : 'No products in this category');
       html = '<div class="prod-no-result">' + msg + '</div>';
+    } else {
+      visible.forEach(function (p, idx) {
+        var cat = d.categories.find(function (c) { return c.id === p.category; });
+        var catName = cat ? dc(cat, 'name') : '';
+        var imgContent = '';
+        if (p.image) {
+          imgContent = '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">';
+        } else {
+          imgContent = '<div class="prod-card-img-placeholder">' + (cat ? cat.icon : '📦') + '</div>';
+        }
+        html +=
+          '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
+            '<div class="prod-card-img-wrap">' +
+              imgContent +
+              '<div class="prod-card-overlay">' +
+                '<div class="prod-card-quick">' + (lang === 'cn' ? '立即询价' : 'Inquire Now') + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="prod-card-body">' +
+              '<span class="prod-card-cat">' + catName + '</span>' +
+              '<div class="prod-card-name">' + dc(p, 'name') + '</div>' +
+              '<div class="prod-card-desc">' + dc(p, 'desc') + '</div>' +
+            '</div>' +
+          '</div>';
+      });
     }
-    filtered.forEach(function (p, idx) {
-      var cat = d.categories.find(function (c) { return c.id === p.category; });
-      var catName = cat ? dc(cat, 'name') : '';
-      var imgContent = '';
-      if (p.image) {
-        imgContent = '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">';
-      } else {
-        imgContent = '<div class="prod-card-img-placeholder">' + (cat ? cat.icon : '📦') + '</div>';
-      }
-      html +=
-        '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
-          '<div class="prod-card-img-wrap">' +
-            imgContent +
-            '<div class="prod-card-overlay">' +
-              '<div class="prod-card-quick">' + dc(d.hero, 'cta') + '</div>' +
-            '</div>' +
-          '</div>' +
-          '<div class="prod-card-body">' +
-            '<span class="prod-card-cat">' + catName + '</span>' +
-            '<div class="prod-card-name">' + dc(p, 'name') + '</div>' +
-            '<div class="prod-card-desc">' + dc(p, 'desc') + '</div>' +
-            '<div class="prod-card-row">' +
-              '<span class="prod-card-moq">' + (lang === 'cn' ? '起订：' : 'MOQ: ') + '<strong>' + p.moq + '</strong></span>' +
-              '<div class="prod-card-arrow">→</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>';
-    });
     document.getElementById('prodGrid').innerHTML = html;
+
+    // 显示/隐藏"加载更多"按钮
+    var loadMoreWrap = document.getElementById('loadMoreWrap');
+    if (loadMoreWrap) {
+      loadMoreWrap.style.display = (visibleCount < filtered.length) ? 'block' : 'none';
+      var loadMoreBtn = document.getElementById('loadMoreBtn');
+      if (loadMoreBtn) {
+        var remaining = filtered.length - visibleCount;
+        loadMoreBtn.textContent = lang === 'cn'
+          ? '加载更多（剩余 ' + remaining + ' 个）'
+          : 'Load More (' + remaining + ' more)';
+      }
+    }
   }
 
   function renderBanners() {
@@ -552,6 +645,14 @@
 
     document.getElementById('footerCopy').textContent = dc(f, 'copy');
   }
+
+  /* ===== 产品卡片点击 → 滚动到联系区域 ===== */
+  document.getElementById('prodGrid').addEventListener('click', function (e) {
+    var card = e.target.closest('.prod-card');
+    if (card) {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
   /* ===== Init ===== */
   generateDots();
