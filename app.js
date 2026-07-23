@@ -10,6 +10,7 @@
   var i18n = GT_I18N;
   var lang = 'cn';
   var activeCat = 'all';
+  var searchText = '';
 
   /* ===== Helpers ===== */
   function t(key) {
@@ -217,7 +218,7 @@
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* ===== Category filter ===== */
+  /* ===== Category filter + Search ===== */
   function filterProducts(cat) {
     activeCat = cat;
     document.querySelectorAll('.cat-tab').forEach(function (btn) {
@@ -228,6 +229,14 @@
       resetReveals();
     }, 100);
   }
+
+  // 搜索框实时筛选
+  var searchInput = document.getElementById('prodSearch');
+  searchInput.addEventListener('input', function () {
+    searchText = this.value.toLowerCase().trim();
+    renderProductCards();
+    setTimeout(function () { resetReveals(); }, 100);
+  });
 
   /* ===== Form ===== */
   window.handleSubmit = function (e) {
@@ -329,18 +338,36 @@
         filterProducts(this.getAttribute('data-cat'));
       });
     });
+
+    // 更新搜索框 placeholder
+    document.getElementById('prodSearch').placeholder = lang === 'cn'
+      ? '搜索产品名称、分类或描述...'
+      : 'Search products by name, category or description...';
+
     renderProductCards();
   }
 
   function renderProductCards() {
-    var filtered = activeCat === 'all'
-      ? d.products
-      : d.products.filter(function (p) { return p.category === activeCat; });
+    var filtered = d.products.filter(function (p) {
+      // 先按分类筛选
+      if (activeCat !== 'all' && p.category !== activeCat) return false;
+      // 再按搜索关键词筛选（名称、分类名、描述）
+      if (searchText) {
+        var cat = d.categories.find(function (c) { return c.id === p.category; });
+        var catNameCn = cat ? cat.name_cn : '';
+        var catNameEn = cat ? cat.name_en : '';
+        var matchText = (p.name_cn + ' ' + p.name_en + ' ' + p.desc_cn + ' ' + p.desc_en + ' ' + catNameCn + ' ' + catNameEn).toLowerCase();
+        if (matchText.indexOf(searchText) === -1) return false;
+      }
+      return true;
+    });
 
     var html = '';
     if (filtered.length === 0) {
-      html = '<div style="grid-column:1/-1;text-align:center;padding:80px;color:var(--c-text-muted);font-size:1.1rem;">' +
-        (lang === 'cn' ? '暂无该分类产品' : 'No products in this category') + '</div>';
+      var msg = searchText
+        ? (lang === 'cn' ? '没有找到匹配 "' + searchText + '" 的产品' : 'No products matching "' + searchText + '"')
+        : (lang === 'cn' ? '暂无该分类产品' : 'No products in this category');
+      html = '<div class="prod-no-result">' + msg + '</div>';
     }
     filtered.forEach(function (p, idx) {
       var cat = d.categories.find(function (c) { return c.id === p.category; });
