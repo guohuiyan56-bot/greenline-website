@@ -211,6 +211,11 @@
       padding:var(--header-h) 0 80px;overflow:hidden;
       background:var(--c-bg-hero);
     }
+    .hero::after{
+      content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+      background:url('https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=1600&h=900&fit=crop') center/cover no-repeat;
+      opacity:0.08;
+    }
     .hero-bg{
       position:absolute;inset:0;overflow:hidden;pointer-events:none;
     }
@@ -384,6 +389,26 @@
     }
     .prod-card:hover .prod-card-arrow{border-color:var(--c-primary);color:var(--c-primary);background:rgba(200,150,92,0.08)}
 
+    /* ===== 外贸横幅图 ===== */
+    .trade-banner{
+      position:relative;height:380px;overflow:hidden;
+    }
+    .trade-banner img{
+      width:100%;height:100%;object-fit:cover;
+    }
+    .trade-banner-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(to right,rgba(20,10,6,0.85),rgba(20,10,6,0.3),rgba(20,10,6,0.7));
+      display:flex;align-items:center;
+    }
+    .trade-banner-text h3{
+      font-size:2.2rem;font-weight:800;font-family:var(--font-display);
+      color:var(--c-text);margin-bottom:10px;
+    }
+    .trade-banner-text p{
+      font-size:1rem;color:var(--c-text-dim);max-width:500px;line-height:1.6;
+    }
+
     /* ===== 关于我们 ===== */
     .about-grid{
       display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;
@@ -497,6 +522,12 @@
     /* ===== 联系 ===== */
     .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
     .contact-info h3{font-size:1.8rem;font-weight:800;margin-bottom:24px;font-family:var(--font-display)}
+    .contact-visual{position:relative;overflow:hidden;border-radius:var(--radius-xl);min-height:400px}
+    .contact-visual::after{
+      content:'';position:absolute;inset:0;
+      background:linear-gradient(135deg,rgba(42,24,16,0.25),transparent 60%);
+      pointer-events:none;
+    }
     .contact-item{
       display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;
       padding:16px;border-radius:var(--radius-md);border:1px solid var(--c-border);
@@ -608,6 +639,8 @@
       .footer-grid{grid-template-columns:1fr 1fr}
     }
     @media(max-width:768px){
+      .trade-banner{height:240px}
+      .trade-banner-text h3{font-size:1.4rem}
       .nav-site-title,.nav-page-label{display:none}
       .nav-links{display:none}
       .nav-toggle{display:block}
@@ -708,6 +741,19 @@
     </div>
   </section>
 
+  <!-- ===== 外贸物流横幅图 ===== -->
+  <section class="trade-banner" id="tradeBanner1">
+    <img src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=1600&h=500&fit=crop" alt="Global Logistics" loading="lazy">
+    <div class="trade-banner-overlay">
+      <div class="container">
+        <div class="trade-banner-text">
+          <h3 id="bannerTitle">全球物流 · 直达交付</h3>
+          <p id="bannerSub">海运、空运、铁路多式联运，DDP 门到门服务</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== 关于我们 ===== -->
   <section class="sec" id="about" style="background:var(--c-bg-alt)">
     <div class="container">
@@ -761,6 +807,19 @@
     </div>
   </section>
 
+  <!-- ===== 外贸仓储图 ===== -->
+  <section class="trade-banner" id="tradeBanner2" style="height:320px">
+    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1600&h=500&fit=crop" alt="Warehouse Logistics" loading="lazy">
+    <div class="trade-banner-overlay" style="background:linear-gradient(to left,rgba(20,10,6,0.85),rgba(20,10,6,0.3),rgba(20,10,6,0.7))">
+      <div class="container" style="text-align:right">
+        <div class="trade-banner-text">
+          <h3 id="banner2Title">品质管控 · 全程可追溯</h3>
+          <p id="banner2Sub" style="margin-left:auto">SGS/BV 第三方验货，AQL 国际抽检标准</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== 合作伙伴 ===== -->
   <section class="sec" id="partners" style="padding:80px 0;background:var(--c-bg-alt)">
     <div class="container reveal reveal-scale">
@@ -780,15 +839,9 @@
       <p class="sec-subtitle reveal reveal-up delay-2" id="contactSubtitle"></p>
       <div class="contact-grid">
         <div class="contact-info reveal reveal-left" id="contactInfo"></div>
-        <form class="contact-form reveal reveal-right delay-1" onsubmit="return handleSubmit(event)">
-          <div class="form-row">
-            <div class="form-group"><label id="lblName">Name</label><input type="text" id="fName" required></div>
-            <div class="form-group"><label id="lblEmail">Email</label><input type="email" id="fEmail" required></div>
-          </div>
-          <div class="form-group"><label id="lblPhone">Phone</label><input type="tel" id="fPhone"></div>
-          <div class="form-group"><label id="lblMsg">Message</label><textarea id="fMsg" required></textarea></div>
-          <button type="submit" class="form-submit" id="fSubmit"></button>
-        </form>
+        <div class="contact-visual reveal reveal-right delay-1">
+          <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=700&h=600&fit=crop" alt="Global Trade" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl)" loading="lazy">
+        </div>
       </div>
     </div>
   </section>

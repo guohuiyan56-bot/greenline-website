@@ -77,16 +77,18 @@
   });
 
   /* ===== Scroll Spy — 滚动时自动高亮当前区块对应的导航 ===== */
-  var sectionIds = ['home', 'statsSec', 'products', 'about', 'service', 'process', 'testimonials', 'partners', 'contact'];
+  var sectionIds = ['home', 'statsSec', 'products', 'tradeBanner1', 'about', 'service', 'process', 'testimonials', 'tradeBanner2', 'partners', 'contact'];
   // 每个区块对应哪个导航项
   var sectionToNav = {
     'home': 'home',
     'statsSec': 'home',
     'products': 'products',
+    'tradeBanner1': 'products',
     'about': 'about',
     'service': 'service',
     'process': 'service',
     'testimonials': 'testimonials',
+    'tradeBanner2': 'testimonials',
     'partners': 'testimonials',
     'contact': 'contact'
   };
@@ -261,6 +263,7 @@
     renderHero();
     renderStats();
     renderProducts();
+    renderBanners();
     renderAbout();
     renderServices();
     renderProcess();
@@ -342,10 +345,16 @@
     filtered.forEach(function (p, idx) {
       var cat = d.categories.find(function (c) { return c.id === p.category; });
       var catName = cat ? dc(cat, 'name') : '';
+      var imgContent = '';
+      if (p.image) {
+        imgContent = '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">';
+      } else {
+        imgContent = '<div class="prod-card-img-placeholder">' + (cat ? cat.icon : '📦') + '</div>';
+      }
       html +=
         '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
           '<div class="prod-card-img-wrap">' +
-            '<div class="prod-card-img-placeholder">' + (cat ? cat.icon : '📦') + '</div>' +
+            imgContent +
             '<div class="prod-card-overlay">' +
               '<div class="prod-card-quick">' + dc(d.hero, 'cta') + '</div>' +
             '</div>' +
@@ -364,6 +373,17 @@
     document.getElementById('prodGrid').innerHTML = html;
   }
 
+  function renderBanners() {
+    var b1t = document.getElementById('bannerTitle');
+    var b1s = document.getElementById('bannerSub');
+    var b2t = document.getElementById('banner2Title');
+    var b2s = document.getElementById('banner2Sub');
+    if (b1t) b1t.textContent = lang === 'cn' ? '全球物流 · 直达交付' : 'Global Logistics · Direct Delivery';
+    if (b1s) b1s.textContent = lang === 'cn' ? '海运、空运、铁路多式联运，DDP 门到门服务' : 'Sea, air, rail multimodal transport, DDP door-to-door';
+    if (b2t) b2t.textContent = lang === 'cn' ? '品质管控 · 全程可追溯' : 'Quality Control · Fully Traceable';
+    if (b2s) b2s.textContent = lang === 'cn' ? 'SGS/BV 第三方验货，AQL 国际抽检标准' : 'SGS/BV third-party inspection, AQL international standards';
+  }
+
   function renderAbout() {
     document.getElementById('aboutLabel').textContent = dc(d.about, 'label');
     document.getElementById('aboutHeading').innerHTML = dc(d.about, 'heading').replace(/\n/g, '<br>');
@@ -371,6 +391,12 @@
     document.getElementById('aboutP2').textContent = dc(d.about, 'p2');
     document.getElementById('aboutBadgeVal').textContent = d.about.badge_val;
     document.getElementById('aboutBadgeLbl').textContent = dc(d.about, 'badge_lbl');
+
+    // 使用真实图片替换 emoji
+    var aboutImg = document.getElementById('aboutImg');
+    if (d.about.image && aboutImg) {
+      aboutImg.innerHTML = '<img src="' + d.about.image + '" alt="' + dc(d.about, 'label') + '" style="width:100%;height:100%;object-fit:cover;border-radius:var(--radius-xl)">';
+    }
 
     var ctaBtn = document.getElementById('aboutCta');
     ctaBtn.textContent = dc(d.about, 'cta');
@@ -471,13 +497,6 @@
         '</div>';
     });
     document.getElementById('contactInfo').innerHTML = infoHtml;
-
-    var f = d.contact.form;
-    document.getElementById('lblName').textContent = dc(f, 'name');
-    document.getElementById('lblEmail').textContent = dc(f, 'email');
-    document.getElementById('lblPhone').textContent = dc(f, 'phone');
-    document.getElementById('lblMsg').textContent = dc(f, 'msg');
-    document.getElementById('fSubmit').textContent = dc(f, 'submit');
   }
 
   function renderFooter() {
