@@ -39,7 +39,7 @@
         for (var j = 0; j < d.nav.length; j++) {
           if (d.nav[j].id === sectionId) { item = d.nav[j]; break; }
         }
-        if (item) links[i].textContent = dc(item, '');
+        if (item) links[i].textContent = item[lang] || dc(item, 'name');
       }
     });
   }
