@@ -7,17 +7,17 @@ var GT_DATA = {
 
   /* ---- 公司 ---- */
   company: {
-    name_cn: "绿线贸易",
+    name_cn: "广州本润贸易",
     name_en: "GreenLine",
     slogan_cn: "一站式全球采购平台",
     slogan_en: "One-Stop Global Sourcing Platform",
-    email: "info@greenline-trade.com",
-    phone: "+86 400-888-6688",
-    whatsapp: "+86 138-0000-0000",
-    wechat: "GreenLine_Official",
-    address_cn: "中国广州市天河区珠江新城华夏路 88 号\n国际贸易中心 38 楼",
-    address_en: "38F, International Trade Center\n88 Huaxia Rd, Zhujiang New Town\nTianhe, Guangzhou, China",
-    year: 2012
+    email: "info@greenlineint.com",
+    phone: "+86 136-3224-2800",
+    whatsapp: "+86 138-3224-2800",
+    wechat: "Victoria Guo  A13632242800",
+    address_cn: "中国广东省广州市越秀区环市中路316号金鹰大厦7楼711",
+    address_en: "Room 711, 7th Floor, Golden Eagle Building,316 Huanshi Middle Road, Yuexiu District,Guangzhou City, Guangdong Province, P.R.ChinaPostal Code: 510050",
+    year: 2015
   },
 
   /* ---- 导航 ---- */
@@ -53,7 +53,7 @@ var GT_DATA = {
 
   /* ---- 数据统计 ---- */
   stats: [
-    { value: "13",     suffix: "+", label_cn: "年行业经验",  label_en: "Years Experience" },
+    { value: "11",     suffix: "+", label_cn: "年行业经验",  label_en: "Years Experience" },
     { value: "2,000",  suffix: "+", label_cn: "认证供应商",  label_en: "Verified Suppliers" },
     { value: "50",     suffix: "K+",label_cn: "产品 SKU",   label_en: "Product SKUs" },
     { value: "300",    suffix: "+", label_cn: "服务客户",    label_en: "Clients Served" }
@@ -69,25 +69,18 @@ var GT_DATA = {
     { id: "food",       name_cn: "食品饮料",   name_en: "Food & Beverage",icon: "🍷" }
   ],
 
-  /* ---- 产品列表 ---- */
-  products: [
-    { id:"p01", category:"machinery",  name_cn:"智能数控机床",    name_en:"Smart CNC Machine",         desc_cn:"高精度五轴联动，适用精密零部件加工", desc_en:"5-axis high-precision CNC for precision parts",      moq:"1 台",   image:"" },
-    { id:"p02", category:"machinery",  name_cn:"全自动包装线",    name_en:"Auto Packaging Line",       desc_cn:"每小时 5000 件，食品/日化通用",     desc_en:"5000 pcs/hr, suitable for food & daily chemicals",   moq:"1 套",   image:"" },
-    { id:"p03", category:"machinery",  name_cn:"激光切割机",      name_en:"Laser Cutting Machine",     desc_cn:"光纤激光，金属/非金属通用",         desc_en:"Fiber laser, metal & non-metal",                     moq:"1 台",   image:"" },
-    { id:"p04", category:"electronics",name_cn:"智能家居控制面板", name_en:"Smart Home Panel",          desc_cn:"Zigbee/WiFi双模，全屋智能中控",    desc_en:"Dual-mode Zigbee/WiFi, whole-house smart control",   moq:"500 件", image:"" },
-    { id:"p05", category:"electronics",name_cn:"工业触摸屏",      name_en:"Industrial Touch Screen",   desc_cn:"7-21寸，IP65防水防尘",             desc_en:"7-21 inch, IP65 rated",                              moq:"100 件", image:"" },
-    { id:"p06", category:"electronics",name_cn:"LED 驱动电源",    name_en:"LED Driver Power Supply",   desc_cn:"恒流/恒压可选，UL/CE 认证",        desc_en:"CC/CV options, UL/CE certified",                     moq:"1,000 件",image:"" },
-    { id:"p07", category:"textile",    name_cn:"有机棉 T 恤",     name_en:"Organic Cotton T-Shirt",    desc_cn:"GOTS 认证，200g 重磅面料",         desc_en:"GOTS certified, 200gsm heavyweight",                 moq:"500 件", image:"" },
-    { id:"p08", category:"textile",    name_cn:"定制工装",        name_en:"Custom Workwear",           desc_cn:"企业LOGO定制，防火/防静电可选",    desc_en:"Custom logo, fire-resistant/anti-static options",    moq:"200 套", image:"" },
-    { id:"p09", category:"textile",    name_cn:"功能性运动面料",   name_en:"Performance Sport Fabric",  desc_cn:"吸湿排汗，UPF50+防晒",            desc_en:"Moisture-wicking, UPF50+ sun protection",           moq:"1,000 米",image:"" },
-    { id:"p10", category:"home",       name_cn:"铝合金门窗",      name_en:"Aluminum Windows & Doors",  desc_cn:"断桥隔热，双层中空玻璃",           desc_en:"Thermal break, double-glazed",                       moq:"50 ㎡",   image:"" },
-    { id:"p11", category:"home",       name_cn:"陶瓷瓷砖",        name_en:"Porcelain Tiles",           desc_cn:"600x1200mm 大板，岩板质感",        desc_en:"600x1200mm large format, sintered stone texture",    moq:"200 ㎡",  image:"" },
-    { id:"p12", category:"home",       name_cn:"LED 商业照明",    name_en:"LED Commercial Lighting",   desc_cn:"CRI>90，5年质保",                 desc_en:"CRI>90, 5-year warranty",                            moq:"100 件", image:"" },
-    { id:"p13", category:"chemical",   name_cn:"钛白粉 R996",     name_en:"Titanium Dioxide R996",     desc_cn:"金红石型，涂料/塑料通用",          desc_en:"Rutile grade, coatings & plastics",                  moq:"5 吨",    image:"" },
-    { id:"p14", category:"chemical",   name_cn:"活性炭",          name_en:"Activated Carbon",          desc_cn:"椰壳/煤质可选，碘值>1000",         desc_en:"Coconut/coal based, iodine >1000",                   moq:"1 吨",    image:"" },
-    { id:"p15", category:"food",       name_cn:"有机绿茶",        name_en:"Organic Green Tea",         desc_cn:"欧盟/美国有机认证，高山茶园",      desc_en:"EU/USDA organic, high-mountain plantation",          moq:"50 kg",   image:"" },
-    { id:"p16", category:"food",       name_cn:"冻干咖啡粉",      name_en:"Freeze-Dried Coffee",       desc_cn:"100%阿拉比卡，速溶冷萃",          desc_en:"100% Arabica, instant cold brew",                    moq:"100 kg",  image:"" }
-  ],
+ /* ---- 产品列表 ---- */
+products: [
+  { id:"p01", category:"home",      name_cn:"家具",          name_en:"Furniture",               desc_cn:"各类民用、商用家具，支持尺寸与款式定制",        desc_en:"Residential & commercial furniture, custom size & style available", moq:"1套",    image:"" },
+  { id:"p02", category:"home",      name_cn:"卫浴洁具",      name_en:"Sanitary Ware",           desc_cn:"陶瓷卫浴、浴室柜、花洒五金整套供应",            desc_en:"Ceramic sanitary ware, bathroom cabinet, shower sets",             moq:"50件",   image:"" },
+  { id:"p03", category:"home",      name_cn:"灯饰灯具",      name_en:"Lighting Fixtures",       desc_cn:"室内吊灯、筒灯、酒店工程照明，可定制",          desc_en:"Pendant lights, downlights, hotel project lighting, OEM supported", moq:"100件", image:"" },
+  { id:"p04", category:"gift",      name_cn:"节日礼品",      name_en:"Holiday Gifts",           desc_cn:"节庆文创礼品，支持LOGO印刷定制",                desc_en:"Festival souvenir gifts, custom logo printing available",          moq:"300件",  image:"" },
+  { id:"p05", category:"machinery", name_cn:"工业机械设备",  name_en:"Industrial Machinery",    desc_cn:"加工设备、生产线设备，按需方案配置",            desc_en:"Processing equipment & production lines, customized solution",    moq:"1台",    image:"" },
+  { id:"p06", category:"hardware",  name_cn:"五金制品",      name_en:"Hardware Products",       desc_cn:"家具五金、建筑五金、精密冲压配件",              desc_en:"Furniture hardware, building hardware, precision stamping parts", moq:"1000件", image:"" },
+  { id:"p07", category:"hotel",     name_cn:"酒店用品",      name_en:"Hotel Supplies",          desc_cn:"客房布草、易耗品、酒店成套工程供货",            desc_en:"Hotel linen, amenities, one-stop supply for hotel projects",       moq:"1批",    image:"" },
+  { id:"p08", category:"project",   name_cn:"工程配套服务",  name_en:"Engineering Services",    desc_cn:"工装、酒店、地产整体项目配套解决方案",            desc_en:"Complete supporting solution for commercial & real estate projects",moq:"1项",    image:"" },
+  { id:"p09", category:"custom",     name_cn:"定制加工服务",  name_en:"Custom Manufacturing",     desc_cn:"来图来样定制，OEM/ODM一站式生产",               desc_en:"Custom production by drawings & samples, OEM & ODM service",        moq:"协商",   image:"" }
+],
 
   /* ---- 关于 ---- */
   about: {
@@ -196,22 +189,14 @@ var GT_DATA = {
       { icon:"📞", label_cn:"电话", label_en:"Phone",    value:"+86 400-888-6688" },
       { icon:"📧", label_cn:"邮箱", label_en:"Email",    value:"info@greenline-trade.com" },
       { icon:"💬", label_cn:"微信", label_en:"WeChat",   value:"GreenLine_Official" },
-      { icon:"📍", label_cn:"地址", label_en:"Address",  value_cn:"中国广州市天河区珠江新城\n华夏路 88 号国际贸易中心 38 楼", value_en:"38F, International Trade Center\n88 Huaxia Rd, Zhujiang New Town\nTianhe, Guangzhou, China" }
+      { icon:"📍", label_cn:"地址", label_en:"Address",  value_cn:"中国广州市越秀区环市中路316号金鹰大厦7楼711", value_en:"Room 711, 7th Floor, Golden Eagle Building,
+316 Huanshi Middle Road, Yuexiu District, Guangzhou City, Guangdong Province, P.R.ChinaPostal Code: 510050" }
     ],
-    form: {
-      name_cn: "您的姓名",      name_en: "Your Name",
-      email_cn: "您的邮箱",     email_en: "Your Email",
-      phone_cn: "您的电话",     phone_en: "Your Phone",
-      msg_cn: "请描述您的需求", msg_en: "Describe your needs",
-      submit_cn: "提交咨询",    submit_en: "Submit Inquiry",
-      success_cn: "感谢您的咨询！我们会尽快与您联系。",
-      success_en: "Thank you! We'll contact you shortly."
-    }
   },
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "GreenLine 绿线贸易 — 值得信赖的一站式全球采购平台。自 2012 年成立以来，已服务 300+ 国际客户，覆盖机械设备、电子电器、纺织服装、家居建材、化工原料、食品饮料六大品类。",
+    about_cn: "GreenLine 绿线贸易 — 值得信赖的一站式全球采购平台。自 2015 年成立以来，已服务 300+ 国际客户，覆盖机械设备、电子电器、纺织服装、家居建材、化工原料、食品饮料六大品类。",
     about_en: "GreenLine — Your trusted one-stop global sourcing platform. Since 2012, we've served 300+ international clients across 6 major categories including machinery, electronics, textiles, home & building, chemicals, and food & beverage.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
@@ -219,7 +204,7 @@ var GT_DATA = {
     categories_en: "Categories",
     contact_cn: "联系方式",
     contact_en: "Contact",
-    copy_cn: "© 2025 GreenLine 绿线贸易. 版权所有.",
+    copy_cn: "© 2025 GreenLine 广州本润贸易有限公司. 版权所有.",
     copy_en: "© 2025 GreenLine. All rights reserved."
   }
 };

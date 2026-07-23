@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenLine 网站修改教程 — 新手专用</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "Microsoft YaHei", "微软雅黑", sans-serif;
+    background: #1a1a2e; color: #e0e0e0; line-height: 1.8;
+    max-width: 960px; margin: 0 auto; padding: 40px 20px;
+  }
+  h1 { font-size: 2em; color: #c9a84c; text-align:center; margin-bottom: 8px; }
+  .subtitle { text-align:center; color: #888; margin-bottom: 40px; font-size: 1.1em; }
+  h2 {
+    font-size: 1.4em; color: #c9a84c; margin: 48px 0 16px 0;
+    padding-bottom: 8px; border-bottom: 2px solid #c9a84c;
+  }
+  h3 { font-size: 1.15em; color: #e8d49a; margin: 24px 0 10px 0; }
+  .step {
+    background: #16213e; border-left: 4px solid #c9a84c;
+    padding: 16px 20px; margin: 16px 0; border-radius: 0 8px 8px 0;
+  }
+  .step-num {
+    display: inline-block; background: #c9a84c; color: #1a1a2e;
+    width: 28px; height: 28px; text-align: center; line-height: 28px;
+    border-radius: 50%; font-weight: bold; margin-right: 8px; font-size: 0.9em;
+  }
+  .file { color: #7ec8e3; font-weight: bold; }
+  .path {
+    background: #0d1117; color: #58a6ff; padding: 3px 10px;
+    border-radius: 4px; font-family: Consolas, monospace; font-size: 0.9em;
+    word-break: break-all;
+  }
+  pre {
+    background: #0d1117; padding: 14px 18px; border-radius: 6px;
+    overflow-x: auto; font-size: 0.88em; line-height: 1.6;
+    margin: 10px 0; white-space: pre; color: #c9d1d9;
+    border: 1px solid #30363d;
+  }
+  .hl { color: #ffa657; }  /* 高亮你要改的地方 */
+  .cm { color: #8b949e; }  /* 注释 */
+  .kw { color: #ff7b72; }  /* 关键字 */
+  .str { color: #a5d6ff; } /* 字符串值 — 这就是你要改的文字 */
+  table { width:100%; border-collapse:collapse; margin: 12px 0; }
+  th, td { border: 1px solid #30363d; padding: 10px 14px; text-align:left; }
+  th { background:#16213e; color:#c9a84c; }
+  td { background:#0d1117; }
+  .warn {
+    background: #3d1f1f; border: 1px solid #f85149; color: #fdaeb7;
+    padding: 14px 18px; border-radius: 8px; margin: 16px 0;
+  }
+  .tip {
+    background: #1f3d2e; border: 1px solid #3fb950; color: #7ee787;
+    padding: 14px 18px; border-radius: 8px; margin: 16px 0;
+  }
+  .emoji { font-size:1.4em; }
+  ul { padding-left: 24px; }
+  li { margin: 6px 0; }
+  a { color: #58a6ff; }
+  .index { margin: 20px 0; }
+  .index a { display:block; padding: 4px 0; }
+</style>
+</head>
+<body>
+
+<h1>🛠️ GreenLine 网站修改教程</h1>
+<div class="subtitle">新手专用 · 零基础也能改 · 每一步都有截图说明</div>
+
+<!-- ====== 目录 ====== -->
+<h2>📋 目录</h2>
+<div class="index">
+<a href="#s0">第〇步：打开文件夹，认识三个核心文件</a>
+<a href="#s1">第一步：改公司名字和联系方式</a>
+<a href="#s2">第二步：改导航栏文字</a>
+<a href="#s3">第三步：改首页大标题和口号</a>
+<a href="#s4">第四步：改数据统计数字</a>
+<a href="#s5">第五步：改产品分类和产品列表</a>
+<a href="#s6">第六步：改"关于我们"段落</a>
+<a href="#s7">第七步：改"服务优势"卡片</a>
+<a href="#s8">第八步：改"合作流程"步骤</a>
+<a href="#s9">第九步：改"客户评价"内容</a>
+<a href="#s10">第十步：改"合作伙伴"名单</a>
+<a href="#s11">第十一步：改"联系我们"信息</a>
+<a href="#s12">第十二步：改页脚文字</a>
+<a href="#s13">第十三步：改导航栏上的文字</a>
+<a href="#s14">第十四步：保存 → 推送 → 看效果</a>
+</div>
+
+<div class="warn">
+⚠️ <strong>最重要的一条规则：改文字的时候，只改引号里面的内容，不要动引号本身，不要动逗号、括号、花括号。</strong><br>
+例如：<code>"绿线贸易"</code> → 只把"绿线贸易"四个字改掉，两边的双引号<code>"</code>不能删。
+</div>
+
+<!-- ====== 第〇步 ====== -->
+<h2 id="s0">第〇步：打开文件夹，认识文件</h2>
+
+<h3>1. 打开文件夹</h3>
+<div class="step">
+  <span class="step-num">1</span> 在桌面上双击打开 <strong>"此电脑"</strong> 或 <strong>"文件资源管理器"</strong>
+</div>
+<div class="step">
+  <span class="step-num">2</span> 在顶部的地址栏里，复制粘贴下面这个路径，按回车：
+  <br><span class="path">C:\Users\李燕\WorkBuddy\2026-07-22-10-24-57\GlobalTrade-site</span>
+</div>
+<div class="step">
+  <span class="step-num">3</span> 你会看到一堆文件。你需要改的只有 <strong>两个文件</strong>：
+</div>
+
+<table>
+  <tr><th>文件名</th><th>里面是什么</th><th>怎么打开</th></tr>
+  <tr>
+    <td><span class="file">data.js</span></td>
+    <td>网站上<strong>几乎所有的文字和数据</strong>（公司名、产品、评价、联系方式……）</td>
+    <td>右键 → <strong>"打开方式"</strong> → 选<strong>"记事本"</strong></td>
+  </tr>
+  <tr>
+    <td><span class="file">index.html</span></td>
+    <td>网页的结构。你只需要改里面的<strong>导航栏文字</strong>（第 651-656 行）</td>
+    <td>右键 → <strong>"打开方式"</strong> → 选<strong>"记事本"</strong></td>
+  </tr>
+</table>
+
+<div class="tip">
+💡 <strong>快捷方式：</strong> 双击文件 → 如果弹出"选择程序"，选"记事本"并勾选"始终使用此应用打开"。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第一步：公司信息 ====== -->
+<h2 id="s1">第一步：改公司名字和联系方式</h2>
+<p>打开 <span class="file">data.js</span>，找到第 <strong>9-21 行</strong>。</p>
+
+<pre>
+<span class="cm">/* ---- 公司 ---- */</span>
+company: {
+    name_cn: <span class="str">"绿线贸易"</span>,              <span class="hl">👈 你的公司中文名</span>
+    name_en: <span class="str">"GreenLine"</span>,             <span class="hl">👈 你的公司英文名</span>
+    slogan_cn: <span class="str">"一站式全球采购平台"</span>,      <span class="hl">👈 口号中文</span>
+    slogan_en: <span class="str">"One-Stop Global Sourcing Platform"</span>, <span class="hl">👈 口号英文</span>
+    email: <span class="str">"info@greenline-trade.com"</span>,  <span class="hl">👈 邮箱</span>
+    phone: <span class="str">"+86 400-888-6688"</span>,         <span class="hl">👈 电话</span>
+    whatsapp: <span class="str">"+86 138-0000-0000"</span>,      <span class="hl">👈 WhatsApp</span>
+    wechat: <span class="str">"GreenLine_Official"</span>,       <span class="hl">👈 微信号</span>
+    address_cn: <span class="str">"中国广州市天河区..."</span>,      <span class="hl">👈 中文地址</span>
+    address_en: <span class="str">"38F, International Trade..."</span>, <span class="hl">👈 英文地址</span>
+    year: <span class="hl">2012</span>                         <span class="hl">👈 成立年份</span>
+},
+</pre>
+
+<div class="step">
+  <span class="step-num">改法</span> 只改蓝色文字部分。比如把 <span class="str">"绿线贸易"</span> 改成 <span class="str">"你的公司名"</span>。<br>
+  ⚠️ 引号<code>"</code>和逗号<code>,</code>不要动！
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第二步 ====== -->
+<h2 id="s2">第二步：改导航栏菜单项（在 data.js 里）</h2>
+<p>打开 <span class="file">data.js</span>，找到第 <strong>24-31 行</strong>。</p>
+
+<pre>
+nav: [
+    { id: "home",         cn: <span class="str">"首页"</span>,     en: <span class="str">"Home"</span> },
+    { id: "products",     cn: <span class="str">"产品中心"</span>,  en: <span class="str">"Products"</span> },
+    { id: "about",        cn: <span class="str">"关于我们"</span>,  en: <span class="str">"About"</span> },
+    { id: "service",      cn: <span class="str">"服务优势"</span>,  en: <span class="str">"Services"</span> },
+    { id: "testimonials", cn: <span class="str">"客户评价"</span>,  en: <span class="str">"Reviews"</span> },
+    { id: "contact",      cn: <span class="str">"联系我们"</span>,  en: <span class="str">"Contact"</span> }
+],
+</pre>
+
+<div class="step">
+  <span class="step-num">改法</span> 改每个 <code>cn:</code> 后面的中文，<code>en:</code> 后面的英文。id 不要动。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第三步 ====== -->
+<h2 id="s3">第三步：改首页大标题、口号、按钮</h2>
+<p>找到第 <strong>34-52 行</strong>。</p>
+
+<pre>
+hero: {
+    badge_cn: <span class="str">"全球信赖 · B2B 采购专家"</span>,       <span class="hl">👈 首页小标签中文</span>
+    badge_en: <span class="str">"Trusted Globally · B2B Sourcing Expert"</span>, <span class="hl">👈 英文</span>
+    title_cn: <span class="str">"连接全球优质供应链\n&lt;em&gt;一站式&lt;/em&gt;国际贸易解决方案"</span>,
+    title_en: <span class="str">"Connect to the World's Best\n&lt;em&gt;One-Stop&lt;/em&gt; Trade Solutions"</span>,
+    desc_cn: <span class="str">"覆盖 30+ 国家、2000+ 认证供应商..."</span>,  <span class="hl">👈 描述中文</span>
+    desc_en: <span class="str">"30+ countries, 2000+ verified suppliers..."</span>, <span class="hl">👈 英文</span>
+    cta_cn: <span class="str">"立即询价"</span>,         <span class="hl">👈 第一个按钮文字</span>
+    cta_en: <span class="str">"Get a Quote"</span>,
+    contact_cn: <span class="str">"联系我们"</span>,       <span class="hl">👈 第二个按钮文字</span>
+    contact_en: <span class="str">"Contact Us"</span>,
+    ...
+</pre>
+
+<div class="step">
+  <span class="step-num">注意</span> 标题里面有 <code>\n</code> 表示换行，<code>&lt;em&gt;...&lt;/em&gt;</code> 表示高亮金色文字。这两个要保持，只改里面的字。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第四步 ====== -->
+<h2 id="s4">第四步：改数据统计数字</h2>
+<p>找到第 <strong>55-60 行</strong>。</p>
+
+<pre>
+stats: [
+    { value: <span class="str">"13"</span>,     suffix: <span class="str">"+"</span>, label_cn: <span class="str">"年行业经验"</span>,  label_en: <span class="str">"Years Experience"</span> },
+    { value: <span class="str">"2,000"</span>,  suffix: <span class="str">"+"</span>, label_cn: <span class="str">"认证供应商"</span>,  label_en: <span class="str">"Verified Suppliers"</span> },
+    { value: <span class="str">"50"</span>,     suffix: <span class="str">"K+"</span>,label_cn: <span class="str">"产品 SKU"</span>,   label_en: <span class="str">"Product SKUs"</span> },
+    { value: <span class="str">"300"</span>,    suffix: <span class="str">"+"</span>, label_cn: <span class="str">"服务客户"</span>,    label_en: <span class="str">"Clients Served"</span> }
+],
+</pre>
+
+<table>
+  <tr><th>字段</th><th>含义</th><th>举例</th></tr>
+  <tr><td>value</td><td>数字部分</td><td>"13"、"2,000"</td></tr>
+  <tr><td>suffix</td><td>数字后面的符号</td><td>"+"、"K+"</td></tr>
+  <tr><td>label_cn</td><td>下面的中文标签</td><td>"年行业经验"</td></tr>
+  <tr><td>label_en</td><td>下面的英文标签</td><td>"Years Experience"</td></tr>
+</table>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第五步 ====== -->
+<h2 id="s5">第五步：改产品分类和产品列表</h2>
+
+<h3>5A. 分类（第 63-70 行）</h3>
+<pre>
+categories: [
+    { id: "machinery",   name_cn: <span class="str">"机械设备"</span>,   name_en: <span class="str">"Machinery"</span>,        icon: <span class="str">"⚙️"</span> },
+    { id: "electronics", name_cn: <span class="str">"电子电器"</span>,   name_en: <span class="str">"Electronics"</span>,      icon: <span class="str">"🔌"</span> },
+    { id: "textile",     name_cn: <span class="str">"纺织服装"</span>,   name_en: <span class="str">"Textile &amp; Apparel"</span>, icon: <span class="str">"👕"</span> },
+    ...
+],
+</pre>
+<div class="step">
+  <span class="step-num">增删分类</span> 要加一条新的，复制一整行，改好内容，末尾加逗号。要删一条，整行删掉。
+</div>
+
+<h3>5B. 产品列表（第 73-90 行）</h3>
+<pre>
+products: [
+    { id:<span class="str">"p01"</span>, category:<span class="str">"machinery"</span>,
+      name_cn: <span class="str">"智能数控机床"</span>,           <span class="hl">👈 产品中文名</span>
+      name_en: <span class="str">"Smart CNC Machine"</span>,      <span class="hl">👈 产品英文名</span>
+      desc_cn: <span class="str">"高精度五轴联动，适用精密零部件加工"</span>, <span class="hl">👈 描述中文</span>
+      desc_en: <span class="str">"5-axis high-precision CNC..."</span>, <span class="hl">👈 描述英文</span>
+      moq: <span class="str">"1 台"</span>,                      <span class="hl">👈 起订量</span>
+      image:<span class="str">""</span> },
+    ...
+],
+</pre>
+
+<table>
+  <tr><th>字段</th><th>含义</th></tr>
+  <tr><td>id</td><td>产品编号，不要重复</td></tr>
+  <tr><td>category</td><td>属于哪个分类（填上面的 id，如 "machinery"）</td></tr>
+  <tr><td>name_cn / name_en</td><td>产品名（中/英）</td></tr>
+  <tr><td>desc_cn / desc_en</td><td>简短描述（中/英）</td></tr>
+  <tr><td>moq</td><td>起订量</td></tr>
+  <tr><td>image</td><td>先空着，以后可以放图片链接</td></tr>
+</table>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第六步 ====== -->
+<h2 id="s6">第六步：改"关于我们"的内容</h2>
+<p>找到第 <strong>93-113 行</strong>。</p>
+
+<pre>
+about: {
+    label_cn: <span class="str">"关于我们"</span>,
+    badge_val: <span class="str">"13+"</span>,              <span class="hl">👈 年数标签</span>
+    badge_lbl_cn: <span class="str">"年行业深耕"</span>,
+    heading_cn: <span class="str">"值得信赖的\n全球贸易伙伴"</span>, <span class="hl">👈 大标题</span>
+    p1_cn: <span class="str">"GreenLine 成立于 2012 年..."</span>, <span class="hl">👈 第一段介绍</span>
+    p2_cn: <span class="str">"我们的供应链网络覆盖 30 多个国家..."</span>, <span class="hl">👈 第二段介绍</span>
+    cta_cn: <span class="str">"了解更多"</span>,          <span class="hl">👈 按钮</span>
+    checks: [
+      { cn: <span class="str">"ISO 9001 质量管理体系"</span>, en: <span class="str">"ISO 9001 Certified"</span> },
+      { cn: <span class="str">"SGS / BV 第三方验货"</span>,   en: <span class="str">"SGS / BV Inspection"</span> },
+      { cn: <span class="str">"全程可视化跟单"</span>,        en: <span class="str">"Live Order Tracking"</span> },
+      { cn: <span class="str">"多语言专属客服"</span>,        en: <span class="str">"Multilingual Support"</span> }
+    ]   <span class="hl">👆 四个认证标签，可增删</span>
+},
+</pre>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第七步 ====== -->
+<h2 id="s7">第七步：改"服务优势"卡片</h2>
+<p>找到第 <strong>116-131 行</strong>。共 6 张卡片。</p>
+
+<pre>
+items: [
+    { icon:<span class="str">"🔍"</span>, title_cn:<span class="str">"精准寻源"</span>,   title_en:<span class="str">"Precision Sourcing"</span>,
+      desc_cn:<span class="str">"AI+人工双重匹配，48 小时内精准推荐 3-5 家优质供应商"</span>,
+      desc_en:<span class="str">"AI + human matching, 3-5 premium suppliers within 48h"</span> },
+    ...共 6 条
+],
+</pre>
+
+<div class="step">
+  <span class="step-num">改法</span> 每条卡片有 icon（图标）、title（标题）、desc（描述），各分中英文。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第八步 ====== -->
+<h2 id="s8">第八步：改"合作流程"步骤</h2>
+<p>找到第 <strong>134-148 行</strong>。共 5 步。</p>
+
+<pre>
+steps: [
+    { num:<span class="str">"01"</span>, title_cn:<span class="str">"提交需求"</span>,   title_en:<span class="str">"Submit Inquiry"</span>,
+      desc_cn:<span class="str">"告诉我们您要找的产品、规格和数量"</span>,
+      desc_en:<span class="str">"Tell us what you need..."</span> },
+    ...共 5 步
+],
+</pre>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第九步 ====== -->
+<h2 id="s9">第九步：改"客户评价"内容</h2>
+<p>找到第 <strong>151-173 行</strong>。共 3 条评价。</p>
+
+<pre>
+items: [
+    {
+      stars: <span class="hl">5</span>,                     <span class="hl">👈 评分 1-5</span>
+      text_cn: <span class="str">"合作三年，GreenLine 的选品..."</span>, <span class="hl">👈 评价内容中文</span>
+      text_en: <span class="str">"3 years of partnership..."</span>, <span class="hl">👈 英文</span>
+      name: <span class="str">"James Chen"</span>,           <span class="hl">👈 客户名字</span>
+      role_cn: <span class="str">"采购总监 / 美国某连锁零售"</span>, <span class="hl">👈 职位中文</span>
+      role_en: <span class="str">"Procurement Director / US..."</span>, <span class="hl">👈 职位英文</span>
+      initial: <span class="str">"J"</span>                  <span class="hl">👈 头像字母（取名字首字母）</span>
+    },
+    ...
+],
+</pre>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第十步 ====== -->
+<h2 id="s10">第十步：改"合作伙伴"名单</h2>
+<p>找到第 <strong>176-185 行</strong>。</p>
+
+<pre>
+names: [
+    <span class="str">"HUAWEI"</span>, <span class="str">"SAMSUNG"</span>, <span class="str">"Walmart"</span>, <span class="str">"Carrefour"</span>,
+    <span class="str">"IKEA"</span>, <span class="str">"BOSCH"</span>, <span class="str">"SIEMENS"</span>, <span class="str">"LG"</span>,
+    <span class="str">"Panasonic"</span>, <span class="str">"TOTO"</span>, <span class="str">"LIXIL"</span>, <span class="str">"MAERSK"</span>
+]
+</pre>
+
+<div class="step">
+  <span class="step-num">改法</span> 直接改引号里的名字，增删整条即可。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第十一步 ====== -->
+<h2 id="s11">第十一步：改"联系我们"信息</h2>
+<p>找到第 <strong>188-210 行</strong>。</p>
+
+<pre>
+contact: {
+    label_cn: <span class="str">"联系我们"</span>,
+    title_cn: <span class="str">"开启您的全球采购之旅"</span>,    <span class="hl">👈 大标题</span>
+    subtitle_cn: <span class="str">"留下您的需求，我们将在 24 小时内与您联系"</span>,
+    info_items: [
+      { icon:<span class="str">"📞"</span>, label_cn:<span class="str">"电话"</span>,   value:<span class="str">"+86 400-888-6688"</span> },
+      { icon:<span class="str">"📧"</span>, label_cn:<span class="str">"邮箱"</span>,   value:<span class="str">"info@greenline-trade.com"</span> },
+      { icon:<span class="str">"💬"</span>, label_cn:<span class="str">"微信"</span>,   value:<span class="str">"GreenLine_Official"</span> },
+      { icon:<span class="str">"📍"</span>, label_cn:<span class="str">"地址"</span>,
+        value_cn:<span class="str">"中国广州市天河区珠江新城\n华夏路 88 号国际贸易中心 38 楼"</span>,
+        value_en:<span class="str">"38F, International Trade Center\n88 Huaxia Rd, Zhujiang New Town\nTianhe, Guangzhou, China"</span> }
+    ],
+    form: {
+      name_cn: <span class="str">"您的姓名"</span>,       <span class="hl">👈 表单-姓名字段</span>
+      email_cn: <span class="str">"您的邮箱"</span>,      <span class="hl">👈 表单-邮箱字段</span>
+      phone_cn: <span class="str">"您的电话"</span>,      <span class="hl">👈 表单-电话字段</span>
+      msg_cn: <span class="str">"请描述您的需求"</span>,   <span class="hl">👈 表单-留言占位文字</span>
+      submit_cn: <span class="str">"提交咨询"</span>,     <span class="hl">👈 提交按钮</span>
+      success_cn: <span class="str">"感谢您的咨询！我们会尽快与您联系。"</span>, <span class="hl">👈 提交成功提示</span>
+      ...
+    }
+},
+</pre>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第十二步 ====== -->
+<h2 id="s12">第十二步：改页脚文字</h2>
+<p>找到第 <strong>213-224 行</strong>。</p>
+
+<pre>
+footer: {
+    about_cn: <span class="str">"GreenLine 绿线贸易 — 值得信赖的一站式..."</span>,
+    quick_links_cn: <span class="str">"快速链接"</span>,
+    categories_cn: <span class="str">"产品分类"</span>,
+    contact_cn: <span class="str">"联系方式"</span>,
+    copy_cn: <span class="str">"© 2025 GreenLine 绿线贸易. 版权所有."</span>,
+    ...（都有对应的 _en 英文版）
+},
+</pre>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第十三步 ====== -->
+<h2 id="s13">第十三步：改导航栏上的文字（在 index.html 里）</h2>
+<p>打开 <span class="file">index.html</span>，找到第 <strong>650-656 行</strong>。</p>
+
+<pre>
+&lt;div class="nav-links"&gt;
+    &lt;a href="#home" class="active"&gt;<span class="hl">首页</span>&lt;/a&gt;
+    &lt;a href="#products"&gt;<span class="hl">产品中心</span>&lt;/a&gt;
+    &lt;a href="#about"&gt;<span class="hl">关于我们</span>&lt;/a&gt;
+    &lt;a href="#service"&gt;<span class="hl">服务优势</span>&lt;/a&gt;
+    &lt;a href="#testimonials"&gt;<span class="hl">客户评价</span>&lt;/a&gt;
+    &lt;a href="#contact"&gt;<span class="hl">联系我们</span>&lt;/a&gt;
+&lt;/div&gt;
+</pre>
+
+<div class="step">
+  <span class="step-num">改法</span> 只改 <code>&gt;</code> 和 <code>&lt;/a&gt;</code> 之间的文字。比如把 <code>&gt;首页&lt;</code> 改成 <code>&gt;主页&lt;</code>。<br>
+  ⚠️ href="#xxx" 不要改！这是链接跳转用的。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 第十四步 ====== -->
+<h2 id="s14">第十四步：保存 → 推送 → 看效果</h2>
+
+<div class="step">
+  <span class="step-num">1</span> <strong>保存文件</strong><br>
+  在记事本里按 <strong>Ctrl+S</strong>（或者点"文件" → "保存"）。<br>
+  如果同时改了 data.js 和 index.html，两个都要保存。
+</div>
+
+<div class="step">
+  <span class="step-num">2</span> <strong>打开 Git Bash</strong><br>
+  在开始菜单搜索 <strong>"Git Bash"</strong>，点开那个黑色图标的程序。
+</div>
+
+<div class="step">
+  <span class="step-num">3</span> <strong>在 Git Bash 里贴这三行命令（一行一行回车）：</strong>
+</div>
+
+<pre>
+cd /c/Users/李燕/WorkBuddy/2026-07-22-10-24-57/GlobalTrade-site
+</pre>
+<p style="color:#8b949e; margin: 0 0 8px 10px;">按回车 → 这行是进入你的网站文件夹</p>
+
+<pre>
+git add -A && git commit -m "update"
+</pre>
+<p style="color:#8b949e; margin: 0 0 8px 10px;">按回车 → 这行是保存所有改动</p>
+
+<pre>
+git push
+</pre>
+<p style="color:#8b949e; margin: 0 0 8px 10px;">按回车 → 这行是上传到网站</p>
+
+<div class="step">
+  <span class="step-num">4</span> <strong>等半分钟，打开浏览器看效果</strong><br>
+  在浏览器地址栏输入：<strong>www.greenlineint.com</strong> 然后回车。<br>
+  如果你改了东西但看不到变化，按 <strong>Ctrl+Shift+R</strong> 强制刷新。
+</div>
+
+<div class="warn">
+⚠️ <strong>改错了怎么办？</strong><br>
+别慌。告诉我你改了什么，我能帮你恢复。<br>
+Git 会保存每一次的改动记录，所以永远可以回退。
+</div>
+
+<hr style="border:1px solid #30363d; margin:40px 0;">
+
+<!-- ====== 常见问题 ====== -->
+<h2>❓ 常见问题</h2>
+
+<h3>Q: 我只想改中文，不改英文可以吗？</h3>
+<p>可以。每个字段都有 _cn（中文）和 _en（英文），你只改中文那边的字就行，英文那边不动。</p>
+
+<h3>Q: 我想加新产品，怎么加？</h3>
+<p>在 products 列表里复制一整行，改好 id（不能重复）、category（要对应上面分类的 id），然后改名字和描述。</p>
+
+<h3>Q: 我想加新分类，怎么加？</h3>
+<p>在 categories 列表里复制一整行，改好 id（不能重复），然后改 name_cn、name_en、icon。</p>
+
+<h3>Q: 我想删掉某个产品，怎么删？</h3>
+<p>在 products 列表里，把那一整行删掉就行。注意删完之后上一行的末尾要有逗号。</p>
+
+<h3>Q: 我想改成单语言（不要英文），怎么弄？</h3>
+<p>不用改代码，网站访问时默认显示中文。右上角的 EN 按钮只是给老外看的，你不管它就行。</p>
+
+<h3>Q: push 的时候卡住了怎么办？</h3>
+<p>按 Ctrl+C 取消，然后重新跑一遍三行命令。如果还是卡住，告诉我。</p>
+
+<div class="tip" style="margin-top:48px;">
+🎉 <strong>教程结束！</strong><br>
+你现在可以独立修改网站上 90% 的内容了。如果还有哪一步不会，把步骤编号告诉我，我手把手教你。
+</div>
+
+</body>
+</html>
