@@ -283,11 +283,14 @@
     contactBtn.href = '#contact';
 
     document.getElementById('heroScrollText').textContent = dc(d.hero, 'scroll');
-    var shtml = '';
-    d.hero.stats.forEach(function (s) {
-      shtml += '<div><div class="hero-stat-val">' + s.value + '</div><div class="hero-stat-lbl">' + dc(s, 'label') + '</div></div>';
-    });
-    document.getElementById('heroStatRow').innerHTML = shtml;
+    var sr = document.getElementById('heroStatRow');
+    if (sr) {
+      var shtml = '';
+      d.hero.stats.forEach(function (s) {
+        shtml += '<div><div class="hero-stat-val">' + s.value + '</div><div class="hero-stat-lbl">' + dc(s, 'label') + '</div></div>';
+      });
+      sr.innerHTML = shtml;
+    }
 
     updateSearchPlaceholder();
   }

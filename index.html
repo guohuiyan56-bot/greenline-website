@@ -214,7 +214,7 @@
     /* ===== Hero ===== */
     .hero{
       min-height:auto;display:flex;align-items:center;position:relative;
-      padding:calc(var(--header-h) + 56px) 0 56px;overflow:hidden;
+      padding:calc(var(--header-h) + 30px) 0 30px;overflow:hidden;
       background:var(--c-bg-hero);
     }
     .hero::after{
@@ -245,14 +245,14 @@
     }
     .hero-badge-dot{width:6px;height:6px;background:var(--c-primary);border-radius:50%;animation:pulse-dot 2s infinite}
     .hero-title{
-      font-size:clamp(2.8rem,6vw,5.2rem);font-weight:900;line-height:1.06;
-      font-family:var(--font-display);margin-bottom:20px;color:var(--c-text);
+      font-size:clamp(2rem,3.8vw,3.1rem);font-weight:900;line-height:1.08;
+      font-family:var(--font-display);margin-bottom:16px;color:var(--c-text);
       animation:fadeInUp 0.8s 0.12s var(--ease-bounce) both;
     }
     .hero-title em{font-style:normal;color:var(--c-primary);position:relative}
     .hero-desc{
-      font-size:1.12rem;color:var(--c-text-dim);max-width:520px;
-      margin-bottom:40px;line-height:1.75;
+      font-size:1.05rem;color:var(--c-text-dim);max-width:520px;
+      margin-bottom:24px;line-height:1.7;
       animation:fadeInUp 0.8s 0.24s var(--ease) both;
     }
     .hero-actions{
@@ -267,10 +267,10 @@
     .hero-stat-lbl{font-size:0.84rem;color:var(--c-text-muted);margin-top:4px}
 
     .hero-visual{
-      position:absolute;right:-100px;top:50%;
-      width:650px;height:650px;pointer-events:none;
+      position:absolute;right:-180px;top:50%;
+      width:480px;height:480px;pointer-events:none;
       animation:fadeIn 1.2s 0.3s var(--ease) both;
-      will-change:transform;
+      will-change:transform;opacity:0.7;
     }
     .hero-visual-ring{
       position:absolute;inset:0;border-radius:50%;
@@ -772,8 +772,11 @@
     }
     .hero-chip:hover{border-color:var(--c-primary);color:var(--c-primary);background:rgba(200,150,92,0.1);transform:translateY(-2px)}
 
-    .cat-wrap{padding-top:30px}
-    .cat-section{padding:54px 0;border-top:1px solid var(--c-border)}
+    .cat-wrap{padding:14px 0 90px}
+    #products .sec-label{margin-bottom:6px}
+    #products .sec-title{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:8px}
+    #products .sec-subtitle{margin-bottom:22px}
+    .cat-section{padding:34px 0;border-top:1px solid var(--c-border)}
     .cat-section:first-child{border-top:none}
     .cat-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
     .cat-head-left{display:flex;align-items:center;gap:16px}
@@ -824,12 +827,12 @@
     <div class="container">
       <a href="#home" class="nav-logo">GREEN<span style="color:var(--c-text-dim);font-weight:300;font-family:var(--font-body)">LINE</span><span class="nav-logo-dot"></span></a>
       <div class="nav-links">
-        <a href="#home" class="active">首页</a>
-        <a href="#products">产品中心</a>
-        <a href="#about">关于我们</a>
-        <a href="#service">服务优势</a>
-        <a href="#testimonials">客户评价</a>
-        <a href="#contact">联系我们</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#service">Services</a>
+        <a href="#testimonials">Reviews</a>
+        <a href="#contact">Contact</a>
       </div>
       <div style="display:flex;align-items:center;">
         <button class="nav-lang" id="langBtn" title="Switch Language">EN</button>
@@ -859,7 +862,6 @@
           <a href="#products" class="btn btn-primary" id="heroCta"></a>
           <a href="#contact" class="btn btn-outline" id="heroContact"></a>
         </div>
-        <div class="hero-stat-row" id="heroStatRow"></div>
       </div>
       <div class="hero-visual" id="heroVisual">
         <div class="hero-visual-ring"></div>
