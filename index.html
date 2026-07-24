@@ -900,6 +900,40 @@
     .sidebar-cat-item.active .sidebar-cat-dot,
     .sidebar-cat-item:hover .sidebar-cat-dot{background:var(--c-primary)}
 
+    /* 侧边栏装饰：角落柔光 + 分类图标 + 底部推广卡 */
+    .sidebar::before{
+      content:"";position:absolute;bottom:-50px;left:-50px;width:150px;height:150px;border-radius:50%;
+      background:radial-gradient(circle, rgba(200,150,92,0.12), transparent 70%);
+      pointer-events:none;z-index:0;
+    }
+    .sidebar > *{position:relative;z-index:1}
+    .sidebar-cat-icon{
+      width:22px;text-align:center;font-size:1.05rem;flex-shrink:0;
+      filter:grayscale(0.15);transition:transform .25s;
+    }
+    .sidebar-cat-item:hover .sidebar-cat-icon{transform:scale(1.18)}
+    .sidebar-cat-name{flex:1}
+
+    .sidebar-promo{
+      position:relative;overflow:hidden;margin:14px 16px 18px;padding:22px 18px 20px;
+      border-radius:var(--radius-md);text-align:center;
+      background:linear-gradient(150deg, var(--c-primary-d), var(--c-accent));
+      color:#FFF8F0;
+    }
+    .sidebar-promo-glow{
+      position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;
+      background:radial-gradient(circle, rgba(255,248,240,0.22), transparent 70%);
+    }
+    .sidebar-promo-icon{font-size:1.5rem;margin-bottom:8px}
+    .sidebar-promo-title{font-size:1.02rem;font-weight:800;font-family:var(--font-display);margin-bottom:6px;line-height:1.25}
+    .sidebar-promo-text{font-size:0.78rem;line-height:1.55;color:rgba(255,248,240,0.88);margin-bottom:14px}
+    .sidebar-promo-btn{
+      display:inline-block;padding:9px 20px;border-radius:50px;
+      background:#FFF8F0;color:var(--c-accent);font-weight:700;font-size:0.82rem;
+      text-decoration:none;transition:transform .3s, box-shadow .3s;
+    }
+    .sidebar-promo-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,0.3)}
+
     .main-content{flex:1;min-width:0}
     .content-toolbar{
       display:flex;align-items:center;justify-content:space-between;
@@ -989,6 +1023,13 @@
           <span class="sidebar-header-arrow">∨</span>
         </div>
         <ul class="sidebar-cat-list" id="sidebarCatList"></ul>
+        <div class="sidebar-promo">
+          <div class="sidebar-promo-glow"></div>
+          <div class="sidebar-promo-icon">💬</div>
+          <div class="sidebar-promo-title" id="promoTitle">Need a Custom Quote?</div>
+          <p class="sidebar-promo-text" id="promoText">Tell us your specs — we source, inspect &amp; ship worldwide.</p>
+          <a href="#contact" class="sidebar-promo-btn" id="promoBtn">Get a Quote →</a>
+        </div>
       </aside>
       <!-- 右侧产品内容 -->
       <div class="main-content" id="mainContent">

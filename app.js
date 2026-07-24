@@ -40,6 +40,14 @@
         if (item) links[i].textContent = item[lang] || dc(item, 'name');
       }
     });
+
+    // 侧边栏推广卡文案跟随语言
+    var pt = document.getElementById('promoTitle');
+    var ptx = document.getElementById('promoText');
+    var pb = document.getElementById('promoBtn');
+    if (pt) pt.textContent = lang === 'cn' ? '需要定制报价？' : 'Need a Custom Quote?';
+    if (ptx) ptx.textContent = lang === 'cn' ? '告诉我们您的需求，我们全球寻源、质检、发货。' : 'Tell us your specs — we source, inspect & ship worldwide.';
+    if (pb) pb.textContent = lang === 'cn' ? '获取报价 →' : 'Get a Quote →';
   }
 
   /* ===== Language ===== */
@@ -296,15 +304,14 @@
     var html = '';
     // "All" option first
     html += '<li class="sidebar-cat-item' + (activeCat === '' ? ' active' : '') + '" data-cat="">';
-    html += '<span class="sidebar-cat-dot"></span>';
-    html += (lang === 'cn' ? '全部产品' : 'All Products');
+    html += '<span class="sidebar-cat-icon">📦</span>';
+    html += '<span class="sidebar-cat-name">' + (lang === 'cn' ? '全部产品' : 'All Products') + '</span>';
     html += '</li>';
 
     d.categories.forEach(function (c) {
-      var prods = d.products.filter(function (p) { return p.category === c.id; });
       html += '<li class="sidebar-cat-item' + (activeCat === c.id ? ' active' : '') + '" data-cat="' + c.id + '">';
-      html += '<span class="sidebar-cat-dot"></span>';
-      html += dc(c, 'name');
+      html += '<span class="sidebar-cat-icon">' + (c.icon || '•') + '</span>';
+      html += '<span class="sidebar-cat-name">' + dc(c, 'name') + '</span>';
       html += '</li>';
     });
     list.innerHTML = html;
