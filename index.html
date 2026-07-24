@@ -945,14 +945,11 @@
   <!-- ===== Cursor ===== -->
   <div class="cursor" id="cursor"></div>
 
-  <!-- ===== 导航栏 — 固定在顶部（gdtfair 风格：Categories + 菜单） ===== -->
+  <!-- ===== 导航栏 — 固定在顶部（精简菜单：去掉重复 logo 与无用 Home/Categories 按钮） ===== -->
   <nav class="nav" id="nav">
     <div class="container">
-      <a href="#home" class="nav-logo">GREEN<span style="color:var(--c-text-dim);font-weight:300;font-family:var(--font-body)">LINE</span><span class="nav-logo-dot"></span></a>
-      <button class="nav-categories-btn" id="catToggleBtn" onclick="document.getElementById('sidebar').classList.toggle('cat-collapsed')">☰ Categories ∨</button>
       <div class="nav-links">
-        <a href="#home" class="active">Home</a>
-        <a href="#products">Products</a>
+        <a href="#products" class="active">Products</a>
         <a href="#about">About</a>
         <a href="#service">Services</a>
         <a href="#testimonials">Reviews</a>

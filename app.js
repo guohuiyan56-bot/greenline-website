@@ -27,7 +27,7 @@
   }
 
   /* ===== 导航中英文映射 ===== */
-  var navSections = ['home', 'products', 'about', 'service', 'testimonials', 'contact'];
+  var navSections = ['products', 'about', 'service', 'testimonials', 'contact'];
 
   function updateNavText() {
     var links = document.querySelectorAll('.nav-links a');
@@ -60,6 +60,15 @@
   document.getElementById('langBtn').addEventListener('click', function () {
     setLang(lang === 'cn' ? 'en' : 'cn');
   });
+
+  /* ===== Sidebar header click toggles collapse (keeps feature after nav Categories button removed) ===== */
+  var sbHeader = document.querySelector('.sidebar-header');
+  if (sbHeader) {
+    sbHeader.addEventListener('click', function () {
+      var sb = document.getElementById('sidebar');
+      if (sb) sb.classList.toggle('cat-collapsed');
+    });
+  }
 
   /* ===== Preloader ===== */
   window.addEventListener('load', function () {
