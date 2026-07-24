@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    // 强制 HTTPS：用 http 访问时立即跳转到 https（不影响本地调试）
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      window.location.replace('https:' + window.location.href.substring(window.location.protocol.length));
+    }
+  </script>
   <meta name="description" content="GreenLine — Premium International Trade & Sourcing Platform">
   <title>GreenLine — Premium Global Sourcing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
