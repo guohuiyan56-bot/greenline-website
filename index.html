@@ -806,6 +806,129 @@
       .prod-grid.cat-grid{grid-template-columns:repeat(2,1fr)}
       .cat-head{flex-direction:column;align-items:flex-start}
     }
+
+    /* ===== gdtfair 布局：Top Header + Sidebar + Grid ===== */
+    .top-header{
+      position:relative;z-index:100;
+      background:var(--c-bg-alt);border-bottom:1px solid var(--c-border);
+      padding:16px 0;margin-top:var(--header-h);
+    }
+    .top-header .container{display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .top-logo{
+      font-size:1.5rem;font-weight:900;letter-spacing:-0.5px;
+      font-family:var(--font-display);color:var(--c-primary);
+      display:flex;align-items:center;gap:8px;text-decoration:none;
+      flex-shrink:0;
+    }
+    .top-logo-light{color:var(--c-text-dim);font-weight:300;font-family:var(--font-body)}
+    .top-search-wrap{
+      display:flex;align-items:center;flex:1;max-width:600px;gap:0;
+    }
+    .top-search-cat{
+      padding:12px 16px;border-radius:var(--radius-sm) 0 0 var(--radius-sm);
+      background:var(--c-bg-surface);border:2px solid rgba(200,150,92,0.15);
+      border-right:none;color:var(--c-text-dim);font-size:0.88rem;
+      font-family:var(--font-body);outline:none;cursor:pointer;
+      min-width:150px;transition:border-color .3s;
+    }
+    .top-search-cat:focus,.top-search-cat:hover{border-color:var(--c-primary)}
+    .top-search-box{
+      flex:1;display:flex;align-items:center;
+      background:var(--c-bg-card);border:2px solid rgba(200,150,92,0.15);
+      padding:0 16px;transition:all .35s var(--ease);
+    }
+    .top-search-box:focus-within{border-color:var(--c-primary);box-shadow:0 0 0 3px rgba(200,150,92,0.06)}
+    .top-search-input{
+      flex:1;background:transparent;border:none;color:var(--c-text);
+      font-size:0.95rem;padding:13px 8px;font-family:var(--font-body);outline:none;
+    }
+    .top-search-input::placeholder{color:var(--c-text-muted)}
+    .top-search-btn{
+      padding:13px 28px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;
+      background:var(--c-primary);color:#2A1810;font-weight:700;font-size:0.9rem;
+      transition:all .3s;white-space:nowrap;
+    }
+    .top-search-btn:hover{background:var(--c-primary-h);transform:translateY(-1px);box-shadow:var(--shadow-glow)}
+
+    /* Nav bar — gdtfair style: Categories button on left */
+    .nav-categories-btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:10px 22px;border-radius:var(--radius-sm);
+      background:var(--c-primary);color:#2A1810;font-weight:700;
+      font-size:0.86rem;cursor:pointer;transition:all .3s;
+      margin-right:16px;
+    }
+    .nav-categories-btn:hover{background:var(--c-primary-h);transform:translateY(-1px)}
+
+    /* Sidebar + Main Content (gdtfair layout) */
+    .main-body{padding:36px 0 80px;min-height:60vh}
+    .main-body .container{display:flex;gap:32px;align-items:flex-start}
+
+    .sidebar{
+      width:250px;flex-shrink:0;background:var(--c-bg-card);
+      border:1px solid var(--c-border);border-radius:var(--radius-md);
+      overflow:hidden;position:sticky;top:calc(var(--header-h) + 20px);
+    }
+    .sidebar-header{
+      display:flex;align-items:center;gap:10px;
+      padding:16px 20px;background:var(--c-primary);color:#2A1810;
+      font-weight:800;font-size:0.95rem;cursor:pointer;
+    }
+    .sidebar-header-icon{font-size:1.1rem}
+    .sidebar-header-text{flex:1}
+    .sidebar-header-arrow{font-size:0.75rem;transition:transform .3s}
+    .sidebar.cat-collapsed .sidebar-header-arrow{transform:rotate(-90deg)}
+
+    .sidebar-cat-list{padding:10px 0}
+    .sidebar-cat-item{
+      display:flex;align-items:center;gap:10px;
+      padding:11px 20px;font-size:0.9rem;color:var(--c-text-dim);
+      cursor:pointer;transition:all .25s;
+      border-left:3px solid transparent;
+    }
+    .sidebar-cat-item:hover{
+      background:rgba(200,150,92,0.06);color:var(--c-text);
+      border-left-color:var(--c-primary-d);
+    }
+    .sidebar-cat-item.active{
+      background:rgba(200,150,92,0.1);color:var(--c-primary);
+      border-left-color:var(--c-primary);font-weight:600;
+    }
+    .sidebar-cat-dot{
+      width:6px;height:6px;border-radius:50%;background:var(--c-text-muted);
+      flex-shrink:0;transition:background .25s;
+    }
+    .sidebar-cat-item.active .sidebar-cat-dot,
+    .sidebar-cat-item:hover .sidebar-cat-dot{background:var(--c-primary)}
+
+    .main-content{flex:1;min-width:0}
+    .content-toolbar{
+      display:flex;align-items:center;justify-content:space-between;
+      margin-bottom:24px;padding-bottom:16px;
+      border-bottom:1px solid var(--c-border);
+    }
+    .content-heading{
+      font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:800;
+      font-family:var(--font-display);color:var(--c-text);
+    }
+    .content-count{font-size:0.85rem;color:var(--c-text-muted)}
+    .content-count strong{color:var(--c-primary);font-weight:700}
+
+    @media(max-width:1024px){
+      .sidebar{width:210px}
+      .top-search-cat{min-width:110px;font-size:0.82rem}
+      .top-search-btn{padding:13px 18px}
+    }
+    @media(max-width:768px){
+      .main-body .container{flex-direction:column}
+      .sidebar{width:100%;position:static}
+      .sidebar-cat-list{max-height:0;overflow:hidden;transition:max-height .4s}
+      .sidebar:not(.cat-collapsed) .sidebar-cat-list{max-height:500px}
+      .top-header .container{flex-direction:column;gap:12px}
+      .top-search-wrap{width:100%;max-width:none}
+      .nav-categories-btn{display:none}
+      .prod-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+    }
   </style>
 </head>
 <body>
@@ -822,10 +945,11 @@
   <!-- ===== Cursor ===== -->
   <div class="cursor" id="cursor"></div>
 
-  <!-- ===== 导航栏 — 固定在顶部 ===== -->
+  <!-- ===== 导航栏 — 固定在顶部（gdtfair 风格：Categories + 菜单） ===== -->
   <nav class="nav" id="nav">
     <div class="container">
       <a href="#home" class="nav-logo">GREEN<span style="color:var(--c-text-dim);font-weight:300;font-family:var(--font-body)">LINE</span><span class="nav-logo-dot"></span></a>
+      <button class="nav-categories-btn" id="catToggleBtn" onclick="document.getElementById('sidebar').classList.toggle('cat-collapsed')">☰ Categories ∨</button>
       <div class="nav-links">
         <a href="#home" class="active">Home</a>
         <a href="#products">Products</a>
@@ -841,50 +965,48 @@
     </div>
   </nav>
 
-  <!-- ===== 首页（紧凑型 hero：品牌介绍 + 全局搜索 + 分类直达） ===== -->
-  <section class="hero" id="home">
-    <div class="hero-bg" id="heroBg"></div>
-    <div class="container" style="position:relative;">
-      <div class="hero-content">
-        <div class="hero-badge"><span class="hero-badge-dot"></span><span id="heroBadge"></span></div>
-        <h1 class="hero-title" id="heroTitle"></h1>
-        <p class="hero-desc" id="heroDesc"></p>
-        <div class="hero-search reveal reveal-up">
-          <div class="search-box">
-            <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="16" y1="16" x2="22" y2="22"/></svg>
-            <input type="text" class="search-input" id="heroSearch" placeholder="Search products, categories or keywords...">
-            <button class="search-clear" id="heroSearchClear" aria-label="Clear">&times;</button>
-          </div>
-          <div class="hero-chips" id="heroChips"></div>
-          <div class="search-count" id="heroSearchCount" style="padding:0 10px"></div>
-        </div>
-        <div class="hero-actions" style="margin-top:14px">
-          <a href="#products" class="btn btn-primary" id="heroCta"></a>
-          <a href="#contact" class="btn btn-outline" id="heroContact"></a>
-        </div>
-      </div>
-      <div class="hero-visual" id="heroVisual">
-        <div class="hero-visual-ring"></div>
-        <div class="hero-visual-ring"></div>
-        <div class="hero-visual-ring"></div>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span class="hero-scroll-text" id="heroScrollText"></span>
-      <div class="hero-scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- ===== 产品优先：按分类直接展示（布局参考 gdtfair，一打开即见产品） ===== -->
-  <section class="sec cat-wrap" id="products">
-    <div class="sec-orb" style="top:-60px;right:-60px;"></div>
+  <!-- ===== Top Header（gdtfair 风格：Logo + 搜索栏） ===== -->
+  <header class="top-header" id="home">
     <div class="container">
-      <div class="sec-label reveal reveal-up" id="productLabel"></div>
-      <h2 class="sec-title reveal reveal-up delay-1" id="productTitle"></h2>
-      <p class="sec-subtitle reveal reveal-up delay-2" id="productSubtitle"></p>
-      <div id="categorySections"></div>
+      <a href="#home" class="top-logo">GREEN<span class="top-logo-light">LINE</span><span class="nav-logo-dot"></span></a>
+      <div class="top-search-wrap">
+        <select class="top-search-cat" id="topSearchCat">
+          <option value="">All Categories</option>
+        </select>
+        <div class="top-search-box">
+          <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="16" y1="16" x2="22" y2="22"/></svg>
+          <input type="text" class="top-search-input" id="topSearchInput" placeholder="What are you looking for...">
+        </div>
+        <button class="top-search-btn" id="topSearchBtn">Search</button>
+      </div>
     </div>
-  </section>
+  </header>
+
+  <!-- ===== 产品区（gdtfair 布局：左侧分类侧边栏 + 右侧产品网格） ===== -->
+  <main class="main-body" id="products">
+    <div class="container">
+      <!-- 左侧分类侧边栏 -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-header-icon">☰</span>
+          <span class="sidebar-header-text" id="sidebarTitle">Categories</span>
+          <span class="sidebar-header-arrow">∨</span>
+        </div>
+        <ul class="sidebar-cat-list" id="sidebarCatList"></ul>
+      </aside>
+      <!-- 右侧产品内容 -->
+      <div class="main-content" id="mainContent">
+        <div class="content-toolbar" id="contentToolbar">
+          <h2 class="content-heading" id="contentHeading">All Products</h2>
+          <span class="content-count" id="contentCount"></span>
+        </div>
+        <div class="prod-grid reveal-stagger" id="prodGrid"></div>
+        <div class="prod-no-result" id="prodNoResult" style="display:none">
+          <p id="noResultText">No products found.</p>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <!-- ===== 数据统计 ===== -->
   <section class="sec" id="statsSec" style="background:var(--c-bg-alt);padding:72px 0">

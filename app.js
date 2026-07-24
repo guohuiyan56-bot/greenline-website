@@ -1,6 +1,6 @@
 /* ============================================================
-   GreenLine — App Engine v5
-   产品优先布局 · 按分类展示 · 默认英文
+   GreenLine — App Engine v6
+   gdtfair 布局：左侧分类侧边栏 + 右侧产品网格 · 默认英文
    ============================================================ */
 
 (function () {
@@ -9,7 +9,8 @@
   var d = GT_DATA;
   var i18n = GT_I18N;
   var lang = 'en';            // 默认语言：英文
-  var searchText = '';
+  var activeCat = '';          // 当前选中的分类（空=全部）
+  var searchQuery = '';
 
   /* ===== Helpers ===== */
   function t(key) {
@@ -53,7 +54,6 @@
     document.documentElement.lang = lang === 'cn' ? 'zh-CN' : 'en';
     setLangBtn();
     updateNavText();
-    updateSearchPlaceholder();
     renderAll();
     resetReveals();
   }
@@ -76,7 +76,7 @@
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
   });
-  document.querySelectorAll('a, button, .prod-card, .svc-card, .step, .testimonial, .cat-more, .cat-tab, .contact-item, .hero-chip, .search-tag, .search-clear').forEach(function (el) {
+  document.querySelectorAll('a, button, .prod-card, .svc-card, .step, .testimonial, .sidebar-cat-item, .contact-item, .search-clear').forEach(function (el) {
     el.addEventListener('mouseenter', function () { cursor.classList.add('hover'); });
     el.addEventListener('mouseleave', function () { cursor.classList.remove('hover'); });
   });
@@ -229,31 +229,11 @@
     return false;
   };
 
-  /* ===== Hero dots ===== */
-  function generateDots() {
-    var bg = document.getElementById('heroBg');
-    if (!bg) return;
-    var colors = ['var(--c-primary)', 'var(--c-primary-d)', 'var(--c-accent)'];
-    for (var i = 0; i < 18; i++) {
-      var dot = document.createElement('div');
-      dot.className = 'hero-bg-dot';
-      var size = 2 + Math.random() * 4;
-      dot.style.cssText =
-        'top:' + Math.random() * 100 + '%;' +
-        'left:' + Math.random() * 100 + '%;' +
-        'width:' + size + 'px;height:' + size + 'px;' +
-        'background:' + colors[Math.floor(Math.random() * colors.length)] + ';' +
-        'animation-delay:' + (Math.random() * 6) + 's;' +
-        'animation-duration:' + (5 + Math.random() * 7) + 's;' +
-        'opacity:' + (0.15 + Math.random() * 0.35) + ';';
-      bg.appendChild(dot);
-    }
-  }
-
   /* ==================== RENDER ==================== */
   function renderAll() {
-    renderHero();
-    renderCategories();
+    renderTopHeader();
+    renderSidebar();
+    renderProductGrid();
     renderStats();
     renderBanners();
     renderAbout();
@@ -267,49 +247,86 @@
 
     var strip = document.getElementById('statsStrip');
     if (strip) statsObserver.observe(strip);
+
+    attachTopSearch();
+    attachProductClick();
   }
 
-  function renderHero() {
-    document.getElementById('heroBadge').textContent = dc(d.hero, 'badge');
-    document.getElementById('heroTitle').innerHTML = dc(d.hero, 'title');
-    document.getElementById('heroDesc').textContent = dc(d.hero, 'desc');
+  /* ===== Top Header（搜索栏分类下拉） ===== */
+  function renderTopHeader() {
+    var catSelect = document.getElementById('topSearchCat');
+    if (!catSelect) return;
+    catSelect.innerHTML = '<option value="">' + (lang === 'cn' ? '全部分类' : 'All Categories') + '</option>';
+    d.categories.forEach(function (c) {
+      var opt = document.createElement('option');
+      opt.value = c.id;
+      opt.textContent = dc(c, 'name');
+      catSelect.appendChild(opt);
+    });
 
-    var ctaBtn = document.getElementById('heroCta');
-    ctaBtn.textContent = dc(d.hero, 'cta');
-    ctaBtn.href = '#products';
+    // Sidebar title
+    var st = document.getElementById('sidebarTitle');
+    if (st) st.textContent = lang === 'cn' ? 'Categories' : 'Categories';
 
-    var contactBtn = document.getElementById('heroContact');
-    contactBtn.textContent = dc(d.hero, 'contact');
-    contactBtn.href = '#contact';
-
-    document.getElementById('heroScrollText').textContent = dc(d.hero, 'scroll');
-    var sr = document.getElementById('heroStatRow');
-    if (sr) {
-      var shtml = '';
-      d.hero.stats.forEach(function (s) {
-        shtml += '<div><div class="hero-stat-val">' + s.value + '</div><div class="hero-stat-lbl">' + dc(s, 'label') + '</div></div>';
-      });
-      sr.innerHTML = shtml;
-    }
-
-    updateSearchPlaceholder();
-  }
-
-  function updateSearchPlaceholder() {
-    var si = document.getElementById('heroSearch');
+    // Search placeholder
+    var si = document.getElementById('topSearchInput');
     if (si) si.placeholder = lang === 'cn'
-      ? '搜索产品名称、分类、关键词...'
-      : 'Search products, categories or keywords...';
+      ? '您在找什么产品？'
+      : 'What are you looking for...';
+
+    // Search button text
+    var sb = document.getElementById('topSearchBtn');
+    if (sb) sb.textContent = lang === 'cn' ? '搜索' : 'Search';
   }
 
-  /* ===== 产品卡片 ===== */
-  function buildCard(p, c, idx, isExtra) {
-    var catName = dc(c, 'name');
+  /* ===== 左侧分类侧边栏 ===== */
+  function renderSidebar() {
+    var list = document.getElementById('sidebarCatList');
+    if (!list) return;
+
+    var html = '';
+    // "All" option first
+    html += '<li class="sidebar-cat-item' + (activeCat === '' ? ' active' : '') + '" data-cat="">';
+    html += '<span class="sidebar-cat-dot"></span>';
+    html += (lang === 'cn' ? '全部产品' : 'All Products');
+    html += '</li>';
+
+    d.categories.forEach(function (c) {
+      var prods = d.products.filter(function (p) { return p.category === c.id; });
+      html += '<li class="sidebar-cat-item' + (activeCat === c.id ? ' active' : '') + '" data-cat="' + c.id + '">';
+      html += '<span class="sidebar-cat-dot"></span>';
+      html += dc(c, 'name');
+      html += '</li>';
+    });
+    list.innerHTML = html;
+
+    // 绑定点击事件
+    list.querySelectorAll('.sidebar-cat-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        activeCat = this.getAttribute('data-cat') || '';
+        // 更新激活状态
+        list.querySelectorAll('.sidebar-cat-item').forEach(function (it) {
+          it.classList.remove('active');
+        });
+        this.classList.add('active');
+        // 重新渲染产品网格
+        renderProductGrid();
+      });
+    });
+  }
+
+  /* ===== 产品卡片（复用原样式） ===== */
+  function buildCard(p, idx) {
+    var catObj = null;
+    for (var ci = 0; ci < d.categories.length; ci++) {
+      if (d.categories[ci].id === p.category) { catObj = d.categories[ci]; break; }
+    }
+    var catName = catObj ? dc(catObj, 'name') : '';
     var imgContent = p.image
       ? '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">'
-      : '<div class="prod-card-img-placeholder">' + (c.icon || '📦') + '</div>';
+      : '<div class="prod-card-img-placeholder">' + (catObj ? catObj.icon || '📦' : '📦') + '</div>';
     return '' +
-      '<div class="prod-card delay-' + ((idx % 6) + 1) + (isExtra ? ' prod-extra' : '') + '" data-cat="' + p.category + '">' +
+      '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
         '<div class="prod-card-img-wrap">' +
           imgContent +
           '<div class="prod-card-overlay">' +
@@ -324,81 +341,101 @@
       '</div>';
   }
 
-  /* ===== 按分类展示（产品优先布局） ===== */
-  function renderCategories() {
-    document.getElementById('productLabel').textContent = lang === 'cn' ? '产品中心' : 'Our Products';
-    document.getElementById('productTitle').textContent = lang === 'cn' ? '七大品类 · 一站采购' : '7 Categories · One-Stop Sourcing';
-    document.getElementById('productSubtitle').textContent = lang === 'cn'
-      ? '从家居家装到工业机械，覆盖您多元的采购需求'
-      : 'From home & living to industrial machinery — everything for your sourcing needs';
+  /* ===== 右侧产品网格 ===== */
+  function renderProductGrid() {
+    var grid = document.getElementById('prodGrid');
+    var heading = document.getElementById('contentHeading');
+    var countEl = document.getElementById('contentCount');
+    var noResult = document.getElementById('prodNoResult');
+    var noResultText = document.getElementById('noResultText');
+    if (!grid) return;
 
-    var wrap = document.getElementById('categorySections');
-    var html = '';
-    d.categories.forEach(function (c) {
-      var prods = d.products.filter(function (p) { return p.category === c.id; });
-      var visible = prods.slice(0, 8);
-      var extra = prods.slice(8);
-      var cards = '';
-      visible.forEach(function (p, i) { cards += buildCard(p, c, i, false); });
-      extra.forEach(function (p, i) { cards += buildCard(p, c, i, true); });
-
-      var subText = lang === 'cn'
-        ? ('共 ' + prods.length + ' 款产品')
-        : (prods.length + (prods.length === 1 ? ' product' : ' products'));
-      var moreBtn = extra.length > 0
-        ? '<button class="cat-more" data-cat="' + c.id + '" data-expanded="0">' + (lang === 'cn' ? '查看更多 +' : 'View More +') + '</button>'
-        : '';
-
-      html +=
-        '<section class="cat-section reveal reveal-up" id="cat-' + c.id + '" data-cat="' + c.id + '">' +
-          '<div class="cat-head">' +
-            '<div class="cat-head-left">' +
-              '<div class="cat-icon">' + c.icon + '</div>' +
-              '<div class="cat-titles">' +
-                '<div class="cat-name">' + dc(c, 'name') + '</div>' +
-                '<div class="cat-sub">' + subText + '</div>' +
-              '</div>' +
-            '</div>' +
-            moreBtn +
-          '</div>' +
-          '<div class="prod-grid cat-grid">' + cards + '</div>' +
-        '</section>';
+    // 筛选产品
+    var filtered = d.products.filter(function (p) {
+      var matchCat = !activeCat || p.category === activeCat;
+      var matchSearch = !searchQuery;
+      if (searchQuery && matchCat) {
+        var text = (dc(p, 'name') + ' ' + dc(p, 'desc') + ' ' + p.category).toLowerCase();
+        matchSearch = text.indexOf(searchQuery) !== -1;
+      }
+      return matchCat && matchSearch;
     });
-    wrap.innerHTML = html;
 
-    // 绑定 View More / Show Less
-    wrap.querySelectorAll('.cat-more').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var cat = this.getAttribute('data-cat');
-        var sec = document.getElementById('cat-' + cat);
-        var extras = sec.querySelectorAll('.prod-extra');
-        var expanded = this.getAttribute('data-expanded') === '1';
-        var nowExpanded = !expanded;
-        extras.forEach(function (el) { el.style.display = nowExpanded ? '' : 'none'; });
-        this.setAttribute('data-expanded', nowExpanded ? '1' : '0');
-        this.innerHTML = nowExpanded
-          ? (lang === 'cn' ? '收起 −' : 'Show Less −')
-          : (lang === 'cn' ? '查看更多 +' : 'View More +');
+    // 更新标题
+    if (heading) {
+      if (activeCat) {
+        var catObj = null;
+        for (var ci = 0; ci < d.categories.length; ci++) {
+          if (d.categories[ci].id === activeCat) { catObj = d.categories[ci]; break; }
+        }
+        heading.textContent = catObj ? dc(catObj, 'name') : 'Products';
+      } else {
+        heading.textContent = lang === 'cn' ? '全部产品' : 'All Products';
+      }
+    }
+
+    // 更新计数
+    if (countEl) {
+      countEl.innerHTML = '<strong>' + filtered.length + '</strong> ' + (lang === 'cn' ? '款产品' : 'products');
+    }
+
+    // 渲染卡片或空状态
+    if (filtered.length === 0) {
+      grid.innerHTML = '';
+      grid.style.display = 'none';
+      if (noResult) noResult.style.display = '';
+      if (noResultText) noResultText.textContent = lang === 'cn' ? '未找到匹配的产品。' : 'No products found.';
+    } else {
+      grid.style.display = '';
+      if (noResult) noResult.style.display = 'none';
+      var cardsHtml = '';
+      filtered.forEach(function (p, i) {
+        cardsHtml += buildCard(p, i);
       });
-    });
-
-    // 分类直达 chips
-    initHeroChips();
+      grid.innerHTML = cardsHtml;
+      // 触发 stagger 动画
+      requestAnimationFrame(function () { observeReveal(); });
+    }
   }
 
-  function initHeroChips() {
-    var el = document.getElementById('heroChips');
-    if (!el) return;
-    var html = '';
-    d.categories.forEach(function (c) {
-      html += '<button class="hero-chip" data-target="cat-' + c.id + '">' + dc(c, 'name') + '</button>';
+  /* ===== 顶部搜索栏 ===== */
+  function attachTopSearch() {
+    var input = document.getElementById('topSearchInput');
+    var btn = document.getElementById('topSearchBtn');
+    var catSel = document.getElementById('topSearchCat');
+    if (!input) return;
+
+    function doSearch() {
+      searchQuery = input.value.toLowerCase().trim();
+      // 如果选了分类下拉，也同步到侧边栏
+      if (catSel && catSel.value) {
+        activeCat = catSel.value;
+        // 更新侧边栏激活状态
+        var items = document.querySelectorAll('.sidebar-cat-item');
+        items.forEach(function (it) { it.classList.remove('active'); });
+        var target = document.querySelector('.sidebar-cat-item[data-cat="' + activeCat + '"]');
+        if (target) target.classList.add('active');
+      }
+      renderProductGrid();
+    }
+
+    input.addEventListener('input', doSearch);
+    if (btn) btn.addEventListener('click', doSearch);
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') doSearch();
     });
-    el.innerHTML = html;
-    el.querySelectorAll('.hero-chip').forEach(function (b) {
-      b.addEventListener('click', function () {
-        var tgt = document.getElementById(this.getAttribute('data-target'));
-        if (tgt) tgt.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
+    if (catSel) catSel.addEventListener('change', doSearch);
+  }
+
+  /* ===== 产品卡片点击 → 滚动到联系区域 ===== */
+  function attachProductClick() {
+    var grid = document.getElementById('prodGrid');
+    if (!grid) return;
+    grid.addEventListener('click', function (e) {
+      var card = e.target.closest('.prod-card');
+      if (card) {
+        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+      }
     });
   }
 
@@ -564,74 +601,9 @@
     document.getElementById('footerCopy').textContent = dc(f, 'copy');
   }
 
-  /* ===== Hero 全局搜索：跨分类筛选 ===== */
-  function attachHeroSearch() {
-    var input = document.getElementById('heroSearch');
-    var clearBtn = document.getElementById('heroSearchClear');
-    var countEl = document.getElementById('heroSearchCount');
-    if (!input) return;
-
-    function applyFilter() {
-      var q = input.value.toLowerCase().trim();
-      var cards = document.querySelectorAll('#categorySections .prod-card');
-      if (q) {
-        // 搜索时展开所有 extra，避免匹配项被隐藏
-        cards.forEach(function (card) { card.style.display = ''; });
-        var count = 0;
-        cards.forEach(function (card) {
-          var text = card.textContent.toLowerCase();
-          if (text.indexOf(q) === -1) {
-            card.classList.add('filtered-out');
-          } else {
-            card.classList.remove('filtered-out');
-            count++;
-          }
-        });
-        if (clearBtn) clearBtn.classList.add('visible');
-        countEl.innerHTML = '<strong>' + count + '</strong> ' + (lang === 'cn' ? '个匹配产品' : 'products found');
-      } else {
-        cards.forEach(function (card) { card.style.display = ''; card.classList.remove('filtered-out'); });
-        // 还原未展开的 extra 为隐藏
-        document.querySelectorAll('#categorySections .cat-section').forEach(function (sec) {
-          var btn = sec.querySelector('.cat-more');
-          var expanded = btn && btn.getAttribute('data-expanded') === '1';
-          sec.querySelectorAll('.prod-extra').forEach(function (el) {
-            el.style.display = expanded ? '' : 'none';
-          });
-        });
-        if (clearBtn) clearBtn.classList.remove('visible');
-        countEl.innerHTML = '';
-      }
-    }
-
-    input.addEventListener('input', applyFilter);
-    if (clearBtn) {
-      clearBtn.addEventListener('click', function () {
-        input.value = '';
-        applyFilter();
-        input.focus();
-      });
-    }
-  }
-
-  /* ===== 产品卡片点击 → 滚动到联系区域（绑定一次） ===== */
-  function attachCategoryClick() {
-    var wrap = document.getElementById('categorySections');
-    if (!wrap) return;
-    wrap.addEventListener('click', function (e) {
-      var card = e.target.closest('.prod-card');
-      if (card) {
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
-
   /* ===== Init ===== */
-  generateDots();
   renderAll();
   updateNavText();
   setLangBtn();
-  attachHeroSearch();
-  attachCategoryClick();
   scrollSpy();
 })();
