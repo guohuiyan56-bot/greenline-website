@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -213,8 +213,8 @@
 
     /* ===== Hero ===== */
     .hero{
-      min-height:100vh;display:flex;align-items:center;position:relative;
-      padding:var(--header-h) 0 80px;overflow:hidden;
+      min-height:auto;display:flex;align-items:center;position:relative;
+      padding:calc(var(--header-h) + 56px) 0 56px;overflow:hidden;
       background:var(--c-bg-hero);
     }
     .hero::after{
@@ -260,7 +260,7 @@
       animation:fadeInUp 0.8s 0.36s var(--ease) both;
     }
     .hero-stat-row{
-      display:flex;gap:48px;margin-top:60px;
+      display:flex;gap:36px;margin-top:34px;
       animation:fadeInUp 0.8s 0.5s var(--ease) both;
     }
     .hero-stat-val{font-size:2.4rem;font-weight:800;font-family:var(--font-display);color:var(--c-primary)}
@@ -760,6 +760,49 @@
       .testimonial-grid{grid-template-columns:1fr}
       .about-checks{grid-template-columns:1fr}
     }
+
+    /* ===== 产品优先布局（参考 gdtfair：紧凑 hero + 分类直达 + 分类展示区） ===== */
+    .hero-search{max-width:620px;margin-top:28px}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;padding:0 10px}
+    .hero-chip{
+      padding:8px 18px;border-radius:50px;font-size:0.8rem;font-weight:500;
+      color:var(--c-text-dim);background:rgba(200,150,92,0.05);
+      border:1px solid rgba(200,150,92,0.12);cursor:pointer;
+      transition:all .3s var(--ease);
+    }
+    .hero-chip:hover{border-color:var(--c-primary);color:var(--c-primary);background:rgba(200,150,92,0.1);transform:translateY(-2px)}
+
+    .cat-wrap{padding-top:30px}
+    .cat-section{padding:54px 0;border-top:1px solid var(--c-border)}
+    .cat-section:first-child{border-top:none}
+    .cat-head{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:30px;flex-wrap:wrap}
+    .cat-head-left{display:flex;align-items:center;gap:16px}
+    .cat-icon{
+      width:58px;height:58px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;
+      font-size:1.7rem;background:linear-gradient(135deg,rgba(200,150,92,0.12),rgba(200,150,92,0.04));
+      border:1px solid rgba(200,150,92,0.1);transition:all .5s var(--ease-bounce);
+    }
+    .cat-section:hover .cat-icon{transform:scale(1.08) rotate(-4deg);background:linear-gradient(135deg,rgba(200,150,92,0.22),rgba(200,150,92,0.08))}
+    .cat-name{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;font-family:var(--font-display);color:var(--c-text);line-height:1.1}
+    .cat-sub{font-size:0.85rem;color:var(--c-text-muted);margin-top:2px}
+    .cat-more{
+      padding:10px 22px;border-radius:50px;border:1.5px solid rgba(200,150,92,0.25);color:var(--c-text-dim);
+      font-size:0.84rem;font-weight:600;display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+      background:transparent;transition:all .35s var(--ease);white-space:nowrap;
+    }
+    .cat-more:hover{border-color:var(--c-primary);color:var(--c-primary);background:rgba(200,150,92,0.06);transform:translateY(-2px)}
+
+    .prod-grid.cat-grid{grid-template-columns:repeat(4,1fr)}
+    .prod-extra{display:none}
+    .filtered-out{display:none !important}
+
+    @media(max-width:1024px){
+      .prod-grid.cat-grid{grid-template-columns:repeat(3,1fr)}
+    }
+    @media(max-width:768px){
+      .prod-grid.cat-grid{grid-template-columns:repeat(2,1fr)}
+      .cat-head{flex-direction:column;align-items:flex-start}
+    }
   </style>
 </head>
 <body>
@@ -795,7 +838,7 @@
     </div>
   </nav>
 
-  <!-- ===== 首页 ===== -->
+  <!-- ===== 首页（紧凑型 hero：品牌介绍 + 全局搜索 + 分类直达） ===== -->
   <section class="hero" id="home">
     <div class="hero-bg" id="heroBg"></div>
     <div class="container" style="position:relative;">
@@ -803,7 +846,16 @@
         <div class="hero-badge"><span class="hero-badge-dot"></span><span id="heroBadge"></span></div>
         <h1 class="hero-title" id="heroTitle"></h1>
         <p class="hero-desc" id="heroDesc"></p>
-        <div class="hero-actions">
+        <div class="hero-search reveal reveal-up">
+          <div class="search-box">
+            <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="16" y1="16" x2="22" y2="22"/></svg>
+            <input type="text" class="search-input" id="heroSearch" placeholder="Search products, categories or keywords...">
+            <button class="search-clear" id="heroSearchClear" aria-label="Clear">&times;</button>
+          </div>
+          <div class="hero-chips" id="heroChips"></div>
+          <div class="search-count" id="heroSearchCount" style="padding:0 10px"></div>
+        </div>
+        <div class="hero-actions" style="margin-top:14px">
           <a href="#products" class="btn btn-primary" id="heroCta"></a>
           <a href="#contact" class="btn btn-outline" id="heroContact"></a>
         </div>
@@ -821,37 +873,22 @@
     </div>
   </section>
 
-  <!-- ===== 数据统计 ===== -->
-  <section class="sec" id="statsSec" style="background:var(--c-bg-alt)">
-    <div class="sec-orb" style="top:-100px;right:-100px;"></div>
-    <div class="container reveal reveal-scale">
-      <div class="stats-strip" id="statsStrip"></div>
-    </div>
-  </section>
-
-  <!-- ===== 产品中心 ===== -->
-  <section class="sec" id="products">
-    <div class="sec-orb" style="bottom:-80px;left:-80px;"></div>
+  <!-- ===== 产品优先：按分类直接展示（布局参考 gdtfair，一打开即见产品） ===== -->
+  <section class="sec cat-wrap" id="products">
+    <div class="sec-orb" style="top:-60px;right:-60px;"></div>
     <div class="container">
       <div class="sec-label reveal reveal-up" id="productLabel"></div>
       <h2 class="sec-title reveal reveal-up delay-1" id="productTitle"></h2>
       <p class="sec-subtitle reveal reveal-up delay-2" id="productSubtitle"></p>
-      <div class="cat-tabs reveal reveal-up delay-3" id="catTabs"></div>
-      <div class="search-panel reveal reveal-up delay-3">
-        <div class="search-box">
-          <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7.5"/><line x1="16" y1="16" x2="22" y2="22"/></svg>
-          <input type="text" class="search-input" id="prodSearch" placeholder="搜索产品名称、分类、关键词...">
-          <button class="search-clear" id="searchClear" aria-label="清除搜索">&times;</button>
-        </div>
-        <div class="search-info">
-          <span class="search-count" id="searchCount"></span>
-          <div class="search-tags" id="searchTags"></div>
-        </div>
-      </div>
-      <div class="prod-grid reveal-stagger" id="prodGrid"></div>
-      <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
-        <button class="btn btn-outline load-more-btn" id="loadMoreBtn">加载更多</button>
-      </div>
+      <div id="categorySections"></div>
+    </div>
+  </section>
+
+  <!-- ===== 数据统计 ===== -->
+  <section class="sec" id="statsSec" style="background:var(--c-bg-alt);padding:72px 0">
+    <div class="sec-orb" style="bottom:-100px;left:-100px;"></div>
+    <div class="container reveal reveal-scale">
+      <div class="stats-strip" id="statsStrip"></div>
     </div>
   </section>
 
