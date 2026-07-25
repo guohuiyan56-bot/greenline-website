@@ -78,14 +78,21 @@
     });
   }
 
-  /* ===== Preloader ===== */
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      var pl = document.getElementById('preloader');
-      pl.classList.add('hidden');
-      setTimeout(function () { pl.remove(); }, 500);
-    }, 350);
-  });
+  /* ===== Preloader — 关键：DOM 渲染完即隐藏，不等所有图片/字体（解决“进去太慢”） ===== */
+  function hidePreloader() {
+    var pl = document.getElementById('preloader');
+    if (!pl || pl.classList.contains('hidden')) return;
+    pl.classList.add('hidden');
+    setTimeout(function () { if (pl) pl.remove(); }, 500);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { setTimeout(hidePreloader, 200); });
+  } else {
+    setTimeout(hidePreloader, 200);
+  }
+  // 兜底：即使资源卡住，1.5s 后也强制隐藏
+  setTimeout(hidePreloader, 1500);
+  window.addEventListener('load', hidePreloader);
 
   /* ===== Custom Cursor ===== */
   var cursor = document.getElementById('cursor');
@@ -165,7 +172,7 @@
               (function (child, idx) {
                 setTimeout(function () {
                   child.classList.add('visible');
-                }, idx * 60);
+                }, Math.min(idx, 16) * 45);   // 级联封顶 ~0.7s，不随卡片数无限拉长
               })(children[i], i);
             }
           }
@@ -339,7 +346,7 @@
     }
     var catName = catObj ? dc(catObj, 'name') : '';
     var imgContent = p.image
-      ? '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy">'
+      ? '<img src="' + p.image + '" alt="' + dc(p, 'name') + '" style="width:100%;height:100%;object-fit:cover;" loading="lazy" decoding="async">'
       : '<div class="prod-card-img-placeholder">' + (catObj ? catObj.icon || '📦' : '📦') + '</div>';
     return '' +
       '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
