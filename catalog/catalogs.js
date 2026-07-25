@@ -18,6 +18,28 @@ window.CATALOGS = [
     desc_en: 'Kitchen cabinets · materials · layout solutions',
     cover: 'kitchen/pages/thumbs/t000.jpg',
     pages: 94
+  },
+  {
+    id: 'wardrobe',
+    folder: 'wardrobe',
+    category: 'home',
+    title_cn: '衣柜目录册',
+    title_en: 'Wardrobe Catalogue',
+    desc_cn: '定制衣柜 · 步入式衣帽间 · 收纳系统',
+    desc_en: 'Custom wardrobes · walk-in closets · storage systems',
+    cover: 'wardrobe/pages/thumbs/t000.jpg',
+    pages: 120
+  },
+  {
+    id: 'tv',
+    folder: 'tv',
+    category: 'home',
+    title_cn: '电视柜目录册',
+    title_en: 'TV & Wine Cabinet Catalogue',
+    desc_cn: '电视柜 · 酒柜 · 客厅收纳组合',
+    desc_en: 'TV stands · wine cabinets · living-room storage',
+    cover: 'tv/pages/thumbs/t000.jpg',
+    pages: 114
   }
   // 例：家居家装再添一本卫浴册
   // ,{
