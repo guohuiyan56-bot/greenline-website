@@ -254,6 +254,7 @@
       transform:translateY(-2px) scale(1.05);
       font-size:0.9rem;letter-spacing:0.5px;
     }
+    .nav-catalog-link{font-weight:700}
     .nav-lang{
       margin-left:12px;padding:8px 16px;border-radius:22px;
       background:rgba(200,150,92,0.06);font-size:0.8rem;font-weight:600;
@@ -1052,7 +1053,13 @@
       .top-header .container{flex-direction:column;gap:12px}
       .top-search-wrap{width:100%;max-width:none}
       .nav-categories-btn{display:none}
-      .cat-popup{display:none}
+      .sidebar-cat-item{flex-wrap:wrap}
+      .cat-popup{
+        position:static;left:auto;top:auto;transform:none;
+        display:flex;opacity:1;visibility:visible;pointer-events:auto;
+        width:100%;margin-top:8px;justify-content:center;
+      }
+      .cat-popup::before,.cat-popup::after{display:none}
       .prod-grid{grid-template-columns:repeat(2,1fr);gap:10px}
     }
   </style>
@@ -1079,6 +1086,7 @@
         <a href="#about">About</a>
         <a href="#service">Services</a>
         <a href="#testimonials">Reviews</a>
+        <a href="catalog/" class="nav-catalog-link" id="navCatalogLink">📖 Catalogues</a>
         <a href="#contact">Contact</a>
       </div>
       <div style="display:flex;align-items:center;">

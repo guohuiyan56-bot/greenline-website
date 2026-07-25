@@ -660,4 +660,8 @@
   updateNavText();
   setLangBtn();
   scrollSpy();
+
+  // 顶部导航「Catalogues」入口：带当前语言跳转目录册 hub
+  var navCat = document.getElementById('navCatalogLink');
+  if (navCat) navCat.addEventListener('click', function (e) { e.preventDefault(); goCatalog(''); });
 })();
