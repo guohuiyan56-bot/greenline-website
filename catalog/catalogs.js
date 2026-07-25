@@ -57,16 +57,28 @@ window.CATALOGS = [
     pages: 174
   },
   {
-    id: 'shower-ys',
-    folder: 'shower-ys',
-    category: 'hardware',
-    title_cn: 'YS SERIES 龙头册',
-    title_en: 'YS Series Faucet Catalogue',
-    desc_cn: 'YS 系列龙头 · 厨房 / 面盆 / 净水',
-    desc_en: 'YS series faucets · kitchen / basin / purifier',
-    cover_cn: 'shower-ys/cover_cn.png',
-    cover_en: 'shower-ys/cover_en.png',
-    pages: 22
+    id: 'lighting',
+    folder: 'lighting',
+    category: 'lighting',
+    title_cn: 'MSA 系列灯具册',
+    title_en: 'MSA Series Lighting Catalogue',
+    desc_cn: '现代水晶 · 线性 LED · 壁灯 · 工业风吊灯',
+    desc_en: 'Modern crystal · linear LED · wall lamps · industrial pendants',
+    cover_cn: 'lighting/cover_cn.png',
+    cover_en: 'lighting/cover_en.png',
+    pages: 33
+  },
+  {
+    id: 'louver',
+    folder: 'louver',
+    category: 'doors',
+    title_cn: '门窗百叶铝框册',
+    title_en: 'Aluminium Louver Window & Door Catalogue',
+    desc_cn: '6"/4" 铝合金 / 铝塑 / 铁制百叶窗框',
+    desc_en: '6"/4" aluminum, aluminum-plastic & iron louver frames',
+    cover_cn: 'louver/cover_cn.png',
+    cover_en: 'louver/cover_en.png',
+    pages: 12
   }
 ];
 
@@ -76,6 +88,8 @@ window.CATALOG_CATS = {
   gift:     { cn: '礼品文创', en: 'Gifts & Crafts' },
   machinery: { cn: '工业机械', en: 'Machinery' },
   hardware:  { cn: '五金制品', en: 'Hardware' },
+  lighting:  { cn: '灯饰照明', en: 'Lighting' },
+  doors:     { cn: '门窗建材', en: 'Windows & Doors' },
   hotel:    { cn: '酒店用品', en: 'Hotel Supplies' },
   project:  { cn: '工程配套', en: 'Project Supplies' },
   custom:   { cn: '定制加工', en: 'Custom Manufacturing' }
