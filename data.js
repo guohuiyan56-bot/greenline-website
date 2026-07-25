@@ -236,7 +236,7 @@ var GT_DATA = {
       "Rejoice", "Vodafone", "Disney", "GMC",
       "Shangri-La", "Fiji Airways", "QFA", "Qatar Petroleum",
       "Doha College", "Bold&Beautiful", "VOU", "NCPW",
-      "Shell", "Qatargas", "Muntajat"
+      "Shell", "Qatar Sun", "Qatargas", "Muntajat", "Kaving DDA"
     ]
   },
 

@@ -600,7 +600,15 @@
   function renderPartners() {
     document.getElementById('partnersLabel').textContent = dc(d.partners, 'label');
     document.getElementById('partnersTitle').textContent = dc(d.partners, 'title');
-    // Logo 墙为静态图片（index.html），无需 JS 动态填充
+
+    var track = document.getElementById('partnersTrack');
+    var names = d.partners.names;
+    var doubled = names.concat(names);
+    var html = '';
+    doubled.forEach(function (n) {
+      html += '<span class="partner-item">' + n + '</span>';
+    });
+    track.innerHTML = html;
   }
 
   function renderContact() {
