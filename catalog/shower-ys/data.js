@@ -1,0 +1,91 @@
+window.FLIP = {
+ "total": 22,
+ "images": [
+  "pages/split/p000.jpg",
+  "pages/split/p001.jpg",
+  "pages/split/p002.jpg",
+  "pages/split/p003.jpg",
+  "pages/split/p004.jpg",
+  "pages/split/p005.jpg",
+  "pages/split/p006.jpg",
+  "pages/split/p007.jpg",
+  "pages/split/p008.jpg",
+  "pages/split/p009.jpg",
+  "pages/split/p010.jpg",
+  "pages/split/p011.jpg",
+  "pages/split/p012.jpg",
+  "pages/split/p013.jpg",
+  "pages/split/p014.jpg",
+  "pages/split/p015.jpg",
+  "pages/split/p016.jpg",
+  "pages/split/p017.jpg",
+  "pages/split/p018.jpg",
+  "pages/split/p019.jpg",
+  "pages/split/p020.jpg",
+  "pages/split/p021.jpg"
+ ],
+ "thumbs": [
+  "pages/thumbs/t000.jpg",
+  "pages/thumbs/t001.jpg",
+  "pages/thumbs/t002.jpg",
+  "pages/thumbs/t003.jpg",
+  "pages/thumbs/t004.jpg",
+  "pages/thumbs/t005.jpg",
+  "pages/thumbs/t006.jpg",
+  "pages/thumbs/t007.jpg",
+  "pages/thumbs/t008.jpg",
+  "pages/thumbs/t009.jpg",
+  "pages/thumbs/t010.jpg",
+  "pages/thumbs/t011.jpg",
+  "pages/thumbs/t012.jpg",
+  "pages/thumbs/t013.jpg",
+  "pages/thumbs/t014.jpg",
+  "pages/thumbs/t015.jpg",
+  "pages/thumbs/t016.jpg",
+  "pages/thumbs/t017.jpg",
+  "pages/thumbs/t018.jpg",
+  "pages/thumbs/t019.jpg",
+  "pages/thumbs/t020.jpg",
+  "pages/thumbs/t021.jpg"
+ ],
+ "aspect": 0.71154,
+ "mode": "split",
+ "toc": [
+  {
+   "num": "01",
+   "cn": "厨房龙头系列",
+   "en": "Kitchen Faucet Series",
+   "items": [
+    {
+     "cn": "SUS304 不锈钢厨房龙头",
+     "en": "Kitchen Faucet",
+     "page": 2
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "cn": "净水器龙头系列",
+   "en": "Water Purifier Faucet Series",
+   "items": [
+    {
+     "cn": "净水器龙头",
+     "en": "Water Purifier Faucet",
+     "page": 12
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "cn": "面盆龙头系列",
+   "en": "Basin Faucet Series",
+   "items": [
+    {
+     "cn": "黄铜 / SUS304 面盆龙头",
+     "en": "Basin Faucet",
+     "page": 18
+    }
+   ]
+  }
+ ]
+};
