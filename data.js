@@ -84,15 +84,12 @@ var GT_DATA = {
     { id:"p14", category:"home", name_cn:"藤编户外椅",     name_en:"Rattan Outdoor Chair",    desc_cn:"手工藤编户外椅，防水防UV处理",                               desc_en:"Handmade rattan outdoor chairs, waterproof & UV-resistant",         image:"images/p14.jpg" },
     { id:"p15", category:"home", name_cn:"烘焙模具套装",   name_en:"Bakeware Set",            desc_cn:"不粘蛋糕模、饼干模、面包烤盘套装",                           desc_en:"Non-stick cake molds, cookie cutters, baking pans set",             image:"images/p15.jpg" },
 
-    /* ===== 礼品文创 (9) ===== */
+    /* ===== 礼品文创 (6) ===== */
     { id:"p17", category:"gift", name_cn:"促销赠品",       name_en:"Promotional Gifts",       desc_cn:"企业伴手礼、展会赠品、广告衫、帆布袋",                     desc_en:"Corporate gifts, trade show giveaways, T-shirts, tote bags",        image:"images/p17.jpg" },
     { id:"p20", category:"gift", name_cn:"圣诞装饰品",     name_en:"Christmas Decorations",   desc_cn:"圣诞树、彩球、灯串、花环装饰全套",                           desc_en:"Christmas trees, baubles, light strings, wreaths set",             image:"images/p20.jpg" },
-    { id:"p21", category:"gift", name_cn:"企业定制礼品",   name_en:"Corporate Custom Gifts",  desc_cn:"高端商务礼盒，支持品牌LOGO定制",                             desc_en:"Premium business gift boxes with custom brand logo",               image:"images/p21.jpg" },
     { id:"p22", category:"gift", name_cn:"树脂手工艺品",   name_en:"Resin Handicrafts",       desc_cn:"手工浇筑树脂摆件，桌面装饰收藏",                             desc_en:"Handmade resin figurines for desk decor & collection",             image:"images/p22.jpg" },
     { id:"p23", category:"gift", name_cn:"彩印礼品盒",     name_en:"Printed Gift Boxes",      desc_cn:"硬纸板礼品盒，烫金/UV印刷工艺",                             desc_en:"Rigid gift boxes with foil stamping & UV printing",                image:"images/p23.jpg" },
     { id:"p24", category:"gift", name_cn:"万圣节周边",     name_en:"Halloween Accessories",   desc_cn:"南瓜灯、面具、服装、派对装饰",                               desc_en:"Pumpkin lights, masks, costumes, party decorations",               image:"images/p24.jpg" },
-    { id:"p25", category:"gift", name_cn:"广告扇/雨伞",   name_en:"Promotional Fans & Umbrellas", desc_cn:"折叠广告扇、全自动晴雨伞，LOGO印刷",                   desc_en:"Folding promotional fans, auto umbrellas with logo printing",       image:"images/p25.jpg" },
-    { id:"p26", category:"gift", name_cn:"木质雕刻摆件",   name_en:"Wood Carved Ornaments",   desc_cn:"胡桃木、橄榄木手工雕刻桌面摆件",                             desc_en:"Hand-carved walnut & olive wood desk ornaments",                   image:"images/p26.jpg" },
     { id:"p27", category:"gift", name_cn:"环保包装袋",     name_en:"Eco Packaging Bags",      desc_cn:"无纺布袋、牛皮纸袋、可降解材料包装",                         desc_en:"Non-woven bags, kraft paper bags, biodegradable packaging",        image:"images/p27.jpg" },
 
     /* ===== 工业机械 (12) ===== */
@@ -109,21 +106,17 @@ var GT_DATA = {
     { id:"p41", category:"machinery", name_cn:"密封件",       name_en:"Seals",                 desc_cn:"O型圈、油封、垫片、盘根密封",                               desc_en:"O-rings, oil seals, gaskets, packing seals",                       image:"images/p41.jpg" },
     { id:"p42", category:"machinery", name_cn:"生产线设备",   name_en:"Production Line Equipment", desc_cn:"自动化装配线、包装线、检测线",                            desc_en:"Automated assembly, packaging & inspection lines",                 image:"images/p42.jpg" },
 
-    /* ===== 五金制品 (12) ===== */
+    /* ===== 五金制品 (8) ===== */
     { id:"p46", category:"hardware", name_cn:"门窗合页",     name_en:"Door & Window Hinges",   desc_cn:"不锈钢合页、液压缓冲合页、隐藏式铰链",                     desc_en:"Stainless hinges, hydraulic soft-close, concealed hinges",          image:"images/p46.jpg" },
     { id:"p47", category:"hardware", name_cn:"螺栓/螺丝",   name_en:"Bolts & Screws",         desc_cn:"六角螺栓、内六角、自攻螺丝、马车螺栓",                     desc_en:"Hex bolts, socket head cap screws, self-tapping, carriage bolts",   image:"images/p47.jpg" },
     { id:"p48", category:"hardware", name_cn:"智能门锁",     name_en:"Smart Door Lock",        desc_cn:"指纹、密码、刷卡、APP开锁一体",                             desc_en:"Fingerprint, PIN, RFID card, APP unlock all-in-one",               image:"images/p48.jpg" },
     { id:"p49", category:"hardware", name_cn:"幕墙配件",     name_en:"Curtain Wall Fittings",  desc_cn:"预埋件、驳接爪、拉杆、索具配件",                             desc_en:"Embedded parts, spider fittings, tension rods, rigging hardware",   image:"images/p49.jpg" },
     { id:"p50", category:"hardware", name_cn:"螺母/垫圈",   name_en:"Nuts & Washers",         desc_cn:"六角螺母、尼龙锁紧螺母、平垫、弹垫",                       desc_en:"Hex nuts, nylon lock nuts, flat washers, spring washers",          image:"images/p50.jpg" },
-    { id:"p51", category:"hardware", name_cn:"门禁系统",     name_en:"Access Control System",  desc_cn:"刷卡门禁、人脸识别、二维码门禁全套",                         desc_en:"RFID card, face recognition, QR code access control systems",      image:"images/p51.jpg" },
     { id:"p52", category:"hardware", name_cn:"钢结构连接件", name_en:"Steel Connectors",       desc_cn:"高强螺栓、焊接材料、节点板",                                 desc_en:"High-strength bolts, welding materials, gusset plates",            image:"images/p52.jpg" },
-    { id:"p53", category:"hardware", name_cn:"铆钉/销钉",   name_en:"Rivets & Pins",          desc_cn:"抽芯铆钉、实心铆钉、开口销、弹簧销",                       desc_en:"Blind rivets, solid rivets, split pins, spring pins",              image:"images/p53.jpg" },
     { id:"p54", category:"hardware", name_cn:"挂锁/密码锁",  name_en:"Padlocks",              desc_cn:"铜挂锁、钢挂锁、密码挂锁",                                   desc_en:"Brass padlocks, steel padlocks, combination padlocks",             image:"images/p54.jpg" },
     { id:"p55", category:"hardware", name_cn:"精密冲压件",   name_en:"Precision Stamping Parts", desc_cn:"五金冲压件、弯折件、拉伸件定制",                           desc_en:"Stamped, bent & deep-drawn metal parts, custom",                   image:"images/p55.jpg" },
-    { id:"p56", category:"hardware", name_cn:"法兰螺栓",     name_en:"Flange Bolts",           desc_cn:"带法兰面螺栓，防松防盗型",                                   desc_en:"Flanged bolts with anti-loosening & anti-theft design",            image:"images/p56.jpg" },
-    { id:"p57", category:"hardware", name_cn:"安全五金配件", name_en:"Security Hardware",      desc_cn:"防盗链、门吸、防坠装置、安全锁扣",                           desc_en:"Security chains, door stops, anti-fall devices, safety latches",   image:"images/p57.jpg" },
 
-    /* ===== 酒店用品 (12) ===== */
+    /* ===== 酒店用品 (9) ===== */
     { id:"p61", category:"hotel", name_cn:"床单被套套装",   name_en:"Bed Sheet Sets",          desc_cn:"60S高支棉，白色/素色可选，阻燃处理",                         desc_en:"60S high-count cotton, white/solid colors, flame-retardant",       image:"images/p61.jpg" },
     { id:"p62", category:"hotel", name_cn:"一次性拖鞋",     name_en:"Disposable Slippers",     desc_cn:"无纺布/华夫格/毛巾布拖鞋批量供应",                           desc_en:"Non-woven/waffle/terry disposable slippers in bulk",               image:"images/p62.jpg" },
     { id:"p63", category:"hotel", name_cn:"行李车",         name_en:"Luggage Carts",           desc_cn:"不锈钢行李车、折叠行李推车",                                 desc_en:"Stainless steel luggage carts, folding carts",                    image:"images/p63.jpg" },
@@ -131,36 +124,21 @@ var GT_DATA = {
     { id:"p65", category:"hotel", name_cn:"沐浴套装",       name_en:"Bath Amenities Set",      desc_cn:"洗发水、沐浴露、护发素、身体乳30ml套装",                     desc_en:"Shampoo, body wash, conditioner, lotion 30ml sets",                image:"images/p65.jpg" },
     { id:"p66", category:"hotel", name_cn:"雨伞架/烟灰柱",  name_en:"Umbrella Stands",         desc_cn:"不锈钢雨伞架、烟灰柱、立式垃圾桶",                           desc_en:"Stainless umbrella stands, ash columns, trash bins",               image:"images/p66.jpg" },
     { id:"p67", category:"hotel", name_cn:"餐厅台布",       name_en:"Restaurant Tablecloths",  desc_cn:"纯棉/涤纶台布，多种颜色尺寸",                               desc_en:"Cotton/polyester tablecloths, various colors & sizes",             image:"images/p67.jpg" },
-    { id:"p68", category:"hotel", name_cn:"牙具套装",       name_en:"Dental Kits",             desc_cn:"牙刷、牙膏、梳子、浴帽一次性套装",                           desc_en:"Disposable toothbrush, toothpaste, comb, shower cap kits",         image:"images/p68.jpg" },
     { id:"p69", category:"hotel", name_cn:"指示牌/迎宾牌",  name_en:"Signage",                 desc_cn:"亚克力指示牌、LED楼层牌、迎宾水牌",                         desc_en:"Acrylic signs, LED floor signs, welcome display boards",           image:"images/p69.jpg" },
-    { id:"p70", category:"hotel", name_cn:"阻燃床品",       name_en:"Flame Retardant Bedding", desc_cn:"阻燃面料被芯、枕芯，通过国际认证",                           desc_en:"Flame-retardant duvets & pillows, internationally certified",      image:"images/p70.jpg" },
-    { id:"p71", category:"hotel", name_cn:"茶包咖啡包",     name_en:"Tea & Coffee Packets",    desc_cn:"红茶、绿茶、速溶咖啡、糖包小包装",                           desc_en:"Black/green tea, instant coffee, sugar packets",                  image:"images/p71.jpg" },
     { id:"p72", category:"hotel", name_cn:"迎宾地毯",       name_en:"Welcome Mats",            desc_cn:"尼龙印花地垫、防滑吸水型",                                   desc_en:"Nylon printed doormats, anti-slip & water-absorbent",              image:"images/p72.jpg" },
 
-    /* ===== 工程配套 (11) ===== */
+    /* ===== 工程配套 (5) ===== */
     { id:"p76", category:"project", name_cn:"瓷砖/大理石",  name_en:"Tiles & Marble",          desc_cn:"釉面砖、通体砖、大理石、花岗岩",                             desc_en:"Glazed tiles, full-body tiles, marble, granite",                   image:"images/p76.jpg" },
     { id:"p77", category:"project", name_cn:"PPR水管",      name_en:"PPR Water Pipes",         desc_cn:"PPR冷热水管，20mm-110mm全规格",                              desc_en:"PPR hot/cold water pipes, 20mm-110mm full range",                  image:"images/p77.jpg" },
     { id:"p78", category:"project", name_cn:"工装整体方案", name_en:"Commercial Decoration",   desc_cn:"办公楼、商铺、餐厅整体装修配套",                             desc_en:"Office, retail, restaurant complete decoration solutions",         image:"images/p78.jpg" },
-    { id:"p79", category:"project", name_cn:"木地板/SPC地板", name_en:"Wood & SPC Flooring",   desc_cn:"实木地板、强化地板、SPC石塑地板",                           desc_en:"Solid wood, laminate, SPC flooring",                              image:"images/p79.jpg" },
-    { id:"p80", category:"project", name_cn:"PVC排水管",    name_en:"PVC Drainage Pipes",      desc_cn:"PVC-U排水管、管件、雨水管",                                   desc_en:"PVC-U drainage pipes, fittings, rainwater pipes",                  image:"images/p80.jpg" },
-    { id:"p81", category:"project", name_cn:"酒店工程配套", name_en:"Hotel Project Supply",    desc_cn:"酒店整体项目材料供应与安装",                                 desc_en:"Hotel project material supply & installation",                    image:"images/p81.jpg" },
     { id:"p82", category:"project", name_cn:"涂料/防水材料", name_en:"Paint & Waterproofing",  desc_cn:"内墙乳胶漆、外墙涂料、防水涂料",                             desc_en:"Interior latex paint, exterior coatings, waterproof paint",        image:"images/p82.jpg" },
     { id:"p83", category:"project", name_cn:"阀门/法兰",    name_en:"Valves & Flanges",        desc_cn:"闸阀、球阀、蝶阀、法兰片全规格",                             desc_en:"Gate valves, ball valves, butterfly valves, flanges",             image:"images/p83.jpg" },
-    { id:"p84", category:"project", name_cn:"地产项目配套", name_en:"Real Estate Project",     desc_cn:"住宅、商业地产项目建材配套",                                 desc_en:"Residential & commercial real estate material supply",             image:"images/p84.jpg" },
-    { id:"p85", category:"project", name_cn:"石膏板/天花板", name_en:"Gypsum Boards & Ceilings", desc_cn:"纸面石膏板、矿棉板、铝扣板吊顶",                           desc_en:"Gypsum boards, mineral wool boards, aluminum ceiling panels",      image:"images/p85.jpg" },
-    { id:"p86", category:"project", name_cn:"PE管/沟槽管件", name_en:"PE Pipes & Grooved Fittings", desc_cn:"PE给水管、沟槽管件、消防配件",                        desc_en:"PE water supply pipes, grooved fittings, fire protection parts",   image:"images/p86.jpg" },
 
-    /* ===== 定制加工 (10) ===== */
+    /* ===== 定制加工 (4) ===== */
     { id:"p90", category:"custom", name_cn:"家具OEM定制",   name_en:"Furniture OEM",           desc_cn:"来图定制家具，材质/颜色/尺寸全定制",                       desc_en:"Custom furniture by drawings, full material/color/size options",   image:"images/p90.jpg" },
     { id:"p91", category:"custom", name_cn:"产品外观设计",   name_en:"Product Design",          desc_cn:"工业设计、外观造型、CMF方案设计",                           desc_en:"Industrial design, exterior styling, CMF solution design",         image:"images/p91.jpg" },
     { id:"p92", category:"custom", name_cn:"3D打印验证",    name_en:"3D Print Prototyping",    desc_cn:"SLA/SLS/FDM 3D打印手板，48小时交付",                         desc_en:"SLA/SLS/FDM 3D printing prototypes, 48-hour delivery",             image:"images/p92.jpg" },
-    { id:"p93", category:"custom", name_cn:"五金OEM加工",   name_en:"Hardware OEM",            desc_cn:"五金冲压、CNC加工、表面处理一站式",                         desc_en:"Hardware stamping, CNC machining, surface treatment one-stop",     image:"images/p93.jpg" },
-    { id:"p94", category:"custom", name_cn:"模具开发",       name_en:"Mold Development",        desc_cn:"注塑模具、压铸模具、冲压模具开发",                           desc_en:"Injection molds, die-casting molds, stamping molds",              image:"images/p94.jpg" },
     { id:"p95", category:"custom", name_cn:"小批量试产",    name_en:"Small Batch Trial",       desc_cn:"100-1000件小批量试产，快速验证",                             desc_en:"100-1000 units small-batch trial production, fast validation",      image:"images/p95.jpg" },
-    { id:"p96", category:"custom", name_cn:"灯饰OEM定制",   name_en:"Lighting OEM",            desc_cn:"来图定制灯饰，酒店工程灯具OEM",                             desc_en:"Custom lighting by drawings, hotel project lighting OEM",         image:"images/p96.jpg" },
-    { id:"p97", category:"custom", name_cn:"结构优化设计",   name_en:"Structure Optimization", desc_cn:"产品结构优化、材料降本、强度分析",                           desc_en:"Product structure optimization, cost reduction, strength analysis", image:"images/p97.jpg" },
-    { id:"p99", category:"custom", name_cn:"包装OEM定制",   name_en:"Packaging OEM",           desc_cn:"定制包装盒、吸塑、纸卡、说明书印刷",                         desc_en:"Custom packaging boxes, blister packs, inserts, manual printing",  image:"images/p99.jpg" },
-    { id:"p100",category:"custom", name_cn:"来样逆向工程",  name_en:"Reverse Engineering",     desc_cn:"来样3D扫描、逆向建模、图纸输出",                             desc_en:"3D scanning from samples, reverse modeling, drawing output",       image:"images/p100.jpg" }
   ],
 
   /* ---- 关于 ---- */
