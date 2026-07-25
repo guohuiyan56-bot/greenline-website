@@ -359,10 +359,10 @@
     });
   }
 
-  /* 跳转目录册：用户稍后提供界面，先指向占位页 catalog.html；
-     拿到真实地址后，改 CATALOG_URL 即可（或替换 catalog.html）。 */
+  /* 跳转目录册：指向 catalog/ 子目录（翻页电子书）。
+     ?cat= 参数保留，便于以后按分类展示对应目录册（当前为总册，忽略该参数）。 */
   function goCatalog(catId) {
-    var CATALOG_URL = 'catalog.html';
+    var CATALOG_URL = 'catalog/';
     window.location.href = CATALOG_URL + (catId ? ('?cat=' + encodeURIComponent(catId)) : '');
   }
 
