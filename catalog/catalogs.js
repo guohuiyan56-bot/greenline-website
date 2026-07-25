@@ -103,6 +103,54 @@ window.CATALOGS = [
     cover_cn: 'sanitary/cover_cn.png',
     cover_en: 'sanitary/cover_en.png',
     pages: 256
+  },
+  {
+    id: 'shelf',
+    folder: 'shelf',
+    category: 'machinery',
+    title_cn: '商超货架目录册',
+    title_en: 'Supermarket & Warehouse Shelf Catalogue',
+    desc_cn: 'Runda 润达 · 商超货架 · 仓储货架 · 场景方案',
+    desc_en: 'Runda · supermarket shelves · warehouse racks · store solutions',
+    cover_cn: 'shelf/cover_cn.png',
+    cover_en: 'shelf/cover_en.png',
+    pages: 54
+  },
+  {
+    id: 'gift',
+    folder: 'gift',
+    category: 'gift',
+    title_cn: '礼品定制手册',
+    title_en: 'Custom Gift Handbook',
+    desc_cn: '徽章 · 奖杯 · 纪念币 · 文创礼品 · 企业定制',
+    desc_en: 'Badges · trophies · medals · creative gifts · corporate customization',
+    cover_cn: 'gift/cover_cn.png',
+    cover_en: 'gift/cover_en.png',
+    pages: 4
+  },
+  {
+    id: 'rack',
+    folder: 'rack',
+    category: 'machinery',
+    title_cn: '仓储货架目录册',
+    title_en: 'Warehouse Rack Catalogue',
+    desc_cn: '龙昌系列 · 轻型货架 · 仓储设计案例 · 阁楼平台',
+    desc_en: 'Long Chang series · light-duty shelving · warehouse cases · mezzanines',
+    cover_cn: 'rack/cover_cn.png',
+    cover_en: 'rack/cover_en.png',
+    pages: 27
+  },
+  {
+    id: 'lampcloth',
+    folder: 'lampcloth',
+    category: 'custom',
+    title_cn: '广告灯布车贴彩页',
+    title_en: 'Advertising Banner & Vehicle Wrap Catalogue',
+    desc_cn: '喷绘灯布 · 背喷灯布 · 灯箱车身贴 · PP 写真纸',
+    desc_en: 'Flex banner · backlit banner · light box & vehicle wrap · PP banner',
+    cover_cn: 'lampcloth/cover_cn.png',
+    cover_en: 'lampcloth/cover_en.png',
+    pages: 48
   }
 ];
 
