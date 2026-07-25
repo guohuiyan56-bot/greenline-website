@@ -105,18 +105,6 @@ window.CATALOGS = [
     pages: 256
   },
   {
-    id: 'shelf',
-    folder: 'shelf',
-    category: 'machinery',
-    title_cn: '商超货架目录册',
-    title_en: 'Supermarket & Warehouse Shelf Catalogue',
-    desc_cn: 'Runda 润达 · 商超货架 · 仓储货架 · 场景方案',
-    desc_en: 'Runda · supermarket shelves · warehouse racks · store solutions',
-    cover_cn: 'shelf/cover_cn.png',
-    cover_en: 'shelf/cover_en.png',
-    pages: 54
-  },
-  {
     id: 'gift',
     folder: 'gift',
     category: 'gift',
@@ -141,6 +129,18 @@ window.CATALOGS = [
     pages: 27
   },
   {
+    id: 'shelf',
+    folder: 'shelf',
+    category: 'machinery',
+    title_cn: '商超货架目录册',
+    title_en: 'GREENLINE Catalogue',
+    desc_cn: 'Runda 润达 · 商超货架 · 仓储货架 · 场景方案',
+    desc_en: 'Runda · supermarket shelves · warehouse racks · store solutions',
+    cover_cn: 'shelf/cover_cn.png',
+    cover_en: 'shelf/cover_en.png',
+    pages: 54
+  },
+  {
     id: 'lampcloth',
     folder: 'lampcloth',
     category: 'custom',
@@ -151,6 +151,18 @@ window.CATALOGS = [
     cover_cn: 'lampcloth/cover_cn.png',
     cover_en: 'lampcloth/cover_en.png',
     pages: 48
+  },
+  {
+    id: 'display',
+    folder: 'display',
+    category: 'display',
+    title_cn: '展示器材目录册',
+    title_en: 'Display & Signage Catalogue',
+    desc_cn: '海报架 · 易拉宝 · X 展架 · 沙滩旗 · 促销台 · 拉网展架 · 抽奖转盘',
+    desc_en: 'Poster stands · roll up banners · X banner stands · beach flags · promotion tables · pop-up displays · prize wheels',
+    cover_cn: 'display/cover_cn.png',
+    cover_en: 'display/cover_en.png',
+    pages: 41
   }
 ];
 
@@ -163,6 +175,7 @@ window.CATALOG_CATS = {
   lighting:  { cn: '灯饰照明', en: 'Lighting' },
   doors:     { cn: '门窗建材', en: 'Windows & Doors' },
   decor:     { cn: '墙面装饰', en: 'Wall Decor' },
+  display:   { cn: '展示器材', en: 'Display & Signage' },
   hotel:    { cn: '酒店用品', en: 'Hotel Supplies' },
   project:  { cn: '工程配套', en: 'Project Supplies' },
   custom:   { cn: '定制加工', en: 'Custom Manufacturing' }

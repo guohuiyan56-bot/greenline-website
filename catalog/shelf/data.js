@@ -115,11 +115,11 @@ window.FLIP = {
  "toc": [
   {
    "num": "01",
-   "cn": "封面与简介",
-   "en": "Cover & Introduction",
+   "cn": "封面",
+   "en": "Cover",
    "items": [
     {
-     "cn": "GREENLINE SHELF",
+     "cn": "GREENLINE",
      "en": "Product Catalogue",
      "page": 0
     }
