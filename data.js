@@ -72,13 +72,8 @@ var GT_DATA = {
 
   /* ---- 产品列表 (100) ---- */
   products: [
-    /* ===== 家居家装 (15) ===== */
+    /* ===== 家居家装 (10) ===== */
     { id:"p01", category:"home", name_cn:"民用家具",       name_en:"Residential Furniture",   desc_cn:"实木、板式、软体家具，支持尺寸与款式定制",                   desc_en:"Solid wood, panel & upholstered furniture, custom size & style",     image:"images/p01.jpg" },
-    { id:"p02", category:"home", name_cn:"卫浴洁具",       name_en:"Sanitary Ware",           desc_cn:"陶瓷马桶、浴室柜、洗脸盆、花洒五金整套",                     desc_en:"Ceramic toilets, bathroom cabinets, basins, shower sets",           image:"images/p02.jpg" },
-    { id:"p03", category:"home", name_cn:"灯饰灯具",       name_en:"Lighting Fixtures",       desc_cn:"吊灯、筒灯、吸顶灯、酒店工程照明",                           desc_en:"Chandeliers, downlights, ceiling lights, hotel project lighting",   image:"images/p03.jpg" },
-    { id:"p04", category:"home", name_cn:"厨房用品",       name_en:"Kitchenware",             desc_cn:"不粘锅、刀具套装、厨房小家电、烘焙器具",                     desc_en:"Non-stick cookware, knife sets, kitchen appliances, bakeware",      image:"images/p04.jpg" },
-    { id:"p05", category:"home", name_cn:"家居装饰",       name_en:"Home Decor",              desc_cn:"挂画、摆件、花瓶、地毯、窗帘布艺定制",                       desc_en:"Wall art, ornaments, vases, rugs, custom curtains & fabrics",       image:"images/p05.jpg" },
-    { id:"p06", category:"home", name_cn:"户外家具",       name_en:"Outdoor Furniture",       desc_cn:"户外桌椅、遮阳伞、藤编沙发，防锈防水",                       desc_en:"Outdoor tables & chairs, umbrellas, rattan sofas, weatherproof",    image:"images/p06.jpg" },
     { id:"p07", category:"home", name_cn:"办公家具",       name_en:"Office Furniture",        desc_cn:"办公桌椅、文件柜、会议桌、隔断工位",                         desc_en:"Office desks, chairs, cabinets, conference tables, partitions",     image:"images/p07.jpg" },
     { id:"p08", category:"home", name_cn:"智能马桶",       name_en:"Smart Toilet",            desc_cn:"全自动智能马桶，加热、冲洗、烘干一体",                       desc_en:"Full-auto smart toilet with heated seat, wash & dry functions",     image:"images/p08.jpg" },
     { id:"p09", category:"home", name_cn:"LED筒灯",       name_en:"LED Downlight",           desc_cn:"嵌入式LED筒灯，商业照明工程首选",                             desc_en:"Recessed LED downlights for commercial lighting projects",          image:"images/p09.jpg" },
@@ -155,8 +150,7 @@ var GT_DATA = {
     { id:"p85", category:"project", name_cn:"石膏板/天花板", name_en:"Gypsum Boards & Ceilings", desc_cn:"纸面石膏板、矿棉板、铝扣板吊顶",                           desc_en:"Gypsum boards, mineral wool boards, aluminum ceiling panels",      image:"images/p85.jpg" },
     { id:"p86", category:"project", name_cn:"PE管/沟槽管件", name_en:"PE Pipes & Grooved Fittings", desc_cn:"PE给水管、沟槽管件、消防配件",                        desc_en:"PE water supply pipes, grooved fittings, fire protection parts",   image:"images/p86.jpg" },
 
-    /* ===== 定制加工 (11) ===== */
-    { id:"p89", category:"custom", name_cn:"来图打样",      name_en:"Custom Prototyping",      desc_cn:"快速打样、小批量试产、3D打印验证",                           desc_en:"Rapid prototyping, small-batch trial, 3D print verification",      image:"images/p89.jpg" },
+    /* ===== 定制加工 (10) ===== */
     { id:"p90", category:"custom", name_cn:"家具OEM定制",   name_en:"Furniture OEM",           desc_cn:"来图定制家具，材质/颜色/尺寸全定制",                       desc_en:"Custom furniture by drawings, full material/color/size options",   image:"images/p90.jpg" },
     { id:"p91", category:"custom", name_cn:"产品外观设计",   name_en:"Product Design",          desc_cn:"工业设计、外观造型、CMF方案设计",                           desc_en:"Industrial design, exterior styling, CMF solution design",         image:"images/p91.jpg" },
     { id:"p92", category:"custom", name_cn:"3D打印验证",    name_en:"3D Print Prototyping",    desc_cn:"SLA/SLS/FDM 3D打印手板，48小时交付",                         desc_en:"SLA/SLS/FDM 3D printing prototypes, 48-hour delivery",             image:"images/p92.jpg" },
