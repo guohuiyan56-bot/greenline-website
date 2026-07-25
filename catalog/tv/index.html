@@ -232,7 +232,13 @@
   const TOTAL_PAGES = F.total;
   const IMAGES = F.images;
   const THUMBS = F.thumbs;
-  const TOC = F.toc || [];
+  const TOC = (F.toc || []).map(function(s, idx) {
+    if (s && s.items) return s;
+    var cn = s.cn || s.title_cn || '章节';
+    var en = s.en || s.title_en || '';
+    var page = s.page || 0;
+    return { num: String(idx+1).padStart(2,'0'), cn: cn, en: en, items: [{cn: cn, en: en, page: page}] };
+  });
 
   let flip = null;
   let currentPage = 0;

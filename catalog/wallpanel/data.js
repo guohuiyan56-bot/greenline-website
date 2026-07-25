@@ -59,6 +59,13 @@ window.FLIP = {
   "pages/thumbs/t026.jpg"
  ],
  "toc": [
-  {"title_cn": "泽景系列 3D 墙板", "title_en": "ZE JIN Series 3D Wall Panels", "page": 0}
+  {
+    "num": "01",
+    "cn": "泽景系列 3D 墙板",
+    "en": "ZE JIN Series 3D Wall Panels",
+    "items": [
+      {"cn": "泽景系列 3D 墙板", "en": "ZE JIN Series 3D Wall Panels", "page": 0}
+    ]
+  }
  ]
 };

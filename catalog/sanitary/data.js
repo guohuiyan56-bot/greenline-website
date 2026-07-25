@@ -517,8 +517,29 @@ window.FLIP = {
   "pages/thumbs/t255.jpg"
  ],
  "toc": [
-  {"title_cn": "铝整板焊接烤漆浴室柜", "title_en": "Aluminum Whole-Plate Welded & Painted Vanity", "page": 2},
-  {"title_cn": "畅销款式浴室柜", "title_en": "Bestseller Vanity Series", "page": 150},
-  {"title_cn": "工程款浴室柜", "title_en": "Engineering / Budget Vanity Series", "page": 250}
+  {
+    "num": "01",
+    "cn": "铝整板焊接烤漆浴室柜",
+    "en": "Aluminum Whole-Plate Welded & Painted Vanity",
+    "items": [
+      {"cn": "铝整板焊接烤漆", "en": "Welded & Painted", "page": 2}
+    ]
+  },
+  {
+    "num": "02",
+    "cn": "畅销款式浴室柜",
+    "en": "Bestseller Vanity Series",
+    "items": [
+      {"cn": "畅销款式", "en": "Bestseller", "page": 150}
+    ]
+  },
+  {
+    "num": "03",
+    "cn": "工程款浴室柜",
+    "en": "Engineering / Budget Vanity Series",
+    "items": [
+      {"cn": "工程款", "en": "Engineering", "page": 250}
+    ]
+  }
  ]
 };
