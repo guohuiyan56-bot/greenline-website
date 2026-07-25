@@ -34,7 +34,7 @@ window.FLIP = {
    "cn": "6\" 铝合金百叶窗框",
    "en": "6\" Aluminum Alloy Louver",
    "items": [
-    {"cn": "TYPE 6-AA1", "en": "TYPE 6-AA1", "page": 0}
+    {"cn": "6英寸 AA1 型 · 铝合金百叶", "en": "TYPE 6-AA1", "page": 0}
    ]
   },
   {
@@ -42,7 +42,7 @@ window.FLIP = {
    "cn": "6\" 铁制百叶窗框",
    "en": "6\" Iron Louver",
    "items": [
-    {"cn": "TYPE 6-I1", "en": "TYPE 6-I1", "page": 3}
+    {"cn": "6英寸 I1 型 · 铁制百叶", "en": "TYPE 6-I1", "page": 3}
    ]
   },
   {
@@ -50,7 +50,7 @@ window.FLIP = {
    "cn": "6\" 铝塑百叶窗框",
    "en": "6\" Aluminum-Plastic Louver",
    "items": [
-    {"cn": "TYPE 6-AP1", "en": "TYPE 6-AP1", "page": 6}
+    {"cn": "6英寸 AP1 型 · 铝塑百叶", "en": "TYPE 6-AP1", "page": 6}
    ]
   },
   {
@@ -58,7 +58,7 @@ window.FLIP = {
    "cn": "4\" 铝塑百叶窗框",
    "en": "4\" Aluminum-Plastic Louver",
    "items": [
-    {"cn": "TYPE 4-AP2", "en": "TYPE 4-AP2", "page": 9}
+    {"cn": "4英寸 AP2 型 · 铝塑百叶", "en": "TYPE 4-AP2", "page": 9}
    ]
   }
  ]
