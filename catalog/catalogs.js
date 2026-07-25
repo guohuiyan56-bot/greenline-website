@@ -5,7 +5,7 @@
 //   category 所属栏目（见 CATALOG_CATS）
 //   title_cn / title_en  中英文标题
 //   desc_cn / desc_en    中英文一句话简介
-//   cover    封面图（相对 hub 的路径，通常用该册的 t000 缩略图）
+//   cover    封面图（相对 hub 的路径，统一用该册的 cover.png）
 //   pages    页数（仅展示用）
 window.CATALOGS = [
   {
@@ -16,7 +16,7 @@ window.CATALOGS = [
     title_en: 'Kitchen Cabinet Catalogue',
     desc_cn: '整体橱柜 · 材质工艺 · 空间方案',
     desc_en: 'Kitchen cabinets · materials · layout solutions',
-    cover: 'kitchen/pages/thumbs/t000.jpg',
+    cover: 'kitchen/cover.png',
     pages: 94
   },
   {
@@ -27,7 +27,7 @@ window.CATALOGS = [
     title_en: 'TV Cabinet Catalogue',
     desc_cn: '电视柜 · 酒柜 · 背景墙系列',
     desc_en: 'TV cabinets · wine cabinets · backgrounds',
-    cover: 'tv/pages/thumbs/t000.jpg',
+    cover: 'tv/cover.png',
     pages: 114
   },
   {
@@ -38,7 +38,7 @@ window.CATALOGS = [
     title_en: 'Wardrobe Catalogue',
     desc_cn: '掩门 · 步入式衣帽间 · 移门系列',
     desc_en: 'Hinged · walk-in · sliding door wardrobes',
-    cover: 'wardrobe/pages/thumbs/t000.jpg',
+    cover: 'wardrobe/cover.png',
     pages: 120
   },
   {
@@ -49,7 +49,7 @@ window.CATALOGS = [
     title_en: 'Shower Catalogue',
     desc_cn: '全系列花洒 · 淋浴系统',
     desc_en: 'Full-range showers · shower systems',
-    cover: 'shower/pages/thumbs/t000.jpg',
+    cover: 'shower/cover.png',
     pages: 174
   },
   {
@@ -60,7 +60,7 @@ window.CATALOGS = [
     title_en: 'YS Series Faucet Catalogue',
     desc_cn: 'YS 系列龙头 · 厨房 / 面盆 / 净水',
     desc_en: 'YS series faucets · kitchen / basin / purifier',
-    cover: 'shower-ys/pages/thumbs/t000.jpg',
+    cover: 'shower-ys/cover.png',
     pages: 22
   }
 ];
