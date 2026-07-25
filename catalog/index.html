@@ -165,7 +165,9 @@
     return c ? (lang === 'en' ? c.en : c.cn) : id;
   }
   function coverHtml(c) {
-    return '<div class="card-cover"><img src="' + c.cover + '" alt="' + (c.title_cn || '') + '" loading="lazy">'
+    var coverUrl = (lang === 'en' ? c.cover_en : c.cover_cn) || c.cover;
+    var alt = lang === 'en' ? (c.title_en || c.title_cn) : (c.title_cn || c.title_en);
+    return '<div class="card-cover"><img src="' + coverUrl + '" alt="' + alt + '" loading="lazy">'
       + '<span class="pages">' + (c.pages || '?') + ' ' + t.pages + '</span></div>';
   }
   function cardHtml(c) {

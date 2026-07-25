@@ -1,12 +1,12 @@
 // GREENLINE 目录册清单（选择界面 hub 的数据源）
 // 新增一本目录册：复制下面任意一条，改字段即可，hub 会自动按 category 归类显示。
-//   id       唯一标识
-//   folder   该册翻书页所在子目录（相对 catalog/）
-//   category 所属栏目（见 CATALOG_CATS）
+//   id          唯一标识
+//   folder      该册翻书页所在子目录（相对 catalog/）
+//   category    所属栏目（见 CATALOG_CATS）
 //   title_cn / title_en  中英文标题
 //   desc_cn / desc_en    中英文一句话简介
-//   cover    封面图（相对 hub 的路径，统一用该册的 cover.png）
-//   pages    页数（仅展示用）
+//   cover_cn / cover_en  中英文封面（hub 会根据当前语言自动切换）
+//   pages       页数（仅展示用）
 window.CATALOGS = [
   {
     id: 'kitchen',
@@ -16,7 +16,8 @@ window.CATALOGS = [
     title_en: 'Kitchen Cabinet Catalogue',
     desc_cn: '整体橱柜 · 材质工艺 · 空间方案',
     desc_en: 'Kitchen cabinets · materials · layout solutions',
-    cover: 'kitchen/cover.png',
+    cover_cn: 'kitchen/cover_cn.png',
+    cover_en: 'kitchen/cover_en.png',
     pages: 94
   },
   {
@@ -27,7 +28,8 @@ window.CATALOGS = [
     title_en: 'TV Cabinet Catalogue',
     desc_cn: '电视柜 · 酒柜 · 背景墙系列',
     desc_en: 'TV cabinets · wine cabinets · backgrounds',
-    cover: 'tv/cover.png',
+    cover_cn: 'tv/cover_cn.png',
+    cover_en: 'tv/cover_en.png',
     pages: 114
   },
   {
@@ -38,7 +40,8 @@ window.CATALOGS = [
     title_en: 'Wardrobe Catalogue',
     desc_cn: '掩门 · 步入式衣帽间 · 移门系列',
     desc_en: 'Hinged · walk-in · sliding door wardrobes',
-    cover: 'wardrobe/cover.png',
+    cover_cn: 'wardrobe/cover_cn.png',
+    cover_en: 'wardrobe/cover_en.png',
     pages: 120
   },
   {
@@ -49,7 +52,8 @@ window.CATALOGS = [
     title_en: 'Shower Catalogue',
     desc_cn: '全系列花洒 · 淋浴系统',
     desc_en: 'Full-range showers · shower systems',
-    cover: 'shower/cover.png',
+    cover_cn: 'shower/cover_cn.png',
+    cover_en: 'shower/cover_en.png',
     pages: 174
   },
   {
@@ -60,7 +64,8 @@ window.CATALOGS = [
     title_en: 'YS Series Faucet Catalogue',
     desc_cn: 'YS 系列龙头 · 厨房 / 面盆 / 净水',
     desc_en: 'YS series faucets · kitchen / basin / purifier',
-    cover: 'shower-ys/cover.png',
+    cover_cn: 'shower-ys/cover_cn.png',
+    cover_en: 'shower-ys/cover_en.png',
     pages: 22
   }
 ];
