@@ -48,6 +48,11 @@
     if (pt) pt.textContent = lang === 'cn' ? '需要定制报价？' : 'Need a Custom Quote?';
     if (ptx) ptx.textContent = lang === 'cn' ? '告诉我们您的需求，我们全球寻源、质检、发货。' : 'Tell us your specs — we source, inspect & ship worldwide.';
     if (pb) pb.textContent = lang === 'cn' ? '获取报价 →' : 'Get a Quote →';
+
+    // 侧边栏浮窗文案跟随语言
+    document.querySelectorAll('.cat-popup-text').forEach(function (el) {
+      el.textContent = lang === 'cn' ? '观看更多目录册' : 'View More Catalogues';
+    });
   }
 
   /* ===== Language ===== */
@@ -304,6 +309,13 @@
   }
 
   /* ===== 左侧分类侧边栏 ===== */
+  function catPopupHtml(catId) {
+    return '<span class="cat-popup" data-cat="' + catId + '">' +
+             '<span class="cat-popup-icon">📖</span>' +
+             '<span class="cat-popup-text">' + (lang === 'cn' ? '观看更多目录册' : 'View More Catalogues') + '</span>' +
+           '</span>';
+  }
+
   function renderSidebar() {
     var list = document.getElementById('sidebarCatList');
     if (!list) return;
@@ -313,29 +325,45 @@
     html += '<li class="sidebar-cat-item' + (activeCat === '' ? ' active' : '') + '" data-cat="">';
     html += '<span class="sidebar-cat-icon">📦</span>';
     html += '<span class="sidebar-cat-name">' + (lang === 'cn' ? '全部产品' : 'All Products') + '</span>';
+    html += catPopupHtml('');
     html += '</li>';
 
     d.categories.forEach(function (c) {
       html += '<li class="sidebar-cat-item' + (activeCat === c.id ? ' active' : '') + '" data-cat="' + c.id + '">';
       html += '<span class="sidebar-cat-icon">' + (c.icon || '•') + '</span>';
       html += '<span class="sidebar-cat-name">' + dc(c, 'name') + '</span>';
+      html += catPopupHtml(c.id);
       html += '</li>';
     });
     list.innerHTML = html;
 
-    // 绑定点击事件
+    // 绑定分类点击（筛选产品，点到浮窗不触发）
     list.querySelectorAll('.sidebar-cat-item').forEach(function (item) {
-      item.addEventListener('click', function () {
+      item.addEventListener('click', function (e) {
+        if (e.target.closest('.cat-popup')) return;
         activeCat = this.getAttribute('data-cat') || '';
-        // 更新激活状态
         list.querySelectorAll('.sidebar-cat-item').forEach(function (it) {
           it.classList.remove('active');
         });
         this.classList.add('active');
-        // 重新渲染产品网格
         renderProductGrid();
       });
     });
+
+    // 绑定浮窗点击（跳转目录册界面）
+    list.querySelectorAll('.cat-popup').forEach(function (pop) {
+      pop.addEventListener('click', function (e) {
+        e.stopPropagation();
+        goCatalog(this.getAttribute('data-cat') || '');
+      });
+    });
+  }
+
+  /* 跳转目录册：用户稍后提供界面，先指向占位页 catalog.html；
+     拿到真实地址后，改 CATALOG_URL 即可（或替换 catalog.html）。 */
+  function goCatalog(catId) {
+    var CATALOG_URL = 'catalog.html';
+    window.location.href = CATALOG_URL + (catId ? ('?cat=' + encodeURIComponent(catId)) : '');
   }
 
   /* ===== 产品卡片（复用原样式） ===== */
