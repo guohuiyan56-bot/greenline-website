@@ -67,7 +67,8 @@ var GT_DATA = {
     { id: "hardware",   name_cn: "五金制品",   name_en: "Hardware",         icon: "🔩" },
     { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",   icon: "🏨" },
     { id: "project",    name_cn: "工程配套",   name_en: "Project Solutions",icon: "🏗️" },
-    { id: "custom",     name_cn: "定制加工",   name_en: "Custom Manufacturing", icon: "🔧" }
+    { id: "custom",     name_cn: "定制加工",   name_en: "Custom Manufacturing", icon: "🔧" },
+    { id: "ads",        name_cn: "广告材料",   name_en: "Advertising Materials",icon: "📢" }
   ],
 
   /* ---- 产品列表 (100) ---- */
@@ -139,6 +140,14 @@ var GT_DATA = {
     { id:"p91", category:"custom", name_cn:"产品外观设计",   name_en:"Product Design",          desc_cn:"工业设计、外观造型、CMF方案设计",                           desc_en:"Industrial design, exterior styling, CMF solution design",         image:"images/p91.jpg" },
     { id:"p92", category:"custom", name_cn:"3D打印验证",    name_en:"3D Print Prototyping",    desc_cn:"SLA/SLS/FDM 3D打印手板，48小时交付",                         desc_en:"SLA/SLS/FDM 3D printing prototypes, 48-hour delivery",             image:"images/p92.jpg" },
     { id:"p95", category:"custom", name_cn:"小批量试产",    name_en:"Small Batch Trial",       desc_cn:"100-1000件小批量试产，快速验证",                             desc_en:"100-1000 units small-batch trial production, fast validation",      image:"images/p95.jpg" },
+
+    /* ===== 广告材料 (6) ===== */
+    { id:"p96", category:"ads", name_cn:"易拉宝展架",     name_en:"Roll-up Banner Display",  desc_cn:"铝合金底座易拉宝，支持定制画面印刷，便携收纳",               desc_en:"Aluminum roll-up banner stand with custom printed graphic, portable", image:"images/p96.jpg" },
+    { id:"p97", category:"ads", name_cn:"X展架",          name_en:"X-Banner Stand",           desc_cn:"十字交叉框架X展架，轻便易安装，展会/门店常用",                 desc_en:"Cross-frame X-banner stand, lightweight, ideal for trade shows & retail", image:"images/p97.jpg" },
+    { id:"p98", category:"ads", name_cn:"横幅喷绘布",      name_en:"Vinyl Banner Printing",    desc_cn:"户外/室内横幅喷绘，高精度UV打印，防水防晒",                   desc_en:"Indoor/outdoor vinyl banners, high-res UV printing, weather-resistant",   image:"images/p98.jpg" },
+    { id:"p99", category:"ads", name_cn:"LED灯箱标识",     name_en:"LED Light Box Signage",    desc_cn:"超薄LED灯箱，发光字/图形标识，商场/展厅适用",                desc_en:"Slim LED light box with illuminated graphics, for malls & exhibitions", image:"images/p99.jpg" },
+    { id:"p100",category:"ads", name_cn:"亚克力立体字",    name_en:"Acrylic 3D Letters",       desc_cn:"透明/彩色亚克力立体字，门头招牌、品牌标识定制",              desc_en:"Transparent or colored acrylic 3D letters, custom storefront signage",  image:"images/p100.jpg" },
+    { id:"p101",category:"ads", name_cn:"广告旗/刀旗",     name_en:"Feather Flags",            desc_cn:"羽毛旗/刀旗，注水底座，户外活动/促销常用",                     desc_en:"Feather flags with water-fill base, perfect for outdoor promotions",    image:"images/p101.jpg" },
   ],
 
   /* ---- 关于 ---- */
@@ -258,8 +267,8 @@ var GT_DATA = {
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、工程配套、定制加工等品类。",
-    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, project solutions, and custom manufacturing.",
+    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、工程配套、定制加工、广告材料等品类。",
+    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, project solutions, custom manufacturing, and advertising materials.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
     categories_cn: "产品分类",
