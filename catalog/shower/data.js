@@ -354,5 +354,42 @@ window.FLIP = {
  ],
  "aspect": 2.42497,
  "mode": "full",
- "toc": []
+ "toc": [
+  {
+   "num": "01",
+   "cn": "枪灰/水镀花洒系列",
+   "en": "Gunmetal / Water Plating Shower Series",
+   "items": [
+    {
+     "cn": "枪灰数显花洒系列",
+     "en": "Gunmetal Digital Shower Series",
+     "page": 1
+    }
+   ]
+  },
+  {
+   "num": "02",
+   "cn": "电镀/铬色花洒系列",
+   "en": "Chrome / Electroplated Shower Series",
+   "items": [
+    {
+     "cn": "电镀花洒系列",
+     "en": "Chrome Shower Series",
+     "page": 90
+    }
+   ]
+  },
+  {
+   "num": "03",
+   "cn": "白色/喷镀花洒系列",
+   "en": "White / Spray Plating Shower Series",
+   "items": [
+    {
+     "cn": "白色花洒系列",
+     "en": "White Shower Series",
+     "page": 140
+    }
+   ]
+  }
+ ]
 };

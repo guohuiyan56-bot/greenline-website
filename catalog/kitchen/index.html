@@ -58,43 +58,21 @@
   .btn:active { transform: scale(0.96); }
   .btn:disabled { opacity:0.35; cursor:default; }
   .btn svg { width:16px; height:16px; flex-shrink:0; }
-  .page-indicator {
-    min-width:78px; text-align:center; font-variant-numeric: tabular-nums;
-    font-size:14px; letter-spacing:0.5px; padding:7px 0; background:rgba(0,0,0,0.15); border-radius:6px;
+  .page-group { display:flex; align-items:center; gap:6px; background:rgba(0,0,0,0.15); border-radius:6px; padding:4px 8px; }
+  .page-indicator { min-width:70px; text-align:center; font-variant-numeric: tabular-nums; font-size:14px; letter-spacing:0.5px; }
+  .page-jump {
+    width:58px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2);
+    color:#fff; border-radius:4px; padding:5px 4px; text-align:center; font-size:13px;
+    outline:none; font-variant-numeric: tabular-nums;
   }
+  .page-jump::placeholder { color:rgba(255,255,255,0.45); }
+  .page-jump:focus { border-color: var(--gold); background:rgba(255,255,255,0.16); }
+  .page-jump-btn { padding:6px 9px; font-size:12px; }
 
   /* Main stage */
   .main { flex:1; display:flex; position:relative; overflow:hidden; }
-  .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:18px; }
-  .book {
-    position:relative;
-    /* 自适应：宽屏不超过 560px，小屏随窗口缩放；高度随窗口变矮时自动缩小（锁死 0.677 宽高比不变形） */
-    width: min(560px, 92vw, calc((100vh - 210px) * 0.6765));
-    aspect-ratio: 0.6765;
-    perspective:2400px;
-  }
-  .leaf {
-    position:absolute; inset:0;
-    transform-style:preserve-3d;
-    backface-visibility:hidden;
-    -webkit-backface-visibility:hidden;
-    border-radius:3px;
-    overflow:hidden;
-    background:#fff;
-    box-shadow:0 10px 40px rgba(0,0,0,0.18);
-  }
-  .leaf img { width:100%; height:100%; object-fit:contain; display:block; background:#fff; }
-  .leaf-front { z-index:3; transform-origin:left center; }
-  .leaf-back { z-index:2; }
-  .leaf.flipping { transition: transform .8s cubic-bezier(.45,.05,.2,1); }
-  .leaf-front.flipping { animation: pageShadow .8s ease; }
-  @keyframes pageShadow {
-    0% { filter:brightness(1); }
-    45% { filter:brightness(0.62); }
-    100% { filter:brightness(1); }
-  }
-  .book.fade { animation: bookFade .35s ease; }
-  @keyframes bookFade { 0%{opacity:0;} 100%{opacity:1;} }
+  .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:22px 22px 10px; }
+  #book { width:100%; max-width:1120px; }
 
   /* Drawer */
   .drawer {
@@ -118,7 +96,6 @@
   .toc-item .name strong { font-size:14px; font-weight:500; }
   .toc-item .name span { font-size:11px; color: var(--text-light); margin-top:1px; }
   .toc-item .pg { font-size:12px; color: var(--text-light); font-variant-numeric: tabular-nums; flex-shrink:0; }
-  .drawer-note { margin-top:24px; padding-top:14px; border-top:1px solid rgba(0,0,0,0.08); font-size:12px; color: var(--text-light); line-height:1.7; }
   .drawer-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.28); z-index:80; opacity:0; pointer-events:none; transition:opacity .3s; }
   .drawer-overlay.open { opacity:1; pointer-events:auto; }
 
@@ -141,7 +118,6 @@
   .spinner { width:50px; height:50px; border:3px solid rgba(58,38,27,0.12); border-top-color: var(--gold); border-radius:50%; animation: spin 1s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
   .loader p { margin-top:16px; color: var(--text-light); font-size:14px; letter-spacing:0.5px; }
-  .loader-progress { margin-top:8px; font-size:12px; color: var(--brown-light); }
   .loader small { margin-top:10px; color: var(--text-light); font-size:12px; opacity:0.8; }
 
   /* Lightbox */
@@ -163,21 +139,24 @@
     .title-sub { display:none; }
     .btn span { display:none; }
     .controls { gap:6px; }
-    .page-indicator { min-width:64px; font-size:12px; }
+    .page-group { padding:4px 6px; gap:4px; }
+    .page-indicator { min-width:60px; font-size:12px; }
+    .page-jump { width:50px; padding:4px 2px; font-size:12px; }
+    .page-jump-btn { display:none; }  /* jump on Enter on mobile */
     .thumb-rail { height:92px; padding:8px 12px; }
     .thumb { width:108px; height:76px; }
     .drawer { width:100%; max-width:100%; padding:18px; }
   }
 </style>
-<script src="data.js?v=2"></script>
+<script src="data.js?v=3"></script>
+<script src="../lib/page-flip.browser.js"></script>
 </head>
 <body>
 <div class="app" id="app">
   <div class="loader" id="loader">
     <div class="spinner"></div>
     <p>正在加载目录册…</p>
-    <div class="loader-progress" id="loaderProgress">0 / 94</div>
-    <small>请稍候，首次需加载约 20 MB 图片</small>
+    <small>请稍候，图片较大首次加载需要一点时间</small>
   </div>
 
   <header class="topbar">
@@ -197,7 +176,11 @@
         <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
         <span>上一页</span>
       </button>
-      <div class="page-indicator" id="pageIndicator">1 / 94</div>
+      <div class="page-group">
+        <div class="page-indicator" id="pageIndicator">1 / 1</div>
+        <input type="number" class="page-jump" id="pageJump" min="1" placeholder="页">
+        <button class="btn page-jump-btn" id="btnJump" title="跳转">跳转</button>
+      </div>
       <button class="btn" id="btnNext" title="下一页">
         <span>下一页</span>
         <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" fill="none"/></svg>
@@ -215,10 +198,7 @@
 
   <main class="main">
     <div class="flip-stage">
-      <div class="book" id="book">
-        <div class="leaf leaf-back" id="leafBack"><img id="imgBack" alt=""></div>
-        <div class="leaf leaf-front" id="leafFront"><img id="imgFront" alt=""></div>
-      </div>
+      <div id="book"></div>
     </div>
     <aside class="drawer" id="drawer"></aside>
     <div class="drawer-overlay" id="drawerOverlay"></div>
@@ -249,61 +229,70 @@
 (function(){
   const F = window.FLIP;
   const TOTAL_PAGES = F.total;
-  const images = F.images;
-  const thumbs = F.thumbs;
-  const toc = F.toc;
-  const tocFlat = [];
-  for (const sec of toc) {
-    for (let i=0; i<sec.items.length; i++) {
-      const it = sec.items[i];
-      const next = sec.items[i+1] || null;
-      tocFlat.push({ cn: it.cn, en: it.en, page: it.page, sec: sec.cn, nextPage: next ? next.page : Infinity });
-    }
-  }
+  const IMAGES = F.images;
+  const THUMBS = F.thumbs;
+  const TOC = F.toc || [];
 
+  let flip = null;
   let currentPage = 0;
-  let animating = false;
-  let lightboxZoom = 1;
-  let lightboxPage = 0;
+  let lightboxZoom = 1, lightboxPage = 0;
   let drag = { active:false, x:0, y:0, sl:0, st:0 };
 
   const $ = (id) => document.getElementById(id);
-  const leafFront = $('leafFront'), leafBack = $('leafBack'), imgFront = $('imgFront'), imgBack = $('imgBack'), book = $('book');
 
-  function init() {
-    buildTOC();
-    buildThumbs();
-    preloadImages().then(finishLoading);
-    // safety: never stay on spinner
-    setTimeout(finishLoading, 9000);
-    bindEvents();
-  }
-
-  function preloadImages() {
-    let loaded = 0;
-    const progress = $('loaderProgress');
-    const list = images.concat(thumbs);
-    return Promise.all(list.map(src => new Promise((resolve) => {
+  function preload() {
+    const list = IMAGES.concat(THUMBS);
+    return Promise.all(list.map(src => new Promise(res => {
       const img = new Image();
-      img.onload = img.onerror = () => { loaded++; if(progress) progress.textContent = `${Math.min(loaded, TOTAL_PAGES)} / ${TOTAL_PAGES}`; resolve(); };
+      img.onload = img.onerror = () => res();
       img.src = src;
     })));
+  }
+
+  function initFlip() {
+    if (flip) return;
+    const settings = {
+      size: 'stretch',
+      width: 560, height: 827,
+      minWidth: 280, maxWidth: 560,
+      minHeight: 413, maxHeight: 827,
+      drawShadow: true,
+      flippingTime: 900,
+      usePortrait: true,
+      autoSize: true,
+      maxShadowOpacity: 0.6,
+      showCover: false,
+      mobileScrollSupport: false,
+      swipeDistance: 30,
+      clickEventForward: true,
+      showPageCorners: true
+    };
+    flip = new St.PageFlip($('book'), settings);
+    flip.loadFromImages(IMAGES);
+    flip.on('init', () => finishLoading());
+    flip.on('flip', (e) => { currentPage = e.data; updateUI(); updateThumb(); });
+    buildTOC();
+    buildThumbs();
+    bindEvents();
+    setTimeout(finishLoading, 4000);
   }
 
   let loaderHidden = false;
   function finishLoading() {
     if (loaderHidden) return;
     loaderHidden = true;
-    imgFront.src = images[0];
-    imgBack.src = images[Math.min(1, TOTAL_PAGES-1)];
     $('loader').classList.add('hidden');
     updateUI();
   }
 
   function buildTOC() {
     const drawer = $('drawer');
+    if (!TOC.length) {
+      drawer.innerHTML = '<h2>目录 Catalogue</h2><p style="font-size:13px;color:var(--text-light);margin-top:8px;">本册未提供结构化目录，可使用底部缩略图或页码跳转快速定位。</p>';
+      return;
+    }
     let html = '<h2>目录 Catalogue</h2>';
-    for (const sec of toc) {
+    for (const sec of TOC) {
       html += `<div class="toc-section">
         <div class="toc-section-title"><span class="num">${sec.num}</span>
         <span>${sec.cn}<br><span class="sec-sub">${sec.en}</span></span></div>`;
@@ -314,7 +303,6 @@
       }
       html += '</div>';
     }
-    html += `<div class="drawer-note"><strong>说明：</strong>本册由 47 张跨页拆成 94 张单页高清版，目录页（第 1 页）对应印刷页码 9-10；产品核心价值章节（07）不在本 PDF 分册中。</div>`;
     drawer.innerHTML = html;
     drawer.querySelectorAll('.toc-item').forEach(el => {
       el.addEventListener('click', () => { goToPage(parseInt(el.dataset.page, 10)); closeDrawer(); });
@@ -323,7 +311,7 @@
 
   function buildThumbs() {
     const rail = $('thumbRail');
-    rail.innerHTML = thumbs.map((src, i) =>
+    rail.innerHTML = THUMBS.map((src, i) =>
       `<div class="thumb" data-page="${i}" title="第 ${i+1} 页"><img src="${src}" alt="缩略图 ${i+1}" loading="lazy"></div>`
     ).join('');
     rail.querySelectorAll('.thumb').forEach(el => {
@@ -336,6 +324,8 @@
     $('pageIndicator').textContent = `${currentPage + 1} / ${TOTAL_PAGES}`;
     $('btnPrev').disabled = currentPage <= 0;
     $('btnNext').disabled = currentPage >= TOTAL_PAGES - 1;
+    $('pageJump').max = TOTAL_PAGES;
+    $('pageJump').value = currentPage + 1;
     updateThumb();
   }
 
@@ -346,70 +336,28 @@
     });
   }
 
-  function setFront(p) { imgFront.src = images[p]; }
-  function setBack(p) { imgBack.src = images[p]; }
-
-  function flipNext() {
-    if (animating || currentPage >= TOTAL_PAGES - 1) return;
-    animating = true;
-    const target = currentPage + 1;
-    setBack(target);
-    leafFront.classList.add('flipping');
-    leafFront.style.transformOrigin = 'left center';
-    void leafFront.offsetWidth;
-    leafFront.style.transform = 'rotateY(-180deg)';
-    onFlipEnd(() => {
-      setFront(target);
-      leafFront.style.transition = 'none';
-      leafFront.style.transform = 'none';
-      void leafFront.offsetWidth;
-      leafFront.style.transition = '';
-      currentPage = target;
-      setBack(Math.min(target + 1, TOTAL_PAGES - 1));
-      animating = false;
-      updateUI();
-    });
+  const tocFlat = [];
+  for (const sec of TOC) {
+    for (let i=0; i<sec.items.length; i++) {
+      const it = sec.items[i];
+      const next = sec.items[i+1] || null;
+      tocFlat.push({ cn: it.cn, en: it.en, page: it.page, sec: sec.cn, nextPage: next ? next.page : Infinity });
+    }
   }
-
-  function flipPrev() {
-    if (animating || currentPage <= 0) return;
-    animating = true;
-    const target = currentPage - 1;
-    setBack(target);
-    leafFront.classList.add('flipping');
-    leafFront.style.transformOrigin = 'right center';
-    void leafFront.offsetWidth;
-    leafFront.style.transform = 'rotateY(180deg)';
-    onFlipEnd(() => {
-      setFront(target);
-      leafFront.style.transition = 'none';
-      leafFront.style.transform = 'none';
-      void leafFront.offsetWidth;
-      leafFront.style.transition = '';
-      currentPage = target;
-      setBack(Math.max(target - 1, 0));
-      animating = false;
-      updateUI();
-    });
-  }
-
-  function onFlipEnd(cb) {
-    let done = false;
-    const finish = () => { if (done) return; done = true; leafFront.removeEventListener('transitionend', finish); cb(); };
-    leafFront.addEventListener('transitionend', finish);
-    setTimeout(finish, 850); // fallback
+  function tocLabel(p) {
+    if (p === 0) return '目录 Catalogue';
+    for (const it of tocFlat) if (p >= it.page && p < it.nextPage) return `${it.sec} · ${it.cn}`;
+    return 'GREENLINE';
   }
 
   function goToPage(p) {
-    if (p < 0 || p >= TOTAL_PAGES) return;
+    if (!flip || p < 0 || p >= TOTAL_PAGES) return;
     if (p === currentPage) return;
-    if (animating) return;
-    // jump: quick fade swap
-    book.classList.remove('fade'); void book.offsetWidth; book.classList.add('fade');
-    setFront(p);
-    setBack(p < TOTAL_PAGES - 1 ? p + 1 : p);
-    currentPage = p;
-    updateUI();
+    flip.flip(p, 'top');
+  }
+  function handleJump() {
+    const n = parseInt($('pageJump').value, 10);
+    if (!isNaN(n) && n >= 1 && n <= TOTAL_PAGES) goToPage(n - 1);
   }
 
   function closeDrawer() {
@@ -417,15 +365,9 @@
     $('drawerOverlay').classList.remove('open');
   }
 
-  function tocLabel(p) {
-    if (p === 0) return '目录 Catalogue';
-    for (const it of tocFlat) if (p >= it.page && p < it.nextPage) return `${it.sec} · ${it.cn}`;
-    return 'GREENLINE';
-  }
-
   function openLightbox(p) {
     lightboxPage = p; lightboxZoom = 1;
-    $('lightboxImg').src = images[p];
+    $('lightboxImg').src = IMAGES[p];
     $('lightboxTitle').textContent = `第 ${p+1} 页 · ${tocLabel(p)}`;
     $('lightbox').classList.add('active');
     applyZoom();
@@ -448,14 +390,17 @@
       $('drawerOverlay').classList.toggle('open');
     });
     $('drawerOverlay').addEventListener('click', closeDrawer);
-    $('btnPrev').addEventListener('click', flipPrev);
-    $('btnNext').addEventListener('click', flipNext);
+    $('btnPrev').addEventListener('click', () => flip && flip.flipPrev());
+    $('btnNext').addEventListener('click', () => flip && flip.flipNext());
     $('btnZoom').addEventListener('click', () => openLightbox(currentPage));
     $('btnFullscreen').addEventListener('click', () => {
       const el = $('app');
       if (!document.fullscreenElement) el.requestFullscreen && el.requestFullscreen().catch(()=>{});
       else document.exitFullscreen();
     });
+    $('btnJump').addEventListener('click', handleJump);
+    $('pageJump').addEventListener('keydown', (e) => { if (e.key === 'Enter') handleJump(); });
+    $('pageJump').addEventListener('change', handleJump);
 
     $('lbClose').addEventListener('click', closeLightbox);
     $('lbZoomIn').addEventListener('click', () => setZoom(0.25));
@@ -478,23 +423,14 @@
         if (e.key === 'ArrowUp') { e.preventDefault(); setZoom(0.25); }
         if (e.key === 'ArrowDown') { e.preventDefault(); setZoom(-0.25); }
       } else {
-        if (e.key === 'ArrowLeft') flipPrev();
-        if (e.key === 'ArrowRight') flipNext();
+        if (e.key === 'ArrowLeft') flip && flip.flipPrev();
+        if (e.key === 'ArrowRight') flip && flip.flipNext();
       }
     });
-
-    // touch swipe on book
-    let tsx = 0, tsy = 0, tracking = false;
-    book.addEventListener('touchstart', (e) => { if (e.touches.length === 1) { tracking = true; tsx = e.touches[0].clientX; tsy = e.touches[0].clientY; } }, {passive:true});
-    book.addEventListener('touchend', (e) => {
-      if (!tracking) return; tracking = false;
-      const dx = e.changedTouches[0].clientX - tsx;
-      const dy = e.changedTouches[0].clientY - tsy;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) { dx < 0 ? flipNext() : flipPrev(); }
-    }, {passive:true});
   }
 
-  init();
+  preload().then(initFlip);
+  setTimeout(initFlip, 12000);
 })();
 </script>
 </body>

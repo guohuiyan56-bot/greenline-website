@@ -57,20 +57,20 @@ window.FLIP = {
    "en": "Kitchen Faucet Series",
    "items": [
     {
-     "cn": "SUS304 不锈钢厨房龙头",
-     "en": "Kitchen Faucet",
-     "page": 2
+     "cn": "厨房龙头系列",
+     "en": "Kitchen Faucet Series",
+     "page": 4
     }
    ]
   },
   {
    "num": "02",
-   "cn": "净水器龙头系列",
+   "cn": "净水龙头系列",
    "en": "Water Purifier Faucet Series",
    "items": [
     {
-     "cn": "净水器龙头",
-     "en": "Water Purifier Faucet",
+     "cn": "净水龙头系列",
+     "en": "Water Purifier Faucet Series",
      "page": 12
     }
    ]
@@ -81,9 +81,9 @@ window.FLIP = {
    "en": "Basin Faucet Series",
    "items": [
     {
-     "cn": "黄铜 / SUS304 面盆龙头",
-     "en": "Basin Faucet",
-     "page": 18
+     "cn": "面盆龙头系列",
+     "en": "Basin Faucet Series",
+     "page": 20
     }
    ]
   }
