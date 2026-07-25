@@ -8,50 +8,17 @@
 //   cover    封面图（相对 hub 的路径，通常用该册的 t000 缩略图）
 //   pages    页数（仅展示用）
 window.CATALOGS = [
-  {
-    id: 'kitchen',
-    folder: 'kitchen',
-    category: 'home',
-    title_cn: '橱柜目录册',
-    title_en: 'Kitchen Cabinet Catalogue',
-    desc_cn: '整体橱柜 · 材质工艺 · 空间方案',
-    desc_en: 'Kitchen cabinets · materials · layout solutions',
-    cover: 'kitchen/pages/thumbs/t000.jpg',
-    pages: 94
-  },
-  {
-    id: 'wardrobe',
-    folder: 'wardrobe',
-    category: 'home',
-    title_cn: '衣柜目录册',
-    title_en: 'Wardrobe Catalogue',
-    desc_cn: '定制衣柜 · 步入式衣帽间 · 收纳系统',
-    desc_en: 'Custom wardrobes · walk-in closets · storage systems',
-    cover: 'wardrobe/pages/thumbs/t000.jpg',
-    pages: 120
-  },
-  {
-    id: 'tv',
-    folder: 'tv',
-    category: 'home',
-    title_cn: '电视柜目录册',
-    title_en: 'TV & Wine Cabinet Catalogue',
-    desc_cn: '电视柜 · 酒柜 · 客厅收纳组合',
-    desc_en: 'TV stands · wine cabinets · living-room storage',
-    cover: 'tv/pages/thumbs/t000.jpg',
-    pages: 114
-  }
-  // 例：家居家装再添一本卫浴册
+  // 例：新增一本目录册（复制下面这条改字段即可，hub 会自动按 category 归类）
   // ,{
-  //   id: 'bath',
-  //   folder: 'bath',
+  //   id: 'kitchen',
+  //   folder: 'kitchen',
   //   category: 'home',
-  //   title_cn: '卫浴目录册',
-  //   title_en: 'Bathroom Catalogue',
-  //   desc_cn: '智能马桶 · 五金挂件 · 整体卫浴',
-  //   desc_en: 'Smart toilets · fittings · bathroom sets',
-  //   cover: 'bath/pages/thumbs/t000.jpg',
-  //   pages: 60
+  //   title_cn: '橱柜目录册',
+  //   title_en: 'Kitchen Cabinet Catalogue',
+  //   desc_cn: '整体橱柜 · 材质工艺 · 空间方案',
+  //   desc_en: 'Kitchen cabinets · materials · layout solutions',
+  //   cover: 'kitchen/pages/thumbs/t000.jpg',
+  //   pages: 94
   // }
 ];
 
