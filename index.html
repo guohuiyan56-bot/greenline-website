@@ -657,23 +657,17 @@
     .testimonial-name{font-weight:600;font-size:0.9rem}
     .testimonial-role{font-size:0.78rem;color:var(--c-text-muted)}
 
-    /* ===== 合作伙伴 ===== */
-    .partners-scroll{
-      overflow:hidden;position:relative;
-      mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);
-      -webkit-mask-image:linear-gradient(to right,transparent,#000 8%,#000 92%,transparent);
+    /* ===== 合作伙伴 Logo 墙 ===== */
+    .partners-grid{
+      display:flex;justify-content:center;align-items:center;
+      padding:20px 0;
     }
-    .partners-track{
-      display:flex;gap:56px;animation:partners-scroll 28s linear infinite;width:max-content;
+    .partners-grid img{
+      max-width:100%;height:auto;max-height:520px;
+      border-radius:12px;
+      box-shadow:0 4px 24px rgba(0,0,0,0.08);
+      object-fit:contain;
     }
-    .partners-track:hover{animation-play-state:paused}
-    @keyframes partners-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-    .partner-item{
-      height:40px;display:flex;align-items:center;font-size:1.15rem;font-weight:800;
-      font-family:var(--font-display);color:var(--c-text-muted);white-space:nowrap;
-      transition:all 0.3s;
-    }
-    .partner-item:hover{color:var(--c-primary)}
 
     /* ===== 联系 ===== */
     .contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:48px}
@@ -1239,8 +1233,8 @@
       <div class="sec-label" id="partnersLabel"></div>
       <h2 class="sec-title" id="partnersTitle" style="margin-bottom:48px"></h2>
     </div>
-    <div class="partners-scroll">
-      <div class="partners-track" id="partnersTrack"></div>
+    <div class="partners-grid">
+      <img src="assets/partners-grid.jpg?v=20260725" alt="Trusted Partners — Saudi Aramco, TOTAL, Porsche, Cadillac, Rejoice, Vodafone, Disney, GMC, Shangri-La, Fiji Airways, QFA, Qatar Petroleum, Doha College, Bold&Beautiful, VOU, NCPW, Shell, Qatargas, Muntajat" loading="lazy">
     </div>
   </section>
 

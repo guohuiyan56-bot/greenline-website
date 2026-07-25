@@ -232,8 +232,11 @@ var GT_DATA = {
     title_cn: "值得信赖的合作网络",
     title_en: "A Network You Can Trust",
     names: [
-      "HUAWEI", "SAMSUNG", "Walmart", "Carrefour", "IKEA", "BOSCH",
-      "SIEMENS", "LG", "Panasonic", "TOTO", "LIXIL", "MAERSK"
+      "Saudi Aramco", "TOTAL", "Porsche", "Cadillac",
+      "Rejoice", "Vodafone", "Disney", "GMC",
+      "Shangri-La", "Fiji Airways", "QFA", "Qatar Petroleum",
+      "Doha College", "Bold&Beautiful", "VOU", "NCPW",
+      "Shell", "Qatargas", "Muntajat"
     ]
   },
 
