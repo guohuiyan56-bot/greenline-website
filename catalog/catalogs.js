@@ -79,6 +79,30 @@ window.CATALOGS = [
     cover_cn: 'louver/cover_cn.png',
     cover_en: 'louver/cover_en.png',
     pages: 12
+  },
+  {
+    id: 'wallpanel',
+    folder: 'wallpanel',
+    category: 'decor',
+    title_cn: '3D 墙板目录册',
+    title_en: '3D Wall Panel Catalogue',
+    desc_cn: '泽景系列 · 3D 立体墙板 · PVC 装饰板',
+    desc_en: 'ZE JIN series · 3D wall panels · PVC decorative panels',
+    cover_cn: 'wallpanel/cover_cn.png',
+    cover_en: 'wallpanel/cover_en.png',
+    pages: 27
+  },
+  {
+    id: 'sanitary',
+    folder: 'sanitary',
+    category: 'home',
+    title_cn: '浴室柜目录册',
+    title_en: 'Bathroom Vanity Catalogue',
+    desc_cn: '本润浴室柜 · 铝整板焊接烤漆 · 畅销款 / 经济款',
+    desc_en: 'Benrun bathroom vanities · aluminum welded & painted · best sellers / budget',
+    cover_cn: 'sanitary/cover_cn.png',
+    cover_en: 'sanitary/cover_en.png',
+    pages: 256
   }
 ];
 
@@ -90,6 +114,7 @@ window.CATALOG_CATS = {
   hardware:  { cn: '五金制品', en: 'Hardware' },
   lighting:  { cn: '灯饰照明', en: 'Lighting' },
   doors:     { cn: '门窗建材', en: 'Windows & Doors' },
+  decor:     { cn: '墙面装饰', en: 'Wall Decor' },
   hotel:    { cn: '酒店用品', en: 'Hotel Supplies' },
   project:  { cn: '工程配套', en: 'Project Supplies' },
   custom:   { cn: '定制加工', en: 'Custom Manufacturing' }
