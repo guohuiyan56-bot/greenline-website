@@ -874,10 +874,12 @@
     }
     .top-header .container{display:flex;align-items:center;justify-content:space-between;gap:32px}
     .top-logo{
-      display:flex;align-items:center;text-decoration:none;
+      display:flex;align-items:center;gap:8px;text-decoration:none;
       flex-shrink:0;
+      font-size:1.3rem;font-weight:900;letter-spacing:1px;
+      font-family:var(--font-display);color:var(--c-primary);
     }
-    .logo-img{height:36px;width:auto;object-fit:contain;}
+    .logo-img{height:32px;width:auto;object-fit:contain;}
     .top-search-wrap{
       display:flex;align-items:center;flex:1;max-width:600px;gap:0;
     }
@@ -1098,7 +1100,7 @@
   <!-- ===== Top Header（gdtfair 风格：Logo + 搜索栏） ===== -->
   <header class="top-header" id="home">
     <div class="container">
-      <a href="#home" class="top-logo"><img src="assets/logo.png?v=20260725" alt="GREENLINE" class="logo-img"></a>
+      <a href="#home" class="top-logo"><img src="assets/logo.png?v=20260725" alt="GREENLINE" class="logo-img">GREENLINE</a>
       <div class="top-search-wrap">
         <select class="top-search-cat" id="topSearchCat">
           <option value="">All Categories</option>
