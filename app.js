@@ -359,11 +359,14 @@
     });
   }
 
-  /* 跳转目录册：指向 catalog/ 子目录（翻页电子书）。
-     ?cat= 参数保留，便于以后按分类展示对应目录册（当前为总册，忽略该参数）。 */
+  /* 跳转目录册选择界面：指向 catalog/（hub）。
+     携带 ?cat= 栏目与 &lang= 当前语言，由 hub 按栏目过滤展示对应目录册卡片。 */
   function goCatalog(catId) {
     var CATALOG_URL = 'catalog/';
-    window.location.href = CATALOG_URL + (catId ? ('?cat=' + encodeURIComponent(catId)) : '');
+    var q = [];
+    if (catId) q.push('cat=' + encodeURIComponent(catId));
+    if (typeof lang !== 'undefined') q.push('lang=' + encodeURIComponent(lang));
+    window.location.href = CATALOG_URL + (q.length ? ('?' + q.join('&')) : '');
   }
 
   /* ===== 产品卡片（复用原样式） ===== */
