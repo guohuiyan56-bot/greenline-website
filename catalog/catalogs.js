@@ -134,8 +134,8 @@ window.CATALOGS = [
     category: 'machinery',
     title_cn: '商超货架目录册',
     title_en: 'GREENLINE Catalogue',
-    desc_cn: 'Runda 润达 · 商超货架 · 仓储货架 · 场景方案',
-    desc_en: 'Runda · supermarket shelves · warehouse racks · store solutions',
+    desc_cn: '本润 Benrun · 商超货架 · 仓储货架 · 场景方案',
+    desc_en: 'Benrun · supermarket shelves · warehouse racks · store solutions',
     cover_cn: 'shelf/cover_cn.png',
     cover_en: 'shelf/cover_en.png',
     pages: 54
