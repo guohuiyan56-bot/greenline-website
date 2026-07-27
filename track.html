@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>物流追踪 | GREENLINE</title>
+<meta name="description" content="GREENLINE 物流追踪 — 输入快递单号，在站内实时查询全球 3300+ 承运商的物流轨迹。">
 <link rel="icon" type="image/png" href="assets/logo.png?v=202607251754">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -13,18 +14,23 @@
   .logo b{color:#c9a26b;}
   .lang-btn{background:transparent;color:#c9a26b;border:1px solid #c9a26b;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;}
   .lang-btn:hover{background:#c9a26b;color:#2a1c10;}
-  .main{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 20px;}
-  .card{background:#fff;border-radius:14px;padding:34px;max-width:520px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,.08);}
+  .main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;}
+  .card{background:#fff;border-radius:14px;padding:34px;max-width:680px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,.08);}
   .icon{font-size:34px;}
   h1{font-size:24px;margin:8px 0 4px;}
   .sub{color:#6b5640;font-size:14px;margin-bottom:22px;}
   .field{margin-bottom:16px;}
   label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;}
-  select,input{width:100%;padding:12px 14px;border:1px solid #d8ccb8;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;color:#3a2a1a;}
-  select:focus,input:focus{outline:none;border-color:#c9a26b;}
+  input{width:100%;padding:13px 14px;border:1px solid #d8ccb8;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;color:#3a2a1a;}
+  input:focus{outline:none;border-color:#c9a26b;}
   button.track-btn{width:100%;background:#c9a26b;color:#2a1c10;border:none;padding:14px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;margin-top:6px;}
   button.track-btn:hover{background:#bb924f;}
-  .hint{font-size:12px;color:#8a7a64;margin-top:14px;text-align:center;line-height:1.6;}
+  #YQContainer{min-height:140px;margin-top:22px;border-top:1px solid #eee;padding-top:18px;}
+  #YQContainer:empty{display:none;}
+  #YQContainer:empty + .hint{margin-top:0;}
+  .hint{font-size:12px;color:#8a7a64;margin-top:18px;text-align:center;line-height:1.7;}
+  .hint a{color:#9a6b2f;text-decoration:none;}
+  .hint a:hover{text-decoration:underline;}
   footer{text-align:center;padding:18px;font-size:12px;color:#8a7a64;}
   footer a{color:#9a6b2f;text-decoration:none;}
 </style>
@@ -39,22 +45,9 @@
     <div class="card">
       <div class="icon">📦</div>
       <h1 data-cn="物流追踪" data-en="Track Your Shipment">物流追踪</h1>
-      <div class="sub" data-cn="输入快递单号，实时查询物流轨迹" data-en="Enter your tracking number to see live shipment status">输入快递单号，实时查询物流轨迹</div>
+      <div class="sub" data-cn="输入快递单号，下方实时显示物流轨迹（自动识别全球 3300+ 承运商）" data-en="Enter your tracking number — live status shows below (auto-detect 3300+ carriers)">输入快递单号，下方实时显示物流轨迹（自动识别全球 3300+ 承运商）</div>
 
       <form id="trackForm" onsubmit="return false;">
-        <div class="field">
-          <label data-cn="选择承运商" data-en="Carrier">选择承运商</label>
-          <select id="carrier">
-            <option value="auto">自动识别（17TRACK，推荐）</option>
-            <option value="dhl">DHL</option>
-            <option value="ups">UPS</option>
-            <option value="fedex">FedEx</option>
-            <option value="usps">USPS</option>
-            <option value="sf">顺丰 SF Express</option>
-            <option value="ems">EMS</option>
-            <option value="cpost">中国邮政 China Post</option>
-          </select>
-        </div>
         <div class="field">
           <label data-cn="快递单号" data-en="Tracking Number">快递单号</label>
           <input id="tn" type="text" autocomplete="off" data-ph-cn="请输入单号，如 1234567890" data-ph-en="Enter tracking No., e.g. 1234567890" placeholder="请输入单号，如 1234567890">
@@ -62,7 +55,11 @@
         <button class="track-btn" id="trackBtn" data-cn="查询物流 →" data-en="Track →">查询物流 →</button>
       </form>
 
-      <div class="hint" data-cn="查询将在新窗口打开承运商官方追踪页面" data-en="Opens the carrier's official tracking page in a new tab">查询将在新窗口打开承运商官方追踪页面</div>
+      <div id="YQContainer"></div>
+
+      <div class="hint">
+        <span data-cn="轨迹由 17TRACK 提供 · 若下方无显示，可" data-en="Powered by 17TRACK · if nothing shows below, ">轨迹由 17TRACK 提供 · 若下方无显示，可</span><a id="altLink" href="https://www.17track.net/track" target="_blank" rel="noopener" data-cn="在 17TRACK 官网查看" data-en="view on 17TRACK website">在 17TRACK 官网查看</a>
+      </div>
     </div>
   </div>
 
@@ -72,16 +69,6 @@
 
 <script>
   var lang = 'cn';
-  var carriers = {
-    auto:  function(n){ return 'https://www.17track.net/track?nums=' + encodeURIComponent(n); },
-    dhl:   function(n){ return 'https://www.dhl.com/track?tracking-id=' + encodeURIComponent(n); },
-    ups:   function(n){ return 'https://www.ups.com/track?tracknum=' + encodeURIComponent(n); },
-    fedex: function(n){ return 'https://www.fedex.com/fedextrack/?trknbr=' + encodeURIComponent(n); },
-    usps:  function(n){ return 'https://tools.usps.com/go/TrackConfirmAction?tLabels=' + encodeURIComponent(n); },
-    sf:    function(n){ return 'https://www.sf-express.com/we/ow/chn/sc/query?order=' + encodeURIComponent(n); },
-    ems:   function(n){ return 'https://www.ems.com.cn/query?num=' + encodeURIComponent(n); },
-    cpost: function(n){ return 'http://yjcx.chinapost.com.cn/q?w=' + encodeURIComponent(n); }
-  };
 
   function applyLang(){
     document.querySelectorAll('[data-cn]').forEach(function(el){
@@ -93,17 +80,36 @@
     var lb = document.getElementById('langBtn');
     lb.textContent = (lang === 'cn') ? 'EN' : '中文';
     document.title = (lang === 'cn') ? '物流追踪 | GREENLINE' : 'Track Shipment | GREENLINE';
+    updateAltLink();
+  }
+
+  function updateAltLink(){
+    var num = document.getElementById('tn').value.trim();
+    var base = 'https://www.17track.net/track?nums=' + encodeURIComponent(num || '');
+    base += (lang === 'cn') ? '&lang=zh-cn' : '&lang=en';
+    document.getElementById('altLink').href = base;
   }
 
   function doTrack(){
-    var sel = document.getElementById('carrier').value;
     var num = document.getElementById('tn').value.trim();
     if(!num){
       alert((lang === 'cn') ? '请输入快递单号' : 'Please enter a tracking number');
       return;
     }
-    var url = carriers[sel](num);
-    window.open(url, '_blank');
+    updateAltLink();
+    // 17TRACK 公开 Widget：在站内直接渲染轨迹，无需 API key
+    if(typeof YQV5 === 'undefined'){
+      // 脚本未加载时优雅降级到官网
+      window.open(document.getElementById('altLink').href, '_blank');
+      return;
+    }
+    YQV5.trackSingle({
+      YQ_ContainerId: "YQContainer",
+      YQ_Height: 600,
+      YQ_Fc: "0",                       // 0 = 自动识别承运商
+      YQ_Lang: (lang === 'cn') ? 'zh-cn' : 'en',
+      YQ_Num: num
+    });
   }
 
   document.getElementById('langBtn').addEventListener('click', function(){
@@ -112,11 +118,13 @@
   });
   document.getElementById('trackBtn').addEventListener('click', doTrack);
   document.getElementById('trackForm').addEventListener('submit', function(e){ e.preventDefault(); doTrack(); });
+  document.getElementById('tn').addEventListener('input', updateAltLink);
   document.getElementById('tn').addEventListener('keydown', function(e){
     if(e.key === 'Enter'){ e.preventDefault(); doTrack(); }
   });
 
   applyLang();
 </script>
+<script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
 </body>
 </html>
