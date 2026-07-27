@@ -56,7 +56,7 @@
 
     // 导航栏「目录册」入口跟随语言（d.nav 数据无 catalog 项，需单独设置）
     var navCat = document.getElementById('navCatalogLink');
-    if (navCat) navCat.textContent = lang === 'cn' ? '📖 目录册' : '📖 Catalogues';
+    if (navCat) navCat.textContent = lang === 'cn' ? '目录册' : 'Catalogues';
   }
 
   /* ===== Language ===== */
