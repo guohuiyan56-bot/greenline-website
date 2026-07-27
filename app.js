@@ -27,7 +27,7 @@
   }
 
   /* ===== 导航中英文映射 ===== */
-  var navSections = ['products', 'about', 'service', 'testimonials', 'catalog', 'contact'];
+  var navSections = ['products', 'about', 'service', 'testimonials', 'catalog', 'contact', 'track'];
 
   function updateNavText() {
     var links = document.querySelectorAll('.nav-links a');

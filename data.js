@@ -27,7 +27,8 @@ var GT_DATA = {
     { id: "about",       cn: "关于我们",  en: "About" },
     { id: "service",     cn: "服务优势",  en: "Services" },
     { id: "testimonials",cn: "客户评价",  en: "Reviews" },
-    { id: "contact",     cn: "联系我们",  en: "Contact" }
+    { id: "contact",     cn: "联系我们",  en: "Contact" },
+    { id: "track",       cn: "🚚 物流追踪", en: "🚚 Track Order" }
   ],
 
   /* ---- Hero ---- */
