@@ -47,7 +47,7 @@ window.CATALOGS = [
   {
     id: 'shower',
     folder: 'shower',
-    category: 'hardware',
+    category: 'home',
     title_cn: '花洒产品册',
     title_en: 'Shower Catalogue',
     desc_cn: '全系列花洒 · 淋浴系统',
