@@ -5,16 +5,16 @@
 
 /* ===== CSS 变量（改颜色/字号主要在这里） ===== */
 :root {
-  --color-primary:   #1a56db;    /* 主色 —— 按钮、链接、强调 */
-  --color-primary-h: #1e40af;    /* 主色深 —— hover 状态 */
-  --color-accent:    #f59e0b;    /* 强调色 —— 标签、角标 */
-  --color-bg:        #ffffff;    /* 页面背景 */
-  --color-bg-alt:    #f8fafc;    /* 浅灰背景 —— 交替区块 */
-  --color-bg-dark:   #0f172a;    /* 深色背景 —— 页脚 */
-  --color-text:      #1e293b;    /* 正文颜色 */
-  --color-text-light:#64748b;    /* 辅助文字 */
-  --color-text-white:#f1f5f9;    /* 深底白字 */
-  --color-border:    #e2e8f0;    /* 边框 */
+  --color-primary:   #3A261B;    /* 主色 —— 按钮、链接、强调 */
+  --color-primary-h: #5A3D2B;    /* 主色深 —— hover 状态 */
+  --color-accent:    #C9A66B;    /* 强调色 —— 标签、角标 */
+  --color-bg:        #F7F3ED;    /* 页面背景 */
+  --color-bg-alt:    #EFE7D8;    /* 浅灰背景 —— 交替区块 */
+  --color-bg-dark:   #3A261B;    /* 深色背景 —— 页脚 */
+  --color-text:      #2C1E15;    /* 正文颜色 */
+  --color-text-light:#6D5A4D;    /* 辅助文字 */
+  --color-text-white:#F7F3ED;    /* 深底白字 */
+  --color-border:    #EDE5D8;    /* 边框 */
   --color-success:   #10b981;    /* 成功 */
   --color-danger:    #ef4444;    /* 警告 */
 
@@ -116,7 +116,7 @@ button { cursor: pointer; font-family: inherit; }
   color: var(--color-primary);
 }
 .btn-white:hover {
-  background: #e2e8f0;
+  background: #EDE5D8;
 }
 
 /* ===== 顶部导航 ===== */
@@ -160,7 +160,7 @@ button { cursor: pointer; font-family: inherit; }
 .header-nav a:hover,
 .header-nav a.active {
   color: var(--color-primary);
-  background: rgba(26,86,219,.06);
+  background: rgba(58,38,27,.06);
 }
 .lang-switch {
   margin-left: 12px;
@@ -189,7 +189,7 @@ button { cursor: pointer; font-family: inherit; }
 /* ===== Hero ===== */
 .hero {
   padding: 100px 0 80px;
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  background: linear-gradient(135deg, #F0E7D5 0%, #EADFCB 100%);
   text-align: center;
 }
 .hero-title {
@@ -287,17 +287,17 @@ button { cursor: pointer; font-family: inherit; }
   width: 100%;
   height: 200px;
   object-fit: cover;
-  background: #e2e8f0;
+  background: #EDE5D8;
 }
 .product-img-placeholder {
   width: 100%;
   height: 200px;
-  background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+  background: linear-gradient(135deg, #EFE6D6, #DCC8A8);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-  color: #6366f1;
+  color: #6B4F3C;
 }
 .product-body {
   padding: 20px;
@@ -308,7 +308,7 @@ button { cursor: pointer; font-family: inherit; }
   font-weight: 600;
   padding: 3px 10px;
   border-radius: 12px;
-  background: #eff6ff;
+  background: #F0E7D5;
   color: var(--color-primary);
   margin-bottom: 10px;
   text-transform: uppercase;
@@ -509,7 +509,7 @@ button { cursor: pointer; font-family: inherit; }
 .footer-col p,
 .footer-col a {
   font-size: 0.88rem;
-  color: #94a3b8;
+  color: #B7A692;
   line-height: 1.8;
   display: block;
   transition: color var(--transition);
@@ -524,7 +524,7 @@ button { cursor: pointer; font-family: inherit; }
   justify-content: space-between;
   align-items: center;
   font-size: 0.84rem;
-  color: #64748b;
+  color: #6D5A4D;
   flex-wrap: wrap;
   gap: 10px;
 }
