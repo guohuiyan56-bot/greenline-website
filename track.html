@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>物流追踪 | GREENLINE</title>
-<meta name="description" content="GREENLINE 物流追踪 — 输入快递单号，在站内实时查询全球 3300+ 承运商的物流轨迹。">
+<meta name="description" content="GREENLINE 物流追踪 — 输入单号，在站内实时查询全球 3300+ 承运商及中远海运 COSCO 船期轨迹。">
 <link rel="icon" type="image/png" href="assets/logo.png?v=202607251754">
 <style>
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -15,22 +15,47 @@
   .lang-btn{background:transparent;color:#c9a26b;border:1px solid #c9a26b;padding:6px 14px;border-radius:20px;cursor:pointer;font-size:13px;}
   .lang-btn:hover{background:#c9a26b;color:#2a1c10;}
   .main{flex:1;display:flex;align-items:flex-start;justify-content:center;padding:40px 20px;}
-  .card{background:#fff;border-radius:14px;padding:34px;max-width:680px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,.08);}
+  .card{background:#fff;border-radius:14px;padding:34px;max-width:720px;width:100%;box-shadow:0 8px 30px rgba(0,0,0,.08);}
   .icon{font-size:34px;}
   h1{font-size:24px;margin:8px 0 4px;}
-  .sub{color:#6b5640;font-size:14px;margin-bottom:22px;}
+  .sub{color:#6b5640;font-size:14px;margin-bottom:20px;}
+  /* tabs */
+  .tabs{display:flex;gap:8px;margin-bottom:22px;}
+  .tab{flex:1;text-align:center;padding:11px 8px;border:1px solid #d8ccb8;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;color:#6b5640;background:#faf6ef;transition:.15s;}
+  .tab.active{background:#c9a26b;color:#2a1c10;border-color:#c9a26b;}
+  .panel{display:none;}
+  .panel.active{display:block;}
   .field{margin-bottom:16px;}
   label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;}
-  input{width:100%;padding:13px 14px;border:1px solid #d8ccb8;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;color:#3a2a1a;}
-  input:focus{outline:none;border-color:#c9a26b;}
+  input,select{width:100%;padding:13px 14px;border:1px solid #d8ccb8;border-radius:8px;font-size:15px;font-family:inherit;background:#fff;color:#3a2a1a;}
+  input:focus,select:focus{outline:none;border-color:#c9a26b;}
+  .row{display:flex;gap:10px;}
+  .row > *{flex:1;}
   button.track-btn{width:100%;background:#c9a26b;color:#2a1c10;border:none;padding:14px;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;margin-top:6px;}
   button.track-btn:hover{background:#bb924f;}
-  #YQContainer{min-height:140px;margin-top:22px;border-top:1px solid #eee;padding-top:18px;}
+  .mode-toggle{display:flex;gap:18px;margin-bottom:14px;font-size:13px;color:#6b5640;}
+  .mode-toggle label{cursor:pointer;display:inline-flex;align-items:center;gap:5px;font-weight:500;}
+  #YQContainer{min-height:120px;margin-top:22px;border-top:1px solid #eee;padding-top:18px;}
   #YQContainer:empty{display:none;}
-  #YQContainer:empty + .hint{margin-top:0;}
+  #coscoResult{margin-top:22px;border-top:1px solid #eee;padding-top:18px;}
+  #coscoResult:empty{display:none;}
   .hint{font-size:12px;color:#8a7a64;margin-top:18px;text-align:center;line-height:1.7;}
   .hint a{color:#9a6b2f;text-decoration:none;}
   .hint a:hover{text-decoration:underline;}
+  /* timeline */
+  .c-result-head{font-size:15px;font-weight:700;margin-bottom:12px;color:#2a1c10;}
+  .c-cnt{margin-bottom:18px;}
+  .c-cnt-no{font-size:13px;color:#9a6b2f;font-weight:600;margin-bottom:8px;}
+  .tl{list-style:none;position:relative;padding-left:18px;}
+  .tl:before{content:"";position:absolute;left:4px;top:4px;bottom:4px;width:2px;background:#e3d7c2;}
+  .tl li{position:relative;padding:0 0 14px 8px;}
+  .tl li:before{content:"";position:absolute;left:-18px;top:4px;width:9px;height:9px;border-radius:50%;background:#c9a26b;border:2px solid #fff;box-shadow:0 0 0 1px #c9a26b;}
+  .tl .st{font-size:14px;font-weight:600;color:#3a2a1a;}
+  .tl .lo{font-size:13px;color:#6b5640;}
+  .tl .tm{font-size:12px;color:#8a7a64;}
+  .tl .md{display:inline-block;font-size:11px;color:#fff;background:#bb924f;border-radius:4px;padding:1px 6px;margin-left:6px;}
+  .c-err{color:#a33;font-size:14px;}
+  .c-loading{color:#9a6b2f;font-size:14px;}
   footer{text-align:center;padding:18px;font-size:12px;color:#8a7a64;}
   footer a{color:#9a6b2f;text-decoration:none;}
 </style>
@@ -45,20 +70,57 @@
     <div class="card">
       <div class="icon">📦</div>
       <h1 data-cn="物流追踪" data-en="Track Your Shipment">物流追踪</h1>
-      <div class="sub" data-cn="输入快递单号，下方实时显示物流轨迹（自动识别全球 3300+ 承运商）" data-en="Enter your tracking number — live status shows below (auto-detect 3300+ carriers)">输入快递单号，下方实时显示物流轨迹（自动识别全球 3300+ 承运商）</div>
+      <div class="sub" data-cn="在站内实时查询物流轨迹，无需跳转到其他网站" data-en="Live shipment status right here — no need to leave the site">在站内实时查询物流轨迹，无需跳转到其他网站</div>
 
-      <form id="trackForm" onsubmit="return false;">
-        <div class="field">
-          <label data-cn="快递单号" data-en="Tracking Number">快递单号</label>
-          <input id="tn" type="text" autocomplete="off" data-ph-cn="请输入单号，如 1234567890" data-ph-en="Enter tracking No., e.g. 1234567890" placeholder="请输入单号，如 1234567890">
+      <div class="tabs">
+        <div class="tab active" id="tabGeneral" data-cn="通用查询" data-en="General">通用查询</div>
+        <div class="tab" id="tabCosco" data-cn="中远海运 COSCO" data-en="COSCO Shipping">中远海运 COSCO</div>
+      </div>
+
+      <!-- 通用查询：17TRACK Widget -->
+      <div class="panel active" id="panelGeneral">
+        <form id="trackForm" onsubmit="return false;">
+          <div class="field">
+            <label data-cn="快递单号" data-en="Tracking Number">快递单号</label>
+            <input id="tn" type="text" autocomplete="off" data-ph-cn="请输入单号，如 1234567890" data-ph-en="Enter tracking No., e.g. 1234567890" placeholder="请输入单号，如 1234567890">
+          </div>
+          <button class="track-btn" id="trackBtn" data-cn="查询物流 →" data-en="Track →">查询物流 →</button>
+        </form>
+        <div id="YQContainer"></div>
+        <div class="hint">
+          <span data-cn="轨迹由 17TRACK 提供 · 若下方无显示，可" data-en="Powered by 17TRACK · if nothing shows below, ">轨迹由 17TRACK 提供 · 若下方无显示，可</span><a id="altLink" href="https://www.17track.net/track" target="_blank" rel="noopener" data-cn="在 17TRACK 官网查看" data-en="view on 17TRACK website">在 17TRACK 官网查看</a>
         </div>
-        <button class="track-btn" id="trackBtn" data-cn="查询物流 →" data-en="Track →">查询物流 →</button>
-      </form>
+      </div>
 
-      <div id="YQContainer"></div>
+      <!-- 中远海运 COSCO 查船 -->
+      <div class="panel" id="panelCosco">
+        <div class="mode-toggle">
+          <label><input type="radio" name="cosMode" value="order" checked> <span data-cn="按订单号" data-en="By Order No.">按订单号</span></label>
+          <label><input type="radio" name="cosMode" value="number"> <span data-cn="按单号直查" data-en="By Tracking No.">按单号直查</span></label>
+        </div>
 
-      <div class="hint">
-        <span data-cn="轨迹由 17TRACK 提供 · 若下方无显示，可" data-en="Powered by 17TRACK · if nothing shows below, ">轨迹由 17TRACK 提供 · 若下方无显示，可</span><a id="altLink" href="https://www.17track.net/track" target="_blank" rel="noopener" data-cn="在 17TRACK 官网查看" data-en="view on 17TRACK website">在 17TRACK 官网查看</a>
+        <div class="field" id="cosOrderField">
+          <label data-cn="订单号" data-en="Order Number">订单号</label>
+          <input id="cosOrder" type="text" autocomplete="off" data-ph-cn="请输入您的订单号" data-ph-en="Enter your order number" placeholder="请输入您的订单号">
+        </div>
+
+        <div class="field" id="cosNumberField" style="display:none;">
+          <label data-cn="单号（提单号 / 订舱号 / 箱号）" data-en="Number (B/L / Booking / Container)">单号（提单号 / 订舱号 / 箱号）</label>
+          <div class="row">
+            <input id="cosNumber" type="text" autocomplete="off" data-ph-cn="请输入单号" data-ph-en="Enter number" placeholder="请输入单号">
+            <select id="cosType">
+              <option value="bl" data-cn="提单号 B/L" data-en="B/L No.">提单号 B/L</option>
+              <option value="bkg" data-cn="订舱号" data-en="Booking No.">订舱号</option>
+              <option value="cntr" data-cn="箱号" data-en="Container No.">箱号</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="track-btn" id="cosBtn" data-cn="查询船期 →" data-en="Track →">查询船期 →</button>
+        <div id="coscoResult"></div>
+        <div class="hint">
+          <span data-cn="数据来自中远海运 COSCO 官方接口 · 由 GREENLINE 自动转发" data-en="Data from COSCO official API · auto-forwarded by GREENLINE">数据来自中远海运 COSCO 官方接口 · 由 GREENLINE 自动转发</span>
+        </div>
       </div>
     </div>
   </div>
@@ -68,6 +130,10 @@
   </footer>
 
 <script>
+  // ====== 配置：替换为你的 Cloudflare Worker 地址 ======
+  var COSCO_WORKER_URL = 'https://YOUR-WORKER-SUBDOMAIN.workers.dev';
+  var ORDERS_FILE = 'orders.json'; // 历史订单映射（同目录），用于按订单号查
+
   var lang = 'cn';
 
   function applyLang(){
@@ -77,6 +143,9 @@
     document.querySelectorAll('[data-ph-cn]').forEach(function(el){
       el.placeholder = (lang === 'cn') ? el.dataset.phCn : el.dataset.phEn;
     });
+    // tab 文本
+    document.getElementById('tabGeneral').textContent = (lang==='cn') ? '通用查询' : 'General';
+    document.getElementById('tabCosco').textContent = (lang==='cn') ? '中远海运 COSCO' : 'COSCO Shipping';
     var lb = document.getElementById('langBtn');
     lb.textContent = (lang === 'cn') ? 'EN' : '中文';
     document.title = (lang === 'cn') ? '物流追踪 | GREENLINE' : 'Track Shipment | GREENLINE';
@@ -90,6 +159,27 @@
     document.getElementById('altLink').href = base;
   }
 
+  // ---- tabs ----
+  function switchTab(which){
+    var general = (which === 'general');
+    document.getElementById('panelGeneral').classList.toggle('active', general);
+    document.getElementById('panelCosco').classList.toggle('active', !general);
+    document.getElementById('tabGeneral').classList.toggle('active', general);
+    document.getElementById('tabCosco').classList.toggle('active', !general);
+  }
+  document.getElementById('tabGeneral').addEventListener('click', function(){ switchTab('general'); });
+  document.getElementById('tabCosco').addEventListener('click', function(){ switchTab('cosco'); });
+
+  // ---- 模式切换（订单号 / 单号直查） ----
+  document.querySelectorAll('input[name="cosMode"]').forEach(function(r){
+    r.addEventListener('change', function(){
+      var byOrder = (r.value === 'order');
+      document.getElementById('cosOrderField').style.display = byOrder ? '' : 'none';
+      document.getElementById('cosNumberField').style.display = byOrder ? 'none' : '';
+    });
+  });
+
+  // ---- 17TRACK 通用查询 ----
   function doTrack(){
     var num = document.getElementById('tn').value.trim();
     if(!num){
@@ -97,21 +187,111 @@
       return;
     }
     updateAltLink();
-    // 17TRACK 公开 Widget：在站内直接渲染轨迹，无需 API key
     if(typeof YQV5 === 'undefined'){
-      // 脚本未加载时优雅降级到官网
       window.open(document.getElementById('altLink').href, '_blank');
       return;
     }
     YQV5.trackSingle({
       YQ_ContainerId: "YQContainer",
       YQ_Height: 600,
-      YQ_Fc: "0",                       // 0 = 自动识别承运商
+      YQ_Fc: "0",
       YQ_Lang: (lang === 'cn') ? 'zh-cn' : 'en',
       YQ_Num: num
     });
   }
 
+  // ---- COSCO 查询 ----
+  function setCoscoResult(html){ document.getElementById('coscoResult').innerHTML = html; }
+
+  function renderCosco(data){
+    if(!data || data.found === false){
+      setCoscoResult('<div class="c-err">' + ((lang==='cn')?'未查询到该单号信息，请核对后重试。':'No tracking info found for this number. Please check and retry.') + '</div>');
+      return;
+    }
+    var html = '';
+    var containers = data.containers || [];
+    if(containers.length === 0){
+      // 提单/订舱：把保留字段平铺显示
+      html += '<div class="c-result-head">' + ((lang==='cn')?'查询结果':'Result') + '</div>';
+      if(data.actualShipment) html += '<div class="lo">'+escapeHtml(data.actualShipment)+'</div>';
+      if(data.containerStatus) html += '<div class="lo">'+escapeHtml(data.containerStatus)+'</div>';
+      if(data.notFound) html += '<div class="c-err">'+escapeHtml(data.notFound)+'</div>';
+      if(!data.actualShipment && !data.containerStatus) html += '<div class="lo">'+((lang==='cn')?'已查到信息，但格式需进一步解析。':'Information retrieved; further parsing needed.')+'</div>';
+      setCoscoResult(html);
+      return;
+    }
+    containers.forEach(function(c){
+      html += '<div class="c-cnt">';
+      if(c.number) html += '<div class="c-cnt-no">'+escapeHtml(c.number)+'</div>';
+      var evs = (c.events || []).slice().reverse(); // 最新在前
+      html += '<ul class="tl">';
+      evs.forEach(function(e){
+        html += '<li>';
+        html += '<div class="st">'+escapeHtml(e.status||'')+'</div>';
+        if(e.location) html += '<div class="lo">'+escapeHtml(e.location)+'</div>';
+        if(e.time) html += '<div class="tm">'+escapeHtml(e.time)+'</div>';
+        if(e.mode) html += '<span class="md">'+escapeHtml(e.mode)+'</span>';
+        html += '</li>';
+      });
+      html += '</ul></div>';
+    });
+    setCoscoResult(html);
+  }
+
+  function escapeHtml(s){
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function(m){
+      return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+    });
+  }
+
+  function showCoscoError(msg){
+    setCoscoResult('<div class="c-err">' + escapeHtml(msg) + '</div>');
+  }
+
+  async function callCosco(number, type){
+    if(!COSCO_WORKER_URL || COSCO_WORKER_URL.indexOf('YOUR-WORKER') === 0){
+      showCoscoError((lang==='cn')?'转发服务未配置：请在 track.html 顶部填入 Cloudflare Worker 地址。':'Tracking proxy not configured: set COSCO_WORKER_URL in track.html.');
+      return;
+    }
+    setCoscoResult('<div class="c-loading">' + ((lang==='cn')?'查询中…':'Querying…') + '</div>');
+    try{
+      var url = COSCO_WORKER_URL + '/?number=' + encodeURIComponent(number) + '&type=' + encodeURIComponent(type);
+      var resp = await fetch(url);
+      var data = await resp.json();
+      renderCosco(data);
+    }catch(e){
+      showCoscoError((lang==='cn')?'查询失败：'+(e.message||e):'Query failed: '+(e.message||e));
+    }
+  }
+
+  async function doCosco(){
+    var byOrder = document.querySelector('input[name="cosMode"]:checked').value === 'order';
+    if(byOrder){
+      var orderNo = document.getElementById('cosOrder').value.trim();
+      if(!orderNo){ showCoscoError((lang==='cn')?'请输入订单号':'Please enter order number'); return; }
+      setCoscoResult('<div class="c-loading">' + ((lang==='cn')?'查询中…':'Querying…') + '</div>');
+      try{
+        var res = await fetch(ORDERS_FILE);
+        if(!res.ok){ showCoscoError((lang==='cn')?'订单映射文件 orders.json 未找到。':'orders.json not found.'); return; }
+        var orders = await res.json();
+        var hit = orders.find(function(o){ return String(o.orderNo).toLowerCase() === orderNo.toLowerCase(); });
+        if(!hit){ showCoscoError((lang==='cn')?'未找到该订单号对应的物流单号。':'No tracking number mapped to this order.'); return; }
+        var number = hit.blNo || hit.bkgNo || hit.cntrNo || '';
+        var type = hit.blNo ? 'bl' : (hit.bkgNo ? 'bkg' : 'cntr');
+        if(!number){ showCoscoError((lang==='cn')?'该订单未登记物流单号。':'No tracking number on file for this order.'); return; }
+        callCosco(number, type);
+      }catch(e){
+        showCoscoError((lang==='cn')?'读取订单失败：'+(e.message||e):'Failed to read orders: '+(e.message||e));
+      }
+    }else{
+      var num = document.getElementById('cosNumber').value.trim();
+      var typ = document.getElementById('cosType').value;
+      if(!num){ showCoscoError((lang==='cn')?'请输入单号':'Please enter a number'); return; }
+      callCosco(num, typ);
+    }
+  }
+
+  // ---- 绑定 ----
   document.getElementById('langBtn').addEventListener('click', function(){
     lang = (lang === 'cn') ? 'en' : 'cn';
     applyLang();
@@ -119,9 +299,10 @@
   document.getElementById('trackBtn').addEventListener('click', doTrack);
   document.getElementById('trackForm').addEventListener('submit', function(e){ e.preventDefault(); doTrack(); });
   document.getElementById('tn').addEventListener('input', updateAltLink);
-  document.getElementById('tn').addEventListener('keydown', function(e){
-    if(e.key === 'Enter'){ e.preventDefault(); doTrack(); }
-  });
+  document.getElementById('tn').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doTrack(); } });
+  document.getElementById('cosBtn').addEventListener('click', doCosco);
+  document.getElementById('cosOrder').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doCosco(); } });
+  document.getElementById('cosNumber').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doCosco(); } });
 
   applyLang();
 </script>

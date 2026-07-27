@@ -1,0 +1,18 @@
+[
+  {
+    "orderNo": "PO2026-001",
+    "blNo": "6412690220",
+    "bkgNo": "",
+    "cntrNo": "CBHU4398907",
+    "customer": "示例客户A",
+    "remark": "示例数据，请替换为你们的真实历史订单"
+  },
+  {
+    "orderNo": "PO2026-002",
+    "blNo": "",
+    "bkgNo": "BKGSAMPLE123",
+    "cntrNo": "",
+    "customer": "示例客户B",
+    "remark": "示例数据，请替换为你们的真实历史订单"
+  }
+]
