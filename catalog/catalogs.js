@@ -187,7 +187,7 @@ window.CATALOG_CATS = {
   decor:     { cn: '墙面装饰', en: 'Wall Decor' },
   display:   { cn: '展示器材', en: 'Display & Signage' },
   shelves:   { cn: '货架展示', en: 'Shelving & Display' },
-  hotel:    { cn: '酒店用品', en: 'Hotel Supplies' },
+  hotel:    { cn: '酒店餐饮', en: 'Hotel & Restaurant' },
   project:  { cn: '工程配套', en: 'Project Supplies' },
   custom:   { cn: '定制加工', en: 'Custom Manufacturing' }
 };

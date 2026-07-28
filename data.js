@@ -65,9 +65,9 @@ var GT_DATA = {
   categories: [
     { id: "home",       name_cn: "家居家装",   name_en: "Home & Living",       icon: "🏠" },
     { id: "gift",       name_cn: "礼品文创",   name_en: "Gifts & Crafts",      icon: "🎁" },
-    { id: "machinery",  name_cn: "工业机械",   name_en: "Industrial Machinery", icon: "⚙️" },
+    { id: "machinery",  name_cn: "工业机械",   name_en: "Machinery", icon: "⚙️" },
     { id: "hardware",   name_cn: "五金制品",   name_en: "Hardware",            icon: "🔩" },
-    { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",      icon: "🏨" },
+    { id: "hotel",      name_cn: "酒店餐饮",   name_en: "Hotel & Restaurant",  icon: "🏨" },
     { id: "custom",     name_cn: "定制加工",   name_en: "Custom Manufacturing", icon: "🔧" },
     { id: "decor",      name_cn: "墙面装饰",   name_en: "Wall Decor",          icon: "🖼️" },
     { id: "display",    name_cn: "展示器材",   name_en: "Display & Signage",   icon: "🪧" },
