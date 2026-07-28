@@ -119,7 +119,7 @@ window.CATALOGS = [
   {
     id: 'rack',
     folder: 'rack',
-    category: 'machinery',
+    category: 'shelves',
     title_cn: '仓储货架目录册',
     title_en: 'Warehouse Rack Catalogue',
     desc_cn: '龙昌系列 · 轻型货架 · 仓储设计案例 · 阁楼平台',
@@ -131,7 +131,7 @@ window.CATALOGS = [
   {
     id: 'shelf',
     folder: 'shelf',
-    category: 'machinery',
+    category: 'shelves',
     title_cn: '商超货架目录册',
     title_en: 'GREENLINE Catalogue',
     desc_cn: '本润 Benrun · 商超货架 · 仓储货架 · 场景方案',
@@ -188,6 +188,7 @@ window.CATALOG_CATS = {
   doors:     { cn: '门窗建材', en: 'Windows & Doors' },
   decor:     { cn: '墙面装饰', en: 'Wall Decor' },
   display:   { cn: '展示器材', en: 'Display & Signage' },
+  shelves:   { cn: '货架展示', en: 'Shelving & Display' },
   hotel:    { cn: '酒店用品', en: 'Hotel Supplies' },
   project:  { cn: '工程配套', en: 'Project Supplies' },
   custom:   { cn: '定制加工', en: 'Custom Manufacturing' }
