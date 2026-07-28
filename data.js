@@ -59,16 +59,21 @@ var GT_DATA = {
     { value: "200",    suffix: "+", label_cn: "服务客户",    label_en: "Clients Served" }
   ],
 
-  /* ---- 产品分类 ---- */
+  /* ---- 产品分类 ----
+     与 catalog/catalogs.js 的 CATALOG_CATS 保持一致，
+     确保主站分类名、目录册 hub 栏目名一一对应。 ---- */
   categories: [
-    { id: "home",       name_cn: "家居家装",   name_en: "Home & Living",    icon: "🏠" },
-    { id: "gift",       name_cn: "礼品文创",   name_en: "Gifts & Crafts",   icon: "🎁" },
+    { id: "home",       name_cn: "家居家装",   name_en: "Home & Living",       icon: "🏠" },
+    { id: "gift",       name_cn: "礼品文创",   name_en: "Gifts & Crafts",      icon: "🎁" },
     { id: "machinery",  name_cn: "工业机械",   name_en: "Industrial Machinery", icon: "⚙️" },
-    { id: "hardware",   name_cn: "五金制品",   name_en: "Hardware",         icon: "🔩" },
-    { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",   icon: "🏨" },
-    { id: "project",    name_cn: "工程配套",   name_en: "Project Solutions",icon: "🏗️" },
+    { id: "hardware",   name_cn: "五金制品",   name_en: "Hardware",            icon: "🔩" },
+    { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",      icon: "🏨" },
     { id: "custom",     name_cn: "定制加工",   name_en: "Custom Manufacturing", icon: "🔧" },
-    { id: "ads",        name_cn: "广告材料",   name_en: "Advertising Materials",icon: "📢" }
+    { id: "lighting",   name_cn: "灯饰照明",   name_en: "Lighting",            icon: "💡" },
+    { id: "doors",      name_cn: "门窗建材",   name_en: "Windows & Doors",     icon: "🚪" },
+    { id: "decor",      name_cn: "墙面装饰",   name_en: "Wall Decor",          icon: "🖼️" },
+    { id: "display",    name_cn: "展示器材",   name_en: "Display & Signage",   icon: "🪧" },
+    { id: "shelves",    name_cn: "货架展示",   name_en: "Shelving & Display",  icon: "🏬" }
   ],
 
   /* ---- 产品列表 (100) ---- */
@@ -128,12 +133,12 @@ var GT_DATA = {
     { id:"p69", category:"hotel", name_cn:"指示牌/迎宾牌",  name_en:"Signage",                 desc_cn:"亚克力指示牌、LED楼层牌、迎宾水牌",                         desc_en:"Acrylic signs, LED floor signs, welcome display boards",           image:"images/p69.jpg" },
     { id:"p72", category:"hotel", name_cn:"迎宾地毯",       name_en:"Welcome Mats",            desc_cn:"尼龙印花地垫、防滑吸水型",                                   desc_en:"Nylon printed doormats, anti-slip & water-absorbent",              image:"images/p72.jpg" },
 
-    /* ===== 工程配套 (5) ===== */
-    { id:"p76", category:"project", name_cn:"瓷砖/大理石",  name_en:"Tiles & Marble",          desc_cn:"釉面砖、通体砖、大理石、花岗岩",                             desc_en:"Glazed tiles, full-body tiles, marble, granite",                   image:"images/p76.jpg" },
-    { id:"p77", category:"project", name_cn:"PPR水管",      name_en:"PPR Water Pipes",         desc_cn:"PPR冷热水管，20mm-110mm全规格",                              desc_en:"PPR hot/cold water pipes, 20mm-110mm full range",                  image:"images/p77.jpg" },
-    { id:"p78", category:"project", name_cn:"工装整体方案", name_en:"Commercial Decoration",   desc_cn:"办公楼、商铺、餐厅整体装修配套",                             desc_en:"Office, retail, restaurant complete decoration solutions",         image:"images/p78.jpg" },
-    { id:"p82", category:"project", name_cn:"涂料/防水材料", name_en:"Paint & Waterproofing",  desc_cn:"内墙乳胶漆、外墙涂料、防水涂料",                             desc_en:"Interior latex paint, exterior coatings, waterproof paint",        image:"images/p82.jpg" },
-    { id:"p83", category:"project", name_cn:"阀门/法兰",    name_en:"Valves & Flanges",        desc_cn:"闸阀、球阀、蝶阀、法兰片全规格",                             desc_en:"Gate valves, ball valves, butterfly valves, flanges",             image:"images/p83.jpg" },
+    /* ===== 五金制品·工程配套 (5) ===== */
+    { id:"p76", category:"hardware", name_cn:"瓷砖/大理石",  name_en:"Tiles & Marble",          desc_cn:"釉面砖、通体砖、大理石、花岗岩",                             desc_en:"Glazed tiles, full-body tiles, marble, granite",                   image:"images/p76.jpg" },
+    { id:"p77", category:"hardware", name_cn:"PPR水管",      name_en:"PPR Water Pipes",         desc_cn:"PPR冷热水管，20mm-110mm全规格",                              desc_en:"PPR hot/cold water pipes, 20mm-110mm full range",                  image:"images/p77.jpg" },
+    { id:"p78", category:"hardware", name_cn:"工装整体方案", name_en:"Commercial Decoration",   desc_cn:"办公楼、商铺、餐厅整体装修配套",                             desc_en:"Office, retail, restaurant complete decoration solutions",         image:"images/p78.jpg" },
+    { id:"p82", category:"hardware", name_cn:"涂料/防水材料", name_en:"Paint & Waterproofing",  desc_cn:"内墙乳胶漆、外墙涂料、防水涂料",                             desc_en:"Interior latex paint, exterior coatings, waterproof paint",        image:"images/p82.jpg" },
+    { id:"p83", category:"hardware", name_cn:"阀门/法兰",    name_en:"Valves & Flanges",        desc_cn:"闸阀、球阀、蝶阀、法兰片全规格",                             desc_en:"Gate valves, ball valves, butterfly valves, flanges",             image:"images/p83.jpg" },
 
     /* ===== 定制加工 (4) ===== */
     { id:"p90", category:"custom", name_cn:"家具OEM定制",   name_en:"Furniture OEM",           desc_cn:"来图定制家具，材质/颜色/尺寸全定制",                       desc_en:"Custom furniture by drawings, full material/color/size options",   image:"images/p90.jpg" },
@@ -141,13 +146,13 @@ var GT_DATA = {
     { id:"p92", category:"custom", name_cn:"3D打印验证",    name_en:"3D Print Prototyping",    desc_cn:"SLA/SLS/FDM 3D打印手板，48小时交付",                         desc_en:"SLA/SLS/FDM 3D printing prototypes, 48-hour delivery",             image:"images/p92.jpg" },
     { id:"p95", category:"custom", name_cn:"小批量试产",    name_en:"Small Batch Trial",       desc_cn:"100-1000件小批量试产，快速验证",                             desc_en:"100-1000 units small-batch trial production, fast validation",      image:"images/p95.jpg" },
 
-    /* ===== 广告材料 (6) ===== */
-    { id:"p96", category:"ads", name_cn:"易拉宝展架",     name_en:"Roll-up Banner Display",  desc_cn:"铝合金底座易拉宝，支持定制画面印刷，便携收纳",               desc_en:"Aluminum roll-up banner stand with custom printed graphic, portable", image:"images/p96.jpg" },
-    { id:"p97", category:"ads", name_cn:"X展架",          name_en:"X-Banner Stand",           desc_cn:"十字交叉框架X展架，轻便易安装，展会/门店常用",                 desc_en:"Cross-frame X-banner stand, lightweight, ideal for trade shows & retail", image:"images/p97.jpg" },
-    { id:"p98", category:"ads", name_cn:"横幅喷绘布",      name_en:"Vinyl Banner Printing",    desc_cn:"户外/室内横幅喷绘，高精度UV打印，防水防晒",                   desc_en:"Indoor/outdoor vinyl banners, high-res UV printing, weather-resistant",   image:"images/p98.jpg" },
-    { id:"p99", category:"ads", name_cn:"LED灯箱标识",     name_en:"LED Light Box Signage",    desc_cn:"超薄LED灯箱，发光字/图形标识，商场/展厅适用",                desc_en:"Slim LED light box with illuminated graphics, for malls & exhibitions", image:"images/p99.jpg" },
-    { id:"p100",category:"ads", name_cn:"亚克力立体字",    name_en:"Acrylic 3D Letters",       desc_cn:"透明/彩色亚克力立体字，门头招牌、品牌标识定制",              desc_en:"Transparent or colored acrylic 3D letters, custom storefront signage",  image:"images/p100.jpg" },
-    { id:"p101",category:"ads", name_cn:"广告旗/刀旗",     name_en:"Feather Flags",            desc_cn:"羽毛旗/刀旗，注水底座，户外活动/促销常用",                     desc_en:"Feather flags with water-fill base, perfect for outdoor promotions",    image:"images/p101.jpg" },
+    /* ===== 展示器材 (6) ===== */
+    { id:"p96", category:"display", name_cn:"易拉宝展架",     name_en:"Roll-up Banner Display",  desc_cn:"铝合金底座易拉宝，支持定制画面印刷，便携收纳",               desc_en:"Aluminum roll-up banner stand with custom printed graphic, portable", image:"images/p96.jpg" },
+    { id:"p97", category:"display", name_cn:"X展架",          name_en:"X-Banner Stand",           desc_cn:"十字交叉框架X展架，轻便易安装，展会/门店常用",                 desc_en:"Cross-frame X-banner stand, lightweight, ideal for trade shows & retail", image:"images/p97.jpg" },
+    { id:"p98", category:"display", name_cn:"横幅喷绘布",      name_en:"Vinyl Banner Printing",    desc_cn:"户外/室内横幅喷绘，高精度UV打印，防水防晒",                   desc_en:"Indoor/outdoor vinyl banners, high-res UV printing, weather-resistant",   image:"images/p98.jpg" },
+    { id:"p99", category:"display", name_cn:"LED灯箱标识",     name_en:"LED Light Box Signage",    desc_cn:"超薄LED灯箱，发光字/图形标识，商场/展厅适用",                desc_en:"Slim LED light box with illuminated graphics, for malls & exhibitions", image:"images/p99.jpg" },
+    { id:"p100",category:"display", name_cn:"亚克力立体字",    name_en:"Acrylic 3D Letters",       desc_cn:"透明/彩色亚克力立体字，门头招牌、品牌标识定制",              desc_en:"Transparent or colored acrylic 3D letters, custom storefront signage",  image:"images/p100.jpg" },
+    { id:"p101",category:"display", name_cn:"广告旗/刀旗",     name_en:"Feather Flags",            desc_cn:"羽毛旗/刀旗，注水底座，户外活动/促销常用",                     desc_en:"Feather flags with water-fill base, perfect for outdoor promotions",    image:"images/p101.jpg" },
   ],
 
   /* ---- 关于 ---- */
@@ -267,8 +272,8 @@ var GT_DATA = {
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、工程配套、定制加工、广告材料等品类。",
-    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, project solutions, custom manufacturing, and advertising materials.",
+    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、定制加工、灯饰照明、门窗建材、墙面装饰、展示器材、货架展示等品类。",
+    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, custom manufacturing, lighting, windows & doors, wall decor, display & signage, and shelving & display.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
     categories_cn: "产品分类",
