@@ -283,6 +283,18 @@ window.CATALOGS = [
     cover_cn: 'hoteldisposable/cover_cn.png',
     cover_en: 'hoteldisposable/cover_en.png',
     pages: 114
+  },
+  {
+    id: 'floral',
+    folder: 'floral',
+    category: 'home',
+    title_cn: '景观花艺图册',
+    title_en: 'Landscape Floral Art Catalogue',
+    desc_cn: '仿真树 · 迎客松 · 玻璃钢树 · 流水景观 · 花墙定制 · 陶罐花艺',
+    desc_en: 'Artificial trees · welcome pines · FRP trees · water features · flower walls · ceramic vases',
+    cover_cn: 'floral/cover_cn.png',
+    cover_en: 'floral/cover_en.png',
+    pages: 55
   }
 ];
 
