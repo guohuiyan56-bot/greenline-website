@@ -163,6 +163,18 @@ window.CATALOGS = [
     cover_cn: 'display/cover_cn.png',
     cover_en: 'display/cover_en.png',
     pages: 41
+  },
+  {
+    id: 'lianteng',
+    folder: 'lianteng',
+    category: 'machinery',
+    title_cn: '包装机械目录册',
+    title_en: 'Packaging Machinery Catalogue',
+    desc_cn: '灌装 · 旋盖 · 贴标 · 封口 · 真空包装 · 封箱 · 打码 · 分装 · 枕式包装',
+    desc_en: 'Filling · capping · labeling · sealing · vacuum packing · carton sealing · coding · dosing · pillow packaging',
+    cover_cn: 'lianteng/cover_cn.png',
+    cover_en: 'lianteng/cover_en.png',
+    pages: 74
   }
 ];
 
