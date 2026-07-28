@@ -59,7 +59,7 @@ window.CATALOGS = [
   {
     id: 'lighting',
     folder: 'lighting',
-    category: 'lighting',
+    category: 'home',
     title_cn: 'MSA 系列灯具册',
     title_en: 'MSA Series Lighting Catalogue',
     desc_cn: '现代水晶 · 线性 LED · 壁灯 · 工业风吊灯',
@@ -71,7 +71,7 @@ window.CATALOGS = [
   {
     id: 'louver',
     folder: 'louver',
-    category: 'doors',
+    category: 'home',
     title_cn: '门窗百叶铝框册',
     title_en: 'Aluminium Louver Window & Door Catalogue',
     desc_cn: '6"/4" 铝合金 / 铝塑 / 铁制百叶窗框',
@@ -184,8 +184,6 @@ window.CATALOG_CATS = {
   gift:     { cn: '礼品文创', en: 'Gifts & Crafts' },
   machinery: { cn: '工业机械', en: 'Machinery' },
   hardware:  { cn: '五金制品', en: 'Hardware' },
-  lighting:  { cn: '灯饰照明', en: 'Lighting' },
-  doors:     { cn: '门窗建材', en: 'Windows & Doors' },
   decor:     { cn: '墙面装饰', en: 'Wall Decor' },
   display:   { cn: '展示器材', en: 'Display & Signage' },
   shelves:   { cn: '货架展示', en: 'Shelving & Display' },

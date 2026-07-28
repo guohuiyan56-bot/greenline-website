@@ -69,8 +69,6 @@ var GT_DATA = {
     { id: "hardware",   name_cn: "五金制品",   name_en: "Hardware",            icon: "🔩" },
     { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",      icon: "🏨" },
     { id: "custom",     name_cn: "定制加工",   name_en: "Custom Manufacturing", icon: "🔧" },
-    { id: "lighting",   name_cn: "灯饰照明",   name_en: "Lighting",            icon: "💡" },
-    { id: "doors",      name_cn: "门窗建材",   name_en: "Windows & Doors",     icon: "🚪" },
     { id: "decor",      name_cn: "墙面装饰",   name_en: "Wall Decor",          icon: "🖼️" },
     { id: "display",    name_cn: "展示器材",   name_en: "Display & Signage",   icon: "🪧" },
     { id: "shelves",    name_cn: "货架展示",   name_en: "Shelving & Display",  icon: "🏬" }
@@ -272,8 +270,8 @@ var GT_DATA = {
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、定制加工、灯饰照明、门窗建材、墙面装饰、展示器材、货架展示等品类。",
-    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, custom manufacturing, lighting, windows & doors, wall decor, display & signage, and shelving & display.",
+    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、定制加工、墙面装饰、展示器材、货架展示等品类。",
+    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, custom manufacturing, wall decor, display & signage, and shelving & display.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
     categories_cn: "产品分类",
