@@ -175,6 +175,114 @@ window.CATALOGS = [
     cover_cn: 'lianteng/cover_cn.png',
     cover_en: 'lianteng/cover_en.png',
     pages: 74
+  },
+  {
+    id: 'napkin',
+    folder: 'napkin',
+    category: 'hotel',
+    title_cn: '全棉餐巾目录册',
+    title_en: 'Cotton Napkin Catalogue',
+    desc_cn: '全棉餐巾 · 独花印花 · 坯布系列 · 酒店餐饮布草',
+    desc_en: 'Cotton napkins · printed designs · plain cloth series · hotel & restaurant linen',
+    cover_cn: 'napkin/cover_cn.png',
+    cover_en: 'napkin/cover_en.png',
+    pages: 96
+  },
+  {
+    id: 'consumable',
+    folder: 'consumable',
+    category: 'hotel',
+    title_cn: '客房易耗品目录册',
+    title_en: 'Guest Room Consumables Catalogue',
+    desc_cn: '客房洗护 · 一次性用品 · 纸品袋类 · 酒店杂件',
+    desc_en: 'Guest toiletries · disposables · paper & bags · room accessories',
+    cover_cn: 'consumable/cover_cn.png',
+    cover_en: 'consumable/cover_en.png',
+    pages: 25
+  },
+  {
+    id: 'hoteltextile',
+    folder: 'hoteltextile',
+    category: 'hotel',
+    title_cn: '酒店纺织品目录册',
+    title_en: 'Hotel Textile Catalogue',
+    desc_cn: '床品系列 · 毛巾浴袍 · 餐饮布草 · 窗帘软装',
+    desc_en: 'Bedding · towels & bathrobes · restaurant linen · curtains & soft décor',
+    cover_cn: 'hoteltextile/cover_cn.png',
+    cover_en: 'hoteltextile/cover_en.png',
+    pages: 44
+  },
+  {
+    id: 'bbq',
+    folder: 'bbq',
+    category: 'home',
+    title_cn: 'BBQ 烧烤与户外厨房册',
+    title_en: 'BBQ Grill & Outdoor Kitchen',
+    desc_cn: '烧烤炉 · 户外厨房系统 · 烧烤配件',
+    desc_en: 'BBQ grills · outdoor kitchen systems · BBQ accessories',
+    cover_cn: 'bbq/cover_cn.png',
+    cover_en: 'bbq/cover_en.png',
+    pages: 38
+  },
+  {
+    id: 'olive',
+    folder: 'olive',
+    category: 'gift',
+    title_cn: 'GREENLINE 环保餐具目录册',
+    title_en: 'GREENLINE Eco Tableware Catalogue',
+    desc_cn: '可降解环保餐具 · 餐盒 · 杯碗 · 刀叉勺',
+    desc_en: 'Biodegradable eco tableware · containers · cups · bowls · cutlery',
+    cover_cn: 'olive/cover_cn.png',
+    cover_en: 'olive/cover_en.png',
+    pages: 4
+  },
+  {
+    id: 'tablechair',
+    folder: 'tablechair',
+    category: 'home',
+    title_cn: '餐饮家具目录册',
+    title_en: 'Table & Chair Furniture',
+    desc_cn: '卡座沙发 · 餐桌椅组合 · 休闲沙发 · 吧椅吧桌',
+    desc_en: 'Booth sofas · table & chair sets · lounge sofas · bar stools & tables',
+    cover_cn: 'tablechair/cover_cn.png',
+    cover_en: 'tablechair/cover_en.png',
+    pages: 70
+  },
+  {
+    id: 'lounge',
+    folder: 'lounge',
+    category: 'home',
+    title_cn: '躺椅产品目录册',
+    title_en: 'Lounge Chair Catalogue',
+    desc_cn: '户外躺椅 · 休闲躺椅 · 报价参考',
+    desc_en: 'Outdoor lounge chairs · leisure recliners · quotation reference',
+    cover_cn: 'lounge/cover_cn.png',
+    cover_en: 'lounge/cover_en.png',
+    pages: 2
+  },
+  {
+    id: 'hotelother',
+    folder: 'hotelother',
+    category: 'hotel',
+    title_cn: '酒店其它系列画册',
+    title_en: 'Hotel Other Series Catalogue',
+    desc_cn: '指示牌 · 栏杆座 · 行李车 · 服务车 · 衣帽架 · 客房清洁用品',
+    desc_en: 'Sign stands · railing posts · luggage carts · service carts · coat racks · room & cleaning supplies',
+    cover_cn: 'hotelother/cover_cn.png',
+    cover_en: 'hotelother/cover_en.png',
+    pages: 176
+  },
+  {
+    id: 'hoteldisposable',
+    folder: 'hoteldisposable',
+    category: 'hotel',
+    title_cn: '客房一次性用品目录册',
+    title_en: 'Guest Room Disposables Catalogue',
+    desc_cn: '洗漱套装 · 护理用品 · 纸品杯垫 · 拖鞋鞋擦 · 客房杂件',
+    desc_en: 'Toiletries sets · care products · paper & coasters · slippers & shoe mitts · room accessories',
+    cover_cn: 'hoteldisposable/cover_cn.png',
+    cover_en: 'hoteldisposable/cover_en.png',
+    pages: 114
   }
 ];
 
