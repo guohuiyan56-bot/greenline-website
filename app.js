@@ -387,6 +387,7 @@
       '<div class="prod-card delay-' + ((idx % 6) + 1) + '" data-cat="' + p.category + '">' +
         '<div class="prod-card-img-wrap">' +
           imgContent +
+          '<div class="prod-card-logo">GREENLINE</div>' +
           '<div class="prod-card-overlay">' +
             '<div class="prod-card-quick">' + (lang === 'cn' ? '立即询价' : 'Inquire Now') + '</div>' +
           '</div>' +
