@@ -153,18 +153,6 @@ window.CATALOGS = [
     pages: 48
   },
   {
-    id: 'display',
-    folder: 'display',
-    category: 'display',
-    title_cn: '展示器材目录册',
-    title_en: 'Display & Signage Catalogue',
-    desc_cn: '海报架 · 易拉宝 · X 展架 · 沙滩旗 · 促销台 · 拉网展架 · 抽奖转盘',
-    desc_en: 'Poster stands · roll up banners · X banner stands · beach flags · promotion tables · pop-up displays · prize wheels',
-    cover_cn: 'display/cover_cn.png',
-    cover_en: 'display/cover_en.png',
-    pages: 41
-  },
-  {
     id: 'lianteng',
     folder: 'lianteng',
     category: 'machinery',
