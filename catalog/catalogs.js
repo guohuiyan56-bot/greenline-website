@@ -343,6 +343,114 @@ window.CATALOGS = [
     cover_cn: 'boshan/cover_cn.png',
     cover_en: 'boshan/cover_en.png',
     pages: 31
+  },
+  {
+    id: 'aussieswitch',
+    folder: 'aussieswitch',
+    category: 'lighting',
+    title_cn: 'GREENLINE 澳标开关目录册',
+    title_en: 'GREENLINE Australian Standard Switches Catalogue',
+    desc_cn: 'GREENLINE 澳标开关插座产品目录册。',
+    desc_en: 'GREENLINE Australian standard switches & sockets catalogue.',
+    cover_cn: 'aussieswitch/cover_cn.png',
+    cover_en: 'aussieswitch/cover_en.png',
+    pages: 12
+  },
+  {
+    id: 'autoparts',
+    folder: 'autoparts',
+    category: 'hardware',
+    title_cn: 'GREENLINE 汽车配件目录册',
+    title_en: 'GREENLINE Auto Parts Catalogue',
+    desc_cn: 'GREENLINE 汽车配件产品目录册。',
+    desc_en: 'GREENLINE auto parts catalogue.',
+    cover_cn: 'autoparts/cover_cn.png',
+    cover_en: 'autoparts/cover_en.png',
+    pages: 134
+  },
+  {
+    id: 'hotelleather',
+    folder: 'hotelleather',
+    category: 'hotel',
+    title_cn: 'GREENLINE 客房皮具目录册',
+    title_en: 'GREENLINE Hotel Leather Goods Catalogue',
+    desc_cn: 'GREENLINE 客房皮具产品目录册。',
+    desc_en: 'GREENLINE hotel leather goods catalogue.',
+    cover_cn: 'hotelleather/cover_cn.png',
+    cover_en: 'hotelleather/cover_en.png',
+    pages: 30
+  },
+  {
+    id: 'packaging',
+    folder: 'packaging',
+    category: 'machinery',
+    title_cn: 'GREENLINE 食品包装目录册',
+    title_en: 'GREENLINE Food Packaging Catalogue',
+    desc_cn: 'GREENLINE 食品包装产品目录册。',
+    desc_en: 'GREENLINE food packaging catalogue.',
+    cover_cn: 'packaging/cover_cn.png',
+    cover_en: 'packaging/cover_en.png',
+    pages: 24
+  },
+  {
+    id: 'knifeset',
+    folder: 'knifeset',
+    category: 'home',
+    title_cn: 'GREENLINE 刀具套装目录册',
+    title_en: 'GREENLINE Knife Sets Catalogue',
+    desc_cn: 'GREENLINE 刀具套装产品目录册（KET 系列）。',
+    desc_en: 'GREENLINE knife sets catalogue (KET series).',
+    cover_cn: 'knifeset/cover_cn.png',
+    cover_en: 'knifeset/cover_en.png',
+    pages: 48
+  },
+  {
+    id: 'qingyang',
+    folder: 'qingyang',
+    category: 'home',
+    title_cn: 'GREENLINE 庆阳系列厨具目录册',
+    title_en: 'GREENLINE Qingyang Kitchenware Catalogue',
+    desc_cn: 'GREENLINE 庆阳系列厨房用品目录册。',
+    desc_en: 'GREENLINE Qingyang kitchenware catalogue.',
+    cover_cn: 'qingyang/cover_cn.png',
+    cover_en: 'qingyang/cover_en.png',
+    pages: 196
+  },
+  {
+    id: 'buffetwarmer',
+    folder: 'buffetwarmer',
+    category: 'hotel',
+    title_cn: 'GREENLINE 自助餐炉目录册',
+    title_en: 'GREENLINE Buffet Warmer Catalogue',
+    desc_cn: 'GREENLINE 英峰系列自助餐炉目录册。',
+    desc_en: 'GREENLINE Yingfeng buffet warmer catalogue.',
+    cover_cn: 'buffetwarmer/cover_cn.png',
+    cover_en: 'buffetwarmer/cover_en.png',
+    pages: 48
+  },
+  {
+    id: 'hotelplates',
+    folder: 'hotelplates',
+    category: 'hotel',
+    title_cn: 'GREENLINE 酒店餐具目录册',
+    title_en: 'GREENLINE Hotel Tableware Catalogue',
+    desc_cn: 'GREENLINE 酒店餐厅盘 / 杯 / 刀叉目录册。',
+    desc_en: 'GREENLINE hotel plates, glasses & cutlery catalogue.',
+    cover_cn: 'hotelplates/cover_cn.png',
+    cover_en: 'hotelplates/cover_en.png',
+    pages: 124
+  },
+  {
+    id: 'displayqx',
+    folder: 'displayqx',
+    category: 'display',
+    title_cn: 'GREENLINE 展示器材 QX 目录册',
+    title_en: 'GREENLINE Display QX Catalogue',
+    desc_cn: 'GREENLINE 展示器材 QX 产品目录册（易拉宝 / X展架 / 海报架）。',
+    desc_en: 'GREENLINE display QX catalogue (roll-up / X banner / poster stands).',
+    cover_cn: 'displayqx/cover_cn.png',
+    cover_en: 'displayqx/cover_en.png',
+    pages: 21
   }
 ];
 
