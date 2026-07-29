@@ -331,6 +331,18 @@ window.CATALOGS = [
     cover_cn: 'christmas/cover_cn.png',
     cover_en: 'christmas/cover_en.png',
     pages: 9
+  },
+  {
+    id: 'boshan',
+    folder: 'boshan',
+    category: 'machinery',
+    title_cn: 'GREENLINE 发电机组产品目录册',
+    title_en: 'GREENLINE Power Generator Catalogue',
+    desc_cn: 'GREENLINE 发电机组产品目录册，涵盖柴油、燃气、甲醇机组及应用方案。',
+    desc_en: 'GREENLINE power generator catalogue covering diesel, gas and methanol gensets.',
+    cover_cn: 'boshan/cover_cn.png',
+    cover_en: 'boshan/cover_en.png',
+    pages: 31
   }
 ];
 
