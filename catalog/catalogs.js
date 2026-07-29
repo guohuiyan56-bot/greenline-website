@@ -295,6 +295,42 @@ window.CATALOGS = [
     cover_cn: 'floral/cover_cn.png',
     cover_en: 'floral/cover_en.png',
     pages: 55
+  },
+  {
+    id: 'machinery',
+    folder: 'machinery',
+    category: 'machinery',
+    title_cn: '制砖机产品目录册',
+    title_en: 'Brick Machine Catalogue',
+    desc_cn: 'GREENLINE 制砖机械产品目录册，展示砖机设备与技术方案。',
+    desc_en: 'GREENLINE brick making machinery catalogue.',
+    cover_cn: 'machinery/cover_cn.png',
+    cover_en: 'machinery/cover_en.png',
+    pages: 33
+  },
+  {
+    id: 'halloween',
+    folder: 'halloween',
+    category: 'gift',
+    title_cn: '怪多多万圣节道具目录册',
+    title_en: 'Halloween Prop Catalogue',
+    desc_cn: '怪多多万圣节系列道具产品目录册。',
+    desc_en: 'Guai Duo Duo Halloween prop series catalogue.',
+    cover_cn: 'halloween/cover_cn.png',
+    cover_en: 'halloween/cover_en.png',
+    pages: 58
+  },
+  {
+    id: 'christmas',
+    folder: 'christmas',
+    category: 'gift',
+    title_cn: '圣诞节日用品目录册',
+    title_en: 'Christmas Items Catalogue',
+    desc_cn: 'GREENLINE 圣诞节日装饰与礼品目录册。',
+    desc_en: 'GREENLINE Christmas items and decorations catalogue.',
+    cover_cn: 'christmas/cover_cn.png',
+    cover_en: 'christmas/cover_en.png',
+    pages: 9
   }
 ];
 
