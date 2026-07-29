@@ -513,10 +513,14 @@
     }
     .prod-card-logo{
       position:absolute;top:10px;left:10px;z-index:2;
-      padding:5px 9px;border-radius:4px;
-      background:rgba(107,76,53,0.88);color:#fff;
-      font-size:0.62rem;font-weight:700;letter-spacing:1px;
-      pointer-events:none;white-space:nowrap;
+      width:38px;height:38px;border-radius:50%;
+      object-fit:contain;
+      pointer-events:none;
+      box-shadow:0 3px 10px rgba(58,38,27,0.28);
+      background:transparent;
+    }
+    @media (max-width:640px){
+      .prod-card-logo{width:32px;height:32px;top:8px;left:8px;}
     }
     .prod-card-img-placeholder{
       width:100%;height:100%;display:flex;align-items:center;justify-content:center;
