@@ -248,7 +248,8 @@
   const $ = (id) => document.getElementById(id);
 
   function preload() {
-    const list = IMAGES.concat(THUMBS);
+    // 仅预加载前 8 张图，缩短首屏等待；其余由 St.PageFlip 按需加载
+    const list = IMAGES.concat(THUMBS).slice(0, 16);
     return Promise.all(list.map(src => new Promise(res => {
       const img = new Image();
       img.onload = img.onerror = () => res();
@@ -274,9 +275,15 @@
       clickEventForward: true,
       showPageCorners: true
     };
-    flip = new St.PageFlip($('book'), settings);
-    flip.loadFromImages(IMAGES);
-    flip.on('init', () => finishLoading());
+    try {
+      flip = new St.PageFlip($('book'), settings);
+      flip.loadFromImages(IMAGES);
+      flip.on('init', () => finishLoading());
+    } catch (err) {
+      console.error('St.PageFlip init failed:', err);
+      const ld = $('loaderText'); if (ld) ld.textContent = '加载出现问题，请刷新重试';
+      finishLoading();
+    }
     flip.on('flip', (e) => { currentPage = e.data; updateUI(); updateThumb(); });
     buildTOC();
     buildThumbs();
@@ -436,8 +443,12 @@
     });
   }
 
-  preload().then(initFlip);
-  setTimeout(initFlip, 12000);
+  preload().then(initFlip).catch(() => {
+    console.error('preload failed');
+    finishLoading();
+  });
+  // 硬兜底：无论 St.PageFlip 是否初始化成功，最多 3 秒后显示书本（避免一直转圈）
+  setTimeout(finishLoading, 3000);
 })();
 </script>
 </body>
