@@ -439,6 +439,18 @@ window.CATALOGS = [
     cover_cn: 'displayqx/cover_cn.png',
     cover_en: 'displayqx/cover_en.png',
     pages: 21
+  },
+  {
+    id: 'tiles',
+    folder: 'tiles',
+    category: 'decor',
+    title_cn: 'GREENLINE 瓷砖产品目录册',
+    title_en: 'GREENLINE Tile Catalogue',
+    desc_cn: '瓷砖 · 岩板 · 墙地铺贴方案',
+    desc_en: 'Ceramic tiles · slabs · wall & floor tiling',
+    cover_cn: 'tiles/cover_cn.png',
+    cover_en: 'tiles/cover_en.png',
+    pages: 140
   }
 ];
 
