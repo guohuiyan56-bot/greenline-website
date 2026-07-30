@@ -148,6 +148,26 @@
     .thumb { width:108px; height:76px; }
     .drawer { width:100%; max-width:100%; padding:18px; }
   }
+
+  /* ===== 全屏沉浸模式 ===== */
+  .app.fs-mode .topbar,
+  .app.fs-mode .thumb-rail,
+  .app.fs-mode .drawer { display:none !important; }
+  .app.fs-mode .flip-stage { padding:0; background:#1c140d; }
+  .app.fs-mode #book { max-width:100%; }
+  .edge-nav {
+    position:fixed; top:0; bottom:0; width:13%; max-width:150px;
+    display:flex; align-items:center; justify-content:center;
+    z-index:150; cursor:pointer; border:0; padding:0; margin:0;
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+    background:linear-gradient(to right, rgba(58,38,27,0.30), rgba(58,38,27,0));
+  }
+  .edge-nav.right { right:0; background:linear-gradient(to left, rgba(58,38,27,0.30), rgba(58,38,27,0)); }
+  .edge-nav svg { width:38px; height:38px; color:#fff; filter:drop-shadow(0 2px 6px rgba(0,0,0,.55)); transition:transform .15s ease; }
+  .edge-nav:hover svg { transform:scale(1.18); }
+  .app.fs-mode .edge-nav { opacity:.32; pointer-events:auto; }
+  .app.fs-mode .edge-nav:hover { opacity:.85; }
+  .edge-nav:disabled { opacity:0 !important; pointer-events:none; }
 </style>
 <script src="data.js?v=3"></script>
 <script src="../lib/page-flip.browser.js"></script>
@@ -157,7 +177,7 @@
   <div class="loader" id="loader">
     <div class="spinner"></div>
     <p>正在加载目录册…</p>
-    <small>请稍候，图片较大首次加载需要一点时间</small>
+    <small>极速加载中，即将打开…</small>
   </div>
 
   <header class="topbar">
@@ -204,6 +224,13 @@
     <aside class="drawer" id="drawer"></aside>
     <div class="drawer-overlay" id="drawerOverlay"></div>
   </main>
+    <button class="edge-nav left" id="edgePrev" title="上一页" disabled>
+      <svg viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button class="edge-nav right" id="edgeNext" title="下一页">
+      <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+
 
   <div class="thumb-rail" id="thumbRail"></div>
 
@@ -247,14 +274,19 @@
 
   const $ = (id) => document.getElementById(id);
 
-  function preload() {
-    // 仅预加载前 8 张图，缩短首屏等待；其余由 St.PageFlip 按需加载
-    const list = IMAGES.concat(THUMBS).slice(0, 16);
-    return Promise.all(list.map(src => new Promise(res => {
-      const img = new Image();
-      img.onload = img.onerror = () => res();
-      img.src = src;
-    })));
+  // 按需懒加载：先用 1x1 占位图瞬时初始化，init 后再按当前跨页+相邻页换真实 WebP
+  const PLACEHOLDER = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+  const _loaded = new Set();
+  function ensureLoaded(i) {
+    if (i < 0 || i >= TOTAL_PAGES || _loaded.has(i)) return;
+    _loaded.add(i);
+    const pg = flip.getPageCollection().getPages()[i];
+    if (!pg || !pg.image) return;
+    pg.image.onload = () => { pg.isLoad = true; try { flip.getRender().update(); } catch(e) {} };
+    pg.image.src = IMAGES[i];
+  }
+  function preloadAround(p) {
+    [p-1, p, p+1, p+2].forEach(ensureLoaded);
   }
 
   function initFlip() {
@@ -277,14 +309,14 @@
     };
     try {
       flip = new St.PageFlip($('book'), settings);
-      flip.loadFromImages(IMAGES);
-      flip.on('init', () => finishLoading());
+      flip.loadFromImages(Array(TOTAL_PAGES).fill(PLACEHOLDER));
+      flip.on('init', () => { finishLoading(); preloadAround(flip.getCurrentPageIndex()); });
     } catch (err) {
       console.error('St.PageFlip init failed:', err);
       const ld = $('loaderText'); if (ld) ld.textContent = '加载出现问题，请刷新重试';
       finishLoading();
     }
-    flip.on('flip', (e) => { currentPage = e.data; updateUI(); updateThumb(); });
+    flip.on('flip', (e) => { currentPage = e.data; updateUI(); updateThumb(); preloadAround(e.data); });
     buildTOC();
     buildThumbs();
     bindEvents();
@@ -341,6 +373,7 @@
     $('pageJump').max = TOTAL_PAGES;
     $('pageJump').value = currentPage + 1;
     updateThumb();
+    syncEdgeNav();
   }
 
   function updateThumb() {
@@ -398,6 +431,17 @@
   }
   function setZoom(delta) { lightboxZoom = Math.max(1, Math.min(4, lightboxZoom + delta)); applyZoom(); }
 
+  function syncEdgeNav() {
+    const prev = $('edgePrev'), next = $('edgeNext');
+    if (!prev || !next) return;
+    prev.disabled = currentPage <= 0;
+    next.disabled = currentPage >= TOTAL_PAGES - 1;
+  }
+  function refitFlip() {
+    if (!flip) return;
+    try { flip.update(); } catch(e) {}
+    window.dispatchEvent(new Event('resize'));
+  }
   function bindEvents() {
     $('btnToc').addEventListener('click', () => {
       $('drawer').classList.toggle('open');
@@ -412,6 +456,14 @@
       if (!document.fullscreenElement) el.requestFullscreen && el.requestFullscreen().catch(()=>{});
       else document.exitFullscreen();
     });
+    document.addEventListener('fullscreenchange', () => {
+      const el = $('app');
+      if (document.fullscreenElement) el.classList.add('fs-mode'); else el.classList.remove('fs-mode');
+      syncEdgeNav(); refitFlip();
+      setTimeout(refitFlip, 150);
+    });
+    $('edgePrev').addEventListener('click', () => flip && flip.flipPrev());
+    $('edgeNext').addEventListener('click', () => flip && flip.flipNext());
     $('btnJump').addEventListener('click', handleJump);
     $('pageJump').addEventListener('keydown', (e) => { if (e.key === 'Enter') handleJump(); });
     $('pageJump').addEventListener('change', handleJump);
@@ -443,10 +495,7 @@
     });
   }
 
-  preload().then(initFlip).catch(() => {
-    console.error('preload failed');
-    finishLoading();
-  });
+  initFlip();
   // 硬兜底：无论 St.PageFlip 是否初始化成功，最多 3 秒后显示书本（避免一直转圈）
   setTimeout(finishLoading, 3000);
 })();

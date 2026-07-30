@@ -1,65 +1,8 @@
 window.FLIP = {
- "total": 12,
- "images": [
-  "pages/full/p000.jpg",
-  "pages/full/p001.jpg",
-  "pages/full/p002.jpg",
-  "pages/full/p003.jpg",
-  "pages/full/p004.jpg",
-  "pages/full/p005.jpg",
-  "pages/full/p006.jpg",
-  "pages/full/p007.jpg",
-  "pages/full/p008.jpg",
-  "pages/full/p009.jpg",
-  "pages/full/p010.jpg",
-  "pages/full/p011.jpg"
- ],
- "thumbs": [
-  "pages/thumbs/t000.jpg",
-  "pages/thumbs/t001.jpg",
-  "pages/thumbs/t002.jpg",
-  "pages/thumbs/t003.jpg",
-  "pages/thumbs/t004.jpg",
-  "pages/thumbs/t005.jpg",
-  "pages/thumbs/t006.jpg",
-  "pages/thumbs/t007.jpg",
-  "pages/thumbs/t008.jpg",
-  "pages/thumbs/t009.jpg",
-  "pages/thumbs/t010.jpg",
-  "pages/thumbs/t011.jpg"
- ],
- "toc": [
-  {
-   "num": "01",
-   "cn": "6\" 铝合金百叶窗框",
-   "en": "6\" Aluminum Alloy Louver",
-   "items": [
-    {"cn": "6英寸 AA1 型 · 铝合金百叶", "en": "TYPE 6-AA1", "page": 0}
-   ]
-  },
-  {
-   "num": "02",
-   "cn": "6\" 铁制百叶窗框",
-   "en": "6\" Iron Louver",
-   "items": [
-    {"cn": "6英寸 I1 型 · 铁制百叶", "en": "TYPE 6-I1", "page": 3}
-   ]
-  },
-  {
-   "num": "03",
-   "cn": "6\" 铝塑百叶窗框",
-   "en": "6\" Aluminum-Plastic Louver",
-   "items": [
-    {"cn": "6英寸 AP1 型 · 铝塑百叶", "en": "TYPE 6-AP1", "page": 6}
-   ]
-  },
-  {
-   "num": "04",
-   "cn": "4\" 铝塑百叶窗框",
-   "en": "4\" Aluminum-Plastic Louver",
-   "items": [
-    {"cn": "4英寸 AP2 型 · 铝塑百叶", "en": "TYPE 4-AP2", "page": 9}
-   ]
-  }
- ]
+  title_cn: "门窗百叶铝框册",
+  title_en: "Aluminium Louver Window & Door Catalogue",
+  total: 12,
+  images: ["pages/full/p001.webp","pages/full/p002.webp","pages/full/p003.webp","pages/full/p004.webp","pages/full/p005.webp","pages/full/p006.webp","pages/full/p007.webp","pages/full/p008.webp","pages/full/p009.webp","pages/full/p010.webp","pages/full/p011.webp","pages/full/p012.webp"],
+  thumbs: ["pages/thumbs/p001.webp","pages/thumbs/p002.webp","pages/thumbs/p003.webp","pages/thumbs/p004.webp","pages/thumbs/p005.webp","pages/thumbs/p006.webp","pages/thumbs/p007.webp","pages/thumbs/p008.webp","pages/thumbs/p009.webp","pages/thumbs/p010.webp","pages/thumbs/p011.webp","pages/thumbs/p012.webp"],
+  toc: []
 };
