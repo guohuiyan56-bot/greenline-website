@@ -2,32 +2,7 @@ window.FLIP = {
   title_cn: "GREENLINE 自助餐炉目录册",
   title_en: "GREENLINE Buffet Warmer Catalogue",
   total: 48,
-  images: ["pages/full/p001.jpg", "pages/full/p002.jpg", "pages/full/p003.jpg", "pages/full/p004.jpg", "pages/full/p005.jpg", "pages/full/p006.jpg", "pages/full/p007.jpg", "pages/full/p008.jpg", "pages/full/p009.jpg", "pages/full/p010.jpg", "pages/full/p011.jpg", "pages/full/p012.jpg", "pages/full/p013.jpg", "pages/full/p014.jpg", "pages/full/p015.jpg", "pages/full/p016.jpg", "pages/full/p017.jpg", "pages/full/p018.jpg", "pages/full/p019.jpg", "pages/full/p020.jpg", "pages/full/p021.jpg", "pages/full/p022.jpg", "pages/full/p023.jpg", "pages/full/p024.jpg", "pages/full/p025.jpg", "pages/full/p026.jpg", "pages/full/p027.jpg", "pages/full/p028.jpg", "pages/full/p029.jpg", "pages/full/p030.jpg", "pages/full/p031.jpg", "pages/full/p032.jpg", "pages/full/p033.jpg", "pages/full/p034.jpg", "pages/full/p035.jpg", "pages/full/p036.jpg", "pages/full/p037.jpg", "pages/full/p038.jpg", "pages/full/p039.jpg", "pages/full/p040.jpg", "pages/full/p041.jpg", "pages/full/p042.jpg", "pages/full/p043.jpg", "pages/full/p044.jpg", "pages/full/p045.jpg", "pages/full/p046.jpg", "pages/full/p047.jpg", "pages/full/p048.jpg"],
-  thumbs: ["pages/thumbs/p001.jpg", "pages/thumbs/p002.jpg", "pages/thumbs/p003.jpg", "pages/thumbs/p004.jpg", "pages/thumbs/p005.jpg", "pages/thumbs/p006.jpg", "pages/thumbs/p007.jpg", "pages/thumbs/p008.jpg", "pages/thumbs/p009.jpg", "pages/thumbs/p010.jpg", "pages/thumbs/p011.jpg", "pages/thumbs/p012.jpg", "pages/thumbs/p013.jpg", "pages/thumbs/p014.jpg", "pages/thumbs/p015.jpg", "pages/thumbs/p016.jpg", "pages/thumbs/p017.jpg", "pages/thumbs/p018.jpg", "pages/thumbs/p019.jpg", "pages/thumbs/p020.jpg", "pages/thumbs/p021.jpg", "pages/thumbs/p022.jpg", "pages/thumbs/p023.jpg", "pages/thumbs/p024.jpg", "pages/thumbs/p025.jpg", "pages/thumbs/p026.jpg", "pages/thumbs/p027.jpg", "pages/thumbs/p028.jpg", "pages/thumbs/p029.jpg", "pages/thumbs/p030.jpg", "pages/thumbs/p031.jpg", "pages/thumbs/p032.jpg", "pages/thumbs/p033.jpg", "pages/thumbs/p034.jpg", "pages/thumbs/p035.jpg", "pages/thumbs/p036.jpg", "pages/thumbs/p037.jpg", "pages/thumbs/p038.jpg", "pages/thumbs/p039.jpg", "pages/thumbs/p040.jpg", "pages/thumbs/p041.jpg", "pages/thumbs/p042.jpg", "pages/thumbs/p043.jpg", "pages/thumbs/p044.jpg", "pages/thumbs/p045.jpg", "pages/thumbs/p046.jpg", "pages/thumbs/p047.jpg", "pages/thumbs/p048.jpg"],
-  toc: [
-  {
-    "num": "01",
-    "cn": "产品概览",
-    "en": "Product Overview",
-    "items": [
-      {
-        "cn": "封面 / 系列介绍",
-        "en": "Cover & Series Intro",
-        "page": 1
-      }
-    ]
-  },
-  {
-    "num": "02",
-    "cn": "自助餐炉系列",
-    "en": "Buffet Warmers",
-    "items": [
-      {
-        "cn": "英峰系列自助餐炉",
-        "en": "Yingfeng Buffet Warmers",
-        "page": 3
-      }
-    ]
-  }
-]
+  images: ["pages/full/p001.webp","pages/full/p002.webp","pages/full/p003.webp","pages/full/p004.webp","pages/full/p005.webp","pages/full/p006.webp","pages/full/p007.webp","pages/full/p008.webp","pages/full/p009.webp","pages/full/p010.webp","pages/full/p011.webp","pages/full/p012.webp","pages/full/p013.webp","pages/full/p014.webp","pages/full/p015.webp","pages/full/p016.webp","pages/full/p017.webp","pages/full/p018.webp","pages/full/p019.webp","pages/full/p020.webp","pages/full/p021.webp","pages/full/p022.webp","pages/full/p023.webp","pages/full/p024.webp","pages/full/p025.webp","pages/full/p026.webp","pages/full/p027.webp","pages/full/p028.webp","pages/full/p029.webp","pages/full/p030.webp","pages/full/p031.webp","pages/full/p032.webp","pages/full/p033.webp","pages/full/p034.webp","pages/full/p035.webp","pages/full/p036.webp","pages/full/p037.webp","pages/full/p038.webp","pages/full/p039.webp","pages/full/p040.webp","pages/full/p041.webp","pages/full/p042.webp","pages/full/p043.webp","pages/full/p044.webp","pages/full/p045.webp","pages/full/p046.webp","pages/full/p047.webp","pages/full/p048.webp"],
+  thumbs: ["pages/thumbs/p001.webp","pages/thumbs/p002.webp","pages/thumbs/p003.webp","pages/thumbs/p004.webp","pages/thumbs/p005.webp","pages/thumbs/p006.webp","pages/thumbs/p007.webp","pages/thumbs/p008.webp","pages/thumbs/p009.webp","pages/thumbs/p010.webp","pages/thumbs/p011.webp","pages/thumbs/p012.webp","pages/thumbs/p013.webp","pages/thumbs/p014.webp","pages/thumbs/p015.webp","pages/thumbs/p016.webp","pages/thumbs/p017.webp","pages/thumbs/p018.webp","pages/thumbs/p019.webp","pages/thumbs/p020.webp","pages/thumbs/p021.webp","pages/thumbs/p022.webp","pages/thumbs/p023.webp","pages/thumbs/p024.webp","pages/thumbs/p025.webp","pages/thumbs/p026.webp","pages/thumbs/p027.webp","pages/thumbs/p028.webp","pages/thumbs/p029.webp","pages/thumbs/p030.webp","pages/thumbs/p031.webp","pages/thumbs/p032.webp","pages/thumbs/p033.webp","pages/thumbs/p034.webp","pages/thumbs/p035.webp","pages/thumbs/p036.webp","pages/thumbs/p037.webp","pages/thumbs/p038.webp","pages/thumbs/p039.webp","pages/thumbs/p040.webp","pages/thumbs/p041.webp","pages/thumbs/p042.webp","pages/thumbs/p043.webp","pages/thumbs/p044.webp","pages/thumbs/p045.webp","pages/thumbs/p046.webp","pages/thumbs/p047.webp","pages/thumbs/p048.webp"],
+  toc: []
 };
