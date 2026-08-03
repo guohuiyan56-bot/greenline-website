@@ -240,10 +240,10 @@ window.CATALOGS = [
     id: 'lounge',
     folder: 'lounge',
     category: 'home',
-    title_cn: '躺椅产品目录册',
-    title_en: 'Lounge Chair Catalogue',
-    desc_cn: '户外躺椅 · 休闲躺椅 · 报价参考',
-    desc_en: 'Outdoor lounge chairs · leisure recliners · quotation reference',
+    title_cn: '户外家具目录册',
+    title_en: 'Outdoor Furniture Catalogue',
+    desc_cn: '户外躺椅 · 休闲家具 · 遮阳伞 · 户外沙发套装',
+    desc_en: 'Outdoor lounge chairs · leisure furniture · parasols · outdoor sofa sets',
     cover_cn: 'lounge/cover_cn.webp',
     cover_en: 'lounge/cover_en.webp',
     pages: 2
@@ -295,18 +295,6 @@ window.CATALOGS = [
     cover_cn: 'machinery/cover_cn.webp',
     cover_en: 'machinery/cover_en.webp',
     pages: 33
-  },
-  {
-    id: 'halloween',
-    folder: 'halloween',
-    category: 'gift',
-    title_cn: '怪多多万圣节道具目录册',
-    title_en: 'Halloween Prop Catalogue',
-    desc_cn: '怪多多万圣节系列道具产品目录册。',
-    desc_en: 'Guai Duo Duo Halloween prop series catalogue.',
-    cover_cn: 'halloween/cover_cn.webp',
-    cover_en: 'halloween/cover_en.webp',
-    pages: 58
   },
   {
     id: 'christmas',
@@ -396,10 +384,10 @@ window.CATALOGS = [
     id: 'qingyang',
     folder: 'qingyang',
     category: 'home',
-    title_cn: 'GREENLINE 庆阳系列厨具目录册',
-    title_en: 'GREENLINE Qingyang Kitchenware Catalogue',
-    desc_cn: 'GREENLINE 庆阳系列厨房用品目录册。',
-    desc_en: 'GREENLINE Qingyang kitchenware catalogue.',
+    title_cn: 'GREENLINE QY系列厨具目录册',
+    title_en: 'GREENLINE QY Kitchenware Catalogue',
+    desc_cn: 'GREENLINE QY系列厨房用品目录册。',
+    desc_en: 'GREENLINE QY kitchenware catalogue.',
     cover_cn: 'qingyang/cover_cn.webp',
     cover_en: 'qingyang/cover_en.webp',
     pages: 196
