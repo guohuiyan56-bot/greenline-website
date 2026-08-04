@@ -237,18 +237,6 @@ window.CATALOGS = [
     pages: 70
   },
   {
-    id: 'lounge',
-    folder: 'lounge',
-    category: 'home',
-    title_cn: '户外家具目录册',
-    title_en: 'Outdoor Furniture Catalogue',
-    desc_cn: '户外躺椅 · 休闲家具 · 遮阳伞 · 户外沙发套装',
-    desc_en: 'Outdoor lounge chairs · leisure furniture · parasols · outdoor sofa sets',
-    cover_cn: 'lounge/cover_cn.webp',
-    cover_en: 'lounge/cover_en.webp',
-    pages: 2
-  },
-  {
     id: 'hotelother',
     folder: 'hotelother',
     category: 'hotel',
