@@ -105,18 +105,6 @@ window.CATALOGS = [
     pages: 256
   },
   {
-    id: 'gift',
-    folder: 'gift',
-    category: 'gift',
-    title_cn: '礼品定制手册',
-    title_en: 'Custom Gift Handbook',
-    desc_cn: '徽章 · 奖杯 · 纪念币 · 文创礼品 · 企业定制',
-    desc_en: 'Badges · trophies · medals · creative gifts · corporate customization',
-    cover_cn: 'gift/cover_cn.webp',
-    cover_en: 'gift/cover_en.webp',
-    pages: 4
-  },
-  {
     id: 'rack',
     folder: 'rack',
     category: 'shelves',
@@ -213,18 +201,6 @@ window.CATALOGS = [
     pages: 38
   },
   {
-    id: 'olive',
-    folder: 'olive',
-    category: 'gift',
-    title_cn: 'GREENLINE 环保餐具目录册',
-    title_en: 'GREENLINE Eco Tableware Catalogue',
-    desc_cn: '可降解环保餐具 · 餐盒 · 杯碗 · 刀叉勺',
-    desc_en: 'Biodegradable eco tableware · containers · cups · bowls · cutlery',
-    cover_cn: 'olive/cover_cn.webp',
-    cover_en: 'olive/cover_en.webp',
-    pages: 4
-  },
-  {
     id: 'tablechair',
     folder: 'tablechair',
     category: 'home',
@@ -283,18 +259,6 @@ window.CATALOGS = [
     cover_cn: 'machinery/cover_cn.webp',
     cover_en: 'machinery/cover_en.webp',
     pages: 33
-  },
-  {
-    id: 'christmas',
-    folder: 'christmas',
-    category: 'gift',
-    title_cn: '圣诞节日用品目录册',
-    title_en: 'Christmas Items Catalogue',
-    desc_cn: 'GREENLINE 圣诞节日装饰与礼品目录册。',
-    desc_en: 'GREENLINE Christmas items and decorations catalogue.',
-    cover_cn: 'christmas/cover_cn.webp',
-    cover_en: 'christmas/cover_en.webp',
-    pages: 9
   },
   {
     id: 'boshan',
