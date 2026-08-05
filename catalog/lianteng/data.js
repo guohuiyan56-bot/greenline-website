@@ -1,11 +1,8 @@
 window.FLIP = {
   "title_cn": "包装机械目录册",
   "title_en": "Packaging Machinery Catalogue",
-  "total": 37,
+  "total": 34,
   "images": [
-    "pages/full/p001.webp",
-    "pages/full/p002.webp",
-    "pages/full/p003.webp",
     "pages/full/p004.webp",
     "pages/full/p005.webp",
     "pages/full/p006.webp",
@@ -42,9 +39,6 @@ window.FLIP = {
     "pages/full/p037.webp"
   ],
   "thumbs": [
-    "pages/thumbs/p001.webp",
-    "pages/thumbs/p002.webp",
-    "pages/thumbs/p003.webp",
     "pages/thumbs/p004.webp",
     "pages/thumbs/p005.webp",
     "pages/thumbs/p006.webp",

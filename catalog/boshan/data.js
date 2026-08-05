@@ -1,9 +1,8 @@
 window.FLIP = {
   "title_cn": "发电机组产品目录册",
   "title_en": "GREENLINE Power Generator Catalogue",
-  "total": 31,
+  "total": 30,
   "images": [
-    "pages/full/p001.webp",
     "pages/full/p002.webp",
     "pages/full/p003.webp",
     "pages/full/p004.webp",
@@ -36,7 +35,6 @@ window.FLIP = {
     "pages/full/p031.webp"
   ],
   "thumbs": [
-    "pages/thumbs/p001.webp",
     "pages/thumbs/p002.webp",
     "pages/thumbs/p003.webp",
     "pages/thumbs/p004.webp",

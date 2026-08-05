@@ -126,7 +126,7 @@ window.CATALOGS = [
     desc_en: 'Benrun · supermarket shelves · warehouse racks · store solutions',
     cover_cn: 'shelf/cover_cn.webp',
     cover_en: 'shelf/cover_en.webp',
-    pages: 54
+    pages: 53
   },
   {
     id: 'lampcloth',
@@ -150,7 +150,7 @@ window.CATALOGS = [
     desc_en: 'Filling · capping · labeling · sealing · vacuum packing · carton sealing · coding · dosing · pillow packaging',
     cover_cn: 'lianteng/cover_cn.webp',
     cover_en: 'lianteng/cover_en.webp',
-    pages: 74
+    pages: 68
   },
   {
     id: 'napkin',
@@ -270,7 +270,7 @@ window.CATALOGS = [
     desc_en: 'GREENLINE power generator catalogue covering diesel, gas and methanol gensets.',
     cover_cn: 'boshan/cover_cn.webp',
     cover_en: 'boshan/cover_en.webp',
-    pages: 31
+    pages: 30
   },
   {
     id: 'aussieswitch',
@@ -354,7 +354,7 @@ window.CATALOGS = [
     desc_en: 'GREENLINE Yingfeng buffet warmer catalogue.',
     cover_cn: 'buffetwarmer/cover_cn.webp',
     cover_en: 'buffetwarmer/cover_en.webp',
-    pages: 48
+    pages: 45
   },
   {
     id: 'hotelplates',
