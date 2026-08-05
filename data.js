@@ -63,15 +63,8 @@ var GT_DATA = {
      与 catalog/catalogs.js 的 CATALOG_CATS 保持一致，
      确保主站分类名、目录册 hub 栏目名一一对应。 ---- */
   categories: [
-    { id: "home",       name_cn: "家居家装",   name_en: "Home & Living",       icon: "🏠" },
-    { id: "gift",       name_cn: "礼品文创",   name_en: "Gifts & Crafts",      icon: "🎁" },
-    { id: "machinery",  name_cn: "工业机械",   name_en: "Machinery", icon: "⚙️" },
-    { id: "hardware",   name_cn: "五金制品",   name_en: "Hardware",            icon: "🔩" },
     { id: "hotel",      name_cn: "酒店餐饮",   name_en: "Hotel & Restaurant",  icon: "🏨" },
-    { id: "custom",     name_cn: "定制加工",   name_en: "Custom Manufacturing", icon: "🔧" },
-    { id: "decor",      name_cn: "墙面装饰",   name_en: "Wall Decor",          icon: "🖼️" },
-    { id: "display",    name_cn: "展示器材",   name_en: "Display & Signage",   icon: "🪧" },
-    { id: "shelves",    name_cn: "货架展示",   name_en: "Shelving & Display",  icon: "🏬" }
+    { id: "decor",      name_cn: "墙面装饰",   name_en: "Wall Decor",          icon: "🖼️" }
   ],
 
   /* ---- 产品列表 (100) ---- */
