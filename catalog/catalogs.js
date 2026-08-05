@@ -369,18 +369,6 @@ window.CATALOGS = [
     pages: 124
   },
   {
-    id: 'displayqx',
-    folder: 'displayqx',
-    category: 'display',
-    title_cn: 'GREENLINE 展示器材 QX 目录册',
-    title_en: 'GREENLINE Display QX Catalogue',
-    desc_cn: 'GREENLINE 展示器材 QX 产品目录册（易拉宝 / X展架 / 海报架）。',
-    desc_en: 'GREENLINE display QX catalogue (roll-up / X banner / poster stands).',
-    cover_cn: 'displayqx/cover_cn.webp',
-    cover_en: 'displayqx/cover_en.webp',
-    pages: 21
-  },
-  {
     id: 'display',
     folder: 'display',
     category: 'display',
