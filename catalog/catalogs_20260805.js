@@ -340,8 +340,8 @@ window.CATALOGS = [
     title_en: 'GREENLINE QY Kitchenware Catalogue',
     desc_cn: 'GREENLINE QY系列厨房用品目录册。',
     desc_en: 'GREENLINE QY kitchenware catalogue.',
-    cover_cn: 'qingyang/cover_cn_v2.webp',
-    cover_en: 'qingyang/cover_en_v2.webp',
+    cover_cn: 'qingyang/cover_cn_20260805.webp',
+    cover_en: 'qingyang/cover_en_20260805.webp',
     pages: 196
   },
   {
