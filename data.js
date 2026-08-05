@@ -60,7 +60,7 @@ var GT_DATA = {
   ],
 
   /* ---- 产品分类 ----
-     与 catalog/catalogs_v2.js 的 CATALOG_CATS 保持一致，
+     与 catalog/catalogs.js 的 CATALOG_CATS 保持一致，
      确保主站分类名、目录册 hub 栏目名一一对应。 ---- */
   categories: [
     { id: "home",       name_cn: "家居家装",   name_en: "Home & Living",       icon: "🏠" },
