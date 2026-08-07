@@ -300,7 +300,10 @@ window.CATALOGS = [
 
 // 栏目显示名（hub 标题用）
 window.CATALOG_CATS = {
-  hotel:    { cn: '酒店餐饮', en: 'Hotel & Restaurant' },
+  home:     { cn: '家居',     en: 'Home' },
   decor:    { cn: '墙面装饰', en: 'Wall Decor' },
+  custom:   { cn: '定制',     en: 'Custom' },
+  display:  { cn: '展示',     en: 'Display' },
+  hotel:    { cn: '酒店餐饮', en: 'Hotel & Restaurant' },
   project:  { cn: '工程配套', en: 'Project Supplies' }
-};
+}
