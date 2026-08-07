@@ -297,11 +297,11 @@
       minWidth: 414, maxWidth: 1600,
       minHeight: 100, maxHeight: 4000,
       drawShadow: true,
-      flippingTime: 900,
+      flippingTime: 600,
       usePortrait: true,
       autoSize: true,
       maxShadowOpacity: 0.6,
-      showCover: false,
+      showCover: true,
       mobileScrollSupport: false,
       swipeDistance: 30,
       clickEventForward: true,
@@ -311,6 +311,9 @@
       flip = new St.PageFlip($('book'), settings);
       flip.loadFromImages(Array(TOTAL_PAGES).fill(PLACEHOLDER));
       flip.on('init', () => { finishLoading(); preloadAround(flip.getCurrentPageIndex()); });
+    // Force single-page mode so spread images don't show 2-at-once
+    try { if (flip.setSinglePageMode) flip.setSinglePageMode(true); } catch(e) {}
+
     } catch (err) {
       console.error('St.PageFlip init failed:', err);
       const ld = $('loaderText'); if (ld) ld.textContent = '加载出现问题，请刷新重试';
