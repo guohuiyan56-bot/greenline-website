@@ -295,7 +295,7 @@ window.CATALOGS = [
     cover_cn: 'tiles/cover_cn.webp',
     cover_en: 'tiles/cover_en.webp',
     pages: 140
-  }
+  },
   {
     id: 'gaming-chair',
     folder: 'gaming-chair',
