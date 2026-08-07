@@ -19,7 +19,7 @@ window.CATALOGS = [
     cover_cn: 'kitchen/cover_cn.webp',
     cover_en: 'kitchen/cover_en.webp',
     pages: 94
-  },
+  };,
   {
     id: 'tv',
     folder: 'tv',
