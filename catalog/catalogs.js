@@ -273,18 +273,6 @@ window.CATALOGS = [
     pages: 124
   },
   {
-    id: 'display',
-    folder: 'display',
-    category: 'display',
-    title_cn: '展示器材目录册',
-    title_en: 'Display & Signage Catalogue',
-    desc_cn: '展示器材产品目录册（易拉宝 / X展架 / 海报架）。',
-    desc_en: 'Display & signage catalogue (roll-up / X banner / poster stands).',
-    cover_cn: 'display/cover_cn.webp',
-    cover_en: 'display/cover_en.webp',
-    pages: 21
-  },
-  {
     id: 'tiles',
     folder: 'tiles',
     category: 'decor',
