@@ -319,6 +319,65 @@
   window.addEventListener('resize', function() { setTimeout(fitBook, 80); });
 /* === end auto-fit === */
 
+  
+  /* === Auto-fit book into viewport (v2: ResizeObserver guard) === */
+  var PAGE_ASPECT = 1.3752;
+  var _fitLocked = false;
+  function _calcFitWidth() {
+    var stage = document.querySelector('.flip-stage');
+    var book = document.getElementById('book');
+    if (!stage || !book) return null;
+    var topbarH = 62, thumbH = 88, padV = 32, padH = 10;
+    var availW = stage.clientWidth - padH * 2;
+    var availH = window.innerHeight - topbarH - thumbH - padV;
+    if (availH < 200) availH = 400;
+    var ar = PAGE_ASPECT || 1;
+    var isLand = (ar < 1);
+    var wByH = isLand ? (2 * availH / ar) : (availH / ar);
+    var w = Math.min(availW, wByH);
+    w = Math.max(w, isLand ? 480 : 320);
+    return Math.round(w);
+  }
+  function _constrainBook() {
+    if (_fitLocked) return;
+    var book = document.getElementById('book');
+    if (!book) return;
+    var w = _calcFitWidth();
+    if (!w) return;
+    var cur = book.offsetWidth;
+    if (Math.abs(cur - w) > 3) {
+      _fitLocked = true;
+      book.style.width = w + 'px';
+      book.style.maxWidth = 'none';
+      /* tell StPageFlip to recalculate with new dimensions */
+      if (typeof flip !== 'undefined' && flip && typeof flip.update === 'function') {
+        try { flip.update(); } catch(e) {}
+      }
+      _fitLocked = false;
+    }
+  }
+  /* Observe #book size changes and re-constrain after StPageFlip resizes it */
+  if (typeof ResizeObserver !== 'undefined') {
+    (function() {
+      var book = document.getElementById('book');
+      if (!book) return;
+      var ro = new ResizeObserver(function(entries) {
+        for (var i = 0; i < entries.length; i++) {
+          _constrainBook();
+        }
+      });
+      ro.observe(book);
+      /* Also observe stage in case layout shifts */
+      var stage = document.querySelector('.flip-stage');
+      if (stage) ro.observe(stage);
+    })();
+  }
+  /* Initial fit + resize fallback */
+  window.addEventListener('resize', function() { setTimeout(_constrainBook, 100); });
+  setTimeout(_constrainBook, 500);
+  setTimeout(_constrainBook, 1500);
+/* === end auto-fit v2 === */
+
   function initFlip() {
     if (flip) return;
     const settings = {
@@ -352,6 +411,8 @@
     buildThumbs();
     bindEvents();
     setTimeout(fitBook, 100);
+    setTimeout(_constrainBook,300);
+    setTimeout(_constrainBook,1200);
     setTimeout(finishLoading, 4000);
   }
 
