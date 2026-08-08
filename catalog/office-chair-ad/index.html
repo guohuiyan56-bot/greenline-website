@@ -73,7 +73,7 @@
   /* Main stage */
   .main { flex:1; display:flex; position:relative; overflow:hidden; }
   .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:22px 22px 10px; }
-  #book { width:100%; max-width:1120px; }
+  #book { width:100%; max-width:none; transition:width .15s ease; }
 
   /* Drawer */
   .drawer {
@@ -249,6 +249,36 @@
       img.src = src;
     })));
   }
+
+  
+  /* === Auto-fit book into viewport === */
+  var PAGE_ASPECT = 1.3500;   // set below from settings
+  function fitBook() {
+    var stage = $('flip-stage') || document.querySelector('.flip-stage');
+    var book = $('book');
+    if (!stage || !book) return;
+    var topbarH = 62, thumbH = 88, padV = 32, padH = 10;
+    var availW = stage.clientWidth - padH * 2;
+    var availH = window.innerHeight - topbarH - thumbH - padV;
+    if (availH < 200) availH = 400;
+    var ar = PAGE_ASPECT || 1;
+    // landscape mode: 2 pages side by side → book width = 2 * pageWidth
+    // portrait mode: 1 page → book width = pageWidth
+    var isLandscape = (ar < 1);
+    var wByHeight;
+    if (isLandscape) {
+      wByHeight = 2 * availH / ar;   // pageH = pageW*ar ≤ availH → pageW ≤ availH/ar → bookW = 2*pageW
+    } else {
+      wByHeight = availH / ar;        // pageH = pageW*ar ≤ availH → pageW ≤ availH/ar → bookW = pageW
+    }
+    var targetW = Math.min(availW, wByHeight);
+    // don't let it get too tiny
+    targetW = Math.max(targetW, isLandscape ? 480 : 320);
+    book.style.width = Math.round(targetW) + 'px';
+    book.style.maxWidth = 'none';
+  }
+  window.addEventListener('resize', function() { setTimeout(fitBook, 80); });
+/* === end auto-fit === */
 
   function initFlip() {
     if (flip) return;
