@@ -18,27 +18,27 @@ window.FLIP = {
 
   "pages/split/p006.webp",
 
-  "pages/split/p007.webp"
+  "pages/split/p007.jpg"
 
  ],
 
  "thumbs": [
 
-  "pages/thumbs/t000.webp",
+  "pages/thumbs/t000.jpg",
 
-  "pages/thumbs/t001.webp",
+  "pages/thumbs/t001.jpg",
 
-  "pages/thumbs/t002.webp",
+  "pages/thumbs/t002.jpg",
 
-  "pages/thumbs/t003.webp",
+  "pages/thumbs/t003.jpg",
 
-  "pages/thumbs/t004.webp",
+  "pages/thumbs/t004.jpg",
 
-  "pages/thumbs/t005.webp",
+  "pages/thumbs/t005.jpg",
 
-  "pages/thumbs/t006.webp",
+  "pages/thumbs/t006.jpg",
 
-  "pages/thumbs/t007.webp"
+  "pages/thumbs/t007.jpg"
 
  ],
 

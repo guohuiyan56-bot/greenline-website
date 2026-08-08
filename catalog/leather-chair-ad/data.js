@@ -12,9 +12,9 @@ window.FLIP = {
 
  "thumbs": [
 
-  "pages/thumbs/t000.webp",
+  "pages/thumbs/t000.jpg",
 
-  "pages/thumbs/t001.webp"
+  "pages/thumbs/t001.jpg"
 
  ],
 

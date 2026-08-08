@@ -328,325 +328,325 @@ window.FLIP = {
 
  "thumbs": [
 
-  "pages/thumbs/t000.webp",
+  "pages/thumbs/t000.jpg",
 
-  "pages/thumbs/t001.webp",
+  "pages/thumbs/t001.jpg",
 
-  "pages/thumbs/t002.webp",
+  "pages/thumbs/t002.jpg",
 
-  "pages/thumbs/t003.webp",
+  "pages/thumbs/t003.jpg",
 
-  "pages/thumbs/t004.webp",
+  "pages/thumbs/t004.jpg",
 
-  "pages/thumbs/t005.webp",
+  "pages/thumbs/t005.jpg",
 
-  "pages/thumbs/t006.webp",
+  "pages/thumbs/t006.jpg",
 
-  "pages/thumbs/t007.webp",
+  "pages/thumbs/t007.jpg",
 
-  "pages/thumbs/t008.webp",
+  "pages/thumbs/t008.jpg",
 
-  "pages/thumbs/t009.webp",
+  "pages/thumbs/t009.jpg",
 
-  "pages/thumbs/t010.webp",
+  "pages/thumbs/t010.jpg",
 
-  "pages/thumbs/t011.webp",
+  "pages/thumbs/t011.jpg",
 
-  "pages/thumbs/t012.webp",
+  "pages/thumbs/t012.jpg",
 
-  "pages/thumbs/t013.webp",
+  "pages/thumbs/t013.jpg",
 
-  "pages/thumbs/t014.webp",
+  "pages/thumbs/t014.jpg",
 
-  "pages/thumbs/t015.webp",
+  "pages/thumbs/t015.jpg",
 
-  "pages/thumbs/t016.webp",
+  "pages/thumbs/t016.jpg",
 
-  "pages/thumbs/t017.webp",
+  "pages/thumbs/t017.jpg",
 
-  "pages/thumbs/t018.webp",
+  "pages/thumbs/t018.jpg",
 
-  "pages/thumbs/t019.webp",
+  "pages/thumbs/t019.jpg",
 
-  "pages/thumbs/t020.webp",
+  "pages/thumbs/t020.jpg",
 
-  "pages/thumbs/t021.webp",
+  "pages/thumbs/t021.jpg",
 
-  "pages/thumbs/t022.webp",
+  "pages/thumbs/t022.jpg",
 
-  "pages/thumbs/t023.webp",
+  "pages/thumbs/t023.jpg",
 
-  "pages/thumbs/t024.webp",
+  "pages/thumbs/t024.jpg",
 
-  "pages/thumbs/t025.webp",
+  "pages/thumbs/t025.jpg",
 
-  "pages/thumbs/t026.webp",
+  "pages/thumbs/t026.jpg",
 
-  "pages/thumbs/t027.webp",
+  "pages/thumbs/t027.jpg",
 
-  "pages/thumbs/t028.webp",
+  "pages/thumbs/t028.jpg",
 
-  "pages/thumbs/t029.webp",
+  "pages/thumbs/t029.jpg",
 
-  "pages/thumbs/t030.webp",
+  "pages/thumbs/t030.jpg",
 
-  "pages/thumbs/t031.webp",
+  "pages/thumbs/t031.jpg",
 
-  "pages/thumbs/t032.webp",
+  "pages/thumbs/t032.jpg",
 
-  "pages/thumbs/t033.webp",
+  "pages/thumbs/t033.jpg",
 
-  "pages/thumbs/t034.webp",
+  "pages/thumbs/t034.jpg",
 
-  "pages/thumbs/t035.webp",
+  "pages/thumbs/t035.jpg",
 
-  "pages/thumbs/t036.webp",
+  "pages/thumbs/t036.jpg",
 
-  "pages/thumbs/t037.webp",
+  "pages/thumbs/t037.jpg",
 
-  "pages/thumbs/t038.webp",
+  "pages/thumbs/t038.jpg",
 
-  "pages/thumbs/t039.webp",
+  "pages/thumbs/t039.jpg",
 
-  "pages/thumbs/t040.webp",
+  "pages/thumbs/t040.jpg",
 
-  "pages/thumbs/t041.webp",
+  "pages/thumbs/t041.jpg",
 
-  "pages/thumbs/t042.webp",
+  "pages/thumbs/t042.jpg",
 
-  "pages/thumbs/t043.webp",
+  "pages/thumbs/t043.jpg",
 
-  "pages/thumbs/t044.webp",
+  "pages/thumbs/t044.jpg",
 
-  "pages/thumbs/t045.webp",
+  "pages/thumbs/t045.jpg",
 
-  "pages/thumbs/t046.webp",
+  "pages/thumbs/t046.jpg",
 
-  "pages/thumbs/t047.webp",
+  "pages/thumbs/t047.jpg",
 
-  "pages/thumbs/t048.webp",
+  "pages/thumbs/t048.jpg",
 
-  "pages/thumbs/t049.webp",
+  "pages/thumbs/t049.jpg",
 
-  "pages/thumbs/t050.webp",
+  "pages/thumbs/t050.jpg",
 
-  "pages/thumbs/t051.webp",
+  "pages/thumbs/t051.jpg",
 
-  "pages/thumbs/t052.webp",
+  "pages/thumbs/t052.jpg",
 
-  "pages/thumbs/t053.webp",
+  "pages/thumbs/t053.jpg",
 
-  "pages/thumbs/t054.webp",
+  "pages/thumbs/t054.jpg",
 
-  "pages/thumbs/t055.webp",
+  "pages/thumbs/t055.jpg",
 
-  "pages/thumbs/t056.webp",
+  "pages/thumbs/t056.jpg",
 
-  "pages/thumbs/t057.webp",
+  "pages/thumbs/t057.jpg",
 
-  "pages/thumbs/t058.webp",
+  "pages/thumbs/t058.jpg",
 
-  "pages/thumbs/t059.webp",
+  "pages/thumbs/t059.jpg",
 
-  "pages/thumbs/t060.webp",
+  "pages/thumbs/t060.jpg",
 
-  "pages/thumbs/t061.webp",
+  "pages/thumbs/t061.jpg",
 
-  "pages/thumbs/t062.webp",
+  "pages/thumbs/t062.jpg",
 
-  "pages/thumbs/t063.webp",
+  "pages/thumbs/t063.jpg",
 
-  "pages/thumbs/t064.webp",
+  "pages/thumbs/t064.jpg",
 
-  "pages/thumbs/t065.webp",
+  "pages/thumbs/t065.jpg",
 
-  "pages/thumbs/t066.webp",
+  "pages/thumbs/t066.jpg",
 
-  "pages/thumbs/t067.webp",
+  "pages/thumbs/t067.jpg",
 
-  "pages/thumbs/t068.webp",
+  "pages/thumbs/t068.jpg",
 
-  "pages/thumbs/t069.webp",
+  "pages/thumbs/t069.jpg",
 
-  "pages/thumbs/t070.webp",
+  "pages/thumbs/t070.jpg",
 
-  "pages/thumbs/t071.webp",
+  "pages/thumbs/t071.jpg",
 
-  "pages/thumbs/t072.webp",
+  "pages/thumbs/t072.jpg",
 
-  "pages/thumbs/t073.webp",
+  "pages/thumbs/t073.jpg",
 
-  "pages/thumbs/t074.webp",
+  "pages/thumbs/t074.jpg",
 
-  "pages/thumbs/t075.webp",
+  "pages/thumbs/t075.jpg",
 
-  "pages/thumbs/t076.webp",
+  "pages/thumbs/t076.jpg",
 
-  "pages/thumbs/t077.webp",
+  "pages/thumbs/t077.jpg",
 
-  "pages/thumbs/t078.webp",
+  "pages/thumbs/t078.jpg",
 
-  "pages/thumbs/t079.webp",
+  "pages/thumbs/t079.jpg",
 
-  "pages/thumbs/t080.webp",
+  "pages/thumbs/t080.jpg",
 
-  "pages/thumbs/t081.webp",
+  "pages/thumbs/t081.jpg",
 
-  "pages/thumbs/t082.webp",
+  "pages/thumbs/t082.jpg",
 
-  "pages/thumbs/t083.webp",
+  "pages/thumbs/t083.jpg",
 
-  "pages/thumbs/t084.webp",
+  "pages/thumbs/t084.jpg",
 
-  "pages/thumbs/t085.webp",
+  "pages/thumbs/t085.jpg",
 
-  "pages/thumbs/t086.webp",
+  "pages/thumbs/t086.jpg",
 
-  "pages/thumbs/t087.webp",
+  "pages/thumbs/t087.jpg",
 
-  "pages/thumbs/t088.webp",
+  "pages/thumbs/t088.jpg",
 
-  "pages/thumbs/t089.webp",
+  "pages/thumbs/t089.jpg",
 
-  "pages/thumbs/t090.webp",
+  "pages/thumbs/t090.jpg",
 
-  "pages/thumbs/t091.webp",
+  "pages/thumbs/t091.jpg",
 
-  "pages/thumbs/t092.webp",
+  "pages/thumbs/t092.jpg",
 
-  "pages/thumbs/t093.webp",
+  "pages/thumbs/t093.jpg",
 
-  "pages/thumbs/t094.webp",
+  "pages/thumbs/t094.jpg",
 
-  "pages/thumbs/t095.webp",
+  "pages/thumbs/t095.jpg",
 
-  "pages/thumbs/t096.webp",
+  "pages/thumbs/t096.jpg",
 
-  "pages/thumbs/t097.webp",
+  "pages/thumbs/t097.jpg",
 
-  "pages/thumbs/t098.webp",
+  "pages/thumbs/t098.jpg",
 
-  "pages/thumbs/t099.webp",
+  "pages/thumbs/t099.jpg",
 
-  "pages/thumbs/t100.webp",
+  "pages/thumbs/t100.jpg",
 
-  "pages/thumbs/t101.webp",
+  "pages/thumbs/t101.jpg",
 
-  "pages/thumbs/t102.webp",
+  "pages/thumbs/t102.jpg",
 
-  "pages/thumbs/t103.webp",
+  "pages/thumbs/t103.jpg",
 
-  "pages/thumbs/t104.webp",
+  "pages/thumbs/t104.jpg",
 
-  "pages/thumbs/t105.webp",
+  "pages/thumbs/t105.jpg",
 
-  "pages/thumbs/t106.webp",
+  "pages/thumbs/t106.jpg",
 
-  "pages/thumbs/t107.webp",
+  "pages/thumbs/t107.jpg",
 
-  "pages/thumbs/t108.webp",
+  "pages/thumbs/t108.jpg",
 
-  "pages/thumbs/t109.webp",
+  "pages/thumbs/t109.jpg",
 
-  "pages/thumbs/t110.webp",
+  "pages/thumbs/t110.jpg",
 
-  "pages/thumbs/t111.webp",
+  "pages/thumbs/t111.jpg",
 
-  "pages/thumbs/t112.webp",
+  "pages/thumbs/t112.jpg",
 
-  "pages/thumbs/t113.webp",
+  "pages/thumbs/t113.jpg",
 
-  "pages/thumbs/t114.webp",
+  "pages/thumbs/t114.jpg",
 
-  "pages/thumbs/t115.webp",
+  "pages/thumbs/t115.jpg",
 
-  "pages/thumbs/t116.webp",
+  "pages/thumbs/t116.jpg",
 
-  "pages/thumbs/t117.webp",
+  "pages/thumbs/t117.jpg",
 
-  "pages/thumbs/t118.webp",
+  "pages/thumbs/t118.jpg",
 
-  "pages/thumbs/t119.webp",
+  "pages/thumbs/t119.jpg",
 
-  "pages/thumbs/t120.webp",
+  "pages/thumbs/t120.jpg",
 
-  "pages/thumbs/t121.webp",
+  "pages/thumbs/t121.jpg",
 
-  "pages/thumbs/t122.webp",
+  "pages/thumbs/t122.jpg",
 
-  "pages/thumbs/t123.webp",
+  "pages/thumbs/t123.jpg",
 
-  "pages/thumbs/t124.webp",
+  "pages/thumbs/t124.jpg",
 
-  "pages/thumbs/t125.webp",
+  "pages/thumbs/t125.jpg",
 
-  "pages/thumbs/t126.webp",
+  "pages/thumbs/t126.jpg",
 
-  "pages/thumbs/t127.webp",
+  "pages/thumbs/t127.jpg",
 
-  "pages/thumbs/t128.webp",
+  "pages/thumbs/t128.jpg",
 
-  "pages/thumbs/t129.webp",
+  "pages/thumbs/t129.jpg",
 
-  "pages/thumbs/t130.webp",
+  "pages/thumbs/t130.jpg",
 
-  "pages/thumbs/t131.webp",
+  "pages/thumbs/t131.jpg",
 
-  "pages/thumbs/t132.webp",
+  "pages/thumbs/t132.jpg",
 
-  "pages/thumbs/t133.webp",
+  "pages/thumbs/t133.jpg",
 
-  "pages/thumbs/t134.webp",
+  "pages/thumbs/t134.jpg",
 
-  "pages/thumbs/t135.webp",
+  "pages/thumbs/t135.jpg",
 
-  "pages/thumbs/t136.webp",
+  "pages/thumbs/t136.jpg",
 
-  "pages/thumbs/t137.webp",
+  "pages/thumbs/t137.jpg",
 
-  "pages/thumbs/t138.webp",
+  "pages/thumbs/t138.jpg",
 
-  "pages/thumbs/t139.webp",
+  "pages/thumbs/t139.jpg",
 
-  "pages/thumbs/t140.webp",
+  "pages/thumbs/t140.jpg",
 
-  "pages/thumbs/t141.webp",
+  "pages/thumbs/t141.jpg",
 
-  "pages/thumbs/t142.webp",
+  "pages/thumbs/t142.jpg",
 
-  "pages/thumbs/t143.webp",
+  "pages/thumbs/t143.jpg",
 
-  "pages/thumbs/t144.webp",
+  "pages/thumbs/t144.jpg",
 
-  "pages/thumbs/t145.webp",
+  "pages/thumbs/t145.jpg",
 
-  "pages/thumbs/t146.webp",
+  "pages/thumbs/t146.jpg",
 
-  "pages/thumbs/t147.webp",
+  "pages/thumbs/t147.jpg",
 
-  "pages/thumbs/t148.webp",
+  "pages/thumbs/t148.jpg",
 
-  "pages/thumbs/t149.webp",
+  "pages/thumbs/t149.jpg",
 
-  "pages/thumbs/t150.webp",
+  "pages/thumbs/t150.jpg",
 
-  "pages/thumbs/t151.webp",
+  "pages/thumbs/t151.jpg",
 
-  "pages/thumbs/t152.webp",
+  "pages/thumbs/t152.jpg",
 
-  "pages/thumbs/t153.webp",
+  "pages/thumbs/t153.jpg",
 
-  "pages/thumbs/t154.webp",
+  "pages/thumbs/t154.jpg",
 
-  "pages/thumbs/t155.webp",
+  "pages/thumbs/t155.jpg",
 
-  "pages/thumbs/t156.webp",
+  "pages/thumbs/t156.jpg",
 
-  "pages/thumbs/t157.webp",
+  "pages/thumbs/t157.jpg",
 
-  "pages/thumbs/t158.webp",
+  "pages/thumbs/t158.jpg",
 
-  "pages/thumbs/t159.webp"
+  "pages/thumbs/t159.jpg"
 
  ],
 
