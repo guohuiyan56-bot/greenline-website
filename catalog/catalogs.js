@@ -346,7 +346,7 @@ window.CATALOGS = [
     pages: 2
   },
 ];
-];
+
 
 // 栏目显示名（hub 标题用）
 window.CATALOG_CATS = {
