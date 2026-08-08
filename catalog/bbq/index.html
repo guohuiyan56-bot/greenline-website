@@ -73,7 +73,7 @@
   /* Main stage */
   .main { flex:1; display:flex; position:relative; overflow:hidden; }
   .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:22px 22px 10px; }
-  #book { width:100%; max-width:1600px; }
+  #book { width:100%; max-width:none; transition:width .15s ease; }
 
   /* Drawer */
   .drawer {
@@ -289,6 +289,36 @@
     [p-1, p, p+1, p+2].forEach(ensureLoaded);
   }
 
+  
+  /* === Auto-fit book into viewport === */
+  var PAGE_ASPECT = 1.3676;   // set below from settings
+  function fitBook() {
+    var stage = $('flip-stage') || document.querySelector('.flip-stage');
+    var book = $('book');
+    if (!stage || !book) return;
+    var topbarH = 62, thumbH = 88, padV = 32, padH = 10;
+    var availW = stage.clientWidth - padH * 2;
+    var availH = window.innerHeight - topbarH - thumbH - padV;
+    if (availH < 200) availH = 400;
+    var ar = PAGE_ASPECT || 1;
+    // landscape mode: 2 pages side by side → book width = 2 * pageWidth
+    // portrait mode: 1 page → book width = pageWidth
+    var isLandscape = (ar < 1);
+    var wByHeight;
+    if (isLandscape) {
+      wByHeight = 2 * availH / ar;   // pageH = pageW*ar ≤ availH → pageW ≤ availH/ar → bookW = 2*pageW
+    } else {
+      wByHeight = availH / ar;        // pageH = pageW*ar ≤ availH → pageW ≤ availH/ar → bookW = pageW
+    }
+    var targetW = Math.min(availW, wByHeight);
+    // don't let it get too tiny
+    targetW = Math.max(targetW, isLandscape ? 480 : 320);
+    book.style.width = Math.round(targetW) + 'px';
+    book.style.maxWidth = 'none';
+  }
+  window.addEventListener('resize', function() { setTimeout(fitBook, 80); });
+/* === end auto-fit === */
+
   function initFlip() {
     if (flip) return;
     const settings = {
@@ -310,7 +340,7 @@
     try {
       flip = new St.PageFlip($('book'), settings);
       flip.loadFromImages(Array(TOTAL_PAGES).fill(PLACEHOLDER));
-      flip.on('init', () => { finishLoading(); preloadAround(flip.getCurrentPageIndex()); });
+      flip.on('init', () => { finishLoading(); fitBook(); preloadAround(flip.getCurrentPageIndex()); });
 
     } catch (err) {
       console.error('St.PageFlip init failed:', err);
@@ -321,6 +351,7 @@
     buildTOC();
     buildThumbs();
     bindEvents();
+    setTimeout(fitBook, 100);
     setTimeout(finishLoading, 4000);
   }
 
