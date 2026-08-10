@@ -72,8 +72,8 @@
 
   /* Main stage */
   .main { flex:1; display:flex; position:relative; overflow:hidden; }
-  .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:22px 22px 10px; }
-  #book { width:100%; max-width:none; transition:width .15s ease; }
+  .flip-stage { flex:1; display:flex; align-items:center; justify-content:center; position:relative; padding:8px 14px 6px; }
+  #book { max-width:none !important; min-width:0 !important; min-height:0 !important; max-height:none !important; transition:none !important; margin:0 auto; }
 
   /* Drawer */
   .drawer {
@@ -102,16 +102,18 @@
 
   /* Thumbnail rail */
   .thumb-rail {
-    height:112px; background:#fff; border-top:1px solid rgba(0,0,0,0.08);
+    height:96px; background:#fff; border-top:1px solid rgba(0,0,0,0.08);
     display:flex; align-items:center; gap:10px; padding:10px 18px; overflow-x:auto; overflow-y:hidden; flex-shrink:0;
   }
   .thumb-rail::-webkit-scrollbar { height:6px; }
   .thumb-rail::-webkit-scrollbar-track { background:transparent; }
   .thumb-rail::-webkit-scrollbar-thumb { background: var(--brown-light); border-radius:3px; }
-  .thumb { flex:0 0 auto; width:132px; height:92px; border-radius:5px; overflow:hidden; cursor:pointer; border:2px solid transparent; opacity:0.65; transition:all .2s ease; background:#f5f5f5; }
+  .thumb { flex:0 0 auto; width:118px; height:78px; border-radius:5px; overflow:hidden; cursor:pointer; border:2px solid transparent; opacity:0.65; transition:all .2s ease; background:#f5f5f5; }
   .thumb img { width:100%; height:100%; object-fit:cover; display:block; }
   .thumb:hover { opacity:1; transform: translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,0.1); }
   .thumb.active { opacity:1; border-color: var(--gold); box-shadow:0 4px 14px rgba(201,166,107,0.35); }
+
+  .app.no-thumbs .thumb-rail { display:none !important; }
 
   /* Loader */
   .loader { position:fixed; inset:0; background: var(--bg); display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:200; transition: opacity .5s ease; }
@@ -190,6 +192,10 @@
         <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
         <span>放大</span>
       </button>
+      <button class="btn" id="btnRail" title="显示/隐藏缩略图">
+        <svg viewBox="0 0 24 24"><path d="M3 5h5v5H3V5zm7 0h5v5h-5V5zm7 0h4v5h-4V5zM3 14h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h4v5h-4v-5z" fill="currentColor"/></svg>
+        <span>缩略图</span>
+      </button>
       <button class="btn" id="btnFullscreen" title="全屏">
         <svg viewBox="0 0 24 24"><path d="M4 4h6v2H6v4H4V4zm10 0h6v6h-2V6h-4V4zM4 14v6h6v-2H6v-4H4zm16 0v6h-6v-2h4v-4h2z" fill="currentColor"/></svg>
         <span>全屏</span>
@@ -250,168 +256,74 @@
     })));
   }
 
-  
-  /* === Auto-fit book into viewport === */
-  var PAGE_ASPECT = 1.4143;   // set below from settings
-  function fitBook() {
-    var stage = $('flip-stage') || document.querySelector('.flip-stage');
-    var book = $('book');
-    if (!stage || !book) return;
-    var topbarH = 62, thumbH = 88, padV = 32, padH = 10;
-    var availW = stage.clientWidth - padH * 2;
-    var availH = window.innerHeight - topbarH - thumbH - padV;
-    if (availH < 200) availH = 400;
-    var ar = PAGE_ASPECT || 1;
-    // landscape mode: 2 pages side by side → book width = 2 * pageWidth
-    // portrait mode: 1 page → book width = pageWidth
-    var isLandscape = (ar < 1);
-    var wByHeight;
-    if (isLandscape) {
-      wByHeight = 2 * availH / ar;   // pageH = pageW*ar ≤ availH → pageW ≤ availH/ar → bookW = 2*pageW
-    } else {
-      wByHeight = availH / ar;        // pageH = pageW*ar ≤ availH → pageW ≤ availH/ar → bookW = pageW
-    }
-    var targetW = Math.min(availW, wByHeight);
-    // don't let it get too tiny
-    targetW = Math.max(targetW, isLandscape ? 480 : 320);
-    book.style.width = Math.round(targetW) + 'px';
-    book.style.maxWidth = 'none';
-  }
-  window.addEventListener('resize', function() { setTimeout(fitBook, 80); });
-/* === end auto-fit === */
+  /* ===== v4 viewport-fit sizing (single source of truth) ===== */
+  var PAGE_W = 560, PAGE_H = 792;
+  var PAGE_AR = PAGE_H / PAGE_W;          /* height / width of ONE source page */
+  var SINGLE = true;                      /* always render ONE source page per view */
+  var _fitTimer = null, _fitBound = false;
 
-  
-  /* === Auto-fit book into viewport (v2: ResizeObserver guard) === */
-  var PAGE_ASPECT = 1.4143;
-  var _fitLocked = false;
-  function _calcFitWidth() {
-    var stage = document.querySelector('.flip-stage');
-    var book = document.getElementById('book');
-    if (!stage || !book) return null;
-    var topbarH = 62, thumbH = 88, padV = 32, padH = 10;
-    var availW = stage.clientWidth - padH * 2;
-    var availH = window.innerHeight - topbarH - thumbH - padV;
-    if (availH < 200) availH = 400;
-    var ar = PAGE_ASPECT || 1;
-    var isLand = (ar < 1);
-    var wByH = isLand ? (2 * availH / ar) : (availH / ar);
-    var w = Math.min(availW, wByH);
-    w = Math.max(w, isLand ? 480 : 320);
-    return Math.round(w);
+  function _stageBox() {
+    var st = document.querySelector('.flip-stage');
+    var w = 0, h = 0;
+    if (st) {
+      var cs = getComputedStyle(st);
+      w = st.clientWidth  - (parseFloat(cs.paddingLeft) || 0) - (parseFloat(cs.paddingRight)  || 0);
+      h = st.clientHeight - (parseFloat(cs.paddingTop)  || 0) - (parseFloat(cs.paddingBottom) || 0);
+    }
+    if (!(w > 60)) w = Math.max(320, window.innerWidth  - 44);
+    if (!(h > 60)) h = Math.max(320, window.innerHeight - 190);
+    return { w: w, h: h };
   }
-  function _constrainBook() {
-    if (_fitLocked) return;
+
+  function _fitBook(apply) {
     var book = document.getElementById('book');
     if (!book) return;
-    var w = _calcFitWidth();
-    if (!w) return;
-    var cur = book.offsetWidth;
-    if (Math.abs(cur - w) > 3) {
-      _fitLocked = true;
-      book.style.width = w + 'px';
-      book.style.maxWidth = 'none';
-      /* tell StPageFlip to recalculate with new dimensions */
-      if (typeof flip !== 'undefined' && flip && typeof flip.update === 'function') {
-        try { flip.update(); } catch(e) {}
-      }
-      _fitLocked = false;
+    var box = _stageBox();
+    /* Catalogs are image-per-page: ALWAYS show ONE source page per view,
+       sized to fill the viewport height (capped by width). No double-page. */
+    var ph = box.h;
+    var pw = ph / PAGE_AR;                 /* PAGE_AR = srcH/srcW */
+    if (pw > box.w) { pw = box.w; ph = pw * PAGE_AR; }
+    var bw = Math.max(160, Math.floor(pw));
+    var bh = Math.max(160, Math.floor(ph));
+    if (book.style.width  !== bw + 'px') book.style.width  = bw + 'px';
+    if (book.style.height !== bh + 'px') book.style.height = bh + 'px';
+    if (apply && flip) {
+      try { flip.getSettings().minWidth = 100000; } catch (e) {}  /* force single-page */
+      try { flip.getSettings().maxWidth = 100000; } catch (e) {}
+      try { flip.getUI().update(); } catch (e) {}
     }
+    SINGLE = true;
   }
-  /* Observe #book size changes and re-constrain after StPageFlip resizes it */
-  if (typeof ResizeObserver !== 'undefined') {
-    (function() {
-      var book = document.getElementById('book');
-      if (!book) return;
-      var ro = new ResizeObserver(function(entries) {
-        for (var i = 0; i < entries.length; i++) {
-          _constrainBook();
-        }
-      });
-      ro.observe(book);
-      /* Also observe stage in case layout shifts */
-      var stage = document.querySelector('.flip-stage');
-      if (stage) ro.observe(stage);
-    })();
-  }
-  /* Initial fit + resize fallback */
-  window.addEventListener('resize', function() { setTimeout(_constrainBook, 100); });
-  setTimeout(_constrainBook, 500);
-  setTimeout(_constrainBook, 1500);
-/* === end auto-fit v2 === */
 
-  
-  /* === Auto-fit book into viewport (v2: ResizeObserver guard) === */
-  var PAGE_ASPECT = 1.4143;
-  var _fitLocked = false;
-  function _calcFitWidth() {
-    var stage = document.querySelector('.flip-stage');
-    var book = document.getElementById('book');
-    if (!stage || !book) return null;
-    var topbarH = 62, thumbH = 88, padV = 32, padH = 10;
-    var availW = stage.clientWidth - padH * 2;
-    var availH = window.innerHeight - topbarH - thumbH - padV;
-    if (availH < 200) availH = 400;
-    var ar = PAGE_ASPECT || 1;
-    var isLand = (ar < 1);
-    var wByH = isLand ? (2 * availH / ar) : (availH / ar);
-    var w = Math.min(availW, wByH);
-    /* Floor: ensure portrait books stay in single-page mode (width < minWidth*2).
-       Use 42% of availW as floor for portrait — works on 1024+ screens. */
-    w = Math.max(w, isLand ? 480 : Math.round(availW * 0.42));
-    w = Math.max(w, isLand ? 480 : 400);
-    return Math.round(w);
+  function _setupFit() {
+    /* short screens: collapse the thumbnail rail so the page itself gets bigger
+       (user can bring it back with the 缩略图 button) */
+    var app = document.getElementById('app');
+    if (app && window.innerHeight < 820) app.classList.add('no-thumbs');
+    _fitBook(false);
+    if (_fitBound) return;
+    _fitBound = true;
+    window.addEventListener('resize', function () {
+      _fitBook(false);                      /* instant CSS resize, no lib churn */
+      clearTimeout(_fitTimer);
+      _fitTimer = setTimeout(function () { _fitBook(true); }, 150);
+    });
   }
-  function _constrainBook() {
-    if (_fitLocked) return;
-    var book = document.getElementById('book');
-    if (!book) return;
-    var w = _calcFitWidth();
-    if (!w) return;
-    var cur = book.offsetWidth;
-    if (Math.abs(cur - w) > 3) {
-      _fitLocked = true;
-      book.style.width = w + 'px';
-      book.style.maxWidth = 'none';
-      /* tell StPageFlip to recalculate with new dimensions */
-      if (typeof flip !== 'undefined' && flip && typeof flip.update === 'function') {
-        try { flip.update(); } catch(e) {}
-      }
-      _fitLocked = false;
-    }
-  }
-  /* Observe #book size changes and re-constrain after StPageFlip resizes it */
-  if (typeof ResizeObserver !== 'undefined') {
-    (function() {
-      var book = document.getElementById('book');
-      if (!book) return;
-      var ro = new ResizeObserver(function(entries) {
-        for (var i = 0; i < entries.length; i++) {
-          _constrainBook();
-        }
-      });
-      ro.observe(book);
-      /* Also observe stage in case layout shifts */
-      var stage = document.querySelector('.flip-stage');
-      if (stage) ro.observe(stage);
-    })();
-  }
-  /* Initial fit + resize fallback */
-  window.addEventListener('resize', function() { setTimeout(_constrainBook, 100); });
-  setTimeout(_constrainBook, 500);
-  setTimeout(_constrainBook, 1500);
-/* === end auto-fit v2 === */
+  /* ===== end v4 ===== */
 
   function initFlip() {
     if (flip) return;
+    _setupFit();
     const settings = {
       size: 'stretch',
       width: 560, height: 792,
-      minWidth: 380, maxWidth: 560,
-      minHeight: 413, maxHeight: 827,
+      minWidth: 100000, maxWidth: 100000,
+      minHeight: 1, maxHeight: 100000,
       drawShadow: true,
       flippingTime: 900,
       usePortrait: true,
-      autoSize: true,
+      autoSize: false,
       maxShadowOpacity: 0.6,
       showCover: false,
       mobileScrollSupport: false,
