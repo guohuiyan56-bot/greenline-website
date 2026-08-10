@@ -212,6 +212,10 @@
         <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m-3-3h6" stroke="currentColor" stroke-width="2" fill="none"/></svg>
         <span>放大</span>
       </button>
+      <button class="btn" id="btnMode" title="单页/双页切换">
+        <svg viewBox="0 0 24 24"><path d="M4 4h7v16H4V4zm9 0h7v16h-7V4z" fill="currentColor"/></svg>
+        <span>双页</span>
+      </button>
       <button class="btn" id="btnRail" title="显示/隐藏缩略图">
         <svg viewBox="0 0 24 24"><path d="M3 5h5v5H3V5zm7 0h5v5h-5V5zm7 0h4v5h-4V5zM3 14h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h4v5h-4v-5z" fill="currentColor"/></svg>
         <span>缩略图</span>
@@ -295,10 +299,13 @@
     [p-1, p, p+1, p+2].forEach(ensureLoaded);
   }
 
-  /* ===== v4 viewport-fit sizing (single source of truth) ===== */
+  /* ===== v5 two-page fit (single source of truth) ===== */
   var PAGE_W = 340, PAGE_H = 465;
   var PAGE_AR = PAGE_H / PAGE_W;          /* height / width of ONE source page */
-  var SINGLE = true;                      /* always render ONE source page per view */
+  /* Two-up (double-page spread) for portrait/square source pages; landscape
+     source pages are single wide images and stay single. */
+  var DOUBLE = (PAGE_AR >= 0.95);
+  var SINGLE = !DOUBLE;
   var _fitTimer = null, _fitBound = false;
 
   function _stageBox() {
@@ -318,21 +325,30 @@
     var book = document.getElementById('book');
     if (!book) return;
     var box = _stageBox();
-    /* Catalogs are image-per-page: ALWAYS show ONE source page per view,
-       sized to fill the viewport height (capped by width). No double-page. */
-    var ph = box.h;
-    var pw = ph / PAGE_AR;                 /* PAGE_AR = srcH/srcW */
-    if (pw > box.w) { pw = box.w; ph = pw * PAGE_AR; }
-    var bw = Math.max(160, Math.floor(pw));
-    var bh = Math.max(160, Math.floor(ph));
+    var twoPage = DOUBLE && (PAGE_AR >= 0.95);   /* two-up only for portrait/square */
+    var ph, pw, bw, bh;
+    if (twoPage) {
+      /* a spread = two facing pages side by side, fitted to the viewport */
+      ph = box.h;
+      pw = ph / PAGE_AR;                 /* one page width */
+      if (pw * 2 > box.w) { pw = box.w / 2; ph = pw * PAGE_AR; }
+      bw = Math.max(200, Math.floor(pw * 2));
+      bh = Math.max(160, Math.floor(ph));
+    } else {
+      /* single page filling the viewport height (capped by width) */
+      ph = box.h;
+      pw = ph / PAGE_AR;
+      if (pw > box.w) { pw = box.w; ph = pw * PAGE_AR; }
+      bw = Math.max(160, Math.floor(pw));
+      bh = Math.max(160, Math.floor(ph));
+    }
     if (book.style.width  !== bw + 'px') book.style.width  = bw + 'px';
     if (book.style.height !== bh + 'px') book.style.height = bh + 'px';
     if (apply && flip) {
-      try { flip.getSettings().minWidth = 100000; } catch (e) {}  /* force single-page */
-      try { flip.getSettings().maxWidth = 100000; } catch (e) {}
+      try { flip.getSettings().minWidth = twoPage ? 1 : 100000; } catch (e) {}
       try { flip.getUI().update(); } catch (e) {}
     }
-    SINGLE = true;
+    SINGLE = !twoPage;
   }
 
   function _setupFit() {
@@ -340,6 +356,8 @@
        (user can bring it back with the 缩略图 button) */
     var app = document.getElementById('app');
     if (app && window.innerHeight < 820) app.classList.add('no-thumbs');
+    var _mb = document.getElementById('btnMode');
+    if (_mb) _mb.querySelector('span').textContent = DOUBLE ? '双页' : '单页';
     _fitBook(false);
     if (_fitBound) return;
     _fitBound = true;
@@ -357,7 +375,7 @@
     const settings = {
       size: 'stretch',
       width: 340, height: 465,
-      minWidth: 100000, maxWidth: 100000,
+      minWidth: 1, maxWidth: 100000,
       minHeight: 1, maxHeight: 100000,
       drawShadow: true,
       flippingTime: 900,
@@ -510,6 +528,12 @@
     var _railBtn = $('btnRail');
     if (_railBtn) _railBtn.addEventListener('click', function () {
       $('app').classList.toggle('no-thumbs');
+      _fitBook(true);
+    });
+    var _modeBtn = $('btnMode');
+    if (_modeBtn) _modeBtn.addEventListener('click', function () {
+      DOUBLE = !DOUBLE;
+      _modeBtn.querySelector('span').textContent = DOUBLE ? '双页' : '单页';
       _fitBook(true);
     });
     $('btnToc').addEventListener('click', () => {
