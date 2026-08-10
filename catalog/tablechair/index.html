@@ -170,12 +170,36 @@
   .app.fs-mode .edge-nav { opacity:.32; pointer-events:auto; }
   .app.fs-mode .edge-nav:hover { opacity:.85; }
   .edge-nav:disabled { opacity:0 !important; pointer-events:none; }
+
+  /* ===== 手机横屏提示 + 灯箱触摸缩放 ===== */
+  .rotate-overlay { position:fixed; inset:0; z-index:400; background:linear-gradient(160deg,#3A261B,#241510);
+    display:none; align-items:center; justify-content:center; padding:24px; text-align:center; color:#F7F3ED; }
+  .rotate-overlay.show { display:flex; }
+  .rotate-card { max-width:320px; }
+  .rotate-ico { width:84px; height:84px; margin:0 auto 22px; color:#C9A66B; animation:rotateHint 2.6s ease-in-out infinite; }
+  .rotate-ico svg { width:100%; height:100%; display:block; }
+  @keyframes rotateHint { 0%,100%{ transform:rotate(-90deg);} 50%{ transform:rotate(0deg);} }
+  .rotate-title { font-size:21px; font-weight:700; color:#C9A66B; margin-bottom:10px; letter-spacing:1px; }
+  .rotate-sub { font-size:14px; opacity:.82; line-height:1.65; margin-bottom:22px; }
+  .rotate-enter { background:rgba(201,166,107,.16); border:1px solid rgba(201,166,107,.5); color:#F7F3ED;
+    padding:12px 22px; font-size:15px; border-radius:8px; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .rotate-enter:active { transform:scale(.96); }
+  .lightbox-view { touch-action:none; -webkit-overflow-scrolling:touch; }
 </style>
 <script src="data.js?v=3"></script>
-<script src="../lib/page-flip.browser.js"></script>
+<script src="../lib/page-flip.browser.js?v=20260810"></script>
 </head>
 <body>
 <div class="app" id="app">
+  <div class="rotate-overlay" id="rotateOverlay">
+    <div class="rotate-card">
+      <div class="rotate-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+      <div class="rotate-title">请横屏观看</div>
+      <div class="rotate-sub">为获得最佳浏览效果，请将手机旋转至横屏方向</div>
+      <button class="btn rotate-enter" id="rotateEnter">横屏全屏观看</button>
+    </div>
+  </div>
+
   <div class="loader" id="loader">
     <div class="spinner"></div>
     <p>正在加载目录册…</p>
@@ -258,7 +282,7 @@
     </div>
     <div class="lightbox-view" id="lightboxView">
       <img class="lightbox-img" id="lightboxImg" src="" alt="放大视图">
-      <div class="lightbox-hint">滚轮缩放 · 拖拽移动 · 方向键翻页</div>
+      <div class="lightbox-hint">滚轮 / 双指捏合缩放 · 拖拽平移 · 方向键翻页</div>
     </div>
   </div>
 </div>
@@ -321,24 +345,6 @@
     return { w: w, h: h };
   }
 
-  /* HiDPI: the library's resizeCanvas sets the buffer to CSS px, so on a
-     scaled/retina screen the canvas is upscaled by the browser -> blurry.
-     Override it to render at devicePixelRatio (and scale the draw context). */
-  function _hiDPI() {
-    var ui = (typeof flip !== 'undefined' && flip && flip.getUI) ? flip.getUI() : null;
-    if (!ui || !ui.canvas || typeof ui.resizeCanvas !== 'function') return;
-    ui.resizeCanvas = function () {
-      var dpr = window.devicePixelRatio || 1;
-      var cs = getComputedStyle(this.canvas);
-      var w = parseInt(cs.getPropertyValue('width'), 10)  || this.canvas.clientWidth  || 1;
-      var h = parseInt(cs.getPropertyValue('height'), 10) || this.canvas.clientHeight || 1;
-      this.canvas.width  = Math.max(1, Math.round(w * dpr));
-      this.canvas.height = Math.max(1, Math.round(h * dpr));
-      var ctx = this.canvas.getContext('2d');
-      if (ctx && ctx.setTransform) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    };
-  }
-
   function _fitBook(apply) {
     var book = document.getElementById('book');
     if (!book) return;
@@ -364,7 +370,6 @@
     if (book.style.height !== bh + 'px') book.style.height = bh + 'px';
     if (apply && flip) {
       try { flip.getSettings().minWidth = twoPage ? 1 : 100000; } catch (e) {}
-      _hiDPI();
       try { flip.getUI().update(); } catch (e) {}
     }
     SINGLE = !twoPage;
@@ -410,7 +415,7 @@
     try {
       flip = new St.PageFlip($('book'), settings);
       flip.loadFromImages(Array(TOTAL_PAGES).fill(PLACEHOLDER));
-      flip.on('init', () => { finishLoading(); _hiDPI(); setTimeout(function(){_fitBook(true);},50); preloadAround(flip.getCurrentPageIndex()); });
+      flip.on('init', () => { finishLoading(); setTimeout(function(){_fitBook(true);},50); preloadAround(flip.getCurrentPageIndex()); });
 
     } catch (err) {
       console.error('St.PageFlip init failed:', err);
@@ -592,6 +597,7 @@
     window.addEventListener('mouseup', () => { drag.active=false; view.style.cursor='grab'; });
     view.addEventListener('mousemove', (e) => { if (!drag.active) return; view.scrollLeft = drag.sl - (e.clientX - drag.x); view.scrollTop = drag.st - (e.clientY - drag.y); });
     view.addEventListener('mouseleave', () => { drag.active=false; view.style.cursor='grab'; });
+    initLightboxTouch(view);
 
     document.addEventListener('keydown', (e) => {
       if ($('lightbox').classList.contains('active')) {
@@ -610,6 +616,69 @@
   initFlip();
   // 硬兜底：无论 St.PageFlip 是否初始化成功，最多 3 秒后显示书本（避免一直转圈）
   setTimeout(finishLoading, 3000);
+
+  function initLightboxTouch(view) {
+    let mode = null, lastDist = 0, lastX = 0, lastY = 0, moved = false, dblTimer = null, startZoom = 1;
+    const dist2 = (t) => Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+    view.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        mode = 'pan'; moved = false;
+        lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+        if (dblTimer) { clearTimeout(dblTimer); dblTimer = null; lightboxZoom = lightboxZoom > 1 ? 1 : 2.5; applyZoom(); e.preventDefault(); return; }
+        dblTimer = setTimeout(() => { dblTimer = null; }, 300);
+      } else if (e.touches.length === 2) {
+        mode = 'pinch'; startZoom = lightboxZoom; lastDist = dist2(e.touches);
+        lastX = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        lastY = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        e.preventDefault();
+      }
+    }, { passive: false });
+    view.addEventListener('touchmove', (e) => {
+      if (mode === 'pinch' && e.touches.length === 2) {
+        e.preventDefault();
+        const d = dist2(e.touches);
+        const mx = (e.touches[0].clientX + e.touches[1].clientX) / 2;
+        const my = (e.touches[0].clientY + e.touches[1].clientY) / 2;
+        lightboxZoom = Math.max(1, Math.min(6, startZoom * (d / lastDist)));
+        applyZoom();
+        view.scrollLeft -= (mx - lastX); view.scrollTop -= (my - lastY);
+        lastX = mx; lastY = my;
+      } else if (mode === 'pan' && e.touches.length === 1) {
+        const dx = e.touches[0].clientX - lastX, dy = e.touches[0].clientY - lastY;
+        if (Math.abs(dx) + Math.abs(dy) > 4) moved = true;
+        view.scrollLeft -= dx; view.scrollTop -= dy;
+        lastX = e.touches[0].clientX; lastY = e.touches[0].clientY;
+        if (moved) e.preventDefault();
+      }
+    }, { passive: false });
+    view.addEventListener('touchend', (e) => {
+      if (e.touches.length === 0) mode = null;
+      else if (e.touches.length === 1) { mode = 'pan'; lastX = e.touches[0].clientX; lastY = e.touches[0].clientY; }
+    });
+  }
+
+  function initOrientationGuard() {
+    const ov = document.getElementById('rotateOverlay');
+    if (!ov) return;
+    const isTouch = window.matchMedia('(pointer: coarse)').matches;
+    function check() {
+      const w = window.innerWidth, h = window.innerHeight;
+      const portrait = h > w, small = Math.min(w, h) < 920;
+      if (isTouch && small && portrait) ov.classList.add('show'); else ov.classList.remove('show');
+    }
+    let rt = null;
+    window.addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { check(); try { flip && flip.update(); } catch (e) {} }, 200); });
+    window.addEventListener('orientationchange', () => { setTimeout(() => { check(); try { flip && flip.update(); } catch (e) {} }, 250); });
+    const enter = ov.querySelector('#rotateEnter');
+    if (enter) enter.addEventListener('click', () => {
+      const app = document.getElementById('app');
+      if (app.requestFullscreen) app.requestFullscreen().catch(() => {});
+      if (screen.orientation && screen.orientation.lock) screen.orientation.lock('landscape').catch(() => {});
+      setTimeout(check, 400);
+    });
+    check();
+  }
+  initOrientationGuard();
 })();
 </script>
 </body>
