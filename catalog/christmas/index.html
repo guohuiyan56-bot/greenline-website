@@ -321,6 +321,24 @@
     return { w: w, h: h };
   }
 
+  /* HiDPI: the library's resizeCanvas sets the buffer to CSS px, so on a
+     scaled/retina screen the canvas is upscaled by the browser -> blurry.
+     Override it to render at devicePixelRatio (and scale the draw context). */
+  function _hiDPI() {
+    var ui = (typeof flip !== 'undefined' && flip && flip.getUI) ? flip.getUI() : null;
+    if (!ui || !ui.canvas || typeof ui.resizeCanvas !== 'function') return;
+    ui.resizeCanvas = function () {
+      var dpr = window.devicePixelRatio || 1;
+      var cs = getComputedStyle(this.canvas);
+      var w = parseInt(cs.getPropertyValue('width'), 10)  || this.canvas.clientWidth  || 1;
+      var h = parseInt(cs.getPropertyValue('height'), 10) || this.canvas.clientHeight || 1;
+      this.canvas.width  = Math.max(1, Math.round(w * dpr));
+      this.canvas.height = Math.max(1, Math.round(h * dpr));
+      var ctx = this.canvas.getContext('2d');
+      if (ctx && ctx.setTransform) ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+  }
+
   function _fitBook(apply) {
     var book = document.getElementById('book');
     if (!book) return;
@@ -346,6 +364,7 @@
     if (book.style.height !== bh + 'px') book.style.height = bh + 'px';
     if (apply && flip) {
       try { flip.getSettings().minWidth = twoPage ? 1 : 100000; } catch (e) {}
+      _hiDPI();
       try { flip.getUI().update(); } catch (e) {}
     }
     SINGLE = !twoPage;
@@ -391,7 +410,7 @@
     try {
       flip = new St.PageFlip($('book'), settings);
       flip.loadFromImages(Array(TOTAL_PAGES).fill(PLACEHOLDER));
-      flip.on('init', () => { finishLoading(); setTimeout(function(){_fitBook(true);},50); preloadAround(flip.getCurrentPageIndex()); });
+      flip.on('init', () => { finishLoading(); _hiDPI(); setTimeout(function(){_fitBook(true);},50); preloadAround(flip.getCurrentPageIndex()); });
     } catch (err) {
       console.error('St.PageFlip init failed:', err);
       const ld = $('loaderText'); if (ld) ld.textContent = '加载出现问题，请刷新重试';
