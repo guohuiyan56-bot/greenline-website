@@ -302,30 +302,6 @@ window.CATALOGS = [
     "pages": 134
   },
   {
-    "id": "christmas",
-    "folder": "christmas",
-    "category": "gift",
-    "title_cn": "圣诞新品目录册",
-    "title_en": "Christmas Items Catalogue",
-    "desc_cn": "圣诞装饰 · 圣诞树 · 节日道具系列",
-    "desc_en": "Christmas decorations · trees · festive props",
-    "cover_cn": "christmas/cover_cn.webp",
-    "cover_en": "christmas/cover_en.webp",
-    "pages": 9
-  },
-  {
-    "id": "halloween",
-    "folder": "halloween",
-    "category": "gift",
-    "title_cn": "怪多多万圣节道具目录册",
-    "title_en": "Halloween Props Catalogue",
-    "desc_cn": "万圣节工厂道具 · 怪多多系列",
-    "desc_en": "Halloween factory props · Guai Duo Duo series",
-    "cover_cn": "halloween/cover_cn.webp",
-    "cover_en": "halloween/cover_en.webp",
-    "pages": 58
-  },
-  {
     "id": "machinery",
     "folder": "machinery",
     "category": "home",
@@ -348,30 +324,6 @@ window.CATALOGS = [
     "cover_cn": "packaging/cover_cn.webp",
     "cover_en": "packaging/cover_en.webp",
     "pages": 24
-  },
-  {
-    "id": "rack",
-    "folder": "rack",
-    "category": "shelves",
-    "title_cn": "仓储货架目录册",
-    "title_en": "Warehouse Rack Catalogue",
-    "desc_cn": "龙昌系列 · 轻型货架 · 仓储设计案例 · 阁楼平台",
-    "desc_en": "Long Chang series · light-duty shelving · warehouse cases · mezzanines",
-    "cover_cn": "rack/cover_cn.webp",
-    "cover_en": "rack/cover_en.webp",
-    "pages": 27
-  },
-  {
-    "id": "shelf",
-    "folder": "shelf",
-    "category": "shelves",
-    "title_cn": "商超货架目录册",
-    "title_en": "GREENLINE Catalogue",
-    "desc_cn": "本润 Benrun · 商超货架 · 仓储货架 · 场景方案",
-    "desc_en": "Benrun · supermarket shelves · warehouse racks · store solutions",
-    "cover_cn": "shelf/cover_cn.webp",
-    "cover_en": "shelf/cover_en.webp",
-    "pages": 50
   },
   {
     "id": "chair-esports",
