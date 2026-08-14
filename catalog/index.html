@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GREENLINE 家具站 · 目录册 Catalogues</title>
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAaklEQVR4nO2QMQ0AIAjD+v9/duoNIwQWmZURVgQ3jqqqqup+1lr7eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXl5eXn4Btv4H1f0f3AAAAAElFTkSuQmCC">
+<style>
+:root{
+  --bg:#F7F3ED; --brown-dark:#3A261B; --brown-med:#6B4F3C; --brown-light:#A88C6C;
+  --gold:#C9A66B; --text:#2C1E15; --text-light:#6D5A4D; --card:#fff;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+.topbar{height:64px;background:var(--brown-dark);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;box-shadow:0 2px 14px rgba(0,0,0,.2);position:sticky;top:0;z-index:100}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{font-size:21px;font-weight:800;color:var(--gold);letter-spacing:1.5px}
+.brand-sub{font-size:13px;opacity:.8}
+.controls{display:flex;align-items:center;gap:10px}
+.btn{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:13px;text-decoration:none;transition:.2s}
+.btn:hover{background:rgba(255,255,255,.18)}
+.lang-btn{font-weight:700;min-width:42px}
+.container{display:flex;max-width:1320px;margin:0 auto;gap:24px;padding:28px 24px}
+.sidebar{width:210px;flex-shrink:0;align-self:flex-start;position:sticky;top:88px}
+.sidebar h3{font-size:13px;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:12px}
+.cat-item{display:flex;align-items:center;gap:10px;padding:11px 14px;border-radius:8px;cursor:pointer;margin-bottom:4px;font-size:14px;color:var(--text);transition:.18s;border-left:3px solid transparent}
+.cat-item:hover{background:rgba(201,166,107,.12)}
+.cat-item.active{background:rgba(201,166,107,.18);border-left-color:var(--gold);font-weight:600;color:var(--brown-dark)}
+.cat-item .dot{width:7px;height:7px;border-radius:50%;background:var(--brown-light)}
+.main{flex:1;min-width:0}
+.heading{font-size:26px;font-weight:800;font-family:Georgia,"Times New Roman",serif;color:var(--brown-dark);margin-bottom:4px}
+.sub{color:var(--text-light);font-size:14px;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px}
+.cat-card{background:var(--card);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;box-shadow:0 6px 20px rgba(42,24,16,.08);transition:.22s;border:1px solid rgba(58,38,27,.08)}
+.cat-card:hover{transform:translateY(-4px);box-shadow:0 14px 32px rgba(201,166,107,.28);border-color:var(--gold)}
+.cat-card-img{aspect-ratio:0.6765;background:#efe9e0;overflow:hidden}
+.cat-card-img img{width:100%;height:100%;object-fit:cover;display:block}
+.cat-card-body{padding:14px 15px 16px}
+.cat-card-tag{display:inline-block;font-size:11px;color:var(--brown-med);background:rgba(201,166,107,.16);padding:2px 9px;border-radius:20px;margin-bottom:8px}
+.cat-card-title{font-size:15px;font-weight:700;line-height:1.35;margin-bottom:6px}
+.cat-card-meta{font-size:12px;color:var(--text-light)}
+.cat-card-meta b{color:var(--gold)}
+.empty{text-align:center;color:var(--text-light);padding:60px 0;font-size:15px}
+@media(max-width:768px){.container{flex-direction:column;padding:18px}.sidebar{width:100%;position:static}.cat-list{display:flex;flex-wrap:wrap;gap:8px}.cat-item{margin:0}.grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><div class="logo">GREENLINE</div><div class="brand-sub">GREENLINE 家具站 · 目录册</div></div>
+  <div class="controls">
+    <a class="btn" href="../index.html">← 返回首页 / Home</a>
+    <button class="btn lang-btn" id="langBtn">EN</button>
+  </div>
+</header>
+<div class="container">
+  <aside class="sidebar"><h3 id="catTitle">分类 Categories</h3><div class="cat-list" id="catList"></div></aside>
+  <main class="main">
+    <div class="heading" id="mainHeading">全部目录册</div>
+    <div class="sub" id="mainSub">All Catalogues</div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none">暂无目录册 / No catalogues</div>
+  </main>
+</div>
+<script>
+var CATS = [["bathroom", "卫浴", "Bathroom"], ["door", "门窗", "Doors & Windows"], ["chair", "座椅", "Chairs"], ["hotel", "酒店用品", "Hotel Supplies"], ["shelf", "货架展示", "Shelving & Display"], ["decor", "墙饰建材", "Wall Decor & Building"], ["furniture", "家具", "Furniture"], ["outdoor", "厨具户外", "Kitchen & Outdoor"], ["textile", "家纺", "Home Textile"], ["hardware", "五金电气", "Hardware & Electrical"]];
+var CATALOGS = [{"folder": "bathroom-products", "category": "bathroom", "title_cn": "卫浴产品图册", "title_en": "BATHROOM PRODUCTS CATALOGUE", "pages": 78, "cover_cn": "./bathroom-products/cover_cn.png", "cover_en": "./bathroom-products/cover_en.png"}, {"folder": "sink-basin", "category": "bathroom", "title_cn": "水槽洗手盆图册", "title_en": "SINK & BASIN CATALOGUE", "pages": 19, "cover_cn": "./sink-basin/cover_cn.png", "cover_en": "./sink-basin/cover_en.png"}, {"folder": "tewei-bathroom-cabinet", "category": "bathroom", "title_cn": "特卫砖家 功能浴室柜图册 2026", "title_en": "TEWEI BATHROOM CABINET CATALOG 2026", "pages": 126, "cover_cn": "./tewei-bathroom-cabinet/cover_cn.png", "cover_en": "./tewei-bathroom-cabinet/cover_en.png"}, {"folder": "benrun-sanitaryware", "category": "bathroom", "title_cn": "本润卫浴 浴室柜图册 2026", "title_en": "BENRUN SANITARYWARE CATALOG 2026", "pages": 256, "cover_cn": "./benrun-sanitaryware/cover_cn.png", "cover_en": "./benrun-sanitaryware/cover_en.png"}, {"folder": "furui-windows", "category": "door", "title_cn": "富瑞斯门窗", "title_en": "FURUISI DOORS & WINDOWS", "pages": 24, "cover_cn": "./furui-windows/cover_cn.png", "cover_en": "./furui-windows/cover_en.png"}, {"folder": "junli-door", "category": "door", "title_cn": "俊利门业电子画册 2026", "title_en": "JUNLI DOOR CATALOGUE 2026", "pages": 94, "cover_cn": "./junli-door/cover_cn.png", "cover_en": "./junli-door/cover_en.png"}, {"folder": "cast-aluminum-door", "category": "door", "title_cn": "铸铝门雕刻图册 2026", "title_en": "CAST ALUMINUM DOOR CATALOG 2026", "pages": 264, "cover_cn": "./cast-aluminum-door/cover_cn.png", "cover_en": "./cast-aluminum-door/cover_en.png"}, {"folder": "gl-ad-office-chair", "category": "chair", "title_cn": "GL-AD 办公椅目录册 2025", "title_en": "GL-AD OFFICE CHAIR CATALOGUE 2025", "pages": 150, "cover_cn": "./gl-ad-office-chair/cover_cn.png", "cover_en": "./gl-ad-office-chair/cover_en.png"}, {"folder": "gl-ft-gaming-chair", "category": "chair", "title_cn": "GL-FT 电竞椅目录册", "title_en": "GL-FT GAMING CHAIR CATALOG", "pages": 8, "cover_cn": "./gl-ft-gaming-chair/cover_cn.png", "cover_en": "./gl-ft-gaming-chair/cover_en.png"}, {"folder": "gl-ft-office-chair", "category": "chair", "title_cn": "GL-FT 办公椅目录册", "title_en": "GL-FT OFFICE CHAIR CATALOG", "pages": 4, "cover_cn": "./gl-ft-office-chair/cover_cn.png", "cover_en": "./gl-ft-office-chair/cover_en.png"}, {"folder": "gl-ft-mesh-chair", "category": "chair", "title_cn": "GL-FT 网椅目录册", "title_en": "GL-FT MESH CHAIR CATALOG", "pages": 12, "cover_cn": "./gl-ft-mesh-chair/cover_cn.png", "cover_en": "./gl-ft-mesh-chair/cover_en.png"}, {"folder": "gl-ad-leather-chair", "category": "chair", "title_cn": "GL-AD 皮椅目录册 2025", "title_en": "GL-AD LEATHER CHAIR CATALOG 2025", "pages": 2, "cover_cn": "./gl-ad-leather-chair/cover_cn.png", "cover_en": "./gl-ad-leather-chair/cover_en.png"}, {"folder": "hotel-textile", "category": "hotel", "title_cn": "酒店纺织品目录册 2025", "title_en": "HOTEL TEXTILE CATALOGUE 2025", "pages": 44, "cover_cn": "./hotel-textile/cover_cn.png", "cover_en": "./hotel-textile/cover_en.png"}, {"folder": "weiding-2022-hotel", "category": "hotel", "title_cn": "威思丁 酒店其它系列画册 2022", "title_en": "WEIDING HOTEL SERIES 2022", "pages": 176, "cover_cn": "./weiding-2022-hotel/cover_cn.png", "cover_en": "./weiding-2022-hotel/cover_en.png"}, {"folder": "weiding-disposable", "category": "hotel", "title_cn": "威思丁 客房一次性用品", "title_en": "WEIDING DISPOSABLE HOTEL SUPPLIES", "pages": 112, "cover_cn": "./weiding-disposable/cover_cn.png", "cover_en": "./weiding-disposable/cover_en.png"}, {"folder": "weiding-consumable", "category": "hotel", "title_cn": "威思丁 客房易耗品目录册", "title_en": "WEIDING GUEST-ROOM CONSUMABLES", "pages": 24, "cover_cn": "./weiding-consumable/cover_cn.png", "cover_en": "./weiding-consumable/cover_en.png"}, {"folder": "weiding-towel", "category": "textile", "title_cn": "威思丁 全棉餐巾目录册", "title_en": "WEIDING COTTON TOWEL CATALOG", "pages": 47, "cover_cn": "./weiding-towel/cover_cn.png", "cover_en": "./weiding-towel/cover_en.png"}, {"folder": "warehouse-rack", "category": "shelf", "title_cn": "仓储货架目录册 LC SERIES", "title_en": "WAREHOUSE RACK LC SERIES", "pages": 26, "cover_cn": "./warehouse-rack/cover_cn.png", "cover_en": "./warehouse-rack/cover_en.png"}, {"folder": "greenline-shelf-benrun", "category": "shelf", "title_cn": "GREENLINE 货架目录册 BENRUN", "title_en": "GREENLINE SHELF CATALOGUE BENRUN", "pages": 50, "cover_cn": "./greenline-shelf-benrun/cover_cn.png", "cover_en": "./greenline-shelf-benrun/cover_en.png"}, {"folder": "cosmetic-shelf", "category": "shelf", "title_cn": "化妆品货架目录册", "title_en": "COSMETIC SHELF CATALOGUE", "pages": 44, "cover_cn": "./cosmetic-shelf/cover_cn.png", "cover_en": "./cosmetic-shelf/cover_en.png"}, {"folder": "display-qx", "category": "shelf", "title_cn": "展示架目录册 QX", "title_en": "DISPLAY CATALOG QX", "pages": 21, "cover_cn": "./display-qx/cover_cn.png", "cover_en": "./display-qx/cover_en.png"}, {"folder": "tumei-banner", "category": "shelf", "title_cn": "灯布车贴彩页 TUMEI", "title_en": "TUMEI BANNER & VEHICLE WRAP", "pages": 48, "cover_cn": "./tumei-banner/cover_cn.png", "cover_en": "./tumei-banner/cover_en.png"}, {"folder": "landscape-rdf", "category": "decor", "title_cn": "景观花艺图册 RDF", "title_en": "LANDSCAPE & FLORAL CATALOG RDF", "pages": 55, "cover_cn": "./landscape-rdf/cover_cn.png", "cover_en": "./landscape-rdf/cover_en.png"}, {"folder": "wall-panel-zejing", "category": "decor", "title_cn": "GREENLINE 3D 墙板目录册 泽景", "title_en": "GREENLINE 3D WALL PANEL CATALOG ZEJING", "pages": 26, "cover_cn": "./wall-panel-zejing/cover_cn.png", "cover_en": "./wall-panel-zejing/cover_en.png"}, {"folder": "table-chair", "category": "furniture", "title_cn": "餐桌椅目录册", "title_en": "TABLE & CHAIR CATALOGUE", "pages": 70, "cover_cn": "./table-chair/cover_cn.png", "cover_en": "./table-chair/cover_en.png"}, {"folder": "new-docx", "category": "decor", "title_cn": "综合文档图册", "title_en": "GENERAL DOCUMENT CATALOG", "pages": 140, "cover_cn": "./new-docx/cover_cn.png", "cover_en": "./new-docx/cover_en.png"}, {"folder": "bbq-grill", "category": "outdoor", "title_cn": "GREENLINE BBQ 户外厨房目录册", "title_en": "GREENLINE BBQ & OUTDOOR KITCHEN CATALOG", "pages": 38, "cover_cn": "./bbq-grill/cover_cn.png", "cover_en": "./bbq-grill/cover_en.png"}, {"folder": "aus-switch", "category": "hardware", "title_cn": "澳标开关目录册", "title_en": "AUSTRALIAN STANDARD SWITCH", "pages": 12, "cover_cn": "./aus-switch/cover_cn.png", "cover_en": "./aus-switch/cover_en.png"}];
+var lang = (new URLSearchParams(location.search).get('lang') || 'cn');
+var activeCat = new URLSearchParams(location.search).get('cat') || '';
+var catName = {}; CATS.forEach(function(c){catName[c.id]={cn:c.cn,en:c.en};});
+function dc(o){return o&&o[lang]!==undefined?o[lang]:o;}
+function renderCats(){
+  var html='<div class="cat-item'+(activeCat===''?' active':'')+'" data-cat=""><span class="dot"></span>'+(lang==='cn'?'全部':'All')+'</div>';
+  CATS.forEach(function(c){
+    html+='<div class="cat-item'+(activeCat===c.id?' active':'')+'" data-cat="'+c.id+'"><span class="dot"></span>'+(lang==='cn'?c.cn:c.en)+'</div>';
+  });
+  document.getElementById('catList').innerHTML=html;
+  document.querySelectorAll('.cat-item').forEach(function(it){
+    it.addEventListener('click',function(){
+      activeCat=this.getAttribute('data-cat')||'';
+      var q=[]; if(activeCat)q.push('cat='+encodeURIComponent(activeCat)); q.push('lang='+lang);
+      history.replaceState(null,'','?'+q.join('&'));
+      renderCats(); renderGrid();
+    });
+  });
+}
+function renderGrid(){
+  var list=CATALOGS.filter(function(c){return !activeCat||c.category===activeCat;});
+  var grid=document.getElementById('grid');
+  if(!list.length){grid.innerHTML='';document.getElementById('empty').style.display='';return;}
+  document.getElementById('empty').style.display='none';
+  grid.innerHTML=list.map(function(c){
+    var cov='./'+c.folder+'/cover_'+(lang==='cn'?'cn':'en')+'.png';
+    var tag=catName[c.category]?dc(catName[c.category]):c.category;
+    var title=lang==='cn'?c.title_cn:c.title_en;
+    return '<a class="cat-card" href="./'+c.folder+'/index.html">'+
+      '<div class="cat-card-img"><img src="'+cov+'" alt="'+title+'" loading="lazy"></div>'+
+      '<div class="cat-card-body"><span class="cat-card-tag">'+tag+'</span>'+
+      '<div class="cat-card-title">'+title+'</div>'+
+      '<div class="cat-card-meta"><b>'+(c.pages||0)+'</b> 页 · '+(lang==='cn'?'查看目录册':'View')+'</div></div></a>';
+  }).join('');
+  var h=document.getElementById('mainHeading'), s=document.getElementById('mainSub');
+  if(activeCat&&catName[activeCat]){h.textContent=dc(catName[activeCat]);s.textContent=catName[activeCat].en+' · '+list.length+(lang==='cn'?' 本':' catalogues');}
+  else{h.textContent=lang==='cn'?'全部目录册':'All Catalogues';s.textContent=(lang==='cn'?CATALOGS.length+' 本目录册':'All '+CATALOGS.length+' catalogues');}
+}
+function setLang(l){
+  lang=l;
+  document.getElementById('langBtn').textContent=l==='cn'?'EN':'中';
+  var q=[]; if(activeCat)q.push('cat='+encodeURIComponent(activeCat)); q.push('lang='+lang);
+  history.replaceState(null,'','?'+q.join('&'));
+  document.getElementById('catTitle').textContent=l==='cn'?'分类 Categories':'Categories';
+  renderCats(); renderGrid();
+}
+document.getElementById('langBtn').addEventListener('click',function(){setLang(lang==='cn'?'en':'cn');});
+document.getElementById('langBtn').textContent=lang==='cn'?'EN':'中';
+renderCats(); renderGrid();
+</script>
+</body>
+</html>
