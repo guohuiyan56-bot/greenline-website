@@ -88,7 +88,17 @@
   const TOTAL_PAGES = F.total, IMAGES = F.images, THUMBS = F.thumbs, TOC = F.toc || [];
   let flip=null, currentPage=0, lightboxZoom=1, lightboxPage=0;
   const $=(id)=>document.getElementById(id);
-  function preload(){ return Promise.all(IMAGES.concat(THUMBS).map(s=>new Promise(res=>{const i=new Image();i.onload=i.onerror=()=>res();i.src=s;})); }
+  function preload(){
+    var list = IMAGES.concat(THUMBS);
+    return Promise.all(list.map(function(s){
+      return new Promise(function(res){
+        var img = new Image();
+        img.onload = function(){ res(); };
+        img.onerror = function(){ res(); };
+        img.src = s;
+      });
+    }));
+  }
   function initFlip(){
     if(flip) return;
     flip=new St.PageFlip($('book'),{size:'stretch',width:580,height:820,minWidth:290,maxWidth:580,minHeight:410,maxHeight:820,drawShadow:true,flippingTime:900,usePortrait:true,autoSize:true,maxShadowOpacity:0.6,showCover:false,mobileScrollSupport:false,swipeDistance:30,clickEventForward:true,showPageCorners:true});
