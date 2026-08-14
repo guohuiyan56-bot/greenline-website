@@ -1,0 +1,32 @@
+[
+ {
+  "flip": 0,
+  "where": "front",
+  "file": "pages/full/p000.jpg"
+ },
+ {
+  "flip": 1,
+  "where": "front",
+  "file": "pages/full/p001.jpg"
+ },
+ {
+  "flip": 2,
+  "where": "front",
+  "file": "pages/full/p002.jpg"
+ },
+ {
+  "flip": 21,
+  "where": "back",
+  "file": "pages/full/p021.jpg"
+ },
+ {
+  "flip": 22,
+  "where": "back",
+  "file": "pages/full/p022.jpg"
+ },
+ {
+  "flip": 23,
+  "where": "back",
+  "file": "pages/full/p023.jpg"
+ }
+]
