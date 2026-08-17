@@ -15,29 +15,18 @@ window.FLIP = {
   "pages/split/p011.jpg"
  ],
  "thumbs": [
-  "pages/thumbs/tp000.jpg",
-  "pages/thumbs/tp001.jpg",
-  "pages/thumbs/tp002.jpg",
-  "pages/thumbs/tp003.jpg",
-  "pages/thumbs/tp004.jpg",
-  "pages/thumbs/tp005.jpg",
-  "pages/thumbs/tp006.jpg",
-  "pages/thumbs/tp007.jpg",
-  "pages/thumbs/tp008.jpg",
-  "pages/thumbs/tp009.jpg",
-  "pages/thumbs/tp010.jpg",
-  "pages/thumbs/tp011.jpg"
+  "pages/thumbs/t000.jpg",
+  "pages/thumbs/t001.jpg",
+  "pages/thumbs/t002.jpg",
+  "pages/thumbs/t003.jpg",
+  "pages/thumbs/t004.jpg",
+  "pages/thumbs/t005.jpg",
+  "pages/thumbs/t006.jpg",
+  "pages/thumbs/t007.jpg",
+  "pages/thumbs/t008.jpg",
+  "pages/thumbs/t009.jpg",
+  "pages/thumbs/t010.jpg",
+  "pages/thumbs/t011.jpg"
  ],
- "toc": [],
- "meta": {
-  "id": "gl-ft-mesh-chair",
-  "cn": "GL-FT 网椅目录册",
-  "en": "GL-FT MESH CHAIR CATALOG",
-  "site": "furniture",
-  "brand": "GREENLINE",
-  "source": "F:\\目录册\\(3)GL-FT-CHAIR CATALOG网椅(1).pdf",
-  "pdf_pages": 6,
-  "flip_pages": 12,
-  "dropped": []
- }
+ "toc": []
 };
