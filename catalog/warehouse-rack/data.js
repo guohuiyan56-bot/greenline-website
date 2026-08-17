@@ -1,5 +1,5 @@
 window.FLIP = {
- "total": 26,
+ "total": 27,
  "images": [
   "pages/full/p000.jpg",
   "pages/full/p001.jpg",
@@ -26,51 +26,37 @@ window.FLIP = {
   "pages/full/p022.jpg",
   "pages/full/p023.jpg",
   "pages/full/p024.jpg",
-  "pages/full/p025.jpg"
+  "pages/full/p025.jpg",
+  "pages/full/p026.jpg"
  ],
  "thumbs": [
-  "pages/thumbs/tp000.jpg",
-  "pages/thumbs/tp001.jpg",
-  "pages/thumbs/tp002.jpg",
-  "pages/thumbs/tp003.jpg",
-  "pages/thumbs/tp004.jpg",
-  "pages/thumbs/tp005.jpg",
-  "pages/thumbs/tp006.jpg",
-  "pages/thumbs/tp007.jpg",
-  "pages/thumbs/tp008.jpg",
-  "pages/thumbs/tp009.jpg",
-  "pages/thumbs/tp010.jpg",
-  "pages/thumbs/tp011.jpg",
-  "pages/thumbs/tp012.jpg",
-  "pages/thumbs/tp013.jpg",
-  "pages/thumbs/tp014.jpg",
-  "pages/thumbs/tp015.jpg",
-  "pages/thumbs/tp016.jpg",
-  "pages/thumbs/tp017.jpg",
-  "pages/thumbs/tp018.jpg",
-  "pages/thumbs/tp019.jpg",
-  "pages/thumbs/tp020.jpg",
-  "pages/thumbs/tp021.jpg",
-  "pages/thumbs/tp022.jpg",
-  "pages/thumbs/tp023.jpg",
-  "pages/thumbs/tp024.jpg",
-  "pages/thumbs/tp025.jpg"
+  "pages/thumbs/t000.jpg",
+  "pages/thumbs/t001.jpg",
+  "pages/thumbs/t002.jpg",
+  "pages/thumbs/t003.jpg",
+  "pages/thumbs/t004.jpg",
+  "pages/thumbs/t005.jpg",
+  "pages/thumbs/t006.jpg",
+  "pages/thumbs/t007.jpg",
+  "pages/thumbs/t008.jpg",
+  "pages/thumbs/t009.jpg",
+  "pages/thumbs/t010.jpg",
+  "pages/thumbs/t011.jpg",
+  "pages/thumbs/t012.jpg",
+  "pages/thumbs/t013.jpg",
+  "pages/thumbs/t014.jpg",
+  "pages/thumbs/t015.jpg",
+  "pages/thumbs/t016.jpg",
+  "pages/thumbs/t017.jpg",
+  "pages/thumbs/t018.jpg",
+  "pages/thumbs/t019.jpg",
+  "pages/thumbs/t020.jpg",
+  "pages/thumbs/t021.jpg",
+  "pages/thumbs/t022.jpg",
+  "pages/thumbs/t023.jpg",
+  "pages/thumbs/t024.jpg",
+  "pages/thumbs/t025.jpg",
+  "pages/thumbs/t026.jpg"
  ],
- "toc": [],
- "meta": {
-  "id": "warehouse-rack",
-  "cn": "仓储货架目录册 LC SERIES",
-  "en": "WAREHOUSE RACK LC SERIES",
-  "site": "furniture",
-  "brand": "GREENLINE",
-  "source": "D:\\wx\\xwechat_files\\wxid_ow0iikuvuwq822_ddc4\\msg\\file\\2026-07\\GREENLINE Warehouse Rack 2.0 LC SERIES.pdf",
-  "pdf_pages": 27,
-  "flip_pages": 26,
-  "dropped": [
-   {
-    "pdf_page": 27,
-    "reason": "联系信息页(含4类联系方式)"
-   }
-  ]
- }
+ "toc": []
 };
