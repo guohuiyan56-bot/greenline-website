@@ -38,8 +38,12 @@ window.CATALOG_CATS = {
   "hardware": {
     "cn": "五金电气",
     "en": "Hardware & Electrical"
+  },
+  "machinery": {
+    "cn": "工程机械",
+    "en": "Machinery"
   }
-};
+];
 window.CATALOGS = [
   {
     "folder": "bathroom-products",
@@ -64,7 +68,7 @@ window.CATALOGS = [
     "category": "bathroom",
     "title_cn": "特卫砖家 功能浴室柜图册 2026",
     "title_en": "TEWEI BATHROOM CABINET CATALOG 2026",
-    "pages": 126,
+    "pages": 92,
     "cover_cn": "./tewei-bathroom-cabinet/cover_cn.png",
     "cover_en": "./tewei-bathroom-cabinet/cover_en.png"
   },
@@ -292,5 +296,23 @@ window.CATALOGS = [
     "pages": 12,
     "cover_cn": "./aus-switch/cover_cn.png",
     "cover_en": "./aus-switch/cover_en.png"
+  },
+  {
+    "folder": "machinery-catalog",
+    "category": "machinery",
+    "title_cn": "工程机械产品目录册",
+    "title_en": "MACHINERY PRODUCT CATALOGUE",
+    "pages": 20,
+    "cover_cn": "./machinery-catalog/cover_cn.png",
+    "cover_en": "./machinery-catalog/cover_en.png"
+  },
+  {
+    "folder": "greenline-machinery",
+    "category": "machinery",
+    "title_cn": "GREENLINE 工程机械产品目录册",
+    "title_en": "GREENLINE MACHINERY CATALOGUE",
+    "pages": 14,
+    "cover_cn": "./greenline-machinery/cover_cn.png",
+    "cover_en": "./greenline-machinery/cover_en.png"
   }
 ];
