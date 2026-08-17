@@ -257,7 +257,7 @@ window.CATALOGS = [
     "category": "decor",
     "title_cn": "GREENLINE 3D 墙板目录册 泽景",
     "title_en": "GREENLINE 3D WALL PANEL CATALOG ZEJING",
-    "pages": 26,
+    "pages": 27,
     "cover_cn": "./wall-panel-zejing/cover_cn.png",
     "cover_en": "./wall-panel-zejing/cover_en.png"
   },
