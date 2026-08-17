@@ -113,7 +113,7 @@ window.CATALOGS = [
     "category": "chair",
     "title_cn": "GL-AD 办公椅目录册 2025",
     "title_en": "GL-AD OFFICE CHAIR CATALOGUE 2025",
-    "pages": 150,
+    "pages": 159,
     "cover_cn": "./gl-ad-office-chair/cover_cn.png",
     "cover_en": "./gl-ad-office-chair/cover_en.png"
   },
@@ -149,7 +149,7 @@ window.CATALOGS = [
     "category": "chair",
     "title_cn": "GL-AD 皮椅目录册 2025",
     "title_en": "GL-AD LEATHER CHAIR CATALOG 2025",
-    "pages": 2,
+    "pages": 1,
     "cover_cn": "./gl-ad-leather-chair/cover_cn.png",
     "cover_en": "./gl-ad-leather-chair/cover_en.png"
   },
@@ -203,7 +203,7 @@ window.CATALOGS = [
     "category": "shelf",
     "title_cn": "仓储货架目录册 LC SERIES",
     "title_en": "WAREHOUSE RACK LC SERIES",
-    "pages": 26,
+    "pages": 27,
     "cover_cn": "./warehouse-rack/cover_cn.png",
     "cover_en": "./warehouse-rack/cover_en.png"
   },
@@ -230,7 +230,7 @@ window.CATALOGS = [
     "category": "shelf",
     "title_cn": "展示架目录册 QX",
     "title_en": "DISPLAY CATALOG QX",
-    "pages": 21,
+    "pages": 41,
     "cover_cn": "./display-qx/cover_cn.png",
     "cover_en": "./display-qx/cover_en.png"
   },
@@ -284,7 +284,7 @@ window.CATALOGS = [
     "category": "outdoor",
     "title_cn": "GREENLINE BBQ 户外厨房目录册",
     "title_en": "GREENLINE BBQ & OUTDOOR KITCHEN CATALOG",
-    "pages": 38,
+    "pages": 34,
     "cover_cn": "./bbq-grill/cover_cn.png",
     "cover_en": "./bbq-grill/cover_en.png"
   },
@@ -314,5 +314,95 @@ window.CATALOGS = [
     "pages": 14,
     "cover_cn": "./greenline-machinery/cover_cn.png",
     "cover_en": "./greenline-machinery/cover_en.png"
+  },
+  {
+    "folder": "olive",
+    "category": "hotel",
+    "title_cn": "环保纸浆餐具目录册",
+    "title_en": "GREEN OLIVE ECO PACKAGING CATALOG",
+    "pages": 1,
+    "cover_cn": "./olive/cover_cn.png",
+    "cover_en": "./olive/cover_en.png"
+  },
+  {
+    "folder": "christmas",
+    "category": "decor",
+    "title_cn": "圣诞装饰品目录册",
+    "title_en": "CHRISTMAS ITEMS CATALOG",
+    "pages": 9,
+    "cover_cn": "./christmas/cover_cn.png",
+    "cover_en": "./christmas/cover_en.png"
+  },
+  {
+    "folder": "kitchen",
+    "category": "furniture",
+    "title_cn": "GREENLINE 厨柜目录册",
+    "title_en": "GREENLINE KITCHEN CABINET CATALOG",
+    "pages": 73,
+    "cover_cn": "./kitchen/cover_cn.png",
+    "cover_en": "./kitchen/cover_en.png"
+  },
+  {
+    "folder": "cabinet",
+    "category": "furniture",
+    "title_cn": "橱柜浴室柜目录册",
+    "title_en": "KITCHEN & BATHROOM CABINET CATALOG",
+    "pages": 94,
+    "cover_cn": "./cabinet/cover_cn.png",
+    "cover_en": "./cabinet/cover_en.png"
+  },
+  {
+    "folder": "tv",
+    "category": "furniture",
+    "title_cn": "电视柜酒柜背景柜目录册",
+    "title_en": "TV CABINET & WINE CABINET CATALOG",
+    "pages": 57,
+    "cover_cn": "./tv/cover_cn.png",
+    "cover_en": "./tv/cover_en.png"
+  },
+  {
+    "folder": "lighting",
+    "category": "hardware",
+    "title_cn": "灯具目录册 MSA SERIES",
+    "title_en": "LIGHTING CATALOGUE MSA SERIES",
+    "pages": 31,
+    "cover_cn": "./lighting/cover_cn.png",
+    "cover_en": "./lighting/cover_en.png"
+  },
+  {
+    "folder": "louver",
+    "category": "door",
+    "title_cn": "铝合金百叶窗目录册",
+    "title_en": "ALUMINIUM LOUVER WINDOW FRAME CATALOG",
+    "pages": 12,
+    "cover_cn": "./louver/cover_cn.png",
+    "cover_en": "./louver/cover_en.png"
+  },
+  {
+    "folder": "shower",
+    "category": "bathroom",
+    "title_cn": "GREENLINE 花洒目录册",
+    "title_en": "GREENLINE SHOWER CATALOG",
+    "pages": 174,
+    "cover_cn": "./shower/cover_cn.png",
+    "cover_en": "./shower/cover_en.png"
+  },
+  {
+    "folder": "ys-series",
+    "category": "bathroom",
+    "title_cn": "YS SERIES 龙头目录册",
+    "title_en": "YS SERIES FAUCET CATALOG",
+    "pages": 22,
+    "cover_cn": "./ys-series/cover_cn.png",
+    "cover_en": "./ys-series/cover_en.png"
+  },
+  {
+    "folder": "geyas-sanitary",
+    "category": "bathroom",
+    "title_cn": "格雅斯卫浴产品目录册",
+    "title_en": "GEYAS SANITARYWARE CATALOG",
+    "pages": 79,
+    "cover_cn": "./geyas-sanitary/cover_cn.png",
+    "cover_en": "./geyas-sanitary/cover_en.png"
   }
 ];
