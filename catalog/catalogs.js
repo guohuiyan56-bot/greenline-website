@@ -390,8 +390,8 @@ window.CATALOGS = [
   {
     "folder": "ys-series",
     "category": "bathroom",
-    "title_cn": "YS SERIES 龙头目录册",
-    "title_en": "YS SERIES FAUCET CATALOG",
+    "title_cn": "龙头目录册",
+    "title_en": "FAUCET CATALOG",
     "pages": 22,
     "cover_cn": "./ys-series/cover_cn.png",
     "cover_en": "./ys-series/cover_en.png"
