@@ -89,7 +89,7 @@ function renderGrid(){
   if(!list.length){grid.innerHTML='';document.getElementById('empty').style.display='';return;}
   document.getElementById('empty').style.display='none';
   grid.innerHTML=list.map(function(c){
-    var cov='./'+c.folder+'/cover_'+(lang==='cn'?'cn':'en')+'.png';
+    var cov='./'+c.folder+'/cover_'+(lang==='cn'?'cn':'en')+'.png?_='+Date.now();
     var tag=catName[c.category]?dc(catName[c.category]):c.category;
     var title=lang==='cn'?c.title_cn:c.title_en;
     return '<a class="cat-card" href="./'+c.folder+'/index.html">'+
