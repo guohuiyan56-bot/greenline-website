@@ -111,8 +111,8 @@ window.CATALOGS = [
   {
     "folder": "gl-ad-office-chair",
     "category": "chair",
-    "title_cn": "GL-AD 办公椅目录册 2025",
-    "title_en": "GL-AD OFFICE CHAIR CATALOGUE 2025",
+    "title_cn": "办公椅目录册 2025",
+    "title_en": "OFFICE CHAIR CATALOGUE 2025",
     "pages": 159,
     "cover_cn": "./gl-ad-office-chair/cover_cn.png",
     "cover_en": "./gl-ad-office-chair/cover_en.png"
@@ -120,8 +120,8 @@ window.CATALOGS = [
   {
     "folder": "gl-ft-gaming-chair",
     "category": "chair",
-    "title_cn": "GL-FT 电竞椅目录册",
-    "title_en": "GL-FT GAMING CHAIR CATALOG",
+    "title_cn": "电竞椅目录册",
+    "title_en": "GAMING CHAIR CATALOG",
     "pages": 8,
     "cover_cn": "./gl-ft-gaming-chair/cover_cn.png",
     "cover_en": "./gl-ft-gaming-chair/cover_en.png"
@@ -129,8 +129,8 @@ window.CATALOGS = [
   {
     "folder": "gl-ft-office-chair",
     "category": "chair",
-    "title_cn": "GL-FT 办公椅目录册",
-    "title_en": "GL-FT OFFICE CHAIR CATALOG",
+    "title_cn": "办公椅目录册",
+    "title_en": "OFFICE CHAIR CATALOG",
     "pages": 4,
     "cover_cn": "./gl-ft-office-chair/cover_cn.png",
     "cover_en": "./gl-ft-office-chair/cover_en.png"
@@ -138,8 +138,8 @@ window.CATALOGS = [
   {
     "folder": "gl-ft-mesh-chair",
     "category": "chair",
-    "title_cn": "GL-FT 网椅目录册",
-    "title_en": "GL-FT MESH CHAIR CATALOG",
+    "title_cn": "网椅目录册",
+    "title_en": "MESH CHAIR CATALOG",
     "pages": 12,
     "cover_cn": "./gl-ft-mesh-chair/cover_cn.png",
     "cover_en": "./gl-ft-mesh-chair/cover_en.png"
@@ -147,8 +147,8 @@ window.CATALOGS = [
   {
     "folder": "gl-ad-leather-chair",
     "category": "chair",
-    "title_cn": "GL-AD 皮椅目录册 2025",
-    "title_en": "GL-AD LEATHER CHAIR CATALOG 2025",
+    "title_cn": "皮椅目录册 2025",
+    "title_en": "LEATHER CHAIR CATALOG 2025",
     "pages": 1,
     "cover_cn": "./gl-ad-leather-chair/cover_cn.png",
     "cover_en": "./gl-ad-leather-chair/cover_en.png"
@@ -201,8 +201,8 @@ window.CATALOGS = [
   {
     "folder": "warehouse-rack",
     "category": "shelf",
-    "title_cn": "仓储货架目录册 LC SERIES",
-    "title_en": "WAREHOUSE RACK LC SERIES",
+    "title_cn": "仓储货架目录册",
+    "title_en": "WAREHOUSE RACK CATALOG",
     "pages": 27,
     "cover_cn": "./warehouse-rack/cover_cn.png",
     "cover_en": "./warehouse-rack/cover_en.png"
@@ -228,8 +228,8 @@ window.CATALOGS = [
   {
     "folder": "display-qx",
     "category": "shelf",
-    "title_cn": "展示架目录册 QX",
-    "title_en": "DISPLAY CATALOG QX",
+    "title_cn": "展示架目录册",
+    "title_en": "DISPLAY CATALOG",
     "pages": 41,
     "cover_cn": "./display-qx/cover_cn.png",
     "cover_en": "./display-qx/cover_en.png"
@@ -246,8 +246,8 @@ window.CATALOGS = [
   {
     "folder": "landscape-rdf",
     "category": "decor",
-    "title_cn": "景观花艺图册 RDF",
-    "title_en": "LANDSCAPE & FLORAL CATALOG RDF",
+    "title_cn": "景观花艺图册",
+    "title_en": "LANDSCAPE & FLORAL CATALOG",
     "pages": 55,
     "cover_cn": "./landscape-rdf/cover_cn.png",
     "cover_en": "./landscape-rdf/cover_en.png"
@@ -255,8 +255,8 @@ window.CATALOGS = [
   {
     "folder": "wall-panel-zejing",
     "category": "decor",
-    "title_cn": "GREENLINE 3D 墙板目录册 泽景",
-    "title_en": "GREENLINE 3D WALL PANEL CATALOG ZEJING",
+    "title_cn": "GREENLINE 3D 墙板目录册",
+    "title_en": "GREENLINE 3D WALL PANEL CATALOG",
     "pages": 27,
     "cover_cn": "./wall-panel-zejing/cover_cn.png",
     "cover_en": "./wall-panel-zejing/cover_en.png"
@@ -363,8 +363,8 @@ window.CATALOGS = [
   {
     "folder": "lighting",
     "category": "hardware",
-    "title_cn": "灯具目录册 MSA SERIES",
-    "title_en": "LIGHTING CATALOGUE MSA SERIES",
+    "title_cn": "灯具目录册",
+    "title_en": "LIGHTING CATALOGUE",
     "pages": 31,
     "cover_cn": "./lighting/cover_cn.png",
     "cover_en": "./lighting/cover_en.png"
