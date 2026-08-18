@@ -43,7 +43,7 @@ window.CATALOG_CATS = {
     "cn": "工程机械",
     "en": "Machinery"
   }
-];
+};
 window.CATALOGS = [
   {
     "folder": "bathroom-products",
