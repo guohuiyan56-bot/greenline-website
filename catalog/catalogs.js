@@ -66,8 +66,8 @@ window.CATALOGS = [
   {
     "folder": "tewei-bathroom-cabinet",
     "category": "bathroom",
-    "title_cn": "特卫砖家 功能浴室柜图册 2026",
-    "title_en": "TEWEI BATHROOM CABINET CATALOG 2026",
+    "title_cn": "功能浴室柜图册 2026",
+    "title_en": "BATHROOM CABINET CATALOG 2026",
     "pages": 92,
     "cover_cn": "./tewei-bathroom-cabinet/cover_cn.png",
     "cover_en": "./tewei-bathroom-cabinet/cover_en.png"
@@ -84,8 +84,8 @@ window.CATALOGS = [
   {
     "folder": "furui-windows",
     "category": "door",
-    "title_cn": "富瑞斯门窗",
-    "title_en": "FURUISI DOORS & WINDOWS",
+    "title_cn": "门窗产品图册",
+    "title_en": "DOORS & WINDOWS CATALOGUE",
     "pages": 24,
     "cover_cn": "./furui-windows/cover_cn.png",
     "cover_en": "./furui-windows/cover_en.png"
@@ -93,8 +93,8 @@ window.CATALOGS = [
   {
     "folder": "junli-door",
     "category": "door",
-    "title_cn": "俊利门业电子画册 2026",
-    "title_en": "JUNLI DOOR CATALOGUE 2026",
+    "title_cn": "门业电子画册 2026",
+    "title_en": "DOOR CATALOGUE 2026",
     "pages": 94,
     "cover_cn": "./junli-door/cover_cn.png",
     "cover_en": "./junli-door/cover_en.png"
@@ -165,8 +165,8 @@ window.CATALOGS = [
   {
     "folder": "weiding-2022-hotel",
     "category": "hotel",
-    "title_cn": "威思丁 酒店其它系列画册 2022",
-    "title_en": "WEIDING HOTEL SERIES 2022",
+    "title_cn": "酒店其它系列画册 2022",
+    "title_en": "HOTEL SERIES 2022",
     "pages": 176,
     "cover_cn": "./weiding-2022-hotel/cover_cn.png",
     "cover_en": "./weiding-2022-hotel/cover_en.png"
@@ -174,8 +174,8 @@ window.CATALOGS = [
   {
     "folder": "weiding-disposable",
     "category": "hotel",
-    "title_cn": "威思丁 客房一次性用品",
-    "title_en": "WEIDING DISPOSABLE HOTEL SUPPLIES",
+    "title_cn": "客房一次性用品",
+    "title_en": "DISPOSABLE HOTEL SUPPLIES",
     "pages": 112,
     "cover_cn": "./weiding-disposable/cover_cn.png",
     "cover_en": "./weiding-disposable/cover_en.png"
@@ -183,8 +183,8 @@ window.CATALOGS = [
   {
     "folder": "weiding-consumable",
     "category": "hotel",
-    "title_cn": "威思丁 客房易耗品目录册",
-    "title_en": "WEIDING GUEST-ROOM CONSUMABLES",
+    "title_cn": "客房易耗品目录册",
+    "title_en": "GUEST-ROOM CONSUMABLES",
     "pages": 24,
     "cover_cn": "./weiding-consumable/cover_cn.png",
     "cover_en": "./weiding-consumable/cover_en.png"
@@ -192,8 +192,8 @@ window.CATALOGS = [
   {
     "folder": "weiding-towel",
     "category": "textile",
-    "title_cn": "威思丁 全棉餐巾目录册",
-    "title_en": "WEIDING COTTON TOWEL CATALOG",
+    "title_cn": "全棉餐巾目录册",
+    "title_en": "COTTON TOWEL CATALOG",
     "pages": 47,
     "cover_cn": "./weiding-towel/cover_cn.png",
     "cover_en": "./weiding-towel/cover_en.png"
@@ -237,8 +237,8 @@ window.CATALOGS = [
   {
     "folder": "tumei-banner",
     "category": "shelf",
-    "title_cn": "灯布车贴彩页 TUMEI",
-    "title_en": "TUMEI BANNER & VEHICLE WRAP",
+    "title_cn": "灯布车贴彩页",
+    "title_en": "BANNER & VEHICLE WRAP",
     "pages": 48,
     "cover_cn": "./tumei-banner/cover_cn.png",
     "cover_en": "./tumei-banner/cover_en.png"
@@ -399,8 +399,8 @@ window.CATALOGS = [
   {
     "folder": "geyas-sanitary",
     "category": "bathroom",
-    "title_cn": "格雅斯卫浴产品目录册",
-    "title_en": "GEYAS SANITARYWARE CATALOG",
+    "title_cn": "卫浴产品目录册",
+    "title_en": "SANITARYWARE CATALOG",
     "pages": 79,
     "cover_cn": "./geyas-sanitary/cover_cn.png",
     "cover_en": "./geyas-sanitary/cover_en.png"
