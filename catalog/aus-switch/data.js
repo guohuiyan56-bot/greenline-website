@@ -28,16 +28,5 @@ window.FLIP = {
   "pages/thumbs/tp010.jpg",
   "pages/thumbs/tp011.jpg"
  ],
- "toc": [],
- "meta": {
-  "id": "aus-switch",
-  "cn": "澳标开关目录册",
-  "en": "AUSTRALIAN STANDARD SWITCH",
-  "site": "furniture",
-  "brand": "GREENLINE",
-  "source": "D:\\wx\\xwechat_files\\wxid_ow0iikuvuwq822_ddc4\\msg\\file\\2026-07\\GREENLINE澳标开关.pdf",
-  "pdf_pages": 6,
-  "flip_pages": 12,
-  "dropped": []
- }
+ "toc": []
 };
