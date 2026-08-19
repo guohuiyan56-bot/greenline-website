@@ -92,16 +92,5 @@ window.FLIP = {
   "pages/thumbs/tp042.jpg",
   "pages/thumbs/tp043.jpg"
  ],
- "toc": [],
- "meta": {
-  "id": "cosmetic-shelf",
-  "cn": "化妆品货架目录册",
-  "en": "COSMETIC SHELF CATALOGUE",
-  "site": "furniture",
-  "brand": "GREENLINE",
-  "source": "D:\\wx\\xwechat_files\\wxid_ow0iikuvuwq822_ddc4\\msg\\file\\2026-07\\化妆品货架COSMETIC SHELF CATALOGUE.pdf",
-  "pdf_pages": 22,
-  "flip_pages": 44,
-  "dropped": []
- }
+ "toc": []
 };
