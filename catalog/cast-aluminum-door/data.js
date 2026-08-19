@@ -532,16 +532,5 @@ window.FLIP = {
   "pages/thumbs/tp262.jpg",
   "pages/thumbs/tp263.jpg"
  ],
- "toc": [],
- "meta": {
-  "id": "cast-aluminum-door",
-  "cn": "铸铝门雕刻图册 2026",
-  "en": "CAST ALUMINUM DOOR CATALOG 2026",
-  "site": "furniture",
-  "brand": "GREENLINE",
-  "source": "F:\\目录册\\2026-铸铝门雕刻图册.pdf",
-  "pdf_pages": 132,
-  "flip_pages": 264,
-  "dropped": []
- }
+ "toc": []
 };
