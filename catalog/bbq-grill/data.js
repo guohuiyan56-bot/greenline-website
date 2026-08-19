@@ -37,6 +37,10 @@ window.FLIP = {
   "pages/split/p037.jpg"
  ],
  "thumbs": [
+  "pages/thumbs/t000.jpg",
+  "pages/thumbs/t001.jpg",
+  "pages/thumbs/t002.jpg",
+  "pages/thumbs/t003.jpg",
   "pages/thumbs/t004.jpg",
   "pages/thumbs/t005.jpg",
   "pages/thumbs/t006.jpg",
@@ -66,11 +70,7 @@ window.FLIP = {
   "pages/thumbs/t030.jpg",
   "pages/thumbs/t031.jpg",
   "pages/thumbs/t032.jpg",
-  "pages/thumbs/t033.jpg",
-  "pages/thumbs/t034.jpg",
-  "pages/thumbs/t035.jpg",
-  "pages/thumbs/t036.jpg",
-  "pages/thumbs/t037.jpg"
+  "pages/thumbs/t033.jpg"
  ],
  "toc": []
 };
