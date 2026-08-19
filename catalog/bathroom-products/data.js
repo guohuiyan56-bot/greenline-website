@@ -160,16 +160,5 @@ window.FLIP = {
   "pages/thumbs/tp076.jpg",
   "pages/thumbs/tp077.jpg"
  ],
- "toc": [],
- "meta": {
-  "id": "bathroom-products",
-  "cn": "卫浴产品图册",
-  "en": "BATHROOM PRODUCTS CATALOGUE",
-  "site": "furniture",
-  "brand": "GREENLINE",
-  "source": "D:\\wx\\xwechat_files\\wxid_ow0iikuvuwq822_ddc4\\temp\\RWTemp\\2026-08\\90a1860de86549ec83420c6d7056bc7b\\卫浴产品图册(1)(5).pdf",
-  "pdf_pages": 39,
-  "flip_pages": 78,
-  "dropped": []
- }
+ "toc": []
 };
