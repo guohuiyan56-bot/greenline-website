@@ -77,6 +77,7 @@ window.FLIP = {
  ],
  "thumbs": [
   "pages/thumbs/t000.jpg",
+  "pages/thumbs/t001.jpg",
   "pages/thumbs/t002.jpg",
   "pages/thumbs/t003.jpg",
   "pages/thumbs/t004.jpg",
@@ -147,8 +148,7 @@ window.FLIP = {
   "pages/thumbs/t069.jpg",
   "pages/thumbs/t070.jpg",
   "pages/thumbs/t071.jpg",
-  "pages/thumbs/t072.jpg",
-  "pages/thumbs/t073.jpg"
+  "pages/thumbs/t072.jpg"
  ],
  "toc": []
 };
