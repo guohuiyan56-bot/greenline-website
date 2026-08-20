@@ -11,10 +11,6 @@ window.CATALOG_CATS = {
     "cn": "座椅",
     "en": "Chairs"
   },
-  "hotel": {
-    "cn": "酒店用品",
-    "en": "Hotel Supplies"
-  },
   "shelf": {
     "cn": "货架展示",
     "en": "Shelving & Display"
@@ -26,22 +22,6 @@ window.CATALOG_CATS = {
   "furniture": {
     "cn": "家具",
     "en": "Furniture"
-  },
-  "outdoor": {
-    "cn": "厨具户外",
-    "en": "Kitchen & Outdoor"
-  },
-  "textile": {
-    "cn": "家纺",
-    "en": "Home Textile"
-  },
-  "hardware": {
-    "cn": "五金电气",
-    "en": "Hardware & Electrical"
-  },
-  "machinery": {
-    "cn": "工程机械",
-    "en": "Machinery"
   }
 };
 window.CATALOGS = [
@@ -154,51 +134,6 @@ window.CATALOGS = [
     "cover_en": "./gl-ad-leather-chair/cover_en.png"
   },
   {
-    "folder": "hotel-textile",
-    "category": "hotel",
-    "title_cn": "酒店纺织品目录册 2025",
-    "title_en": "HOTEL TEXTILE CATALOGUE 2025",
-    "pages": 44,
-    "cover_cn": "./hotel-textile/cover_cn.png",
-    "cover_en": "./hotel-textile/cover_en.png"
-  },
-  {
-    "folder": "weiding-2022-hotel",
-    "category": "hotel",
-    "title_cn": "酒店其它系列画册 2022",
-    "title_en": "HOTEL SERIES 2022",
-    "pages": 176,
-    "cover_cn": "./weiding-2022-hotel/cover_cn.png",
-    "cover_en": "./weiding-2022-hotel/cover_en.png"
-  },
-  {
-    "folder": "weiding-disposable",
-    "category": "hotel",
-    "title_cn": "客房一次性用品",
-    "title_en": "DISPOSABLE HOTEL SUPPLIES",
-    "pages": 112,
-    "cover_cn": "./weiding-disposable/cover_cn.png",
-    "cover_en": "./weiding-disposable/cover_en.png"
-  },
-  {
-    "folder": "weiding-consumable",
-    "category": "hotel",
-    "title_cn": "客房易耗品目录册",
-    "title_en": "GUEST-ROOM CONSUMABLES",
-    "pages": 24,
-    "cover_cn": "./weiding-consumable/cover_cn.png",
-    "cover_en": "./weiding-consumable/cover_en.png"
-  },
-  {
-    "folder": "weiding-towel",
-    "category": "textile",
-    "title_cn": "全棉餐巾目录册",
-    "title_en": "COTTON TOWEL CATALOG",
-    "pages": 47,
-    "cover_cn": "./weiding-towel/cover_cn.png",
-    "cover_en": "./weiding-towel/cover_en.png"
-  },
-  {
     "folder": "warehouse-rack",
     "category": "shelf",
     "title_cn": "仓储货架目录册",
@@ -244,15 +179,6 @@ window.CATALOGS = [
     "cover_en": "./tumei-banner/cover_en.png"
   },
   {
-    "folder": "landscape-rdf",
-    "category": "decor",
-    "title_cn": "景观花艺图册",
-    "title_en": "LANDSCAPE & FLORAL CATALOG",
-    "pages": 55,
-    "cover_cn": "./landscape-rdf/cover_cn.png",
-    "cover_en": "./landscape-rdf/cover_en.png"
-  },
-  {
     "folder": "wall-panel-zejing",
     "category": "decor",
     "title_cn": "GREENLINE 3D 墙板目录册",
@@ -269,69 +195,6 @@ window.CATALOGS = [
     "pages": 70,
     "cover_cn": "./table-chair/cover_cn.png",
     "cover_en": "./table-chair/cover_en.png"
-  },
-  {
-    "folder": "new-docx",
-    "category": "decor",
-    "title_cn": "综合文档图册",
-    "title_en": "GENERAL DOCUMENT CATALOG",
-    "pages": 140,
-    "cover_cn": "./new-docx/cover_cn.png",
-    "cover_en": "./new-docx/cover_en.png"
-  },
-  {
-    "folder": "bbq-grill",
-    "category": "outdoor",
-    "title_cn": "GREENLINE BBQ 户外厨房目录册",
-    "title_en": "GREENLINE BBQ & OUTDOOR KITCHEN CATALOG",
-    "pages": 34,
-    "cover_cn": "./bbq-grill/cover_cn.png",
-    "cover_en": "./bbq-grill/cover_en.png"
-  },
-  {
-    "folder": "aus-switch",
-    "category": "hardware",
-    "title_cn": "澳标开关目录册",
-    "title_en": "AUSTRALIAN STANDARD SWITCH",
-    "pages": 12,
-    "cover_cn": "./aus-switch/cover_cn.png",
-    "cover_en": "./aus-switch/cover_en.png"
-  },
-  {
-    "folder": "machinery-catalog",
-    "category": "machinery",
-    "title_cn": "工程机械产品目录册",
-    "title_en": "MACHINERY PRODUCT CATALOGUE",
-    "pages": 20,
-    "cover_cn": "./machinery-catalog/cover_cn.png",
-    "cover_en": "./machinery-catalog/cover_en.png"
-  },
-  {
-    "folder": "greenline-machinery",
-    "category": "machinery",
-    "title_cn": "GREENLINE 工程机械产品目录册",
-    "title_en": "GREENLINE MACHINERY CATALOGUE",
-    "pages": 14,
-    "cover_cn": "./greenline-machinery/cover_cn.png",
-    "cover_en": "./greenline-machinery/cover_en.png"
-  },
-  {
-    "folder": "olive",
-    "category": "hotel",
-    "title_cn": "环保纸浆餐具目录册",
-    "title_en": "GREEN OLIVE ECO PACKAGING CATALOG",
-    "pages": 1,
-    "cover_cn": "./olive/cover_cn.png",
-    "cover_en": "./olive/cover_en.png"
-  },
-  {
-    "folder": "christmas",
-    "category": "decor",
-    "title_cn": "圣诞装饰品目录册",
-    "title_en": "CHRISTMAS ITEMS CATALOG",
-    "pages": 9,
-    "cover_cn": "./christmas/cover_cn.png",
-    "cover_en": "./christmas/cover_en.png"
   },
   {
     "folder": "kitchen",
@@ -359,15 +222,6 @@ window.CATALOGS = [
     "pages": 57,
     "cover_cn": "./tv/cover_cn.png",
     "cover_en": "./tv/cover_en.png"
-  },
-  {
-    "folder": "lighting",
-    "category": "hardware",
-    "title_cn": "灯具目录册",
-    "title_en": "LIGHTING CATALOGUE",
-    "pages": 31,
-    "cover_cn": "./lighting/cover_cn.png",
-    "cover_en": "./lighting/cover_en.png"
   },
   {
     "folder": "louver",
