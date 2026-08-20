@@ -338,5 +338,14 @@ window.CATALOGS = [
     "pages": 79,
     "cover_cn": "./geyas-sanitary/cover_cn.png",
     "cover_en": "./geyas-sanitary/cover_en.png"
+  },
+  {
+    "folder": "olive",
+    "category": "hotel",
+    "title_cn": "环保纸浆餐具目录册",
+    "title_en": "GREEN OLIVE ECO PACKAGING CATALOG",
+    "pages": 1,
+    "cover_cn": "./olive/cover_cn.png",
+    "cover_en": "./olive/cover_en.png"
   }
 ];
