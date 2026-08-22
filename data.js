@@ -74,11 +74,10 @@ var GT_DATA = {
 
   /* ---- 产品列表 (100) ---- */
   products: [
-    /* ===== 家具 (4) ===== */
+    /* ===== 家具 (3) ===== */
     { id:"p01", category:"furniture", name_cn:"民用家具",       name_en:"Residential Furniture",   desc_cn:"实木、板式、软体家具，支持尺寸与款式定制",                   desc_en:"Solid wood, panel & upholstered furniture, custom size & style",     image:"images/p01.jpg" },
     { id:"p07", category:"furniture", name_cn:"办公家具",       name_en:"Office Furniture",        desc_cn:"办公桌椅、文件柜、会议桌、隔断工位",                         desc_en:"Office desks, chairs, cabinets, conference tables, partitions",     image:"images/p07.jpg" },
     { id:"p14", category:"furniture", name_cn:"藤编户外椅",     name_en:"Rattan Outdoor Chair",    desc_cn:"手工藤编户外椅，防水防UV处理",                               desc_en:"Handmade rattan outdoor chairs, waterproof & UV-resistant",         image:"images/p14.jpg" },
-    { id:"p90", category:"furniture", name_cn:"家具OEM定制",   name_en:"Furniture OEM",           desc_cn:"来图定制家具，材质/颜色/尺寸全定制",                       desc_en:"Custom furniture by drawings, full material/color/size options",   image:"images/p90.jpg" },
     /* ===== 卫浴 (2) ===== */
     { id:"p08", category:"bathroom", name_cn:"智能马桶",       name_en:"Smart Toilet",            desc_cn:"全自动智能马桶，加热、冲洗、烘干一体",                       desc_en:"Full-auto smart toilet with heated seat, wash & dry functions",     image:"images/p08.jpg" },
     { id:"p12", category:"bathroom", name_cn:"浴室五金挂件",   name_en:"Bathroom Hardware",       desc_cn:"毛巾架、置物架、纸巾盒、浴室挂钩全套",                       desc_en:"Towel racks, shelves, tissue boxes, bathroom hooks set",           image:"images/p12.jpg" },
