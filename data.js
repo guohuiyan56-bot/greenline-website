@@ -36,8 +36,8 @@ var GT_DATA = {
     badge_en: "Trusted Globally · Professional Trading",
     title_cn: "连接全球优质供应链\n<em>一站式</em>国际贸易解决方案",
     title_en: "Connect to the World's Best\n<em>One-Stop</em> Trade Solutions",
-    desc_cn: "广州本润贸易，专注家具与卫浴品类出口，从选品到交付全程护航。",
-    desc_en: "Benrun Trading specializes in furniture and sanitary ware — full support from sourcing to delivery.",
+    desc_cn: "广州本润贸易，专注家具、卫浴及家居建材品类出口，从选品到交付全程护航。",
+    desc_en: "Benrun Trading specializes in furniture, sanitary ware & building materials — full support from sourcing to delivery.",
     cta_cn: "查看产品",
     cta_en: "View Products",
     contact_cn: "联系我们",
@@ -63,8 +63,13 @@ var GT_DATA = {
      与 catalog/catalogs.js 的 CATALOG_CATS 保持一致，
      确保主站分类名、目录册 hub 栏目名一一对应。 ---- */
   categories: [
-    { id: "furniture",  name_cn: "家具",       name_en: "Furniture",  icon: "🪑" },
-    { id: "bathroom",   name_cn: "卫浴",       name_en: "Bathroom",   icon: "🚿" }
+    { id: "furniture",  name_cn: "家具",       name_en: "Furniture",            icon: "🪑" },
+    { id: "bathroom",   name_cn: "卫浴",       name_en: "Bathroom",             icon: "🚿" },
+    { id: "door",       name_cn: "门窗",       name_en: "Doors & Windows",     icon: "🚪" },
+    { id: "chair",      name_cn: "座椅",       name_en: "Chairs",               icon: "💺" },
+    { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",       icon: "🏨" },
+    { id: "decor",      name_cn: "墙饰建材",   name_en: "Wall Decor & Building", icon: "🧱" },
+    { id: "outdoor",    name_cn: "厨具户外",   name_en: "Kitchen & Outdoor",    icon: "🍳" }
   ],
 
   /* ---- 产品列表 (100) ---- */
@@ -77,7 +82,21 @@ var GT_DATA = {
     /* ===== 卫浴 (2) ===== */
     { id:"p08", category:"bathroom", name_cn:"智能马桶",       name_en:"Smart Toilet",            desc_cn:"全自动智能马桶，加热、冲洗、烘干一体",                       desc_en:"Full-auto smart toilet with heated seat, wash & dry functions",     image:"images/p08.jpg" },
     { id:"p12", category:"bathroom", name_cn:"浴室五金挂件",   name_en:"Bathroom Hardware",       desc_cn:"毛巾架、置物架、纸巾盒、浴室挂钩全套",                       desc_en:"Towel racks, shelves, tissue boxes, bathroom hooks set",           image:"images/p12.jpg" },
-  
+    /* ===== 门窗 (2) ===== */
+    { id:"p02", category:"door",  name_cn:"铝合金门窗",      name_en:"Aluminium Windows & Doors", desc_cn:"断桥铝门窗、百叶窗，隔音隔热可定制",                       desc_en:"Thermal-break aluminium windows, doors & louvers, custom",         image:"images/doorlock.jpg" },
+    { id:"p03", category:"door",  name_cn:"铸铝门",          name_en:"Cast Aluminum Door",        desc_cn:"精雕铸铝庭院门、入户门，防锈耐候",                           desc_en:"Engraved cast aluminum entry & garden doors, weatherproof",        image:"images/doorlock.jpg" },
+    /* ===== 座椅 (2) ===== */
+    { id:"p04", category:"chair", name_cn:"办公椅",          name_en:"Office Chair",              desc_cn:"人体工学办公椅、会议椅，多款式可选",                         desc_en:"Ergonomic office & conference chairs, multiple styles",            image:"images/furniture-modern.jpg" },
+    { id:"p05", category:"chair", name_cn:"电竞椅",          name_en:"Gaming Chair",              desc_cn:"高回弹电竞椅、网椅，久坐舒适",                               desc_en:"High-resilience gaming & mesh chairs for long sessions",           image:"images/p10.jpg" },
+    /* ===== 酒店用品 (2) ===== */
+    { id:"p06", category:"hotel", name_cn:"酒店纺织品",      name_en:"Hotel Textiles",            desc_cn:"全棉布草、餐巾、浴巾，星级酒店标配",                         desc_en:"Cotton linens, towels & napkins for star hotels",                  image:"images/hotel-supplies.jpg" },
+    { id:"p09", category:"hotel", name_cn:"客房易耗品",      name_en:"Guest-room Consumables",    desc_cn:"一次性用品、洗护用品，客房全套补给",                           desc_en:"Disposable & amenity supplies for guest rooms",                    image:"images/hotel-amenities.jpg" },
+    /* ===== 墙饰建材 (2) ===== */
+    { id:"p10", category:"decor", name_cn:"3D 墙板",         name_en:"3D Wall Panel",             desc_cn:"GREENLINE 3D 装饰墙板，环保快装",                             desc_en:"GREENLINE 3D decorative wall panels, eco & easy-install",          image:"images/homedecor.jpg" },
+    { id:"p11", category:"decor", name_cn:"景观花艺建材",    name_en:"Landscape & Building",      desc_cn:"景观花艺、装饰建材，工程配套",                               desc_en:"Landscape floral & decorative building materials",                image:"images/building-materials.jpg" },
+    /* ===== 厨具户外 (2) ===== */
+    { id:"p13", category:"outdoor", name_cn:"户外家具",       name_en:"Outdoor Furniture",         desc_cn:"藤编、铝合金户外桌椅，防水防UV",                               desc_en:"Rattan & aluminium outdoor sets, waterproof UV-resistant",        image:"images/outdoor-furniture.jpg" },
+    { id:"p15", category:"outdoor", name_cn:"厨柜户外厨房",   name_en:"Kitchen & Outdoor",         desc_cn:"整体厨柜、BBQ 户外厨房定制",                                  desc_en:"Kitchen cabinets & BBQ outdoor kitchen, custom",                  image:"images/kitchenware.jpg" }
   ],
 
   /* ---- 关于 ---- */
@@ -197,8 +216,8 @@ var GT_DATA = {
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，专注家具与卫浴等品类。",
-    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients, specializing in furniture and sanitary ware.",
+    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，主营家具、卫浴、门窗、酒店用品等品类。",
+    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients, specializing in furniture, sanitary ware, doors and hotel supplies.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
     categories_cn: "产品分类",
