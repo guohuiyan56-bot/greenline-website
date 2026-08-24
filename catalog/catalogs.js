@@ -59,8 +59,8 @@ window.CATALOGS = [
   {
     "folder": "benrun-sanitaryware",
     "category": "bathroom",
-    "title_cn": "本润卫浴 浴室柜图册 2026",
-    "title_en": "BENRUN SANITARYWARE CATALOG 2026",
+    "title_cn": "GREENLINE 卫浴 浴室柜图册 2026",
+    "title_en": "GREENLINE SANITARYWARE CATALOG 2026",
     "pages": 256,
     "cover_cn": "./benrun-sanitaryware/cover_cn.png",
     "cover_en": "./benrun-sanitaryware/cover_en.png"
