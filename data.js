@@ -1,5 +1,5 @@
 /* ============================================================
-   广州本润贸易 — DATA
+   GREENLINE — DATA
    所有文字、产品、公司信息在这里改
    ============================================================ */
 
@@ -7,8 +7,8 @@ var GT_DATA = {
 
   /* ---- 公司 ---- */
   company: {
-    name_cn: "广州本润贸易公司",
-    name_en: "Benrun Trading",
+    name_cn: "GREENLINE 国际贸易",
+    name_en: "GREENLINE International Trading",
     slogan_cn: "一站式全球采购与供应链服务",
     slogan_en: "One-Stop Global Sourcing & Supply Chain",
     email: "info@greenlineint.com",
@@ -36,8 +36,8 @@ var GT_DATA = {
     badge_en: "Trusted Globally · Professional Trading",
     title_cn: "连接全球优质供应链\n<em>一站式</em>国际贸易解决方案",
     title_en: "Connect to the World's Best\n<em>One-Stop</em> Trade Solutions",
-    desc_cn: "广州本润贸易，专注家具、卫浴及家居建材品类出口，从选品到交付全程护航。",
-    desc_en: "Benrun Trading specializes in furniture, sanitary ware & building materials — full support from sourcing to delivery.",
+    desc_cn: "GREENLINE，专注家具、卫浴及家居建材品类出口，从选品到交付全程护航。",
+    desc_en: "GREENLINE specializes in furniture, sanitary ware & building materials — full support from sourcing to delivery.",
     cta_cn: "查看产品",
     cta_en: "View Products",
     contact_cn: "联系我们",
@@ -108,8 +108,8 @@ var GT_DATA = {
     badge_lbl_en: "Years Excellence",
     heading_cn: "值得信赖的\n国际贸易伙伴",
     heading_en: "Your Trusted\nGlobal Trade Partner",
-    p1_cn: "广州本润贸易公司成立于 2015 年，总部位于中国广州。11 年来我们专注于连接全球优质制造商与国际买家，提供从选品、验厂、质检到物流的一站式外贸服务。",
-    p1_en: "Founded in 2015 and headquartered in Guangzhou, China, Benrun Trading has spent over a decade connecting premium manufacturers with international buyers, offering end-to-end services from sourcing and factory auditing to quality inspection and logistics.",
+    p1_cn: "GREENLINE 国际贸易成立于 2015 年，总部位于中国广州。11 年来我们专注于连接全球优质制造商与国际买家，提供从选品、验厂、质检到物流的一站式外贸服务。",
+    p1_en: "Founded in 2015 and headquartered in Guangzhou, China, GREENLINE International Trading has spent over a decade connecting premium manufacturers with international buyers, offering end-to-end services from sourcing and factory auditing to quality inspection and logistics.",
     p2_cn: "我们的供应链网络覆盖 30 多个国家和地区，与超过 500 家经过严格审核的工厂建立了长期合作关系，确保每一笔订单的品质与时效。",
     p2_en: "Our supply network spans 30+ countries with 500+ rigorously audited factories, guaranteeing quality and on-time delivery for every order.",
     cta_cn: "了解更多",
@@ -166,13 +166,13 @@ var GT_DATA = {
     title_en: "What Our Clients Say",
     items: [
       {
-        stars:5, text_cn:"合作三年，本润贸易的选品和质检团队非常专业，帮我们节省了大量时间和成本。强烈推荐！",
+        stars:5, text_cn:"合作三年，GREENLINE 的选品和质检团队非常专业，帮我们节省了大量时间和成本。强烈推荐！",
         text_en:"3 years of partnership — their sourcing and QC teams are incredibly professional. Saved us significant time and cost. Highly recommended!",
         name:"James Chen", role_cn:"采购总监 / 美国某连锁零售", role_en:"Procurement Director / US Retail Chain", initial:"J"
       },
       {
-        stars:5, text_cn:"作为中东市场的建材进口商，我们需要可靠的供应商。本润帮我们找到了 3 家优质工厂，品质非常稳定。",
-        text_en:"As a building materials importer in the Middle East, we needed reliable suppliers. Benrun found us 3 excellent factories with consistent quality.",
+        stars:5, text_cn:"作为中东市场的建材进口商，我们需要可靠的供应商。GREENLINE 帮我们找到了 3 家优质工厂，品质非常稳定。",
+        text_en:"As a building materials importer in the Middle East, we needed reliable suppliers. GREENLINE found us 3 excellent factories with consistent quality.",
         name:"Ahmed Al-Rashid", role_cn:"CEO / 迪拜建材集团", role_en:"CEO / Dubai Building Materials Group", initial:"A"
       },
       {
