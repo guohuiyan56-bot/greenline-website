@@ -642,7 +642,7 @@
 
     fhtml += '<div class="footer-col"><h4>' + dc(f, 'quick_links') + '</h4>';
     d.nav.forEach(function (n) {
-      fhtml += '<a href="#' + n.id + '">' + dc(n, '') + '</a>';
+      fhtml += '<a href="#' + n.id + '">' + n[lang] + '</a>';
     });
     fhtml += '</div>';
 
