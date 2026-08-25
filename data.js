@@ -216,15 +216,15 @@ var GT_DATA = {
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，主营家具、厨房家具、卫浴、门窗、墙饰建材、地砖墙砖、酒店用品等品类。",
-    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients, specializing in furniture, kitchen cabinets, sanitary ware, doors & windows, wall decor & building materials, floor & wall tiles, and hotel supplies.",
+    about_cn: "GREENLINE — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，主营家具、厨房家具、卫浴、门窗、墙饰建材、地砖墙砖、酒店用品等品类。",
+    about_en: "GREENLINE — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients, specializing in furniture, kitchen cabinets, sanitary ware, doors & windows, wall decor & building materials, floor & wall tiles, and hotel supplies.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
     categories_cn: "产品分类",
     categories_en: "Categories",
     contact_cn: "联系方式",
     contact_en: "Contact",
-    copy_cn: "© 2025 广州本润贸易有限公司. 版权所有.",
-    copy_en: "© 2025 Benrun Trading. All rights reserved."
+    copy_cn: "© 2025 GREENLINE. 版权所有.",
+    copy_en: "© 2025 GREENLINE. All rights reserved."
   }
 };
