@@ -759,14 +759,21 @@
       display:flex;justify-content:space-between;align-items:center;
       font-size:0.8rem;color:var(--c-text-muted);flex-wrap:wrap;gap:12px;
     }
-    .footer-social{display:flex;gap:12px}
+    .footer-social{display:flex;gap:14px;margin-top:2px}
     .footer-social a{
       position:relative;
-      width:40px;height:40px;border-radius:50%;border:1px solid rgba(58,38,27,0.15);
+      width:44px;height:44px;border-radius:50%;
       display:flex;align-items:center;justify-content:center;
-      color:var(--c-text-muted);transition:all 0.3s;font-size:0.95rem;
+      color:var(--c-primary);background:var(--c-bg-alt);
+      border:1px solid rgba(58,38,27,0.14);
+      transition:transform .25s ease,background .25s ease,color .25s ease,box-shadow .25s ease,border-color .25s ease;
     }
-    .footer-social a:hover{border-color:var(--c-primary);color:var(--c-primary);background:rgba(58,38,27,0.06)}
+    .footer-social a svg{width:21px;height:21px;display:block}
+    .footer-social a:hover{transform:translateY(-4px);color:#fff;box-shadow:0 10px 22px rgba(0,0,0,.18)}
+    .footer-social a.s-li:hover{background:#0A66C2;border-color:#0A66C2}
+    .footer-social a.s-fb:hover{background:#1877F2;border-color:#1877F2}
+    .footer-social a.s-ig:hover{background:#E4405F;border-color:#E4405F}
+    .footer-social a.s-yt:hover{background:#FF0000;border-color:#FF0000}
     /* hover tooltip with contact info */
     .footer-social a::after{
       content:attr(data-tip);
@@ -1316,10 +1323,18 @@
       <div class="footer-bottom">
         <span id="footerCopy"></span>
         <div class="footer-social">
-          <a href="#" aria-label="LinkedIn" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">in</a>
-          <a href="#" aria-label="Facebook" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">f</a>
-          <a href="#" aria-label="Instagram" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">Ig</a>
-          <a href="#" aria-label="YouTube" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">YT</a>
+          <a class="s-li" href="#" aria-label="LinkedIn" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.33V9.98H5.67v8.35h2.67zM7 8.8a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.33 9.53v-4.58c0-2.45-1.31-3.59-3.06-3.59-1.41 0-2.04.78-2.39 1.32V9.98h-2.67c.04.75 0 8.35 0 8.35h2.67v-4.66c0-.24.02-.48.09-.65.19-.48.63-.98 1.37-.98.97 0 1.36.74 1.36 1.82v4.47h2.63z"/></svg>
+          </a>
+          <a class="s-fb" href="#" aria-label="Facebook" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+          </a>
+          <a class="s-ig" href="#" aria-label="Instagram" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 1.62c-3.15 0-3.52.01-4.76.07-.92.04-1.42.2-1.75.33-.44.17-.75.37-1.08.7-.33.33-.53.64-.7 1.08-.13.33-.29.83-.33 1.75-.06 1.24-.07 1.61-.07 4.76s.01 3.52.07 4.76c.04.92.2 1.42.33 1.75.17.44.37.75.7 1.08.33.33.64.53 1.08.7.33.13.83.29 1.75.33 1.24.06 1.61.07 4.76.07s3.52-.01 4.76-.07c.92-.04 1.42-.2 1.75-.33.44-.17.75-.37 1.08-.7.33-.33.64-.53 1.08-.7.33-.13.83-.29 1.75-.33 1.24-.06 1.61-.07 4.76-.07s3.52.01 4.76.07c.92.04 1.42.2 1.75.33.44.17.75.37 1.08.7.33.33.64.53 1.08.7.33.13.83.29 1.75.33 1.24.06 1.61.07 4.76.07s-3.52-.01-4.76-.07c-.92-.04-1.42-.2-1.75-.33a2.9 2.9 0 0 1-1.08-.7 2.9 2.9 0 0 1-.7-1.08c-.13-.33-.29-.83-.33-1.75-.06-1.24-.07-1.61-.07-4.76s.01-3.52.07-4.76c.04-.92.2-1.42.33-1.75.17-.44.37-.75.7-1.08.33-.33.64-.53 1.08-.7.33-.13.83-.29 1.75-.33C15.52 3.79 15.15 3.78 12 3.78zm0 2.76a5.46 5.46 0 1 1 0 10.92 5.46 5.46 0 0 1 0-10.92zm0 1.62a3.84 3.84 0 1 0 0 7.68 3.84 3.84 0 0 0 0-7.68zm5.65-2.98a1.28 1.28 0 1 1 0 2.56 1.28 1.28 0 0 1 0-2.56z"/></svg>
+          </a>
+          <a class="s-yt" href="#" aria-label="YouTube" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.12-2.12C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.53A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.12 2.12c1.88.53 9.38.53 9.38.53s7.5 0 9.38-.53a3 3 0 0 0 2.12-2.12A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+          </a>
         </div>
       </div>
     </div>
