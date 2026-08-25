@@ -761,11 +761,32 @@
     }
     .footer-social{display:flex;gap:12px}
     .footer-social a{
+      position:relative;
       width:40px;height:40px;border-radius:50%;border:1px solid rgba(58,38,27,0.15);
       display:flex;align-items:center;justify-content:center;
       color:var(--c-text-muted);transition:all 0.3s;font-size:0.95rem;
     }
     .footer-social a:hover{border-color:var(--c-primary);color:var(--c-primary);background:rgba(58,38,27,0.06)}
+    /* hover tooltip with contact info */
+    .footer-social a::after{
+      content:attr(data-tip);
+      position:absolute;bottom:calc(100% + 10px);left:50%;
+      transform:translateX(-50%) translateY(6px);
+      background:#3a261b;color:#fff;padding:8px 12px;border-radius:8px;
+      font-size:0.75rem;line-height:1.5;white-space:nowrap;
+      opacity:0;pointer-events:none;
+      transition:opacity .2s ease, transform .2s ease;
+      box-shadow:0 6px 18px rgba(0,0,0,.22);z-index:30;
+    }
+    .footer-social a::before{
+      content:"";position:absolute;bottom:calc(100% + 4px);left:50%;
+      transform:translateX(-50%);
+      border:6px solid transparent;border-top-color:#3a261b;
+      opacity:0;transition:opacity .2s ease;z-index:30;
+    }
+    .footer-social a:hover::after,
+    .footer-social a:hover::before{opacity:1}
+    .footer-social a:hover::after{transform:translateX(-50%) translateY(0)}
 
     /* ===== Back to Top ===== */
     .btt{
@@ -1295,10 +1316,10 @@
       <div class="footer-bottom">
         <span id="footerCopy"></span>
         <div class="footer-social">
-          <a href="#" aria-label="LinkedIn">in</a>
-          <a href="#" aria-label="Facebook">f</a>
-          <a href="#" aria-label="Instagram">Ig</a>
-          <a href="#" aria-label="YouTube">YT</a>
+          <a href="#" aria-label="LinkedIn" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">in</a>
+          <a href="#" aria-label="Facebook" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">f</a>
+          <a href="#" aria-label="Instagram" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">Ig</a>
+          <a href="#" aria-label="YouTube" data-tip="Email: info@greenlineint.com&nbsp;&nbsp;·&nbsp;&nbsp;Tel/WA: +86 136-3224-2800&nbsp;&nbsp;·&nbsp;&nbsp;WeChat: Victoria Guo">YT</a>
         </div>
       </div>
     </div>
