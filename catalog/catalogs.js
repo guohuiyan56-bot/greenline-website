@@ -93,51 +93,6 @@ window.CATALOGS = [
     "cover_en": "./cast-aluminum-door/cover_en.png"
   },
   {
-    "folder": "gl-ad-office-chair",
-    "category": "chair",
-    "title_cn": "办公椅目录册 2025",
-    "title_en": "OFFICE CHAIR CATALOGUE 2025",
-    "pages": 159,
-    "cover_cn": "./gl-ad-office-chair/cover_cn.png",
-    "cover_en": "./gl-ad-office-chair/cover_en.png"
-  },
-  {
-    "folder": "gl-ft-gaming-chair",
-    "category": "chair",
-    "title_cn": "电竞椅目录册",
-    "title_en": "GAMING CHAIR CATALOG",
-    "pages": 8,
-    "cover_cn": "./gl-ft-gaming-chair/cover_cn.png",
-    "cover_en": "./gl-ft-gaming-chair/cover_en.png"
-  },
-  {
-    "folder": "gl-ft-office-chair",
-    "category": "chair",
-    "title_cn": "办公椅目录册",
-    "title_en": "OFFICE CHAIR CATALOG",
-    "pages": 4,
-    "cover_cn": "./gl-ft-office-chair/cover_cn.png",
-    "cover_en": "./gl-ft-office-chair/cover_en.png"
-  },
-  {
-    "folder": "gl-ft-mesh-chair",
-    "category": "chair",
-    "title_cn": "网椅目录册",
-    "title_en": "MESH CHAIR CATALOG",
-    "pages": 12,
-    "cover_cn": "./gl-ft-mesh-chair/cover_cn.png",
-    "cover_en": "./gl-ft-mesh-chair/cover_en.png"
-  },
-  {
-    "folder": "gl-ad-leather-chair",
-    "category": "chair",
-    "title_cn": "皮椅目录册 2025",
-    "title_en": "LEATHER CHAIR CATALOG 2025",
-    "pages": 1,
-    "cover_cn": "./gl-ad-leather-chair/cover_cn.png",
-    "cover_en": "./gl-ad-leather-chair/cover_en.png"
-  },
-  {
     "folder": "hotel-textile",
     "category": "hotel",
     "title_cn": "酒店纺织品目录册 2025",

@@ -82,21 +82,21 @@ var GT_DATA = {
     { id:"p08", category:"bathroom", name_cn:"智能马桶",       name_en:"Smart Toilet",            desc_cn:"全自动智能马桶，加热、冲洗、烘干一体",                       desc_en:"Full-auto smart toilet with heated seat, wash & dry functions",     image:"images/p08.jpg" },
     { id:"p12", category:"bathroom", name_cn:"浴室五金挂件",   name_en:"Bathroom Hardware",       desc_cn:"毛巾架、置物架、纸巾盒、浴室挂钩全套",                       desc_en:"Towel racks, shelves, tissue boxes, bathroom hooks set",           image:"images/p12.jpg" },
     /* ===== 门窗 (2) ===== */
-    { id:"p02", category:"door",  name_cn:"铝合金门窗",      name_en:"Aluminium Windows & Doors", desc_cn:"断桥铝门窗、百叶窗，隔音隔热可定制",                       desc_en:"Thermal-break aluminium windows, doors & louvers, custom",         image:"images/aluminium-window.png" },
-    { id:"p03", category:"door",  name_cn:"铸铝门",          name_en:"Cast Aluminum Door",        desc_cn:"精雕铸铝庭院门、入户门，防锈耐候",                           desc_en:"Engraved cast aluminum entry & garden doors, weatherproof",        image:"images/doorlock.jpg" },
+    { id:"p02", category:"door",  name_cn:"铝合金门窗",      name_en:"Aluminium Windows & Doors", desc_cn:"断桥铝门窗、百叶窗，隔音隔热可定制",                       desc_en:"Thermal-break aluminium windows, doors & louvers, custom",         image:"images/aluminium-window-new.png" },
+    { id:"p03", category:"door",  name_cn:"铸铝门",          name_en:"Cast Aluminum Door",        desc_cn:"精雕铸铝庭院门、入户门，防锈耐候",                           desc_en:"Engraved cast aluminum entry & garden doors, weatherproof",        image:"images/cast-aluminum-door.png" },
     /* ===== 座椅 (2) ===== */
-    { id:"p04", category:"chair", name_cn:"办公椅",          name_en:"Office Chair",              desc_cn:"人体工学办公椅、会议椅，多款式可选",                         desc_en:"Ergonomic office & conference chairs, multiple styles",            image:"images/furniture-modern.jpg" },
+    { id:"p04", category:"chair", name_cn:"办公椅",          name_en:"Office Chair",              desc_cn:"人体工学办公椅、会议椅，多款式可选",                         desc_en:"Ergonomic office & conference chairs, multiple styles",            image:"images/office-chair.png" },
     { id:"p05", category:"decor", name_cn:"WPC 墙板",          name_en:"WPC Wall Cladding",              desc_cn:"WPC 木塑复合墙板，防水防霉，卫生间与户外通用",                         desc_en:"WPC wood-plastic composite wall panels, waterproof & mold-resistant for bath & outdoor",            image:"images/wall-panel.png" },
     /* ===== 酒店用品 (2) ===== */
-    { id:"p06", category:"hotel", name_cn:"酒店纺织品",      name_en:"Hotel Textiles",            desc_cn:"全棉布草、餐巾、浴巾，星级酒店标配",                         desc_en:"Cotton linens, towels & napkins for star hotels",                  image:"images/hotel-supplies.jpg" },
+    { id:"p06", category:"hotel", name_cn:"酒店纺织品",      name_en:"Hotel Textiles",            desc_cn:"全棉布草、餐巾、浴巾，星级酒店标配",                         desc_en:"Cotton linens, towels & napkins for star hotels",                  image:"images/hotel-textiles.png" },
     { id:"p09", category:"hotel", name_cn:"客房易耗品",      name_en:"Guest-room Consumables",    desc_cn:"一次性用品、洗护用品，客房全套补给",                           desc_en:"Disposable & amenity supplies for guest rooms",                    image:"images/hotel-amenities.jpg" },
     /* ===== 墙饰建材 (2) ===== */
-    { id:"p10", category:"decor", name_cn:"3D 墙板",         name_en:"3D Wall Panel",             desc_cn:"GREENLINE 3D 装饰墙板，环保快装",                             desc_en:"GREENLINE 3D decorative wall panels, eco & easy-install",          image:"images/homedecor.jpg" },
-    { id:"p11", category:"decor", name_cn:"景观花艺建材",    name_en:"Landscape & Building",      desc_cn:"景观花艺、装饰建材，工程配套",                               desc_en:"Landscape floral & decorative building materials",                image:"images/building-materials.jpg" },
+    { id:"p10", category:"decor", name_cn:"3D 墙板",         name_en:"3D Wall Panel",             desc_cn:"GREENLINE 3D 装饰墙板，环保快装",                             desc_en:"GREENLINE 3D decorative wall panels, eco & easy-install",          image:"images/wall-panel-3d.png" },
+    { id:"p11", category:"decor", name_cn:"景观花艺建材",    name_en:"Landscape & Building",      desc_cn:"景观花艺、装饰建材，工程配套",                               desc_en:"Landscape floral & decorative building materials",                image:"images/landscape-building.png" },
     { id:"p16", category:"decor", name_cn:"地砖墙砖",        name_en:"Floor & Wall Tiles",        desc_cn:"釉面砖、岩板、大理石瓷砖，多规格可选",                          desc_en:"Glazed tiles, porcelain slabs & marble-look tiles, multiple sizes",                image:"images/floor-wall-tiles.png" },
     /* ===== 厨具户外 (2) ===== */
     { id:"p13", category:"outdoor", name_cn:"户外家具",       name_en:"Outdoor Furniture",         desc_cn:"藤编、铝合金户外桌椅，防水防UV",                               desc_en:"Rattan & aluminium outdoor sets, waterproof UV-resistant",        image:"images/outdoor-furniture.jpg" },
-    { id:"p15", category:"outdoor", name_cn:"厨柜户外厨房",   name_en:"Kitchen & Outdoor",         desc_cn:"整体厨柜、BBQ 户外厨房定制",                                  desc_en:"Kitchen cabinets & BBQ outdoor kitchen, custom",                  image:"images/kitchenware.jpg" }
+    { id:"p15", category:"outdoor", name_cn:"厨柜户外厨房",   name_en:"Kitchen & Outdoor",         desc_cn:"整体厨柜、BBQ 户外厨房定制",                                  desc_en:"Kitchen cabinets & BBQ outdoor kitchen, custom",                  image:"images/kitchen-outdoor.png" }
   ],
 
   /* ---- 关于 ---- */
