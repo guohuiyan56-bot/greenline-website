@@ -1,5 +1,5 @@
 window.FLIP = {
- "total": 19,
+ "total": 8,
  "images": [
   "pages/full/p000.jpg",
   "pages/full/p001.jpg",
@@ -8,18 +8,7 @@ window.FLIP = {
   "pages/full/p004.jpg",
   "pages/full/p005.jpg",
   "pages/full/p006.jpg",
-  "pages/full/p007.jpg",
-  "pages/full/p008.jpg",
-  "pages/full/p009.jpg",
-  "pages/full/p010.jpg",
-  "pages/full/p011.jpg",
-  "pages/full/p012.jpg",
-  "pages/full/p013.jpg",
-  "pages/full/p014.jpg",
-  "pages/full/p015.jpg",
-  "pages/full/p016.jpg",
-  "pages/full/p017.jpg",
-  "pages/full/p018.jpg"
+  "pages/full/p007.jpg"
  ],
  "thumbs": [
   "pages/thumbs/t000.jpg",
@@ -29,18 +18,7 @@ window.FLIP = {
   "pages/thumbs/t004.jpg",
   "pages/thumbs/t005.jpg",
   "pages/thumbs/t006.jpg",
-  "pages/thumbs/t007.jpg",
-  "pages/thumbs/t008.jpg",
-  "pages/thumbs/t009.jpg",
-  "pages/thumbs/t010.jpg",
-  "pages/thumbs/t011.jpg",
-  "pages/thumbs/t012.jpg",
-  "pages/thumbs/t013.jpg",
-  "pages/thumbs/t014.jpg",
-  "pages/thumbs/t015.jpg",
-  "pages/thumbs/t016.jpg",
-  "pages/thumbs/t017.jpg",
-  "pages/thumbs/t018.jpg"
+  "pages/thumbs/t007.jpg"
  ],
  "toc": []
 };
