@@ -215,8 +215,8 @@ window.CATALOGS = [
 {
     "folder": "new-docx",
     "category": "decor",
-    "title_cn": "综合文档图册",
-    "title_en": "GENERAL DOCUMENT CATALOG",
+    "title_cn": "地砖图册",
+    "title_en": "FLOOR TILE CATALOG",
     "pages": 140,
     "cover_cn": "./new-docx/cover_cn.jpg",
     "cover_en": "./new-docx/cover_en.jpg"
