@@ -41,7 +41,7 @@ window.CATALOG_CATS = {
   }
 };
 window.CATALOGS = [
-  {
+{
     "folder": "bathroom-products",
     "category": "bathroom",
     "title_cn": "卫浴产品图册",
@@ -50,7 +50,7 @@ window.CATALOGS = [
     "cover_cn": "./bathroom-products/cover_cn.png",
     "cover_en": "./bathroom-products/cover_en.png"
   },
-  {
+{
     "folder": "sink-basin",
     "category": "bathroom",
     "title_cn": "厨房水槽图册",
@@ -59,7 +59,7 @@ window.CATALOGS = [
     "cover_cn": "./sink-basin/cover_cn.jpg",
     "cover_en": "./sink-basin/cover_en.jpg"
   },
-  {
+{
     "folder": "tewei-bathroom-cabinet",
     "category": "bathroom",
     "title_cn": "特卫砖家 功能浴室柜图册 2026",
@@ -68,7 +68,7 @@ window.CATALOGS = [
     "cover_cn": "./tewei-bathroom-cabinet/cover_cn.png",
     "cover_en": "./tewei-bathroom-cabinet/cover_en.png"
   },
-  {
+{
     "folder": "benrun-sanitaryware",
     "category": "bathroom",
     "title_cn": "本润卫浴 浴室柜图册 2026",
@@ -77,7 +77,7 @@ window.CATALOGS = [
     "cover_cn": "./benrun-sanitaryware/cover_cn.png",
     "cover_en": "./benrun-sanitaryware/cover_en.png"
   },
-  {
+{
     "folder": "furui-windows",
     "category": "door",
     "title_cn": "富瑞斯门窗",
@@ -86,7 +86,7 @@ window.CATALOGS = [
     "cover_cn": "./furui-windows/cover_cn.png",
     "cover_en": "./furui-windows/cover_en.png"
   },
-  {
+{
     "folder": "junli-door",
     "category": "door",
     "title_cn": "俊利门业电子画册 2026",
@@ -95,7 +95,7 @@ window.CATALOGS = [
     "cover_cn": "./junli-door/cover_cn.png",
     "cover_en": "./junli-door/cover_en.png"
   },
-  {
+{
     "folder": "cast-aluminum-door",
     "category": "door",
     "title_cn": "铸铝门雕刻图册 2026",
@@ -104,7 +104,7 @@ window.CATALOGS = [
     "cover_cn": "./cast-aluminum-door/cover_cn.png",
     "cover_en": "./cast-aluminum-door/cover_en.png"
   },
-  {
+{
     "folder": "gl-ad-office-chair",
     "category": "chair",
     "title_cn": "GL-AD 办公椅目录册 2025",
@@ -113,7 +113,7 @@ window.CATALOGS = [
     "cover_cn": "./gl-ad-office-chair/cover_cn.png",
     "cover_en": "./gl-ad-office-chair/cover_en.png"
   },
-  {
+{
     "folder": "gl-ft-gaming-chair",
     "category": "chair",
     "title_cn": "GL-FT 电竞椅目录册",
@@ -122,34 +122,7 @@ window.CATALOGS = [
     "cover_cn": "./gl-ft-gaming-chair/cover_cn.png",
     "cover_en": "./gl-ft-gaming-chair/cover_en.png"
   },
-  {
-    "folder": "gl-ft-office-chair",
-    "category": "chair",
-    "title_cn": "GL-FT 办公椅目录册",
-    "title_en": "GL-FT OFFICE CHAIR CATALOG",
-    "pages": 4,
-    "cover_cn": "./gl-ft-office-chair/cover_cn.png",
-    "cover_en": "./gl-ft-office-chair/cover_en.png"
-  },
-  {
-    "folder": "gl-ft-mesh-chair",
-    "category": "chair",
-    "title_cn": "GL-FT 网椅目录册",
-    "title_en": "GL-FT MESH CHAIR CATALOG",
-    "pages": 12,
-    "cover_cn": "./gl-ft-mesh-chair/cover_cn.png",
-    "cover_en": "./gl-ft-mesh-chair/cover_en.png"
-  },
-  {
-    "folder": "gl-ad-leather-chair",
-    "category": "chair",
-    "title_cn": "GL-AD 皮椅目录册 2025",
-    "title_en": "GL-AD LEATHER CHAIR CATALOG 2025",
-    "pages": 2,
-    "cover_cn": "./gl-ad-leather-chair/cover_cn.png",
-    "cover_en": "./gl-ad-leather-chair/cover_en.png"
-  },
-  {
+{
     "folder": "hotel-textile",
     "category": "hotel",
     "title_cn": "酒店纺织品目录册 2025",
@@ -158,7 +131,7 @@ window.CATALOGS = [
     "cover_cn": "./hotel-textile/cover_cn.png",
     "cover_en": "./hotel-textile/cover_en.png"
   },
-  {
+{
     "folder": "weiding-2022-hotel",
     "category": "hotel",
     "title_cn": "威思丁 酒店其它系列画册 2022",
@@ -167,7 +140,7 @@ window.CATALOGS = [
     "cover_cn": "./weiding-2022-hotel/cover_cn.png",
     "cover_en": "./weiding-2022-hotel/cover_en.png"
   },
-  {
+{
     "folder": "weiding-disposable",
     "category": "hotel",
     "title_cn": "威思丁 客房一次性用品",
@@ -176,7 +149,7 @@ window.CATALOGS = [
     "cover_cn": "./weiding-disposable/cover_cn.png",
     "cover_en": "./weiding-disposable/cover_en.png"
   },
-  {
+{
     "folder": "weiding-consumable",
     "category": "hotel",
     "title_cn": "威思丁 客房易耗品目录册",
@@ -185,7 +158,7 @@ window.CATALOGS = [
     "cover_cn": "./weiding-consumable/cover_cn.png",
     "cover_en": "./weiding-consumable/cover_en.png"
   },
-  {
+{
     "folder": "weiding-towel",
     "category": "textile",
     "title_cn": "威思丁 全棉餐巾目录册",
@@ -194,7 +167,7 @@ window.CATALOGS = [
     "cover_cn": "./weiding-towel/cover_cn.png",
     "cover_en": "./weiding-towel/cover_en.png"
   },
-  {
+{
     "folder": "warehouse-rack",
     "category": "shelf",
     "title_cn": "仓储货架目录册 LC SERIES",
@@ -203,7 +176,7 @@ window.CATALOGS = [
     "cover_cn": "./warehouse-rack/cover_cn.png",
     "cover_en": "./warehouse-rack/cover_en.png"
   },
-  {
+{
     "folder": "greenline-shelf-benrun",
     "category": "shelf",
     "title_cn": "GREENLINE 货架目录册 BENRUN",
@@ -212,7 +185,7 @@ window.CATALOGS = [
     "cover_cn": "./greenline-shelf-benrun/cover_cn.png",
     "cover_en": "./greenline-shelf-benrun/cover_en.png"
   },
-  {
+{
     "folder": "cosmetic-shelf",
     "category": "shelf",
     "title_cn": "化妆品货架目录册",
@@ -221,7 +194,7 @@ window.CATALOGS = [
     "cover_cn": "./cosmetic-shelf/cover_cn.png",
     "cover_en": "./cosmetic-shelf/cover_en.png"
   },
-  {
+{
     "folder": "display-qx",
     "category": "shelf",
     "title_cn": "展示架目录册 QX",
@@ -230,7 +203,7 @@ window.CATALOGS = [
     "cover_cn": "./display-qx/cover_cn.png",
     "cover_en": "./display-qx/cover_en.png"
   },
-  {
+{
     "folder": "tumei-banner",
     "category": "shelf",
     "title_cn": "灯布车贴彩页 TUMEI",
@@ -239,7 +212,7 @@ window.CATALOGS = [
     "cover_cn": "./tumei-banner/cover_cn.png",
     "cover_en": "./tumei-banner/cover_en.png"
   },
-  {
+{
     "folder": "landscape-rdf",
     "category": "decor",
     "title_cn": "景观花艺图册 RDF",
@@ -248,7 +221,7 @@ window.CATALOGS = [
     "cover_cn": "./landscape-rdf/cover_cn.png",
     "cover_en": "./landscape-rdf/cover_en.png"
   },
-  {
+{
     "folder": "wall-panel-zejing",
     "category": "decor",
     "title_cn": "GREENLINE 3D 墙板目录册 泽景",
@@ -257,7 +230,7 @@ window.CATALOGS = [
     "cover_cn": "./wall-panel-zejing/cover_cn.png",
     "cover_en": "./wall-panel-zejing/cover_en.png"
   },
-  {
+{
     "folder": "table-chair",
     "category": "furniture",
     "title_cn": "餐桌椅目录册",
@@ -266,7 +239,7 @@ window.CATALOGS = [
     "cover_cn": "./table-chair/cover_cn.png",
     "cover_en": "./table-chair/cover_en.png"
   },
-  {
+{
     "folder": "new-docx",
     "category": "decor",
     "title_cn": "综合文档图册",
@@ -275,7 +248,7 @@ window.CATALOGS = [
     "cover_cn": "./new-docx/cover_cn.png",
     "cover_en": "./new-docx/cover_en.png"
   },
-  {
+{
     "folder": "bbq-grill",
     "category": "outdoor",
     "title_cn": "GREENLINE BBQ 户外厨房目录册",
@@ -284,7 +257,7 @@ window.CATALOGS = [
     "cover_cn": "./bbq-grill/cover_cn.png",
     "cover_en": "./bbq-grill/cover_en.png"
   },
-  {
+{
     "folder": "aus-switch",
     "category": "hardware",
     "title_cn": "澳标开关目录册",
