@@ -159,24 +159,6 @@ window.CATALOGS = [
     "cover_en": "./weiding-towel/cover_en.jpg"
   },
 {
-    "folder": "warehouse-rack",
-    "category": "shelf",
-    "title_cn": "仓储货架目录册 LC SERIES",
-    "title_en": "WAREHOUSE RACK LC SERIES",
-    "pages": 26,
-    "cover_cn": "./warehouse-rack/cover_cn.jpg",
-    "cover_en": "./warehouse-rack/cover_en.jpg"
-  },
-{
-    "folder": "greenline-shelf-benrun",
-    "category": "shelf",
-    "title_cn": "GREENLINE 货架目录册 BENRUN",
-    "title_en": "GREENLINE SHELF CATALOGUE BENRUN",
-    "pages": 50,
-    "cover_cn": "./greenline-shelf-benrun/cover_cn.jpg",
-    "cover_en": "./greenline-shelf-benrun/cover_en.jpg"
-  },
-{
     "folder": "cosmetic-shelf",
     "category": "shelf",
     "title_cn": "化妆品货架目录册",
