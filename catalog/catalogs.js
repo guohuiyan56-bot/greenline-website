@@ -96,13 +96,13 @@ window.CATALOGS = [
     "cover_en": "./junli-door/cover_en.jpg"
   },
 {
-    "folder": "cast-aluminum-door",
+    "folder": "gate",
     "category": "door",
-    "title_cn": "铸铝门雕刻图册 2026",
-    "title_en": "CAST ALUMINUM DOOR CATALOG 2026",
-    "pages": 264,
-    "cover_cn": "./cast-aluminum-door/cover_cn.jpg",
-    "cover_en": "./cast-aluminum-door/cover_en.jpg"
+    "title_cn": "GATE 大门目录册",
+    "title_en": "GATE CATALOG",
+    "pages": 80,
+    "cover_cn": "./gate/cover_cn.jpg",
+    "cover_en": "./gate/cover_en.jpg"
   },
 {
     "folder": "gl-ad-office-chair",
