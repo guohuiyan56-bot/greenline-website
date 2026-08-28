@@ -132,24 +132,6 @@ window.CATALOGS = [
     "cover_en": "./weiding-2022-hotel/cover_en.jpg"
   },
 {
-    "folder": "weiding-disposable",
-    "category": "hotel",
-    "title_cn": "威思丁 客房一次性用品",
-    "title_en": "WEIDING DISPOSABLE HOTEL SUPPLIES",
-    "pages": 104,
-    "cover_cn": "./weiding-disposable/cover_cn.jpg",
-    "cover_en": "./weiding-disposable/cover_en.jpg"
-  },
-{
-    "folder": "weiding-consumable",
-    "category": "hotel",
-    "title_cn": "威思丁 客房易耗品目录册",
-    "title_en": "WEIDING GUEST-ROOM CONSUMABLES",
-    "pages": 24,
-    "cover_cn": "./weiding-consumable/cover_cn.jpg",
-    "cover_en": "./weiding-consumable/cover_en.jpg"
-  },
-{
     "folder": "weiding-towel",
     "category": "textile",
     "title_cn": "威思丁 全棉餐巾目录册",
