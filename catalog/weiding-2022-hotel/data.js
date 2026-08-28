@@ -357,15 +357,15 @@ window.FLIP = {
   "pages/thumbs/tp175.jpg"
  ],
  "toc": [],
- "meta": {
-  "id": "weiding-2022-hotel",
-  "cn": "威思丁 酒店其它系列画册 2022",
-  "en": "WEIDING HOTEL SERIES 2022",
-  "site": "furniture",
-  "brand": "威思丁",
-  "source": "F:\\目录册\\威思丁2022酒店其它系列画册.pdf",
-  "pdf_pages": 88,
-  "flip_pages": 176,
-  "dropped": []
- }
+  "meta": {
+    "id": "weiding-2022-hotel",
+    "cn": "GREENLINE 酒店其它系列画册 2022",
+    "en": "GREENLINE HOTEL SERIES 2022",
+    "site": "furniture",
+    "brand": "GREENLINE",
+    "source": "",
+    "pdf_pages": 88,
+    "flip_pages": 176,
+    "dropped": []
+  }
 };

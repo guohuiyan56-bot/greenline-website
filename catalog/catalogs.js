@@ -62,8 +62,8 @@ window.CATALOGS = [
 {
     "folder": "tewei-bathroom-cabinet",
     "category": "bathroom",
-    "title_cn": "特卫砖家 功能浴室柜图册 2026",
-    "title_en": "TEWEI BATHROOM CABINET CATALOG 2026",
+    "title_cn": "GREENLINE 功能浴室柜图册 2026",
+    "title_en": "GREENLINE BATHROOM CABINET CATALOG 2026",
     "pages": 126,
     "cover_cn": "./tewei-bathroom-cabinet/cover_cn.jpg",
     "cover_en": "./tewei-bathroom-cabinet/cover_en.jpg"
@@ -125,8 +125,8 @@ window.CATALOGS = [
 {
     "folder": "weiding-2022-hotel",
     "category": "hotel",
-    "title_cn": "威思丁 酒店其它系列画册 2022",
-    "title_en": "WEIDING HOTEL SERIES 2022",
+    "title_cn": "GREENLINE 酒店其它系列画册 2022",
+    "title_en": "GREENLINE HOTEL SERIES 2022",
     "pages": 176,
     "cover_cn": "./weiding-2022-hotel/cover_cn.jpg",
     "cover_en": "./weiding-2022-hotel/cover_en.jpg"
@@ -134,8 +134,8 @@ window.CATALOGS = [
 {
     "folder": "weiding-towel",
     "category": "textile",
-    "title_cn": "威思丁 全棉餐巾目录册",
-    "title_en": "WEIDING COTTON TOWEL CATALOG",
+    "title_cn": "GREENLINE 全棉餐巾目录册",
+    "title_en": "GREENLINE COTTON TOWEL CATALOG",
     "pages": 47,
     "cover_cn": "./weiding-towel/cover_cn.jpg",
     "cover_en": "./weiding-towel/cover_en.jpg"
