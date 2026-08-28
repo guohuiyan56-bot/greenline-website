@@ -1,5 +1,5 @@
 /* ============================================================
-   广州本润贸易 — DATA
+   GREENLINE — DATA
    所有文字、产品、公司信息在这里改
    ============================================================ */
 
@@ -7,8 +7,8 @@ var GT_DATA = {
 
   /* ---- 公司 ---- */
   company: {
-    name_cn: "广州本润贸易公司",
-    name_en: "Benrun Trading",
+    name_cn: "GREENLINE 国际贸易",
+    name_en: "GREENLINE International Trading",
     slogan_cn: "一站式全球采购与供应链服务",
     slogan_en: "One-Stop Global Sourcing & Supply Chain",
     email: "info@greenlineint.com",
@@ -36,8 +36,8 @@ var GT_DATA = {
     badge_en: "Trusted Globally · Professional Trading",
     title_cn: "连接全球优质供应链\n<em>一站式</em>国际贸易解决方案",
     title_en: "Connect to the World's Best\n<em>One-Stop</em> Trade Solutions",
-    desc_cn: "广州本润贸易，专注家具、卫浴、灯饰、五金、酒店用品等品类出口，从选品到交付全程护航。",
-    desc_en: "Benrun Trading specializes in furniture, sanitary ware, lighting, hardware, hotel supplies and more — full support from sourcing to delivery.",
+    desc_cn: "GREENLINE，专注家具、卫浴及家居建材品类出口，从选品到交付全程护航。",
+    desc_en: "GREENLINE specializes in furniture, sanitary ware & building materials — full support from sourcing to delivery.",
     cta_cn: "查看产品",
     cta_en: "View Products",
     contact_cn: "联系我们",
@@ -63,87 +63,40 @@ var GT_DATA = {
      与 catalog/catalogs.js 的 CATALOG_CATS 保持一致，
      确保主站分类名、目录册 hub 栏目名一一对应。 ---- */
   categories: [
-    { id: "hotel",      name_cn: "酒店餐饮",   name_en: "Hotel & Restaurant",  icon: "🏨" },
-    { id: "decor",      name_cn: "墙面装饰",   name_en: "Wall Decor",          icon: "🖼️" }
+    { id: "furniture",  name_cn: "家具",       name_en: "Furniture",            icon: "🪑" },
+    { id: "bathroom",   name_cn: "卫浴",       name_en: "Bathroom",             icon: "🚿" },
+    { id: "door",       name_cn: "门窗",       name_en: "Doors & Windows",     icon: "🚪" },
+    { id: "chair",      name_cn: "座椅",       name_en: "Chairs",               icon: "💺" },
+    { id: "hotel",      name_cn: "酒店用品",   name_en: "Hotel Supplies",       icon: "🏨" },
+    { id: "decor",      name_cn: "墙饰建材",   name_en: "Wall Decor & Building", icon: "🧱" },
+    { id: "outdoor",    name_cn: "户外家具",   name_en: "Outdoor Furniture",    icon: "🍳" }
   ],
 
   /* ---- 产品列表 (100) ---- */
   products: [
-    /* ===== 家居家装 (10) ===== */
-    { id:"p01", category:"home", name_cn:"民用家具",       name_en:"Residential Furniture",   desc_cn:"实木、板式、软体家具，支持尺寸与款式定制",                   desc_en:"Solid wood, panel & upholstered furniture, custom size & style",     image:"images/p01.jpg" },
-    { id:"p07", category:"home", name_cn:"办公家具",       name_en:"Office Furniture",        desc_cn:"办公桌椅、文件柜、会议桌、隔断工位",                         desc_en:"Office desks, chairs, cabinets, conference tables, partitions",     image:"images/p07.jpg" },
-    { id:"p08", category:"home", name_cn:"智能马桶",       name_en:"Smart Toilet",            desc_cn:"全自动智能马桶，加热、冲洗、烘干一体",                       desc_en:"Full-auto smart toilet with heated seat, wash & dry functions",     image:"images/p08.jpg" },
-    { id:"p09", category:"home", name_cn:"LED筒灯",       name_en:"LED Downlight",           desc_cn:"嵌入式LED筒灯，商业照明工程首选",                             desc_en:"Recessed LED downlights for commercial lighting projects",          image:"images/p09.jpg" },
-    { id:"p10", category:"home", name_cn:"不锈钢锅具",     name_en:"Stainless Steel Cookware", desc_cn:"304不锈钢汤锅、炒锅、蒸笼套装",                              desc_en:"304 stainless steel pots, woks, steamers set",                     image:"images/p10.jpg" },
-    { id:"p11", category:"home", name_cn:"水晶吊灯",       name_en:"Crystal Chandelier",      desc_cn:"K9水晶吊灯，酒店大堂、别墅豪华灯饰",                         desc_en:"K9 crystal chandeliers for hotel lobbies & luxury villas",         image:"images/p11.jpg" },
-    { id:"p12", category:"home", name_cn:"浴室五金挂件",   name_en:"Bathroom Hardware",       desc_cn:"毛巾架、置物架、纸巾盒、浴室挂钩全套",                       desc_en:"Towel racks, shelves, tissue boxes, bathroom hooks set",           image:"images/p12.jpg" },
-    { id:"p13", category:"home", name_cn:"墙面装饰画",     name_en:"Wall Art Decor",          desc_cn:"油画、抽象画、风景画，多尺寸可选",                           desc_en:"Oil paintings, abstract art, landscape prints, multiple sizes",     image:"images/p13.jpg" },
-    { id:"p14", category:"home", name_cn:"藤编户外椅",     name_en:"Rattan Outdoor Chair",    desc_cn:"手工藤编户外椅，防水防UV处理",                               desc_en:"Handmade rattan outdoor chairs, waterproof & UV-resistant",         image:"images/p14.jpg" },
-    { id:"p15", category:"home", name_cn:"烘焙模具套装",   name_en:"Bakeware Set",            desc_cn:"不粘蛋糕模、饼干模、面包烤盘套装",                           desc_en:"Non-stick cake molds, cookie cutters, baking pans set",             image:"images/p15.jpg" },
-
-    /* ===== 礼品文创 (6) ===== */
-    { id:"p17", category:"gift", name_cn:"促销赠品",       name_en:"Promotional Gifts",       desc_cn:"企业伴手礼、展会赠品、广告衫、帆布袋",                     desc_en:"Corporate gifts, trade show giveaways, T-shirts, tote bags",        image:"images/p17.jpg" },
-    { id:"p20", category:"gift", name_cn:"圣诞装饰品",     name_en:"Christmas Decorations",   desc_cn:"圣诞树、彩球、灯串、花环装饰全套",                           desc_en:"Christmas trees, baubles, light strings, wreaths set",             image:"images/p20.jpg" },
-    { id:"p22", category:"gift", name_cn:"树脂手工艺品",   name_en:"Resin Handicrafts",       desc_cn:"手工浇筑树脂摆件，桌面装饰收藏",                             desc_en:"Handmade resin figurines for desk decor & collection",             image:"images/p22.jpg" },
-    { id:"p23", category:"gift", name_cn:"彩印礼品盒",     name_en:"Printed Gift Boxes",      desc_cn:"硬纸板礼品盒，烫金/UV印刷工艺",                             desc_en:"Rigid gift boxes with foil stamping & UV printing",                image:"images/p23.jpg" },
-    { id:"p24", category:"gift", name_cn:"万圣节周边",     name_en:"Halloween Accessories",   desc_cn:"南瓜灯、面具、服装、派对装饰",                               desc_en:"Pumpkin lights, masks, costumes, party decorations",               image:"images/p24.jpg" },
-    { id:"p27", category:"gift", name_cn:"环保包装袋",     name_en:"Eco Packaging Bags",      desc_cn:"无纺布袋、牛皮纸袋、可降解材料包装",                         desc_en:"Non-woven bags, kraft paper bags, biodegradable packaging",        image:"images/p27.jpg" },
-
-    /* ===== 工业机械 (12) ===== */
-    { id:"p31", category:"machinery", name_cn:"CNC加工中心", name_en:"CNC Machining Center",   desc_cn:"三轴/四轴/五轴CNC，高精度加工",                              desc_en:"3/4/5-axis CNC machining centers, high-precision processing",       image:"images/p31.jpg" },
-    { id:"p32", category:"machinery", name_cn:"注塑机",       name_en:"Injection Molding Machine", desc_cn:"50T-1000T注塑机，伺服节能型",                              desc_en:"50T-1000T injection molding machines, servo energy-saving",        image:"images/p32.jpg" },
-    { id:"p33", category:"machinery", name_cn:"电钻/冲击钻",  name_en:"Electric Drill",        desc_cn:"12V/20V锂电钻，工业级冲击钻",                                desc_en:"12V/20V lithium drills, industrial impact drills",                 image:"images/p33.jpg" },
-    { id:"p34", category:"machinery", name_cn:"角磨机",       name_en:"Angle Grinder",         desc_cn:"850W-2200W角磨机，切割打磨两用",                             desc_en:"850W-2200W angle grinders for cutting & polishing",                image:"images/p34.jpg" },
-    { id:"p35", category:"machinery", name_cn:"轴承系列",     name_en:"Bearings",              desc_cn:"深沟球轴承、滚子轴承、推力轴承",                             desc_en:"Deep groove ball, roller & thrust bearings",                       image:"images/p35.jpg" },
-    { id:"p36", category:"machinery", name_cn:"齿轮/齿条",   name_en:"Gears & Racks",          desc_cn:"直齿轮、斜齿轮、蜗轮蜗杆、齿条",                             desc_en:"Spur gears, helical gears, worm gears, racks",                     image:"images/p36.jpg" },
-    { id:"p37", category:"machinery", name_cn:"冲床设备",     name_en:"Punch Press",           desc_cn:"机械冲床、液压冲床，30T-400T",                               desc_en:"Mechanical & hydraulic punch presses, 30T-400T",                  image:"images/p37.jpg" },
-    { id:"p38", category:"machinery", name_cn:"液压系统",     name_en:"Hydraulic Systems",     desc_cn:"液压泵、液压缸、液压阀、管路附件",                           desc_en:"Hydraulic pumps, cylinders, valves, fittings",                    image:"images/p38.jpg" },
-    { id:"p39", category:"machinery", name_cn:"热风枪",       name_en:"Heat Gun",              desc_cn:"可调温热风枪，工业级2000W",                                  desc_en:"Variable temperature heat gun, industrial 2000W",                  image:"images/p39.jpg" },
-    { id:"p40", category:"machinery", name_cn:"电锯/切割机",  name_en:"Electric Saw",          desc_cn:"圆锯、曲线锯、往复锯、金属切割机",                           desc_en:"Circular saws, jigsaws, reciprocating saws, metal cutters",        image:"images/p40.jpg" },
-    { id:"p41", category:"machinery", name_cn:"密封件",       name_en:"Seals",                 desc_cn:"O型圈、油封、垫片、盘根密封",                               desc_en:"O-rings, oil seals, gaskets, packing seals",                       image:"images/p41.jpg" },
-    { id:"p42", category:"machinery", name_cn:"生产线设备",   name_en:"Production Line Equipment", desc_cn:"自动化装配线、包装线、检测线",                            desc_en:"Automated assembly, packaging & inspection lines",                 image:"images/p42.jpg" },
-
-    /* ===== 五金制品 (8) ===== */
-    { id:"p46", category:"hardware", name_cn:"门窗合页",     name_en:"Door & Window Hinges",   desc_cn:"不锈钢合页、液压缓冲合页、隐藏式铰链",                     desc_en:"Stainless hinges, hydraulic soft-close, concealed hinges",          image:"images/p46.jpg" },
-    { id:"p47", category:"hardware", name_cn:"螺栓/螺丝",   name_en:"Bolts & Screws",         desc_cn:"六角螺栓、内六角、自攻螺丝、马车螺栓",                     desc_en:"Hex bolts, socket head cap screws, self-tapping, carriage bolts",   image:"images/p47.jpg" },
-    { id:"p48", category:"hardware", name_cn:"智能门锁",     name_en:"Smart Door Lock",        desc_cn:"指纹、密码、刷卡、APP开锁一体",                             desc_en:"Fingerprint, PIN, RFID card, APP unlock all-in-one",               image:"images/p48.jpg" },
-    { id:"p49", category:"hardware", name_cn:"幕墙配件",     name_en:"Curtain Wall Fittings",  desc_cn:"预埋件、驳接爪、拉杆、索具配件",                             desc_en:"Embedded parts, spider fittings, tension rods, rigging hardware",   image:"images/p49.jpg" },
-    { id:"p50", category:"hardware", name_cn:"螺母/垫圈",   name_en:"Nuts & Washers",         desc_cn:"六角螺母、尼龙锁紧螺母、平垫、弹垫",                       desc_en:"Hex nuts, nylon lock nuts, flat washers, spring washers",          image:"images/p50.jpg" },
-    { id:"p52", category:"hardware", name_cn:"钢结构连接件", name_en:"Steel Connectors",       desc_cn:"高强螺栓、焊接材料、节点板",                                 desc_en:"High-strength bolts, welding materials, gusset plates",            image:"images/p52.jpg" },
-    { id:"p54", category:"hardware", name_cn:"挂锁/密码锁",  name_en:"Padlocks",              desc_cn:"铜挂锁、钢挂锁、密码挂锁",                                   desc_en:"Brass padlocks, steel padlocks, combination padlocks",             image:"images/p54.jpg" },
-    { id:"p55", category:"hardware", name_cn:"精密冲压件",   name_en:"Precision Stamping Parts", desc_cn:"五金冲压件、弯折件、拉伸件定制",                           desc_en:"Stamped, bent & deep-drawn metal parts, custom",                   image:"images/p55.jpg" },
-
-    /* ===== 酒店用品 (9) ===== */
-    { id:"p61", category:"hotel", name_cn:"床单被套套装",   name_en:"Bed Sheet Sets",          desc_cn:"60S高支棉，白色/素色可选，阻燃处理",                         desc_en:"60S high-count cotton, white/solid colors, flame-retardant",       image:"images/p61.jpg" },
-    { id:"p62", category:"hotel", name_cn:"一次性拖鞋",     name_en:"Disposable Slippers",     desc_cn:"无纺布/华夫格/毛巾布拖鞋批量供应",                           desc_en:"Non-woven/waffle/terry disposable slippers in bulk",               image:"images/p62.jpg" },
-    { id:"p63", category:"hotel", name_cn:"行李车",         name_en:"Luggage Carts",           desc_cn:"不锈钢行李车、折叠行李推车",                                 desc_en:"Stainless steel luggage carts, folding carts",                    image:"images/p63.jpg" },
-    { id:"p64", category:"hotel", name_cn:"浴巾浴袍",       name_en:"Bath Towels & Robes",     desc_cn:"酒店专用浴巾、浴袍，零捻度柔软工艺",                         desc_en:"Hotel bath towels & robes, zero-twist soft technology",            image:"images/p64.jpg" },
-    { id:"p65", category:"hotel", name_cn:"沐浴套装",       name_en:"Bath Amenities Set",      desc_cn:"洗发水、沐浴露、护发素、身体乳30ml套装",                     desc_en:"Shampoo, body wash, conditioner, lotion 30ml sets",                image:"images/p65.jpg" },
-    { id:"p66", category:"hotel", name_cn:"雨伞架/烟灰柱",  name_en:"Umbrella Stands",         desc_cn:"不锈钢雨伞架、烟灰柱、立式垃圾桶",                           desc_en:"Stainless umbrella stands, ash columns, trash bins",               image:"images/p66.jpg" },
-    { id:"p67", category:"hotel", name_cn:"餐厅台布",       name_en:"Restaurant Tablecloths",  desc_cn:"纯棉/涤纶台布，多种颜色尺寸",                               desc_en:"Cotton/polyester tablecloths, various colors & sizes",             image:"images/p67.jpg" },
-    { id:"p69", category:"hotel", name_cn:"指示牌/迎宾牌",  name_en:"Signage",                 desc_cn:"亚克力指示牌、LED楼层牌、迎宾水牌",                         desc_en:"Acrylic signs, LED floor signs, welcome display boards",           image:"images/p69.jpg" },
-    { id:"p72", category:"hotel", name_cn:"迎宾地毯",       name_en:"Welcome Mats",            desc_cn:"尼龙印花地垫、防滑吸水型",                                   desc_en:"Nylon printed doormats, anti-slip & water-absorbent",              image:"images/p72.jpg" },
-
-    /* ===== 五金制品·工程配套 (5) ===== */
-    { id:"p76", category:"hardware", name_cn:"瓷砖/大理石",  name_en:"Tiles & Marble",          desc_cn:"釉面砖、通体砖、大理石、花岗岩",                             desc_en:"Glazed tiles, full-body tiles, marble, granite",                   image:"images/p76.jpg" },
-    { id:"p77", category:"hardware", name_cn:"PPR水管",      name_en:"PPR Water Pipes",         desc_cn:"PPR冷热水管，20mm-110mm全规格",                              desc_en:"PPR hot/cold water pipes, 20mm-110mm full range",                  image:"images/p77.jpg" },
-    { id:"p78", category:"hardware", name_cn:"工装整体方案", name_en:"Commercial Decoration",   desc_cn:"办公楼、商铺、餐厅整体装修配套",                             desc_en:"Office, retail, restaurant complete decoration solutions",         image:"images/p78.jpg" },
-    { id:"p82", category:"hardware", name_cn:"涂料/防水材料", name_en:"Paint & Waterproofing",  desc_cn:"内墙乳胶漆、外墙涂料、防水涂料",                             desc_en:"Interior latex paint, exterior coatings, waterproof paint",        image:"images/p82.jpg" },
-    { id:"p83", category:"hardware", name_cn:"阀门/法兰",    name_en:"Valves & Flanges",        desc_cn:"闸阀、球阀、蝶阀、法兰片全规格",                             desc_en:"Gate valves, ball valves, butterfly valves, flanges",             image:"images/p83.jpg" },
-
-    /* ===== 定制加工 (4) ===== */
-    { id:"p90", category:"custom", name_cn:"家具OEM定制",   name_en:"Furniture OEM",           desc_cn:"来图定制家具，材质/颜色/尺寸全定制",                       desc_en:"Custom furniture by drawings, full material/color/size options",   image:"images/p90.jpg" },
-    { id:"p91", category:"custom", name_cn:"产品外观设计",   name_en:"Product Design",          desc_cn:"工业设计、外观造型、CMF方案设计",                           desc_en:"Industrial design, exterior styling, CMF solution design",         image:"images/p91.jpg" },
-    { id:"p92", category:"custom", name_cn:"3D打印验证",    name_en:"3D Print Prototyping",    desc_cn:"SLA/SLS/FDM 3D打印手板，48小时交付",                         desc_en:"SLA/SLS/FDM 3D printing prototypes, 48-hour delivery",             image:"images/p92.jpg" },
-    { id:"p95", category:"custom", name_cn:"小批量试产",    name_en:"Small Batch Trial",       desc_cn:"100-1000件小批量试产，快速验证",                             desc_en:"100-1000 units small-batch trial production, fast validation",      image:"images/p95.jpg" },
-
-    /* ===== 展示器材 (6) ===== */
-    { id:"p96", category:"display", name_cn:"易拉宝展架",     name_en:"Roll-up Banner Display",  desc_cn:"铝合金底座易拉宝，支持定制画面印刷，便携收纳",               desc_en:"Aluminum roll-up banner stand with custom printed graphic, portable", image:"images/p96.jpg" },
-    { id:"p97", category:"display", name_cn:"X展架",          name_en:"X-Banner Stand",           desc_cn:"十字交叉框架X展架，轻便易安装，展会/门店常用",                 desc_en:"Cross-frame X-banner stand, lightweight, ideal for trade shows & retail", image:"images/p97.jpg" },
-    { id:"p98", category:"display", name_cn:"横幅喷绘布",      name_en:"Vinyl Banner Printing",    desc_cn:"户外/室内横幅喷绘，高精度UV打印，防水防晒",                   desc_en:"Indoor/outdoor vinyl banners, high-res UV printing, weather-resistant",   image:"images/p98.jpg" },
-    { id:"p99", category:"display", name_cn:"LED灯箱标识",     name_en:"LED Light Box Signage",    desc_cn:"超薄LED灯箱，发光字/图形标识，商场/展厅适用",                desc_en:"Slim LED light box with illuminated graphics, for malls & exhibitions", image:"images/p99.jpg" },
-    { id:"p100",category:"display", name_cn:"亚克力立体字",    name_en:"Acrylic 3D Letters",       desc_cn:"透明/彩色亚克力立体字，门头招牌、品牌标识定制",              desc_en:"Transparent or colored acrylic 3D letters, custom storefront signage",  image:"images/p100.jpg" },
-    { id:"p101",category:"display", name_cn:"广告旗/刀旗",     name_en:"Feather Flags",            desc_cn:"羽毛旗/刀旗，注水底座，户外活动/促销常用",                     desc_en:"Feather flags with water-fill base, perfect for outdoor promotions",    image:"images/p101.jpg" },
+    /* ===== 家具 (3) ===== */
+    { id:"p01", category:"furniture", name_cn:"民用家具",       name_en:"Residential Furniture",   desc_cn:"实木、板式、软体家具，支持尺寸与款式定制",                   desc_en:"Solid wood, panel & upholstered furniture, custom size & style",     image:"images/p01.jpg" },
+    { id:"p07", category:"furniture", name_cn:"厨房家具",       name_en:"Kitchen Furniture",        desc_cn:"整体橱柜、厨房岛台、餐边柜，支持尺寸与款式定制",                         desc_en:"Integrated kitchen cabinets, kitchen islands & sideboards, custom size & style",     image:"images/kitchen-furniture.png" },
+    { id:"p14", category:"outdoor",   name_cn:"户外躺椅",       name_en:"Outdoor Sun Lounger",    desc_cn:"泳池边及海滩度假躺椅，铝合金骨架，防水防UV",                               desc_en:"Poolside & beach sun loungers, aluminium frame, waterproof & UV-resistant",         image:"images/outdoor-lounger.png" },
+    /* ===== 卫浴 (2) ===== */
+    { id:"p08", category:"bathroom", name_cn:"智能马桶",       name_en:"Smart Toilet",            desc_cn:"全自动智能马桶，加热、冲洗、烘干一体",                       desc_en:"Full-auto smart toilet with heated seat, wash & dry functions",     image:"images/p08.jpg" },
+    { id:"p12", category:"bathroom", name_cn:"浴室五金挂件",   name_en:"Bathroom Hardware",       desc_cn:"毛巾架、置物架、纸巾盒、浴室挂钩全套",                       desc_en:"Towel racks, shelves, tissue boxes, bathroom hooks set",           image:"images/p12.jpg" },
+    /* ===== 门窗 (2) ===== */
+    { id:"p02", category:"door",  name_cn:"铝合金门窗",      name_en:"Aluminium Windows & Doors", desc_cn:"断桥铝门窗、百叶窗，隔音隔热可定制",                       desc_en:"Thermal-break aluminium windows, doors & louvers, custom",         image:"images/aluminium-window-new.png" },
+    { id:"p03", category:"door",  name_cn:"铸铝门",          name_en:"Cast Aluminum Door",        desc_cn:"精雕铸铝庭院门、入户门，防锈耐候",                           desc_en:"Engraved cast aluminum entry & garden doors, weatherproof",        image:"images/cast-aluminum-door.png" },
+    /* ===== 座椅 (2) ===== */
+    { id:"p04", category:"chair", name_cn:"办公椅",          name_en:"Office Chair",              desc_cn:"人体工学办公椅、会议椅，多款式可选",                         desc_en:"Ergonomic office & conference chairs, multiple styles",            image:"images/office-chair.png" },
+    { id:"p05", category:"decor", name_cn:"WPC 墙板",          name_en:"WPC Wall Cladding",              desc_cn:"WPC 木塑复合墙板，防水防霉，卫生间与户外通用",                         desc_en:"WPC wood-plastic composite wall panels, waterproof & mold-resistant for bath & outdoor",            image:"images/wall-panel.png" },
+    /* ===== 酒店用品 (2) ===== */
+    { id:"p06", category:"hotel", name_cn:"酒店纺织品",      name_en:"Hotel Textiles",            desc_cn:"全棉布草、餐巾、浴巾，星级酒店标配",                         desc_en:"Cotton linens, towels & napkins for star hotels",                  image:"images/hotel-textiles-new.png" },
+    { id:"p09", category:"hotel", name_cn:"客房易耗品",      name_en:"Guest-room Consumables",    desc_cn:"一次性用品、洗护用品，客房全套补给",                           desc_en:"Disposable & amenity supplies for guest rooms",                    image:"images/hotel-amenities-new.png" },
+    /* ===== 墙饰建材 (2) ===== */
+    { id:"p10", category:"decor", name_cn:"酒店地毯",         name_en:"CARPET",             desc_cn:"酒店客房与走廊地毯，耐磨防滑，多规格花型可选",                             desc_en:"Hotel room & corridor carpets, wear-resistant, anti-slip, multiple patterns & sizes",          image:"images/hotel-carpet.png" },
+    { id:"p11", category:"decor", name_cn:"景观花艺建材",    name_en:"Landscape & Building",      desc_cn:"景观花艺、装饰建材，工程配套",                               desc_en:"Landscape floral & decorative building materials",                image:"images/landscape-building.png" },
+    { id:"p16", category:"decor", name_cn:"地砖墙砖",        name_en:"Floor & Wall Tiles",        desc_cn:"釉面砖、岩板、大理石瓷砖，多规格可选",                          desc_en:"Glazed tiles, porcelain slabs & marble-look tiles, multiple sizes",                image:"images/floor-wall-tiles.png" },
+    /* ===== 厨具户外 (2) ===== */
+    { id:"p13", category:"outdoor", name_cn:"大门",           name_en:"GATE",                      desc_cn:"庭院大门、花园栅栏门，铁艺/铝合金定制",                               desc_en:"Garden gates & courtyard entry gates, wrought iron / aluminium, custom designs",        image:"images/gate.png" },
+    { id:"p15", category:"outdoor", name_cn:"户外厨房",       name_en:"Outdoor Kitchen",           desc_cn:"整体厨柜、BBQ 户外厨房定制",                                  desc_en:"Kitchen cabinets & BBQ outdoor kitchen, custom",                  image:"images/kitchen-outdoor.png" }
   ],
 
   /* ---- 关于 ---- */
@@ -155,8 +108,8 @@ var GT_DATA = {
     badge_lbl_en: "Years Excellence",
     heading_cn: "值得信赖的\n国际贸易伙伴",
     heading_en: "Your Trusted\nGlobal Trade Partner",
-    p1_cn: "广州本润贸易公司成立于 2015 年，总部位于中国广州。11 年来我们专注于连接全球优质制造商与国际买家，提供从选品、验厂、质检到物流的一站式外贸服务。",
-    p1_en: "Founded in 2015 and headquartered in Guangzhou, China, Benrun Trading has spent over a decade connecting premium manufacturers with international buyers, offering end-to-end services from sourcing and factory auditing to quality inspection and logistics.",
+    p1_cn: "GREENLINE 国际贸易成立于 2015 年，总部位于中国广州。11 年来我们专注于连接全球优质制造商与国际买家，提供从选品、验厂、质检到物流的一站式外贸服务。",
+    p1_en: "Founded in 2015 and headquartered in Guangzhou, China, GREENLINE International Trading has spent over a decade connecting premium manufacturers with international buyers, offering end-to-end services from sourcing and factory auditing to quality inspection and logistics.",
     p2_cn: "我们的供应链网络覆盖 30 多个国家和地区，与超过 500 家经过严格审核的工厂建立了长期合作关系，确保每一笔订单的品质与时效。",
     p2_en: "Our supply network spans 30+ countries with 500+ rigorously audited factories, guaranteeing quality and on-time delivery for every order.",
     cta_cn: "了解更多",
@@ -172,12 +125,12 @@ var GT_DATA = {
 
   /* ---- 服务 ---- */
   services: {
-    title_cn: "一站式外贸采购服务",
-    title_en: "One-Stop Export Sourcing Services",
-    subtitle_cn: "价格优 · 品类全 · 海运/空运/铁路 · DDP 门到门 · 高效灵活",
-    subtitle_en: "Competitive pricing · Full product range · Sea/Air/Rail freight · DDP door-to-door · Flexible & efficient",
-    label_cn: "服务项目",
-    label_en: "Our Services",
+    title_cn: "为什么选择我们",
+    title_en: "Why Choose Us",
+    subtitle_cn: "从寻源到交付，我们为每一笔订单保驾护航",
+    subtitle_en: "From sourcing to delivery, we've got every order covered",
+    label_cn: "核心优势",
+    label_en: "Core Advantages",
     items: [
       { icon:"🔍",  title_cn:"精准寻源",     title_en:"Precision Sourcing",    desc_cn:"深入产业带，48 小时内精准匹配 3-5 家优质供应商", desc_en:"Deep industry sourcing, 3-5 premium suppliers within 48 hours" },
       { icon:"🏭",  title_cn:"严选工厂",     title_en:"Factory Auditing",     desc_cn:"实地验厂+资质审查，确保供应商符合国际标准", desc_en:"On-site audits & qualification checks to meet international standards" },
@@ -213,13 +166,13 @@ var GT_DATA = {
     title_en: "What Our Clients Say",
     items: [
       {
-        stars:5, text_cn:"合作三年，本润贸易的选品和质检团队非常专业，帮我们节省了大量时间和成本。强烈推荐！",
+        stars:5, text_cn:"合作三年，GREENLINE 的选品和质检团队非常专业，帮我们节省了大量时间和成本。强烈推荐！",
         text_en:"3 years of partnership — their sourcing and QC teams are incredibly professional. Saved us significant time and cost. Highly recommended!",
         name:"James Chen", role_cn:"采购总监 / 美国某连锁零售", role_en:"Procurement Director / US Retail Chain", initial:"J"
       },
       {
-        stars:5, text_cn:"作为中东市场的建材进口商，我们需要可靠的供应商。本润帮我们找到了 3 家优质工厂，品质非常稳定。",
-        text_en:"As a building materials importer in the Middle East, we needed reliable suppliers. Benrun found us 3 excellent factories with consistent quality.",
+        stars:5, text_cn:"作为中东市场的建材进口商，我们需要可靠的供应商。GREENLINE 帮我们找到了 3 家优质工厂，品质非常稳定。",
+        text_en:"As a building materials importer in the Middle East, we needed reliable suppliers. GREENLINE found us 3 excellent factories with consistent quality.",
         name:"Ahmed Al-Rashid", role_cn:"CEO / 迪拜建材集团", role_en:"CEO / Dubai Building Materials Group", initial:"A"
       },
       {
@@ -263,15 +216,15 @@ var GT_DATA = {
 
   /* ---- 页脚 ---- */
   footer: {
-    about_cn: "广州本润贸易公司 — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，覆盖家居家装、礼品文创、工业机械、五金制品、酒店用品、定制加工、墙面装饰、展示器材、货架展示等品类。",
-    about_en: "Benrun Trading — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients across categories including home & living, gifts, industrial machinery, hardware, hotel supplies, custom manufacturing, wall decor, display & signage, and shelving & display.",
+    about_cn: "GREENLINE — 值得信赖的一站式外贸采购平台。自 2015 年成立以来，已服务 200+ 国际客户，主营家具、厨房家具、卫浴、门窗、墙饰建材、地砖墙砖、酒店用品等品类。",
+    about_en: "GREENLINE — Your trusted one-stop global sourcing platform. Since 2015, we've served 200+ international clients, specializing in furniture, kitchen cabinets, sanitary ware, doors & windows, wall decor & building materials, floor & wall tiles, and hotel supplies.",
     quick_links_cn: "快速链接",
     quick_links_en: "Quick Links",
     categories_cn: "产品分类",
     categories_en: "Categories",
     contact_cn: "联系方式",
     contact_en: "Contact",
-    copy_cn: "© 2025 广州本润贸易有限公司. 版权所有.",
-    copy_en: "© 2025 Benrun Trading. All rights reserved."
+    copy_cn: "© 2025 GREENLINE. 版权所有.",
+    copy_en: "© 2025 GREENLINE. All rights reserved."
   }
 };
