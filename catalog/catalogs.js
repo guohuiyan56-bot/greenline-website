@@ -114,15 +114,6 @@ window.CATALOGS = [
     "cover_en": "./gl-ad-office-chair/cover_en.jpg"
   },
 {
-    "folder": "gl-ft-gaming-chair",
-    "category": "chair",
-    "title_cn": "GL-FT 电竞椅目录册",
-    "title_en": "GL-FT GAMING CHAIR CATALOG",
-    "pages": 8,
-    "cover_cn": "./gl-ft-gaming-chair/cover_cn.jpg",
-    "cover_en": "./gl-ft-gaming-chair/cover_en.jpg"
-  },
-{
     "folder": "hotel-textile",
     "category": "hotel",
     "title_cn": "酒店纺织品目录册 2025",
