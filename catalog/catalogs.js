@@ -89,8 +89,8 @@ window.CATALOGS = [
 {
     "folder": "junli-door",
     "category": "door",
-    "title_cn": "俊利门业电子画册 2026",
-    "title_en": "JUNLI DOOR CATALOGUE 2026",
+    "title_cn": "GREENLINE 门业电子画册 2026",
+    "title_en": "GREENLINE DOOR CATALOGUE 2026",
     "pages": 94,
     "cover_cn": "./junli-door/cover_cn.jpg",
     "cover_en": "./junli-door/cover_en.jpg"
