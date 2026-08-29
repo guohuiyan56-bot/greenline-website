@@ -1,12 +1,40 @@
 window.FLIP = {
- "total": 8,
+ "total": 16,
  "images": [
-' + ',
-'.join([f'  "pages/full/p007.jpg"' for i in range(doc.page_count)]) + '
+  "pages/split/p000.jpg",
+  "pages/split/p001.jpg",
+  "pages/split/p002.jpg",
+  "pages/split/p003.jpg",
+  "pages/split/p004.jpg",
+  "pages/split/p005.jpg",
+  "pages/split/p006.jpg",
+  "pages/split/p007.jpg",
+  "pages/split/p008.jpg",
+  "pages/split/p009.jpg",
+  "pages/split/p010.jpg",
+  "pages/split/p011.jpg",
+  "pages/split/p012.jpg",
+  "pages/split/p013.jpg",
+  "pages/split/p014.jpg",
+  "pages/split/p015.jpg"
  ],
  "thumbs": [
-' + ',
-'.join([f'  "pages/thumbs/t007.jpg"' for i in range(doc.page_count)]) + '
+  "pages/thumbs/t000.jpg",
+  "pages/thumbs/t001.jpg",
+  "pages/thumbs/t002.jpg",
+  "pages/thumbs/t003.jpg",
+  "pages/thumbs/t004.jpg",
+  "pages/thumbs/t005.jpg",
+  "pages/thumbs/t006.jpg",
+  "pages/thumbs/t007.jpg",
+  "pages/thumbs/t008.jpg",
+  "pages/thumbs/t009.jpg",
+  "pages/thumbs/t010.jpg",
+  "pages/thumbs/t011.jpg",
+  "pages/thumbs/t012.jpg",
+  "pages/thumbs/t013.jpg",
+  "pages/thumbs/t014.jpg",
+  "pages/thumbs/t015.jpg"
  ],
  "toc": []
 };

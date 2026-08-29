@@ -55,7 +55,7 @@ window.CATALOGS = [
     "category": "bathroom",
     "title_cn": "厨房水槽图册",
     "title_en": "KITCHEN SINK CATALOGUE",
-    "pages": 8,
+    "pages": 16,
     "cover_cn": "./sink-basin/cover_cn.jpg",
     "cover_en": "./sink-basin/cover_en.jpg"
   },
