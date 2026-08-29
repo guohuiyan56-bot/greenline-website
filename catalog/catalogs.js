@@ -105,15 +105,6 @@ window.CATALOGS = [
     "cover_en": "./gate/cover_en.jpg"
   },
 {
-    "folder": "gl-ad-office-chair",
-    "category": "chair",
-    "title_cn": "GL-AD 办公椅目录册 2025",
-    "title_en": "GL-AD OFFICE CHAIR CATALOGUE 2025",
-    "pages": 150,
-    "cover_cn": "./gl-ad-office-chair/cover_cn.jpg",
-    "cover_en": "./gl-ad-office-chair/cover_en.jpg"
-  },
-{
     "folder": "hotel-textile",
     "category": "hotel",
     "title_cn": "酒店纺织品目录册 2025",
