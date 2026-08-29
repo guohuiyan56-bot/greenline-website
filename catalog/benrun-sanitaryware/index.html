@@ -88,8 +88,9 @@
   const TOTAL_PAGES = F.total, IMAGES = F.images, THUMBS = F.thumbs, TOC = F.toc || [];
   let flip=null, currentPage=0, lightboxZoom=1, lightboxPage=0;
   const $=(id)=>document.getElementById(id);
-  function preload(){
-    var list = IMAGES.concat(THUMBS);
+  function preloadFirst(){
+    // 优先加载前几页，让用户尽快看到内容；大图册一次性预加载全部会阻塞初始化
+    var list = IMAGES.slice(0,6).concat(THUMBS.slice(0,12));
     return Promise.all(list.map(function(s){
       return new Promise(function(res){
         var img = new Image();
@@ -99,13 +100,27 @@
       });
     }));
   }
+  function preloadRest(){
+    // 后台分批静默加载剩余图片，避免一次性 500+ 请求阻塞页面
+    var list = IMAGES.slice(6).concat(THUMBS.slice(12));
+    var batch = 20, idx = 0;
+    function next(){
+      for (var i = 0; i < batch && idx < list.length; i++, idx++){
+        var img = new Image();
+        img.src = list[idx];
+      }
+      if (idx < list.length) setTimeout(next, 200);
+    }
+    setTimeout(next, 500);
+  }
   function initFlip(){
     if(flip) return;
     flip=new St.PageFlip($('book'),{size:'stretch',width:579,height:820,minWidth:290,maxWidth:817,minHeight:410,maxHeight:1157,drawShadow:true,flippingTime:900,usePortrait:true,autoSize:true,maxShadowOpacity:0.6,showCover:false,mobileScrollSupport:false,swipeDistance:30,clickEventForward:true,showPageCorners:true});
     flip.loadFromImages(IMAGES);
     flip.on('init',finishLoading); bindEvents(); buildThumbs(); setTimeout(finishLoading,4000);
+    preloadRest();
   }
-  let lh=false; function finishLoading(){ if(lh)return; lh=true; $('loader').classList.add('hidden'); }
+  let lh=false; function finishLoading(){ if(lh)return; lh=true; $('loader').classList.add('hidden'); updateUI(); }
   function buildThumbs(){ const rail=$('thumbRail'); rail.innerHTML=THUMBS.map((s,i)=>`<div class="thumb" data-page="${i}"><img src="${s}" alt="t" loading="lazy"></div>`).join(''); rail.querySelectorAll('.thumb').forEach(el=>el.addEventListener('click',()=>goToPage(+el.dataset.page))); }
   function updateUI(){ $('pageIndicator').textContent=`${currentPage+1} / ${TOTAL_PAGES}`; $('btnPrev').disabled=currentPage<=0; $('btnNext').disabled=currentPage>=TOTAL_PAGES-1; $('pageJump').max=TOTAL_PAGES; $('pageJump').value=currentPage+1; document.querySelectorAll('.thumb').forEach((el,i)=>el.classList.toggle('active',i===currentPage)); }
   function goToPage(p){ if(!flip||p<0||p>=TOTAL_PAGES)return; if(p===currentPage)return; flip.flip(p,'top'); }
@@ -124,7 +139,7 @@
     document.addEventListener('keydown',e=>{ if($('lightbox').classList.contains('active')){ if(e.key==='Escape')closeLightbox(); if(e.key==='ArrowLeft'&&lightboxPage>0)openLightbox(lightboxPage-1); if(e.key==='ArrowRight'&&lightboxPage<TOTAL_PAGES-1)openLightbox(lightboxPage+1);} else { if(e.key==='ArrowLeft')flip&&flip.flipPrev(); if(e.key==='ArrowRight')flip&&flip.flipNext(); } });
     flip.on('flip',e=>{currentPage=e.data;updateUI();});
   }
-  preload().then(initFlip); setTimeout(initFlip,12000);
+  preloadFirst().then(initFlip); setTimeout(initFlip,4000);
 })();
 </script>
 </body></html>
